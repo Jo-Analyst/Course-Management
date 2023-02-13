@@ -6,13 +6,14 @@ namespace DataBase
     public class ListAttendance
     {
         public int _id { get; set; }
+        public string _connectionString { get; set; }
         public bool _presence { get; set; }
         public int _studentId { get; set; }
         public int _attendanceId { get; set; }
 
         public void Save()
         {
-            using (SqlConnection connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = _id == 0
                     ? "INSERT INTO Attendance VALUES (@presence, @studentId, @attendanceId)"
@@ -37,7 +38,7 @@ namespace DataBase
        
         public void CountAttendace()
         {
-            using (SqlConnection connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = "DELETE FROM Attendance WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);

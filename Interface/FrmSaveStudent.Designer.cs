@@ -55,14 +55,14 @@
             this.txtName.Location = new System.Drawing.Point(12, 36);
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(303, 26);
+            this.txtName.Size = new System.Drawing.Size(494, 26);
             this.txtName.TabIndex = 0;
             // 
             // btnsave
             // 
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(132, 131);
+            this.btnsave.Location = new System.Drawing.Point(323, 134);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(183, 37);
             this.btnsave.TabIndex = 2;
@@ -96,7 +96,7 @@
             "B3 - Noite"});
             this.cbClass.Location = new System.Drawing.Point(12, 90);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(303, 28);
+            this.cbClass.Size = new System.Drawing.Size(494, 28);
             this.cbClass.TabIndex = 1;
             // 
             // label3
@@ -114,11 +114,11 @@
             // 
             this.rbFeminine.AutoSize = true;
             this.rbFeminine.ForeColor = System.Drawing.Color.White;
-            this.rbFeminine.Location = new System.Drawing.Point(59, 147);
+            this.rbFeminine.Location = new System.Drawing.Point(128, 147);
             this.rbFeminine.Name = "rbFeminine";
-            this.rbFeminine.Size = new System.Drawing.Size(40, 24);
+            this.rbFeminine.Size = new System.Drawing.Size(98, 24);
             this.rbFeminine.TabIndex = 9;
-            this.rbFeminine.Text = "F";
+            this.rbFeminine.Text = "Feminino";
             this.rbFeminine.UseVisualStyleBackColor = true;
             // 
             // rbMasculine
@@ -128,10 +128,10 @@
             this.rbMasculine.ForeColor = System.Drawing.Color.White;
             this.rbMasculine.Location = new System.Drawing.Point(16, 147);
             this.rbMasculine.Name = "rbMasculine";
-            this.rbMasculine.Size = new System.Drawing.Size(44, 24);
+            this.rbMasculine.Size = new System.Drawing.Size(106, 24);
             this.rbMasculine.TabIndex = 8;
             this.rbMasculine.TabStop = true;
-            this.rbMasculine.Text = "M";
+            this.rbMasculine.Text = "Masculino";
             this.rbMasculine.UseVisualStyleBackColor = true;
             // 
             // FrmSaveStudent
@@ -139,7 +139,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(327, 186);
+            this.ClientSize = new System.Drawing.Size(529, 186);
             this.Controls.Add(this.rbFeminine);
             this.Controls.Add(this.rbMasculine);
             this.Controls.Add(this.label3);

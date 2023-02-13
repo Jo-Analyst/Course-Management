@@ -74,6 +74,27 @@ namespace DataBase
             {
                 throw;
             }
+        } 
+        
+        public DataTable FindByClass(string @class)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = $"SELECT * FROM Students WHERE class = @class";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@class", @class);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
         
         public DataTable FindById()

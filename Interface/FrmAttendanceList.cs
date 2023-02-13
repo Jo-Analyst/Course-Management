@@ -36,5 +36,10 @@ namespace Interface
                 new FrmStudent().ShowDialog();
             }
         }
+
+        private void btnPresence_Click(object sender, EventArgs e)
+        {
+            new FrmPresence().ShowDialog();
+        }
     }
 }

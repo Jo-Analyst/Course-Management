@@ -64,7 +64,7 @@
             this.txtField.Location = new System.Drawing.Point(27, 115);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(649, 26);
+            this.txtField.Size = new System.Drawing.Size(857, 26);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -92,7 +92,7 @@
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(649, 274);
+            this.dgvStudent.Size = new System.Drawing.Size(857, 439);
             this.dgvStudent.TabIndex = 2;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
@@ -202,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(688, 431);
+            this.ClientSize = new System.Drawing.Size(896, 595);
             this.Controls.Add(this.rbClass);
             this.Controls.Add(this.rbName);
             this.Controls.Add(this.label1);
@@ -216,6 +216,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aluno";

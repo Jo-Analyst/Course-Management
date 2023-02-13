@@ -49,7 +49,7 @@ namespace Interface
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(13, 33);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(412, 420);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,7 +65,7 @@ namespace Interface
             this.panel1.Controls.Add(this.btnPresence);
             this.panel1.Controls.Add(this.btnStudent);
             this.panel1.Location = new System.Drawing.Point(432, 33);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(469, 420);
             this.panel1.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace Interface
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.Location = new System.Drawing.Point(235, 197);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(128, 84);
             this.btnReport.TabIndex = 3;
@@ -99,12 +99,13 @@ namespace Interface
             this.btnPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPresence.Image = ((System.Drawing.Image)(resources.GetObject("btnPresence.Image")));
             this.btnPresence.Location = new System.Drawing.Point(100, 197);
-            this.btnPresence.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPresence.Margin = new System.Windows.Forms.Padding(4);
             this.btnPresence.Name = "btnPresence";
             this.btnPresence.Size = new System.Drawing.Size(128, 84);
             this.btnPresence.TabIndex = 2;
             this.toolTip1.SetToolTip(this.btnPresence, "Prensença");
             this.btnPresence.UseVisualStyleBackColor = false;
+            this.btnPresence.Click += new System.EventHandler(this.btnPresence_Click);
             // 
             // btnStudent
             // 
@@ -117,7 +118,7 @@ namespace Interface
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
             this.btnStudent.Location = new System.Drawing.Point(100, 107);
-            this.btnStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(263, 84);
             this.btnStudent.TabIndex = 1;
@@ -134,7 +135,7 @@ namespace Interface
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAttendanceList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "System Attendance List";

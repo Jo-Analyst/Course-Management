@@ -5,13 +5,14 @@ namespace DataBase
 {
     public class Attendance
     {
+        public string _connectionString { get; set; }
         public int _id { get; set; }
         public string _date { get; set; }
         public int _classId { get; set; }
 
         public void Save()
         {
-            using (SqlConnection connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = "INSERT INTO Attendance VALUES (@date, @classId)";
                 SqlCommand command = new SqlCommand(sql, connection);
@@ -32,7 +33,7 @@ namespace DataBase
        
         public DataTable FindAll()
         {
-            using (var connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 string sql = "SELECT * FROM Attendance AS a INNER JOIN ListAttendance AS l ON a.id = l.attendance_id"; 
                 var adapter = new SqlDataAdapter(sql, connection);
