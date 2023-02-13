@@ -39,6 +39,8 @@
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirmPresence = new System.Windows.Forms.Button();
+            this.btnEditPresence = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(950, 452);
+            this.dgvStudent.Size = new System.Drawing.Size(950, 404);
             this.dgvStudent.TabIndex = 4;
             // 
             // presence
@@ -149,19 +151,43 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
+            // btnConfirmPresence
+            // 
+            this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmPresence.Location = new System.Drawing.Point(756, 491);
+            this.btnConfirmPresence.Name = "btnConfirmPresence";
+            this.btnConfirmPresence.Size = new System.Drawing.Size(206, 44);
+            this.btnConfirmPresence.TabIndex = 7;
+            this.btnConfirmPresence.Text = "Confirmar Presença";
+            this.btnConfirmPresence.UseVisualStyleBackColor = true;
+            // 
+            // btnEditPresence
+            // 
+            this.btnEditPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditPresence.ForeColor = System.Drawing.Color.White;
+            this.btnEditPresence.Location = new System.Drawing.Point(544, 491);
+            this.btnEditPresence.Name = "btnEditPresence";
+            this.btnEditPresence.Size = new System.Drawing.Size(206, 44);
+            this.btnEditPresence.TabIndex = 8;
+            this.btnEditPresence.Text = "Editar presença";
+            this.btnEditPresence.UseVisualStyleBackColor = true;
+            // 
             // FrmPresence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(985, 547);
+            this.Controls.Add(this.btnEditPresence);
+            this.Controls.Add(this.btnConfirmPresence);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvStudent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPresence";
@@ -183,5 +209,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnConfirmPresence;
+        private System.Windows.Forms.Button btnEditPresence;
     }
 }

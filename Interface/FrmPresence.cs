@@ -40,6 +40,8 @@ namespace Interface
                         dgvStudent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                         dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                     }
+
+                    dgvStudent.ClearSelection();
                 }
                 else
                 {
