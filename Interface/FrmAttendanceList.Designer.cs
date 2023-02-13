@@ -48,9 +48,10 @@ namespace Interface
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 33);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 341);
+            this.pictureBox1.Size = new System.Drawing.Size(412, 420);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -63,20 +64,26 @@ namespace Interface
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnPresence);
             this.panel1.Controls.Add(this.btnStudent);
-            this.panel1.Location = new System.Drawing.Point(324, 27);
+            this.panel1.Location = new System.Drawing.Point(432, 33);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 342);
+            this.panel1.Size = new System.Drawing.Size(469, 420);
             this.panel1.TabIndex = 1;
             // 
             // btnReport
             // 
             this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReport.BackColor = System.Drawing.Color.White;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.Location = new System.Drawing.Point(176, 160);
+            this.btnReport.Location = new System.Drawing.Point(235, 197);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(96, 68);
+            this.btnReport.Size = new System.Drawing.Size(128, 84);
             this.btnReport.TabIndex = 3;
             this.toolTip1.SetToolTip(this.btnReport, "Relatório");
             this.btnReport.UseVisualStyleBackColor = false;
@@ -85,11 +92,16 @@ namespace Interface
             // 
             this.btnPresence.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPresence.BackColor = System.Drawing.Color.White;
+            this.btnPresence.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPresence.FlatAppearance.BorderSize = 0;
+            this.btnPresence.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPresence.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPresence.Image = ((System.Drawing.Image)(resources.GetObject("btnPresence.Image")));
-            this.btnPresence.Location = new System.Drawing.Point(75, 160);
+            this.btnPresence.Location = new System.Drawing.Point(100, 197);
+            this.btnPresence.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPresence.Name = "btnPresence";
-            this.btnPresence.Size = new System.Drawing.Size(96, 68);
+            this.btnPresence.Size = new System.Drawing.Size(128, 84);
             this.btnPresence.TabIndex = 2;
             this.toolTip1.SetToolTip(this.btnPresence, "Prensença");
             this.btnPresence.UseVisualStyleBackColor = false;
@@ -98,11 +110,16 @@ namespace Interface
             // 
             this.btnStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnStudent.BackColor = System.Drawing.Color.White;
+            this.btnStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStudent.FlatAppearance.BorderSize = 0;
+            this.btnStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
-            this.btnStudent.Location = new System.Drawing.Point(75, 87);
+            this.btnStudent.Location = new System.Drawing.Point(100, 107);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(197, 68);
+            this.btnStudent.Size = new System.Drawing.Size(263, 84);
             this.btnStudent.TabIndex = 1;
             this.toolTip1.SetToolTip(this.btnStudent, "Alunos");
             this.btnStudent.UseVisualStyleBackColor = false;
@@ -110,13 +127,14 @@ namespace Interface
             // 
             // FrmAttendanceList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(915, 480);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmAttendanceList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "System Attendance List";

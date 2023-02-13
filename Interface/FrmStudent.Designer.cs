@@ -31,17 +31,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
             this.btnNew = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtField = new System.Windows.Forms.TextBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,14 +58,15 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // txtName
+            // txtField
             // 
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Location = new System.Drawing.Point(27, 115);
-            this.txtName.MaxLength = 100;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(649, 23);
-            this.txtName.TabIndex = 1;
+            this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtField.Location = new System.Drawing.Point(27, 115);
+            this.txtField.MaxLength = 100;
+            this.txtField.Name = "txtField";
+            this.txtField.Size = new System.Drawing.Size(649, 26);
+            this.txtField.TabIndex = 1;
+            this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
             // dgvStudent
             // 
@@ -89,10 +90,50 @@
             this.dgvStudent.Location = new System.Drawing.Point(27, 144);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
+            this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(649, 274);
             this.dgvStudent.TabIndex = 2;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 55;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 82;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.Width = 86;
+            // 
+            // gender
+            // 
+            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gender.HeaderText = "Gênero";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 93;
             // 
             // btnDelete
             // 
@@ -126,7 +167,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Procurar por: ";
             // 
@@ -135,63 +176,30 @@
             this.rbName.AutoSize = true;
             this.rbName.Checked = true;
             this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(126, 88);
+            this.rbName.Location = new System.Drawing.Point(143, 90);
             this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(63, 21);
+            this.rbName.Size = new System.Drawing.Size(74, 24);
             this.rbName.TabIndex = 6;
             this.rbName.TabStop = true;
             this.rbName.Text = "Nome";
             this.rbName.UseVisualStyleBackColor = true;
+            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
             // 
             // rbClass
             // 
             this.rbClass.AutoSize = true;
             this.rbClass.ForeColor = System.Drawing.Color.White;
-            this.rbClass.Location = new System.Drawing.Point(195, 88);
+            this.rbClass.Location = new System.Drawing.Point(223, 90);
             this.rbClass.Name = "rbClass";
-            this.rbClass.Size = new System.Drawing.Size(67, 21);
+            this.rbClass.Size = new System.Drawing.Size(78, 24);
             this.rbClass.TabIndex = 7;
             this.rbClass.Text = "Turma";
             this.rbClass.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 46;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 70;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 74;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gender.HeaderText = "Gênero";
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 81;
+            this.rbClass.CheckedChanged += new System.EventHandler(this.rbClass_CheckedChanged);
             // 
             // FrmStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(688, 431);
@@ -201,7 +209,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvStudent);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtField);
             this.Controls.Add(this.btnNew);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -221,7 +229,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtField;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;

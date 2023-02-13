@@ -46,7 +46,7 @@
             this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
@@ -55,7 +55,7 @@
             this.txtName.Location = new System.Drawing.Point(12, 36);
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(303, 23);
+            this.txtName.Size = new System.Drawing.Size(303, 26);
             this.txtName.TabIndex = 0;
             // 
             // btnsave
@@ -78,7 +78,7 @@
             this.label2.Location = new System.Drawing.Point(9, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Turma";
             // 
@@ -96,7 +96,7 @@
             "B3 - Noite"});
             this.cbClass.Location = new System.Drawing.Point(12, 90);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(303, 24);
+            this.cbClass.Size = new System.Drawing.Size(303, 28);
             this.cbClass.TabIndex = 1;
             // 
             // label3
@@ -106,7 +106,7 @@
             this.label3.Location = new System.Drawing.Point(13, 127);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Gênero";
             // 
@@ -116,7 +116,7 @@
             this.rbFeminine.ForeColor = System.Drawing.Color.White;
             this.rbFeminine.Location = new System.Drawing.Point(59, 147);
             this.rbFeminine.Name = "rbFeminine";
-            this.rbFeminine.Size = new System.Drawing.Size(34, 21);
+            this.rbFeminine.Size = new System.Drawing.Size(40, 24);
             this.rbFeminine.TabIndex = 9;
             this.rbFeminine.Text = "F";
             this.rbFeminine.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             this.rbMasculine.ForeColor = System.Drawing.Color.White;
             this.rbMasculine.Location = new System.Drawing.Point(16, 147);
             this.rbMasculine.Name = "rbMasculine";
-            this.rbMasculine.Size = new System.Drawing.Size(37, 21);
+            this.rbMasculine.Size = new System.Drawing.Size(44, 24);
             this.rbMasculine.TabIndex = 8;
             this.rbMasculine.TabStop = true;
             this.rbMasculine.Text = "M";
@@ -136,7 +136,7 @@
             // 
             // FrmSaveStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(327, 186);
@@ -157,6 +157,7 @@
             this.Name = "FrmSaveStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Aluno";
+            this.Load += new System.EventHandler(this.FrmSaveStudent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

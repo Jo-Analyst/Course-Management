@@ -5,6 +5,7 @@ namespace DataBase
 {
     public class Student
     {
+        public string _connectionString {get;set;}
         public int _id { get; set; }
         public string _name { get; set; }
         public string _class { get; set; }
@@ -12,7 +13,7 @@ namespace DataBase
 
         public void Save()
         {
-            using (SqlConnection connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = _id == 0
                     ? "INSERT INTO Students VALUES (@name, @class, @gender)"
@@ -37,7 +38,7 @@ namespace DataBase
 
         public void Delete()
         {
-            using (SqlConnection connection = new SqlConnection(ClassStringConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = "DELETE FROM Students WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
@@ -55,13 +56,13 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByName(string name)
+        public DataTable FindByName(string field, string option)
         {
             try
             {
-                using (var connection = new SqlConnection(ClassStringConnection.ConnectionString))
+                using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT * FROM Students WHERE name LIKE '%{name}%'";
+                    string sql = option.ToLower() == "nome" ? $"SELECT * FROM Students WHERE name LIKE '%{field}%'" : $"SELECT * FROM Students WHERE class LIKE '%{field}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -79,7 +80,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(ClassStringConnection.ConnectionString))
+                using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = $"SELECT * FROM Students WHERE id = {_id}";
                     var adapter = new SqlDataAdapter(sql, connection);
@@ -99,7 +100,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(ClassStringConnection.ConnectionString))
+                using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = "SELECT * FROM Students";
                     var adapter = new SqlDataAdapter(sql, connection);

@@ -1,4 +1,7 @@
-﻿namespace DataBase
+﻿using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+
+namespace DataBase
 {
     internal static class ClassStringConnection
     {

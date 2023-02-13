@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Interface
         public FrmStudent()
         {
             InitializeComponent();
+            student._connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Path.GetDirectoryName(Application.ExecutablePath)}\dbAttendanceList.mdf;Integrated Security=True";
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -35,7 +37,12 @@ namespace Interface
         private void LoadDataStudent()
         {
             dgvStudent.Rows.Clear();
-            foreach (DataRow dr in student.FindAll().Rows)
+            string option = rbName.Checked ? "nome" : "class";
+            DataTable dtStudent = string.IsNullOrWhiteSpace(txtField.Text) 
+                ? student.FindAll()
+                : student.FindByName(txtField.Text, option);
+
+            foreach (DataRow dr in dtStudent.Rows)
             {
                 int index = dgvStudent.Rows.Add();
                 dgvStudent.Rows[index].Cells["id"].Value = dr["id"].ToString();
@@ -74,6 +81,21 @@ namespace Interface
             }
         }
 
+        private void txtField_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataStudent();
+        }
+
+        private void rbName_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDataStudent();
+        }
+
+        private void rbClass_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDataStudent();
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (studentId == 0)
@@ -88,7 +110,7 @@ namespace Interface
             DialogResult dr = MessageBox.Show($"Deseja mesmo excluir {article} {studentMorF} {nameStudent} da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
-            {
+            {           
                 student._id = studentId;
                 student.Delete();
                 LoadDataStudent();
