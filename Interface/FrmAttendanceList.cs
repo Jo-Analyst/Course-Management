@@ -1,13 +1,6 @@
 ﻿using DataBase;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -18,11 +11,12 @@ namespace Interface
         {
             InitializeComponent();
         }
-        
+
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            Student student= new Student();
-            student._connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Path.GetDirectoryName(Application.ExecutablePath)}\dbAttendanceList.mdf;Integrated Security=True";
+            Student student = new Student();
+
+
             if (student.FindAll().Rows.Count > 0)
             {
                 new FrmStudent().ShowDialog();

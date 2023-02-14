@@ -1,47 +1,63 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
 {
     public class Attendance
     {
-        public string _connectionString { get; set; }
+        private string _connectionString = DbConnectionString.connectionString;
         public int _id { get; set; }
         public string _date { get; set; }
-        public int _classId { get; set; }
 
-        public void Save()
+        public void Save(DataTable dtAttendanceList)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string sql = "INSERT INTO Attendance VALUES (@date, @classId)";
-                SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@date", _date);
-                command.Parameters.AddWithValue("@classId", _classId);
-                command.CommandText = sql;
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
                 try
                 {
-                    connection.Open();
-                    command.ExecuteNonQuery();
+                    string sql = "INSERT INTO Attendance VALUES (@date); SELECT @@identity";
+                    SqlCommand command = new SqlCommand(sql, connection, transaction);
+                    command.Parameters.AddWithValue("@date", _date);
+                    command.CommandText = sql;
+
+                    ListAttendance listAttendance = new ListAttendance();
+                    listAttendance._attendanceId = Convert.ToInt32(command.ExecuteScalar());
+                    foreach (DataRow dr in dtAttendanceList.Rows)
+                    {
+                        listAttendance._presence = bool.Parse(dr["presence"].ToString());
+                        listAttendance._studentId = int.Parse(dr["student_id"].ToString());
+                        listAttendance.ConfirmPresence(transaction);
+                    }
+
+                    transaction.Commit();
                 }
                 catch
                 {
+                    transaction.Rollback();
                     throw;
                 }
             }
         }
-       
-        public DataTable FindAll()
+
+        public int GetLastDataTableAttendaceAndAddOne()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            int maxTableAttendance = 1;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string sql = "SELECT * FROM Attendance AS a INNER JOIN ListAttendance AS l ON a.id = l.attendance_id"; 
-                var adapter = new SqlDataAdapter(sql, connection);
-                adapter.SelectCommand.CommandText = sql;
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                return dataTable;
+                connection.Open();
+                SqlCommand command = new SqlCommand("", connection);
+                command.CommandText = "SELECT MAX(id) FROM Attendance";
+                if (command.ExecuteScalar() != DBNull.Value)
+                {
+                    maxTableAttendance += Convert.ToInt32(command.ExecuteScalar());
+                }
             }
+
+            return maxTableAttendance;
         }
     }
 }

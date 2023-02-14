@@ -1,13 +1,5 @@
 ﻿using DataBase;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -51,6 +43,21 @@ namespace Interface
                 student._gender = rbMasculine.Checked ? "M" : "F";
                 student.Save();
                 studentWasSaved = true;
+
+                if (id == 0)
+                {
+                    DialogResult dr = MessageBox.Show("Deseja incluir mais um novo aluno?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        txtName.Clear();
+                        cbClass.SelectedIndex = -1;
+                        rbMasculine.Checked = true;
+                        txtName.Focus();
+                        return;
+                    }
+                }
+
                 this.Close();
             }
             catch (Exception ex)
@@ -61,7 +68,6 @@ namespace Interface
 
         private void FrmSaveStudent_Load(object sender, EventArgs e)
         {
-            student._connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Path.GetDirectoryName(Application.ExecutablePath)}\dbAttendanceList.mdf;Integrated Security=True";
             if (id > 0)
             {
                 try

@@ -1,13 +1,6 @@
 ﻿using DataBase;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -18,7 +11,6 @@ namespace Interface
         public FrmStudent()
         {
             InitializeComponent();
-            student._connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Path.GetDirectoryName(Application.ExecutablePath)}\dbAttendanceList.mdf;Integrated Security=True";
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -38,7 +30,7 @@ namespace Interface
         {
             dgvStudent.Rows.Clear();
             string option = rbName.Checked ? "nome" : "class";
-            DataTable dtStudent = string.IsNullOrWhiteSpace(txtField.Text) 
+            DataTable dtStudent = string.IsNullOrWhiteSpace(txtField.Text)
                 ? student.FindAll()
                 : student.FindByName(txtField.Text, option);
 
@@ -110,13 +102,13 @@ namespace Interface
             DialogResult dr = MessageBox.Show($"Deseja mesmo excluir {article} {studentMorF} {nameStudent} da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
-            {           
+            {
                 student._id = studentId;
                 student.Delete();
                 LoadDataStudent();
             }
 
-                studentId = 0;
+            studentId = 0;
             dgvStudent.ClearSelection();
 
         }

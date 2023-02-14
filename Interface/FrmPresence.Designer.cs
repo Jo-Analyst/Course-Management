@@ -31,24 +31,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresence));
-            this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvListPresence = new System.Windows.Forms.DataGridView();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConfirmPresence = new System.Windows.Forms.Button();
-            this.btnEditPresence = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
+            this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvStudent
+            // dgvListPresence
             // 
-            this.dgvStudent.AllowUserToAddRows = false;
-            this.dgvStudent.AllowUserToDeleteRows = false;
-            this.dgvStudent.BackgroundColor = System.Drawing.Color.White;
+            this.dgvListPresence.AllowUserToAddRows = false;
+            this.dgvListPresence.AllowUserToDeleteRows = false;
+            this.dgvListPresence.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -56,71 +58,23 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.presence,
             this.id,
             this.name,
             this.classStudent,
-            this.gender});
-            this.dgvStudent.Location = new System.Drawing.Point(12, 81);
-            this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.ReadOnly = true;
-            this.dgvStudent.RowHeadersWidth = 51;
+            this.gender,
+            this.listAttendance_id});
+            this.dgvListPresence.Location = new System.Drawing.Point(12, 81);
+            this.dgvListPresence.Name = "dgvListPresence";
+            this.dgvListPresence.RowHeadersWidth = 51;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(950, 404);
-            this.dgvStudent.TabIndex = 4;
-            // 
-            // presence
-            // 
-            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.presence.HeaderText = "";
-            this.presence.MinimumWidth = 6;
-            this.presence.Name = "presence";
-            this.presence.ReadOnly = true;
-            this.presence.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 55;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 82;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 86;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gender.HeaderText = "Gênero";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 93;
+            this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListPresence.Size = new System.Drawing.Size(950, 404);
+            this.dgvListPresence.TabIndex = 4;
             // 
             // cbClass
             // 
@@ -136,7 +90,7 @@
             "B3 - Noite"});
             this.cbClass.Location = new System.Drawing.Point(12, 33);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(494, 28);
+            this.cbClass.Size = new System.Drawing.Size(350, 24);
             this.cbClass.TabIndex = 5;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -147,7 +101,7 @@
             this.label2.Location = new System.Drawing.Point(9, 12);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
@@ -161,29 +115,91 @@
             this.btnConfirmPresence.TabIndex = 7;
             this.btnConfirmPresence.Text = "Confirmar Presença";
             this.btnConfirmPresence.UseVisualStyleBackColor = true;
+            this.btnConfirmPresence.Click += new System.EventHandler(this.btnConfirmPresence_Click);
             // 
-            // btnEditPresence
+            // label1
             // 
-            this.btnEditPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditPresence.ForeColor = System.Drawing.Color.White;
-            this.btnEditPresence.Location = new System.Drawing.Point(544, 491);
-            this.btnEditPresence.Name = "btnEditPresence";
-            this.btnEditPresence.Size = new System.Drawing.Size(206, 44);
-            this.btnEditPresence.TabIndex = 8;
-            this.btnEditPresence.Text = "Editar presença";
-            this.btnEditPresence.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(369, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Data";
+            // 
+            // dtDatePresence
+            // 
+            this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDatePresence.Location = new System.Drawing.Point(372, 34);
+            this.dtDatePresence.Name = "dtDatePresence";
+            this.dtDatePresence.Size = new System.Drawing.Size(92, 23);
+            this.dtDatePresence.TabIndex = 10;
+            this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
+            // 
+            // listAttendance_id
+            // 
+            this.listAttendance_id.HeaderText = "listAttendance_id";
+            this.listAttendance_id.Name = "listAttendance_id";
+            this.listAttendance_id.Visible = false;
+            // 
+            // gender
+            // 
+            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gender.HeaderText = "Gênero";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 81;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.Width = 74;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 70;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 46;
+            // 
+            // presence
+            // 
+            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.presence.HeaderText = "";
+            this.presence.MinimumWidth = 6;
+            this.presence.Name = "presence";
+            this.presence.Width = 6;
             // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(985, 547);
-            this.Controls.Add(this.btnEditPresence);
+            this.Controls.Add(this.dtDatePresence);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmPresence);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvStudent);
+            this.Controls.Add(this.dgvListPresence);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -193,7 +209,7 @@
             this.Name = "FrmPresence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presença";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,15 +217,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvStudent;
+        private System.Windows.Forms.DataGridView dgvListPresence;
+        private System.Windows.Forms.ComboBox cbClass;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnConfirmPresence;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtDatePresence;
         private System.Windows.Forms.DataGridViewCheckBoxColumn presence;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.ComboBox cbClass;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnConfirmPresence;
-        private System.Windows.Forms.Button btnEditPresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listAttendance_id;
     }
 }

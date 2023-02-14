@@ -5,7 +5,7 @@ namespace DataBase
 {
     public class Student
     {
-        public string _connectionString {get;set;}
+        string _connectionString = DbConnectionString.connectionString;
         public int _id { get; set; }
         public string _name { get; set; }
         public string _class { get; set; }
@@ -74,8 +74,8 @@ namespace DataBase
             {
                 throw;
             }
-        } 
-        
+        }
+
         public DataTable FindByClass(string @class)
         {
             try
@@ -96,7 +96,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         public DataTable FindById()
         {
             try
