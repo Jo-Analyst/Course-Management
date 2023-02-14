@@ -75,9 +75,9 @@ namespace Interface
             }
         }
 
+        ListAttendance listAttendance = new ListAttendance();
         private void LoadListPresence()
         {
-            ListAttendance listAttendance = new ListAttendance();
             DataTable dtListAttendance = listAttendance.FindAll(dtDatePresence.Text, cbClass.Text);
             dgvListPresence.Rows.Clear();
             foreach (DataRow dr in dtListAttendance.Rows)
@@ -95,7 +95,38 @@ namespace Interface
         Attendance attendance = new Attendance();
         private void btnConfirmPresence_Click(object sender, EventArgs e)
         {
-           ConfirmPresence();  
+            if(dgvListPresence.Rows.Count == 0)
+            {
+                MessageBox.Show("Selecione a turma para a marcação da presença", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
+            if (btnConfirmPresence.Text == "Confirmar Presença")
+                ConfirmPresence();
+            else
+                UpdatePresence();
+        }
+
+        private void UpdatePresence()
+        {
+
+            try
+            {
+                DataTable dtListPresence = new DataTable();
+                dtListPresence.Columns.Add("id", typeof(int));
+                dtListPresence.Columns.Add("presence", typeof(bool));
+
+                foreach (DataGridViewRow row in dgvListPresence.Rows)
+                {
+                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value);
+                }
+
+                listAttendance.UpdatePresence(dtListPresence);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ConfirmPresence()

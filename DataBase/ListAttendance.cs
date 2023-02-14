@@ -15,9 +15,7 @@ namespace DataBase
         {
             try
             {
-                string sql = _id == 0
-           ? "INSERT INTO ListAttendance VALUES (@presence, @studentId, @attendanceId)"
-           : "UPDATE Attendance SET presence = @presence WHERE id = @id";
+                string sql = "INSERT INTO ListAttendance VALUES (@presence, @studentId, @attendanceId)";
                 SqlCommand command = new SqlCommand(sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@presence", _presence);
@@ -33,9 +31,33 @@ namespace DataBase
             }
         }
 
-        public void UpdatePresence()
+        public void UpdatePresence(DataTable dtListPresence)
         {
+            using (var connection = new SqlConnection(_connectionString))
+            {
 
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                try
+                {
+                    string sql = "UPDATE ListAttendance SET presence = @presence WHERE id = @id";
+                    foreach (DataRow dr in dtListPresence.Rows)
+                    {
+                        SqlCommand command = new SqlCommand(sql, connection, transaction);
+                        command.Parameters.AddWithValue("@id", int.Parse(dr["id"].ToString()));
+                        command.Parameters.AddWithValue("@presence", bool.Parse(dr["presence"].ToString()));
+                        command.CommandText = sql;
+                        command.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         public void CountAttendace()
