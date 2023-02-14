@@ -32,17 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresence));
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
+            this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConfirmPresence = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
-            this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,61 @@
             this.dgvListPresence.Size = new System.Drawing.Size(950, 404);
             this.dgvListPresence.TabIndex = 4;
             // 
+            // presence
+            // 
+            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.presence.HeaderText = "";
+            this.presence.MinimumWidth = 6;
+            this.presence.Name = "presence";
+            this.presence.Width = 6;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 55;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 82;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.Width = 86;
+            // 
+            // gender
+            // 
+            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gender.HeaderText = "Gênero";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 93;
+            // 
+            // listAttendance_id
+            // 
+            this.listAttendance_id.HeaderText = "listAttendance_id";
+            this.listAttendance_id.MinimumWidth = 6;
+            this.listAttendance_id.Name = "listAttendance_id";
+            this.listAttendance_id.Visible = false;
+            this.listAttendance_id.Width = 125;
+            // 
             // cbClass
             // 
             this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -90,7 +145,7 @@
             "B3 - Noite"});
             this.cbClass.Location = new System.Drawing.Point(12, 33);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(350, 24);
+            this.cbClass.Size = new System.Drawing.Size(350, 28);
             this.cbClass.TabIndex = 5;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -101,7 +156,7 @@
             this.label2.Location = new System.Drawing.Point(9, 12);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
@@ -122,7 +177,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(369, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.Size = new System.Drawing.Size(45, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Data";
             // 
@@ -131,69 +186,16 @@
             this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDatePresence.Location = new System.Drawing.Point(372, 34);
             this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(92, 23);
+            this.dtDatePresence.Size = new System.Drawing.Size(113, 26);
             this.dtDatePresence.TabIndex = 10;
             this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
             // 
-            // listAttendance_id
-            // 
-            this.listAttendance_id.HeaderText = "listAttendance_id";
-            this.listAttendance_id.Name = "listAttendance_id";
-            this.listAttendance_id.Visible = false;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gender.HeaderText = "Gênero";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 81;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 74;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 70;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 46;
-            // 
-            // presence
-            // 
-            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.presence.HeaderText = "";
-            this.presence.MinimumWidth = 6;
-            this.presence.Name = "presence";
-            this.presence.Width = 6;
-            // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(985, 547);
+            this.ClientSize = new System.Drawing.Size(976, 547);
             this.Controls.Add(this.dtDatePresence);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmPresence);

@@ -28,6 +28,7 @@ namespace Interface
                     LoadStudents();
                     btnConfirmPresence.Text = "Confirmar Presença";
                 }
+
                 dgvListPresence.ClearSelection();
             }
             catch (Exception ex)
@@ -70,6 +71,7 @@ namespace Interface
             else
             {
                 MessageBox.Show("Não há alunos cadastrado nesta turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btnConfirmPresence.Text= "Confirmar Presença";
                 dgvListPresence.Rows.Clear();
 
             }
@@ -95,9 +97,9 @@ namespace Interface
         Attendance attendance = new Attendance();
         private void btnConfirmPresence_Click(object sender, EventArgs e)
         {
-            if(dgvListPresence.Rows.Count == 0)
+            if (dgvListPresence.Rows.Count == 0)
             {
-                MessageBox.Show("Selecione a turma para a marcação da presença", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Selecione a turma para a marcação da presença", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -105,6 +107,8 @@ namespace Interface
                 ConfirmPresence();
             else
                 UpdatePresence();
+
+            dgvListPresence.ClearSelection();
         }
 
         private void UpdatePresence()
@@ -122,6 +126,7 @@ namespace Interface
                 }
 
                 listAttendance.UpdatePresence(dtListPresence);
+                MessageBox.Show($"Lista de presença atualizada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -144,6 +149,8 @@ namespace Interface
 
                 attendance._date = dtDatePresence.Text;
                 attendance.Save(dataTable);
+                MessageBox.Show($"Lista de presença confirmada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnConfirmPresence.Text = "Editar Presença";
             }
             catch (Exception ex)
             {
