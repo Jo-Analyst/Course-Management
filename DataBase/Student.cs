@@ -65,12 +65,34 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = option.ToLower() == "nome" ? $"SELECT * FROM Students WHERE name LIKE '%{field}%'" : $"SELECT * FROM Students WHERE class LIKE '%{field}%'";
+                    string sql = option.ToLower() == "nome" 
+                        ? $"SELECT * FROM Students WHERE name LIKE '%{field}%'" 
+                        : $"SELECT * FROM Students WHERE class LIKE '%{field}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public int FindByNameForClass(string name, string _class)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = $"SELECT id FROM Students WHERE name = '{name}' AND class = '{_class}'";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return int.Parse(dataTable.Rows[0]["id"].ToString());
                 }
             }
             catch

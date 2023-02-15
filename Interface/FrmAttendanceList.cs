@@ -35,5 +35,10 @@ namespace Interface
         {
             new FrmPresence().ShowDialog();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            new FrmReport().ShowDialog();
+        }
     }
 }

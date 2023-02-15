@@ -93,6 +93,18 @@
     <Compile Include="FrmPresence.Designer.cs">
       <DependentUpon>FrmPresence.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportStudent.Designer.cs">
+      <DependentUpon>FrmReportStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaveStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresence.resx">
       <DependentUpon>FrmPresence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportStudent.resx">
+      <DependentUpon>FrmReportStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveStudent.resx">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>

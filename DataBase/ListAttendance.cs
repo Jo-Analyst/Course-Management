@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
@@ -60,23 +61,51 @@ namespace DataBase
             }
         }
 
-        public void CountAttendace()
+        public int GetStudentAttendanceAmount(int student_id)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            int numberOfStudentAttendance = 0;
+
+            try
             {
-                string sql = "DELETE FROM ListAttendance WHERE id = @id";
-                SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@id", _id);
-                command.CommandText = sql;
-                try
+                using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    var command = new SqlCommand("", connection);
+                    command.CommandText = $"SELECT COUNT(Students.id) AS number_presence FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.Id = {student_id}";
+
+                    if (command.ExecuteScalar() != DBNull.Value)
+                        numberOfStudentAttendance = Convert.ToInt32(command.ExecuteScalar());
+
+                    return numberOfStudentAttendance;
                 }
-                catch
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
+        public int GetNumberOfAbsencesFromTheStudent(int student_id)
+        {
+            int numberOfStudentAttendance = 0;
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
                 {
-                    throw;
+                    connection.Open();
+                    var command = new SqlCommand("", connection);
+                    command.CommandText = $"SELECT COUNT(Students.id) AS number_presence FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0 AND Students.Id = {student_id}";
+
+                    if (command.ExecuteScalar() != DBNull.Value)
+                        numberOfStudentAttendance = Convert.ToInt32(command.ExecuteScalar());
+
+                    return numberOfStudentAttendance;
                 }
+            }
+            catch
+            {
+                throw;
             }
         }
 
