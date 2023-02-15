@@ -41,7 +41,6 @@ namespace Interface
                 dgvStudent.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvStudent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                 dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                dgvStudent.Rows[index].Selected = false;
             }
         }
 
@@ -53,7 +52,7 @@ namespace Interface
                 return;
             }
 
-            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()));
+            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["class"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
             saveStudent.ShowDialog();
 
             studentId = 0;

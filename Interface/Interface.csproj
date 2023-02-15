@@ -111,11 +111,23 @@
     <Compile Include="FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSaveClass .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaveClass .Designer.cs">
+      <DependentUpon>FrmSaveClass .cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaveStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSaveStudent.Designer.cs">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClass.Designer.cs">
+      <DependentUpon>FrmClass.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStudent.cs">
       <SubType>Form</SubType>
@@ -141,8 +153,14 @@
     <EmbeddedResource Include="FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaveClass .resx">
+      <DependentUpon>FrmSaveClass .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveStudent.resx">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClass.resx">
+      <DependentUpon>FrmClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>

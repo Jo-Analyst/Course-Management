@@ -9,7 +9,7 @@ namespace DataBase
         string _connectionString = DbConnectionString.connectionString;
         public int _id { get; set; }
         public string _name { get; set; }
-        public string _class { get; set; }
+        public int _class_id { get; set; }
         public string _gender { get; set; }
 
         public void Save()
@@ -17,12 +17,12 @@ namespace DataBase
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = _id == 0
-                    ? "INSERT INTO Students (name, class, gender, created_at) VALUES (@name, @class, @gender, @created_at)"
-                    : "UPDATE Students SET name = @name, class = @class, gender = @gender, updated_at =  @updated_at WHERE id = @id";
+                    ? "INSERT INTO Students (name, class_id, gender, created_at) VALUES (@name, @class_id, @gender, @created_at)"
+                    : "UPDATE Students SET name = @name, class_id = @class_id, gender = @gender, updated_at =  @updated_at WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@name", _name);
-                command.Parameters.AddWithValue("@class", _class);
+                command.Parameters.AddWithValue("@class_id", _class_id);
                 command.Parameters.AddWithValue("@gender", _gender);
                 command.Parameters.AddWithValue("@created_at", DateTime.Now);
                 command.Parameters.AddWithValue("@updated_at", DateTime.Now);
@@ -66,7 +66,7 @@ namespace DataBase
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = option.ToLower() == "nome" 
-                        ? $"SELECT * FROM Students WHERE name LIKE '%{field}%'" 
+                        ? $"SELECT * FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE name LIKE '%{field}%'" 
                         : $"SELECT * FROM Students WHERE class LIKE '%{field}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
@@ -87,7 +87,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT id FROM Students WHERE name = '{name}' AND class = '{_class}'";
+                    string sql = $"SELECT id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE name = '{name}' AND class = '{_class}'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -107,7 +107,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT * FROM Students WHERE class = @class";
+                    string sql = $"SELECT * FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE class = @class";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@class", @class);
                     adapter.SelectCommand.CommandText = sql;
@@ -128,7 +128,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT * FROM Students WHERE id = {_id}";
+                    string sql = $"SELECT * FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE id = {_id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -148,7 +148,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = "SELECT * FROM Students";
+                    string sql = "SELECT * FROM Students INNER JOIN Classes ON Classes.id = Students.class_id";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

@@ -38,6 +38,7 @@ namespace Interface
             this.btnPresence = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@ namespace Interface
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnClass);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnPresence);
             this.panel1.Controls.Add(this.btnStudent);
@@ -116,11 +118,29 @@ namespace Interface
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
             this.btnStudent.Location = new System.Drawing.Point(75, 87);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(197, 68);
+            this.btnStudent.Size = new System.Drawing.Size(96, 68);
             this.btnStudent.TabIndex = 1;
             this.toolTip1.SetToolTip(this.btnStudent, "Cadastro Alunos");
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
+            // 
+            // btnClass
+            // 
+            this.btnClass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClass.BackColor = System.Drawing.Color.White;
+            this.btnClass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClass.FlatAppearance.BorderSize = 0;
+            this.btnClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClass.Image = ((System.Drawing.Image)(resources.GetObject("btnClass.Image")));
+            this.btnClass.Location = new System.Drawing.Point(176, 87);
+            this.btnClass.Name = "btnClass";
+            this.btnClass.Size = new System.Drawing.Size(96, 68);
+            this.btnClass.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnClass, "Cadastro Turma");
+            this.btnClass.UseVisualStyleBackColor = false;
+            this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
             // FrmAttendanceList
             // 
@@ -149,5 +169,6 @@ namespace Interface
         private Button btnReport;
         private ToolTip toolTip1;
         private Button btnPresence;
+        private Button btnClass;
     }
 }

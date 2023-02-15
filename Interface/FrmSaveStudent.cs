@@ -1,5 +1,6 @@
 ﻿using DataBase;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Interface
@@ -8,25 +9,30 @@ namespace Interface
     {
 
         public bool studentWasSaved { get; set; }
-        int id;
         Student student = new Student();
+        Class @class= new Class();
 
         public FrmSaveStudent()
         {
             InitializeComponent();
         }
 
-        public FrmSaveStudent(int id)
+        public FrmSaveStudent(int id, string name, string shift, string @class, string gender)
         {
             InitializeComponent();
-            this.id = id;
+            student._id = id; ;
+            txtName.Text = name;
+            cbClass.Text = @class;
+            cbShift.Text = shift;
+            if (gender == "F")
+                rbFeminine.Checked = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("Preencha o nome da turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Preencha o nome do(a) aluno(a)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (cbClass.SelectedIndex == -1)
@@ -37,14 +43,12 @@ namespace Interface
 
             try
             {
-                student._id = id;
                 student._name = txtName.Text.Trim();
-                student._class = cbClass.Text.Trim();
                 student._gender = rbMasculine.Checked ? "M" : "F";
                 student.Save();
                 studentWasSaved = true;
 
-                if (id == 0)
+                if (student._id == 0)
                 {
                     DialogResult dr = MessageBox.Show("Deseja incluir mais um novo aluno?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -66,32 +70,38 @@ namespace Interface
             }
         }
 
-        private void FrmSaveStudent_Load(object sender, EventArgs e)
-        {
-            if (id > 0)
-            {
-                try
-                {
-                    student._id = id;
-                    var dataStudent = student.FindById().Rows[0];
-                    txtName.Text = dataStudent["name"].ToString();
-                    cbClass.Text = dataStudent["class"].ToString();
-                    if (dataStudent["gender"].ToString() == "F")
-                        rbFeminine.Checked = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void FrmSaveStudent_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
                 btnSave_Click(sender, e);
             }
+        }
+
+        private void LoadCbClass()
+        {
+            cbClass.Items.Clear();
+            var dtClass = @class.FindByClassForShift(cbShift.Text).Rows;
+            foreach (DataRow dt in dtClass)
+            {
+                cbClass.Items.Add(dt["name"]);
+            }
+        }
+
+        private void cbClass_Click(object sender, EventArgs e)
+        {
+            if (cbShift.SelectedIndex > -1 && cbClass.Items.Count == 0)
+            {
+                var saveClass = new FrmSaveClass();
+                saveClass.ShowDialog();
+                if (saveClass.classWasSaved)
+                    LoadCbClass();
+            }
+        }
+
+        private void cbShift_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCbClass();
         }
     }
 }

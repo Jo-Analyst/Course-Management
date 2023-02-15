@@ -12,12 +12,11 @@ namespace Interface
             InitializeComponent();
         }
 
+        Student student = new Student();
+        Class @class= new Class();
+
         private void btnStudent_Click(object sender, EventArgs e)
-        {
-            Student student = new Student();
-
-
-            if (student.FindAll().Rows.Count > 0)
+        {   if (student.FindAll().Rows.Count > 0)
             {
                 new FrmStudent().ShowDialog();
                 return;
@@ -39,6 +38,25 @@ namespace Interface
         private void btnReport_Click(object sender, EventArgs e)
         {
             new FrmReport().ShowDialog();
+        }
+
+        private void btnClass_Click(object sender, EventArgs e)
+        {
+            Class @class = new Class();
+
+
+            if (@class.FindAll().Rows.Count > 0)
+            {
+                new FrmClass().ShowDialog();
+                return;
+            }
+
+            var saveClass = new FrmSaveClass();
+            saveClass.ShowDialog();
+            if (saveClass.classWasSaved)
+            {
+                new FrmClass().ShowDialog();
+            }
         }
     }
 }

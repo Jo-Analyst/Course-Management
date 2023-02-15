@@ -42,8 +42,10 @@
             this.rbClass = new System.Windows.Forms.RadioButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,8 +89,10 @@
             this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name,
+            this.gender,
             this.classStudent,
-            this.gender});
+            this.shift,
+            this.classId});
             this.dgvStudent.Location = new System.Drawing.Point(27, 144);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersVisible = false;
@@ -181,16 +185,6 @@
             this.name.ReadOnly = true;
             this.name.Width = 70;
             // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 74;
-            // 
             // gender
             // 
             this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -201,6 +195,29 @@
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
             this.gender.Width = 81;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.Width = 74;
+            // 
+            // shift
+            // 
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shift.HeaderText = "Shift";
+            this.shift.Name = "shift";
+            this.shift.Width = 61;
+            // 
+            // classId
+            // 
+            this.classId.HeaderText = "Class_id";
+            this.classId.Name = "classId";
+            this.classId.Visible = false;
             // 
             // FrmStudent
             // 
@@ -244,7 +261,9 @@
         private System.Windows.Forms.RadioButton rbClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shift;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classId;
     }
 }
