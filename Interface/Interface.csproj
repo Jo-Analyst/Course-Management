@@ -93,6 +93,12 @@
     <Compile Include="FrmPresence.Designer.cs">
       <DependentUpon>FrmPresence.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportClass .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportClass .Designer.cs">
+      <DependentUpon>FrmReportClass .cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReportStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +125,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="FrmAttendanceList.resx">
       <DependentUpon>FrmAttendanceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresence.resx">
       <DependentUpon>FrmPresence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportClass .resx">
+      <DependentUpon>FrmReportClass .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportStudent.resx">
       <DependentUpon>FrmReportStudent.cs</DependentUpon>

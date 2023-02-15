@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
@@ -72,7 +74,7 @@
             // 
             this.dgvStudent.AllowUserToAddRows = false;
             this.dgvStudent.AllowUserToDeleteRows = false;
-            this.dgvStudent.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,6 +91,7 @@
             this.gender});
             this.dgvStudent.Location = new System.Drawing.Point(27, 144);
             this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.RowHeadersVisible = false;
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(857, 439);
@@ -161,6 +164,8 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -189,6 +194,8 @@
             // gender
             // 
             this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gender.DefaultCellStyle = dataGridViewCellStyle3;
             this.gender.HeaderText = "Gênero";
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";

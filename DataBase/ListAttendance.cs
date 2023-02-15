@@ -61,22 +61,18 @@ namespace DataBase
             }
         }
 
-        public int GetStudentAttendanceAmount(int student_id)
+        public DataTable GetStudentAttendanceAmount(int student_id)
         {
-            int numberOfStudentAttendance = 0;
-
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    var command = new SqlCommand("", connection);
-                    command.CommandText = $"SELECT COUNT(Students.id) AS number_presence FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.Id = {student_id}";
-
-                    if (command.ExecuteScalar() != DBNull.Value)
-                        numberOfStudentAttendance = Convert.ToInt32(command.ExecuteScalar());
-
-                    return numberOfStudentAttendance;
+                    var adapter = new SqlDataAdapter("", connection);
+                    adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, students.class, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id}) AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id where Students.id = {student_id} GROUP BY students.id, students.name, students.class";
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
                 }
             }
             catch
@@ -85,30 +81,6 @@ namespace DataBase
             }
         }
         
-        public int GetNumberOfAbsencesFromTheStudent(int student_id)
-        {
-            int numberOfStudentAttendance = 0;
-
-            try
-            {
-                using (var connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    var command = new SqlCommand("", connection);
-                    command.CommandText = $"SELECT COUNT(Students.id) AS number_presence FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0 AND Students.Id = {student_id}";
-
-                    if (command.ExecuteScalar() != DBNull.Value)
-                        numberOfStudentAttendance = Convert.ToInt32(command.ExecuteScalar());
-
-                    return numberOfStudentAttendance;
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
         public DataTable FindAll(string date, string _class)
         {
             using (var connection = new SqlConnection(_connectionString))

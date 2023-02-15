@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReport));
             this.lblQuantityStudentsRegistered = new System.Windows.Forms.Label();
             this.btnStudent = new System.Windows.Forms.Button();
-            this.btnTurma = new System.Windows.Forms.Button();
+            this.btnClass = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -65,23 +65,23 @@
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
-            // btnTurma
+            // btnClass
             // 
-            this.btnTurma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTurma.BackColor = System.Drawing.Color.White;
-            this.btnTurma.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTurma.FlatAppearance.BorderSize = 0;
-            this.btnTurma.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnTurma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnTurma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTurma.Image = ((System.Drawing.Image)(resources.GetObject("btnTurma.Image")));
-            this.btnTurma.Location = new System.Drawing.Point(213, 76);
-            this.btnTurma.Name = "btnTurma";
-            this.btnTurma.Size = new System.Drawing.Size(124, 68);
-            this.btnTurma.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnTurma, "Turma");
-            this.btnTurma.UseVisualStyleBackColor = false;
-            this.btnTurma.Click += new System.EventHandler(this.btnTurma_Click);
+            this.btnClass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClass.BackColor = System.Drawing.Color.White;
+            this.btnClass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClass.FlatAppearance.BorderSize = 0;
+            this.btnClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClass.Image = ((System.Drawing.Image)(resources.GetObject("btnClass.Image")));
+            this.btnClass.Location = new System.Drawing.Point(213, 76);
+            this.btnClass.Name = "btnClass";
+            this.btnClass.Size = new System.Drawing.Size(124, 68);
+            this.btnClass.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnClass, "Turma");
+            this.btnClass.UseVisualStyleBackColor = false;
+            this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
             // FrmReport
             // 
@@ -89,14 +89,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(428, 205);
-            this.Controls.Add(this.btnTurma);
+            this.Controls.Add(this.btnClass);
             this.Controls.Add(this.btnStudent);
             this.Controls.Add(this.lblQuantityStudentsRegistered);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReport";
@@ -113,6 +113,6 @@
         private System.Windows.Forms.Label lblQuantityStudentsRegistered;
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnTurma;
+        private System.Windows.Forms.Button btnClass;
     }
 }

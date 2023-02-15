@@ -62,9 +62,14 @@ namespace Interface
             try
             {
                 studentId = student.FindByNameForClass(cbNameStudents.Text, cbClasses.Text);
-                lblNumberAttendance.Text = listAttendance.GetStudentAttendanceAmount(studentId).ToString();
-                lblNumberLack.Text = listAttendance.GetNumberOfAbsencesFromTheStudent(studentId).ToString();
-                CalculatePercentage(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
+                DataTable dtListAttendance = listAttendance.GetStudentAttendanceAmount(studentId);
+               
+                lblNumberAttendance.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_attendance"].ToString() : "0";
+                lblNumberLack.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_absences"].ToString() : "0";
+               
+                int percentage =  Utils.CalculatePercentage(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
+                lblPercentage.Text = $"{percentage}%";
+                pbPercentage.Value = percentage;
             }
             catch (Exception ex)
             {
@@ -72,15 +77,7 @@ namespace Interface
             }
         }
 
-        private void CalculatePercentage(int numberAttendance, int numberLack)
-        {
-            int numberOfClasses = numberAttendance + numberLack;
-            int percentage = (numberAttendance * 100) / numberOfClasses;
-            lblPercentage.Text = $"{percentage}%";
-            pbPercentage.Value = percentage;
-        }
-
-        private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
+       private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbClasses.Items.Count == 0)
                 return;

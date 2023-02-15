@@ -23,9 +23,9 @@ namespace Interface
             new FrmReportStudent().ShowDialog();
         }
 
-        private void btnTurma_Click(object sender, EventArgs e)
+        private void btnClass_Click(object sender, EventArgs e)
         {
-
+            new FrmReportClass().ShowDialog();
         }
 
         private void FrmReport_Load(object sender, EventArgs e)
