@@ -40,10 +40,10 @@
             // 
             this.lblQuantityStudentsRegistered.AutoSize = true;
             this.lblQuantityStudentsRegistered.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantityStudentsRegistered.Location = new System.Drawing.Point(69, 21);
-            this.lblQuantityStudentsRegistered.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuantityStudentsRegistered.Location = new System.Drawing.Point(83, 26);
+            this.lblQuantityStudentsRegistered.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblQuantityStudentsRegistered.Name = "lblQuantityStudentsRegistered";
-            this.lblQuantityStudentsRegistered.Size = new System.Drawing.Size(238, 17);
+            this.lblQuantityStudentsRegistered.Size = new System.Drawing.Size(278, 20);
             this.lblQuantityStudentsRegistered.TabIndex = 0;
             this.lblQuantityStudentsRegistered.Text = "Quantidade de alunos cadastrados: ";
             // 
@@ -57,9 +57,10 @@
             this.btnStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
-            this.btnStudent.Location = new System.Drawing.Point(72, 76);
+            this.btnStudent.Location = new System.Drawing.Point(86, 95);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(124, 68);
+            this.btnStudent.Size = new System.Drawing.Size(149, 85);
             this.btnStudent.TabIndex = 2;
             this.toolTip1.SetToolTip(this.btnStudent, "Aluno");
             this.btnStudent.UseVisualStyleBackColor = false;
@@ -75,9 +76,10 @@
             this.btnClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClass.Image = ((System.Drawing.Image)(resources.GetObject("btnClass.Image")));
-            this.btnClass.Location = new System.Drawing.Point(213, 76);
+            this.btnClass.Location = new System.Drawing.Point(256, 95);
+            this.btnClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClass.Name = "btnClass";
-            this.btnClass.Size = new System.Drawing.Size(124, 68);
+            this.btnClass.Size = new System.Drawing.Size(149, 85);
             this.btnClass.TabIndex = 3;
             this.toolTip1.SetToolTip(this.btnClass, "Turma");
             this.btnClass.UseVisualStyleBackColor = false;
@@ -85,18 +87,18 @@
             // 
             // FrmReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(428, 205);
+            this.ClientSize = new System.Drawing.Size(514, 256);
             this.Controls.Add(this.btnClass);
             this.Controls.Add(this.btnStudent);
             this.Controls.Add(this.lblQuantityStudentsRegistered);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReport";

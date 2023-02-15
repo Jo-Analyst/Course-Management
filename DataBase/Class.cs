@@ -47,7 +47,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    string sql = $"SELECT * FROM Classes WHERE class LIKE '%{@class}%'";
+                    string sql = $"SELECT * FROM Classes WHERE name LIKE '%{@class}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

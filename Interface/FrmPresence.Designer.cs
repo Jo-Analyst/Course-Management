@@ -44,6 +44,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
@@ -53,10 +54,10 @@
             // 
             this.dgvListPresence.AllowUserToAddRows = false;
             this.dgvListPresence.AllowUserToDeleteRows = false;
-            this.dgvListPresence.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvListPresence.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -68,16 +69,18 @@
             this.id,
             this.name,
             this.classStudent,
+            this.shift,
             this.gender,
             this.listAttendance_id});
-            this.dgvListPresence.Location = new System.Drawing.Point(12, 81);
+            this.dgvListPresence.Location = new System.Drawing.Point(14, 101);
+            this.dgvListPresence.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvListPresence.Name = "dgvListPresence";
             this.dgvListPresence.RowHeadersVisible = false;
             this.dgvListPresence.RowHeadersWidth = 51;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListPresence.Size = new System.Drawing.Size(785, 404);
+            this.dgvListPresence.Size = new System.Drawing.Size(942, 505);
             this.dgvListPresence.TabIndex = 4;
             // 
             // cbClass
@@ -85,16 +88,10 @@
             this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbClass.FormattingEnabled = true;
-            this.cbClass.Items.AddRange(new object[] {
-            "A1 - Manhã",
-            "A2 -Tarde",
-            "A3 - Noite",
-            "B1- Manhã",
-            "B2 -Tarde",
-            "B3 - Noite"});
-            this.cbClass.Location = new System.Drawing.Point(12, 33);
+            this.cbClass.Location = new System.Drawing.Point(14, 41);
+            this.cbClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(350, 24);
+            this.cbClass.Size = new System.Drawing.Size(419, 33);
             this.cbClass.TabIndex = 5;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -102,10 +99,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(11, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
@@ -113,9 +110,10 @@
             // 
             this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmPresence.Location = new System.Drawing.Point(591, 491);
+            this.btnConfirmPresence.Location = new System.Drawing.Point(709, 614);
+            this.btnConfirmPresence.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmPresence.Name = "btnConfirmPresence";
-            this.btnConfirmPresence.Size = new System.Drawing.Size(206, 44);
+            this.btnConfirmPresence.Size = new System.Drawing.Size(247, 55);
             this.btnConfirmPresence.TabIndex = 7;
             this.btnConfirmPresence.Text = "Confirmar Presença";
             this.btnConfirmPresence.UseVisualStyleBackColor = true;
@@ -124,18 +122,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 13);
+            this.label1.Location = new System.Drawing.Point(443, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.Size = new System.Drawing.Size(53, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Data";
             // 
             // dtDatePresence
             // 
             this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDatePresence.Location = new System.Drawing.Point(372, 34);
+            this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
+            this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(113, 23);
+            this.dtDatePresence.Size = new System.Drawing.Size(135, 30);
             this.dtDatePresence.TabIndex = 10;
             this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
             // 
@@ -161,7 +161,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 46;
+            this.id.Width = 60;
             // 
             // name
             // 
@@ -171,7 +171,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 70;
+            this.name.Width = 93;
             // 
             // classStudent
             // 
@@ -181,7 +181,16 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 74;
+            this.classStudent.Width = 98;
+            // 
+            // shift
+            // 
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shift.HeaderText = "Turno";
+            this.shift.MinimumWidth = 6;
+            this.shift.Name = "shift";
+            this.shift.ReadOnly = true;
+            this.shift.Width = 93;
             // 
             // gender
             // 
@@ -192,7 +201,7 @@
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 81;
+            this.gender.Width = 106;
             // 
             // listAttendance_id
             // 
@@ -204,25 +213,26 @@
             // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(813, 547);
+            this.ClientSize = new System.Drawing.Size(976, 684);
             this.Controls.Add(this.dtDatePresence);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmPresence);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvListPresence);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPresence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presença";
+            this.Load += new System.EventHandler(this.FrmPresence_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,6 +251,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shift;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn listAttendance_id;
     }

@@ -40,9 +40,10 @@
             // 
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(325, 149);
+            this.btnsave.Location = new System.Drawing.Point(390, 186);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(183, 37);
+            this.btnsave.Size = new System.Drawing.Size(220, 46);
             this.btnsave.TabIndex = 2;
             this.btnsave.TabStop = false;
             this.btnsave.Text = "Salvar";
@@ -53,32 +54,33 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(11, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Turma";
             // 
             // txtClass
             // 
-            this.txtClass.Location = new System.Drawing.Point(13, 34);
+            this.txtClass.Location = new System.Drawing.Point(16, 42);
+            this.txtClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(495, 23);
+            this.txtClass.Size = new System.Drawing.Size(593, 30);
             this.txtClass.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 71);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Turno";
             // 
-            // comboBox1
+            // cbShift
             // 
             this.cbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbShift.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -87,27 +89,28 @@
             "Manhã",
             "Tarde",
             "Noite"});
-            this.cbShift.Location = new System.Drawing.Point(16, 92);
-            this.cbShift.Name = "comboBox1";
-            this.cbShift.Size = new System.Drawing.Size(148, 24);
+            this.cbShift.Location = new System.Drawing.Point(19, 115);
+            this.cbShift.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShift.Name = "cbShift";
+            this.cbShift.Size = new System.Drawing.Size(177, 33);
             this.cbShift.TabIndex = 6;
             // 
             // FrmSaveClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(520, 198);
+            this.ClientSize = new System.Drawing.Size(624, 248);
             this.Controls.Add(this.cbShift);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtClass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnsave);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSaveClass";

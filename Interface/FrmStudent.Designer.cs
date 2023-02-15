@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
@@ -40,12 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,10 +53,10 @@
             // 
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(27, 24);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNew.Location = new System.Drawing.Point(32, 30);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(124, 44);
+            this.btnNew.Size = new System.Drawing.Size(149, 55);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Novo";
             this.btnNew.UseVisualStyleBackColor = true;
@@ -65,10 +65,11 @@
             // txtField
             // 
             this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtField.Location = new System.Drawing.Point(27, 115);
+            this.txtField.Location = new System.Drawing.Point(32, 144);
+            this.txtField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(857, 23);
+            this.txtField.Size = new System.Drawing.Size(1028, 30);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -79,7 +80,7 @@
             this.dgvStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -93,12 +94,13 @@
             this.classStudent,
             this.shift,
             this.classId});
-            this.dgvStudent.Location = new System.Drawing.Point(27, 144);
+            this.dgvStudent.Location = new System.Drawing.Point(32, 180);
+            this.dgvStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersVisible = false;
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(857, 439);
+            this.dgvStudent.Size = new System.Drawing.Size(1028, 539);
             this.dgvStudent.TabIndex = 2;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
@@ -106,10 +108,10 @@
             // 
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(291, 24);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(349, 30);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(124, 44);
+            this.btnDelete.Size = new System.Drawing.Size(149, 55);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -119,10 +121,10 @@
             // 
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(159, 24);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdit.Location = new System.Drawing.Point(191, 30);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(124, 44);
+            this.btnEdit.Size = new System.Drawing.Size(149, 55);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -132,9 +134,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 90);
+            this.label1.Location = new System.Drawing.Point(29, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Procurar por: ";
             // 
@@ -143,9 +146,10 @@
             this.rbName.AutoSize = true;
             this.rbName.Checked = true;
             this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(143, 90);
+            this.rbName.Location = new System.Drawing.Point(172, 112);
+            this.rbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(63, 21);
+            this.rbName.Size = new System.Drawing.Size(85, 29);
             this.rbName.TabIndex = 6;
             this.rbName.TabStop = true;
             this.rbName.Text = "Nome";
@@ -156,34 +160,39 @@
             // 
             this.rbClass.AutoSize = true;
             this.rbClass.ForeColor = System.Drawing.Color.White;
-            this.rbClass.Location = new System.Drawing.Point(223, 90);
+            this.rbClass.Location = new System.Drawing.Point(268, 112);
+            this.rbClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbClass.Name = "rbClass";
-            this.rbClass.Size = new System.Drawing.Size(67, 21);
+            this.rbClass.Size = new System.Drawing.Size(90, 29);
             this.rbClass.TabIndex = 7;
             this.rbClass.Text = "Turma";
             this.rbClass.UseVisualStyleBackColor = true;
             this.rbClass.CheckedChanged += new System.EventHandler(this.rbClass_CheckedChanged);
             // 
-            // id
+            // classId
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 46;
+            this.classId.HeaderText = "Class_id";
+            this.classId.MinimumWidth = 6;
+            this.classId.Name = "classId";
+            this.classId.Width = 125;
             // 
-            // name
+            // shift
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 70;
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shift.HeaderText = "Turno";
+            this.shift.MinimumWidth = 6;
+            this.shift.Name = "shift";
+            this.shift.Width = 93;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.Width = 98;
             // 
             // gender
             // 
@@ -194,37 +203,35 @@
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 81;
+            this.gender.Width = 106;
             // 
-            // classStudent
+            // name
             // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 74;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 93;
             // 
-            // shift
+            // id
             // 
-            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.shift.HeaderText = "Shift";
-            this.shift.Name = "shift";
-            this.shift.Width = 61;
-            // 
-            // classId
-            // 
-            this.classId.HeaderText = "Class_id";
-            this.classId.Name = "classId";
-            this.classId.Visible = false;
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 60;
             // 
             // FrmStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(896, 595);
+            this.ClientSize = new System.Drawing.Size(1075, 744);
             this.Controls.Add(this.rbClass);
             this.Controls.Add(this.rbName);
             this.Controls.Add(this.label1);
@@ -233,10 +240,10 @@
             this.Controls.Add(this.dgvStudent);
             this.Controls.Add(this.txtField);
             this.Controls.Add(this.btnNew);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStudent";

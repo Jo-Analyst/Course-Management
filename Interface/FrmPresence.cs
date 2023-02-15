@@ -8,6 +8,9 @@ namespace Interface
 {
     public partial class FrmPresence : Form
     {
+        int class_id;
+        Class @class= new Class();
+
         public FrmPresence()
         {
             InitializeComponent();
@@ -21,6 +24,7 @@ namespace Interface
                 if (ThereIsMarkedAttendanceList())
                 {
                     LoadListPresence();
+                    class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
                     btnConfirmPresence.Text = "Editar Presença";
                 }
                 else
@@ -63,6 +67,7 @@ namespace Interface
                     dgvListPresence.Rows[index].Cells["id"].Value = dr["id"].ToString();
                     dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
                     dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
+                    dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                     dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 }
 
@@ -89,6 +94,7 @@ namespace Interface
                 dgvListPresence.Rows[index].Cells["id"].Value = dr["student_id"].ToString();
                 dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
+                dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = dr["listAttendance_id"].ToString();
             }
@@ -147,7 +153,8 @@ namespace Interface
                     dataTable.Rows.Add(dgvRow.Cells["presence"].Value.ToString(), dgvRow.Cells["id"].Value.ToString());
                 }
 
-                attendance._date = dtDatePresence.Text;
+                attendance.Class_id = class_id;
+                attendance.Date = dtDatePresence.Text;
                 attendance.Save(dataTable);
                 MessageBox.Show($"Lista de presença confirmada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnConfirmPresence.Text = "Editar Presença";
@@ -161,6 +168,16 @@ namespace Interface
         private void dtDatePresence_ValueChanged(object sender, EventArgs e)
         {
             cbClass_SelectedIndexChanged(sender, e);
+        }
+
+
+        private void FrmPresence_Load(object sender, EventArgs e)
+        {
+            var dtClasses = @class.FindAll();
+            foreach(DataRow dr in dtClasses.Rows)
+            {
+                cbClass.Items.Add(dr["name"]);
+            }
         }
     }
 }

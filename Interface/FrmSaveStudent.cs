@@ -10,20 +10,22 @@ namespace Interface
 
         public bool studentWasSaved { get; set; }
         Student student = new Student();
-        Class @class= new Class();
+        Class @class = new Class();
+        int class_id;
 
         public FrmSaveStudent()
         {
             InitializeComponent();
         }
 
-        public FrmSaveStudent(int id, string name, string shift, string @class, string gender)
+        public FrmSaveStudent(int id, string name, string shift, string _class, string gender)
         {
             InitializeComponent();
-            student._id = id; ;
+            student._id = id;
             txtName.Text = name;
-            cbClass.Text = @class;
             cbShift.Text = shift;
+            LoadCbClass();
+            cbClass.Text = _class;
             if (gender == "F")
                 rbFeminine.Checked = true;
         }
@@ -35,6 +37,11 @@ namespace Interface
                 MessageBox.Show("Preencha o nome do(a) aluno(a)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (cbShift.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione o turno", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (cbClass.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecione a turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -44,6 +51,7 @@ namespace Interface
             try
             {
                 student._name = txtName.Text.Trim();
+                student._class_id = class_id;
                 student._gender = rbMasculine.Checked ? "M" : "F";
                 student.Save();
                 studentWasSaved = true;
@@ -56,6 +64,7 @@ namespace Interface
                     {
                         txtName.Clear();
                         cbClass.SelectedIndex = -1;
+                        cbShift.SelectedIndex = -1;
                         rbMasculine.Checked = true;
                         txtName.Focus();
                         return;
@@ -72,7 +81,7 @@ namespace Interface
 
         private void FrmSaveStudent_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click(sender, e);
             }
@@ -92,7 +101,7 @@ namespace Interface
         {
             if (cbShift.SelectedIndex > -1 && cbClass.Items.Count == 0)
             {
-                var saveClass = new FrmSaveClass();
+                var saveClass = new FrmSaveClass(cbShift.Text);
                 saveClass.ShowDialog();
                 if (saveClass.classWasSaved)
                     LoadCbClass();
@@ -102,6 +111,18 @@ namespace Interface
         private void cbShift_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadCbClass();
+        }
+
+        private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

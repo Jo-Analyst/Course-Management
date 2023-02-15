@@ -7,8 +7,9 @@ namespace DataBase
     public class Attendance
     {
         private string _connectionString = DbConnectionString.connectionString;
-        public int _id { get; set; }
-        public string _date { get; set; }
+        public int Id { get; set; }
+        public int Class_id { get; set; }
+        public string Date { get; set; }
 
         public void Save(DataTable dtAttendanceList)
         {
@@ -18,9 +19,10 @@ namespace DataBase
                 SqlTransaction transaction = connection.BeginTransaction();
                 try
                 {
-                    string sql = "INSERT INTO Attendance VALUES (@date); SELECT @@identity";
+                    string sql = "INSERT INTO Attendance VALUES (@date, @class_id); SELECT @@identity";
                     SqlCommand command = new SqlCommand(sql, connection, transaction);
-                    command.Parameters.AddWithValue("@date", _date);
+                    command.Parameters.AddWithValue("@date", Date);
+                    command.Parameters.AddWithValue("@class_id", Class_id);
                     command.CommandText = sql;
 
                     ListAttendance listAttendance = new ListAttendance();
