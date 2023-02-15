@@ -100,7 +100,7 @@ namespace Interface
             this.btnPresence.Name = "btnPresence";
             this.btnPresence.Size = new System.Drawing.Size(96, 68);
             this.btnPresence.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnPresence, "Prensença");
+            this.toolTip1.SetToolTip(this.btnPresence, "Presença");
             this.btnPresence.UseVisualStyleBackColor = false;
             this.btnPresence.Click += new System.EventHandler(this.btnPresence_Click);
             // 
@@ -118,7 +118,7 @@ namespace Interface
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(197, 68);
             this.btnStudent.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnStudent, "Alunos");
+            this.toolTip1.SetToolTip(this.btnStudent, "Cadastro Alunos");
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
