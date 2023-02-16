@@ -60,7 +60,7 @@
             this.cbClass.Location = new System.Drawing.Point(22, 51);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(357, 28);
+            this.cbClass.Size = new System.Drawing.Size(357, 33);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
@@ -71,7 +71,7 @@
             this.label2.Location = new System.Drawing.Point(18, 25);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -142,7 +142,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 51;
+            this.id.Width = 60;
             // 
             // name
             // 
@@ -152,7 +152,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 76;
+            this.name.Width = 93;
             // 
             // classStudent
             // 
@@ -162,15 +162,16 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 79;
+            this.classStudent.Width = 98;
             // 
             // shift
             // 
             this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.shift.HeaderText = "Turno";
+            this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 75;
+            this.shift.Width = 93;
             // 
             // numberOfAttendence
             // 
@@ -182,7 +183,7 @@
             this.numberOfAttendence.MinimumWidth = 6;
             this.numberOfAttendence.Name = "numberOfAttendence";
             this.numberOfAttendence.ReadOnly = true;
-            this.numberOfAttendence.Width = 191;
+            this.numberOfAttendence.Width = 235;
             // 
             // numberOfAbsences
             // 
@@ -194,7 +195,7 @@
             this.numberOfAbsences.MinimumWidth = 6;
             this.numberOfAbsences.Name = "numberOfAbsences";
             this.numberOfAbsences.ReadOnly = true;
-            this.numberOfAbsences.Width = 160;
+            this.numberOfAbsences.Width = 195;
             // 
             // percentage
             // 
@@ -205,7 +206,7 @@
             this.percentage.MinimumWidth = 6;
             this.percentage.Name = "percentage";
             this.percentage.ReadOnly = true;
-            this.percentage.Width = 48;
+            this.percentage.Width = 59;
             // 
             // btnViewReport
             // 
@@ -224,7 +225,7 @@
             // 
             // FrmReportClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(882, 478);
@@ -241,6 +242,7 @@
             this.Name = "FrmReportClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório da Turma";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmReportClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).EndInit();
             this.ResumeLayout(false);

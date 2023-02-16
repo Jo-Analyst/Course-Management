@@ -108,7 +108,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 51;
+            this.id.Width = 60;
             // 
             // name
             // 
@@ -118,7 +118,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 76;
+            this.name.Width = 93;
             // 
             // classStudent
             // 
@@ -128,7 +128,7 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 79;
+            this.classStudent.Width = 98;
             // 
             // shift
             // 
@@ -137,7 +137,7 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 75;
+            this.shift.Width = 93;
             // 
             // gender
             // 
@@ -148,7 +148,7 @@
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 88;
+            this.gender.Width = 106;
             // 
             // listAttendance_id
             // 
@@ -166,7 +166,7 @@
             this.cbClass.Location = new System.Drawing.Point(14, 41);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(419, 28);
+            this.cbClass.Size = new System.Drawing.Size(419, 33);
             this.cbClass.TabIndex = 5;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -177,7 +177,7 @@
             this.label2.Location = new System.Drawing.Point(11, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
@@ -201,7 +201,7 @@
             this.label1.Location = new System.Drawing.Point(443, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.Size = new System.Drawing.Size(53, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Data";
             // 
@@ -211,13 +211,13 @@
             this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
             this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
             this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(135, 26);
+            this.dtDatePresence.Size = new System.Drawing.Size(135, 30);
             this.dtDatePresence.TabIndex = 10;
             this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
             // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(976, 504);
@@ -235,6 +235,7 @@
             this.Name = "FrmPresence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presença";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPresence_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).EndInit();
             this.ResumeLayout(false);

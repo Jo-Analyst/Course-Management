@@ -63,7 +63,7 @@
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(685, 26);
+            this.txtField.Size = new System.Drawing.Size(685, 30);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -109,7 +109,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 51;
+            this.id.Width = 60;
             // 
             // name
             // 
@@ -119,7 +119,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 79;
+            this.name.Width = 98;
             // 
             // shift
             // 
@@ -129,7 +129,7 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 75;
+            this.shift.Width = 93;
             // 
             // btnEdit
             // 
@@ -146,7 +146,7 @@
             // 
             // FrmClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(736, 469);
@@ -161,6 +161,7 @@
             this.Name = "FrmClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Turma";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).EndInit();
             this.ResumeLayout(false);
