@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class.cs" />
+    <Compile Include="Content.cs" />
     <Compile Include="DbConnectionString.cs" />
     <Compile Include="ListAttendance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

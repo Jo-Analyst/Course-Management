@@ -69,7 +69,7 @@ namespace DataBase
                 {
                     connection.Open();
                     var adapter = new SqlDataAdapter("", connection);
-                    adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, Classes.name, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id}) AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.id = {student_id} GROUP BY students.id, students.name, Classes.name";
+                    adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, Classes.name as class, Classes.shift, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id}) AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.id = {student_id} GROUP BY students.id, students.name, Classes.name, Classes.shift";
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
