@@ -37,7 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportClass));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cbClasses = new System.Windows.Forms.ComboBox();
+            this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvReportClass = new System.Windows.Forms.DataGridView();
@@ -51,25 +51,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbClasses
+            // cbClass
             // 
-            this.cbClasses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClasses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbClasses.FormattingEnabled = true;
-            this.cbClasses.Items.AddRange(new object[] {
-            "A1 - Manhã",
-            "A2 -Tarde",
-            "A3 - Noite",
-            "B1- Manhã",
-            "B2 -Tarde",
-            "B3 - Noite",
-            "Todos"});
-            this.cbClasses.Location = new System.Drawing.Point(22, 51);
-            this.cbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbClasses.Name = "cbClasses";
-            this.cbClasses.Size = new System.Drawing.Size(357, 33);
-            this.cbClasses.TabIndex = 12;
-            this.cbClasses.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
+            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbClass.FormattingEnabled = true;
+            this.cbClass.Location = new System.Drawing.Point(22, 51);
+            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
+            this.cbClass.Name = "cbClass";
+            this.cbClass.Size = new System.Drawing.Size(357, 33);
+            this.cbClass.TabIndex = 12;
+            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -86,7 +78,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(648, 408);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 52);
             this.button1.TabIndex = 13;
@@ -118,7 +110,7 @@
             this.numberOfAbsences,
             this.percentage});
             this.dgvReportClass.Location = new System.Drawing.Point(22, 89);
-            this.dgvReportClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvReportClass.Margin = new System.Windows.Forms.Padding(4);
             this.dgvReportClass.Name = "dgvReportClass";
             this.dgvReportClass.ReadOnly = true;
             this.dgvReportClass.RowHeadersVisible = false;
@@ -201,10 +193,10 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(458, 406);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(423, 406);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 52);
+            this.button2.Size = new System.Drawing.Size(217, 52);
             this.button2.TabIndex = 15;
             this.button2.Text = "Visualizar Relatório";
             this.button2.UseVisualStyleBackColor = true;
@@ -219,18 +211,19 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dgvReportClass);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbClasses);
+            this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReportClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório da Turma";
+            this.Load += new System.EventHandler(this.FrmReportClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,7 +232,7 @@
 
         #endregion
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ComboBox cbClasses;
+        private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvReportClass;

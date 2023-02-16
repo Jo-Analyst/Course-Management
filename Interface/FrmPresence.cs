@@ -21,10 +21,11 @@ namespace Interface
         {
             try
             {
+                class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
+
                 if (ThereIsMarkedAttendanceList())
                 {
-                    LoadListPresence();
-                    class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
+                    LoadListPresence();                    
                     btnConfirmPresence.Text = "Editar Presença";
                 }
                 else

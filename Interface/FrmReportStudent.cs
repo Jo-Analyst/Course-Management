@@ -20,13 +20,14 @@ namespace Interface
 
         int studentId;
         Student student = new Student();
+        Class @class = new Class();
         ListAttendance listAttendance = new ListAttendance();
 
-        private void cbClasses_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
-            {
-                var dtStudent = student.FindByClass(cbClasses.Text).Rows;
+            {               
+                var dtStudent = student.FindByClass(cbClass.Text).Rows;
 
                 cbNameStudents.Items.Clear();
 
@@ -49,6 +50,15 @@ namespace Interface
             }
         }
 
+        private void LoadCbClass()
+        {
+            var dtClasses = @class.FindAll();
+            foreach (DataRow dr in dtClasses.Rows)
+            {
+                cbClass.Items.Add(dr["name"]);
+            }
+        }
+
         private void InitialFields()
         {
             lblNumberAttendance.Text = "0";
@@ -61,7 +71,7 @@ namespace Interface
         {
             try
             {
-                studentId = student.FindByNameForClass(cbNameStudents.Text, cbClasses.Text);
+                studentId = student.FindByNameForClass(cbNameStudents.Text, cbClass.Text);
                 DataTable dtListAttendance = listAttendance.GetStudentAttendanceAmount(studentId);
                
                 lblNumberAttendance.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_attendance"].ToString() : "0";
@@ -79,10 +89,15 @@ namespace Interface
 
        private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbClasses.Items.Count == 0)
+            if (cbClass.Items.Count == 0)
                 return;
 
             GenerateReport();
+        }
+
+        private void FrmReportStudent_Load(object sender, EventArgs e)
+        {
+            LoadCbClass();
         }
     }
 }

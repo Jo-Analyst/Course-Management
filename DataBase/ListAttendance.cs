@@ -69,7 +69,7 @@ namespace DataBase
                 {
                     connection.Open();
                     var adapter = new SqlDataAdapter("", connection);
-                    adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, students.class, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id}) AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id where Students.id = {student_id} GROUP BY students.id, students.name, students.class";
+                    adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, Classes.name, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, (SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id}) AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.id = {student_id} GROUP BY students.id, students.name, Classes.name";
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
@@ -85,7 +85,7 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string sql = $"SELECT  l.id listAttendance_id, l.presence, s.id as student_id, s.name, c.name AS class, c.shift, s.gender FROM Attendance AS a INNER JOIN ListAttendance AS l ON a.id = l.attendance_id INNER JOIN Students as s ON s.id = l.student_id INNER JOIN Classes AS c ON c.id = s.class_id WHERE a.date = '{date}' AND c.name = '{_class}'";
+                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS student_id, s.name, c.name AS class, c.shift, s.gender FROM Attendance AS a INNER JOIN ListAttendance AS l ON a.id = l.attendance_id INNER JOIN Students as s ON s.id = l.student_id INNER JOIN Classes AS c ON c.id = s.class_id WHERE a.date = '{date}' AND c.name = '{_class}'";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;

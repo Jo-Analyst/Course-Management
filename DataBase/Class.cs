@@ -87,7 +87,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    string sql = "SELECT * FROM Classes";
+                    string sql = "SELECT * FROM Classes ORDER BY name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

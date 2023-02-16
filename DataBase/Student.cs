@@ -87,7 +87,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE name = '{name}' AND class = '{_class}'";
+                    string sql = $"SELECT Students.id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name = '{name}' AND Classes.name = '{_class}'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

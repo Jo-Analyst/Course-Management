@@ -27,7 +27,7 @@ namespace Interface
         {
             try
             {
-                DataTable dtStudents = cbClasses.Text.ToLower() == "todos" ? student.FindAll() : student.FindByClass(cbClasses.Text);
+                DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : student.FindByClass(cbClass.Text);
                 dgvReportClass.Rows.Clear();
                 DataTable dtStudent;
                 foreach (DataRow dr in dtStudents.Rows)
@@ -81,6 +81,24 @@ namespace Interface
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmReportClass_Load(object sender, EventArgs e)
+        {
+            LoadCbClass();
+        }
+
+        Class @class= new Class();
+
+        private void LoadCbClass()
+        {
+            var dtClasses = @class.FindAll();
+            foreach (DataRow dr in dtClasses.Rows)
+            {
+                cbClass.Items.Add(dr["name"]);
+            }
+
+            cbClass.Items.Add("Todos");
         }
     }
 }
