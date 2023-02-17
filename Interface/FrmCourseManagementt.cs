@@ -62,14 +62,22 @@ namespace Interface
         private void btnContent_Click(object sender, EventArgs e)
         {
             if (content.FindAll().Rows.Count > 0)
-            {
                 new FrmContent().ShowDialog();
-            }
             else
             {
-                new FrmSaveContent().ShowDialog();
+                var saveContent = new FrmSaveContent();
+                saveContent.ShowDialog();
+                if (saveContent.contentWasSaved)
+                {
+                    new FrmContent().ShowDialog();
+                }
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmOpenBackupAndRestore().ShowDialog();
         }
     }
 }

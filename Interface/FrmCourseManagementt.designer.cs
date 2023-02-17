@@ -40,6 +40,7 @@ namespace Interface
             this.btnPresence = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@ namespace Interface
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnContent);
             this.panel1.Controls.Add(this.btnClass);
             this.panel1.Controls.Add(this.btnReport);
@@ -87,7 +89,7 @@ namespace Interface
             this.btnContent.Location = new System.Drawing.Point(45, 77);
             this.btnContent.Margin = new System.Windows.Forms.Padding(6);
             this.btnContent.Name = "btnContent";
-            this.btnContent.Size = new System.Drawing.Size(342, 97);
+            this.btnContent.Size = new System.Drawing.Size(165, 97);
             this.btnContent.TabIndex = 5;
             this.toolTip1.SetToolTip(this.btnContent, "Conteúdo");
             this.btnContent.UseVisualStyleBackColor = false;
@@ -103,7 +105,7 @@ namespace Interface
             this.btnClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClass.Image = ((System.Drawing.Image)(resources.GetObject("btnClass.Image")));
-            this.btnClass.Location = new System.Drawing.Point(222, 186);
+            this.btnClass.Location = new System.Drawing.Point(45, 186);
             this.btnClass.Margin = new System.Windows.Forms.Padding(6);
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(165, 97);
@@ -122,7 +124,7 @@ namespace Interface
             this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.Location = new System.Drawing.Point(222, 295);
+            this.btnReport.Location = new System.Drawing.Point(45, 295);
             this.btnReport.Margin = new System.Windows.Forms.Padding(6);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(165, 97);
@@ -141,7 +143,7 @@ namespace Interface
             this.btnPresence.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPresence.Image = ((System.Drawing.Image)(resources.GetObject("btnPresence.Image")));
-            this.btnPresence.Location = new System.Drawing.Point(45, 295);
+            this.btnPresence.Location = new System.Drawing.Point(222, 186);
             this.btnPresence.Margin = new System.Windows.Forms.Padding(6);
             this.btnPresence.Name = "btnPresence";
             this.btnPresence.Size = new System.Drawing.Size(165, 97);
@@ -160,7 +162,7 @@ namespace Interface
             this.btnStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
-            this.btnStudent.Location = new System.Drawing.Point(45, 186);
+            this.btnStudent.Location = new System.Drawing.Point(222, 77);
             this.btnStudent.Margin = new System.Windows.Forms.Padding(6);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(165, 97);
@@ -169,9 +171,28 @@ namespace Interface
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(222, 295);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 97);
+            this.button1.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button1, "Backup e Restauração");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmCourseManagementt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1010, 531);
@@ -200,5 +221,6 @@ namespace Interface
         private Button btnPresence;
         private Button btnClass;
         private Button btnContent;
+        private Button button1;
     }
 }

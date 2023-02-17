@@ -69,6 +69,7 @@ namespace Interface
                     dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                     dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                     dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
+                    dgvListPresence.Rows[index].Height = 40;
                 }
 
                 dgvListPresence.ClearSelection();

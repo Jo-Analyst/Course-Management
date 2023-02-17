@@ -31,7 +31,7 @@ namespace Interface
             try
             {
                 dgvContent.Rows.Clear();
-                DataTable dtContent = content.FindAll();
+                DataTable dtContent = !string.IsNullOrWhiteSpace(cbMatter.Text) ? content.FindByMatter(cbMatter.Text.Trim()) :  content.FindAll();
 
                 foreach (DataRow dr in dtContent.Rows)
                 {
@@ -42,6 +42,7 @@ namespace Interface
                     dgvContent.Rows[index].Cells["matter"].Value = dr["matter"].ToString();
                     dgvContent.Rows[index].Cells["date"].Value = dr["date"].ToString();
                     dgvContent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
+                    dgvContent.Rows[index].Height = 40;
                 }
 
                 dgvContent.ClearSelection();
@@ -112,6 +113,11 @@ namespace Interface
             contentId = 0;
             dgvContent.ClearSelection();
 
+        }
+
+        private void cbMatter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataContent();
         }
     }
 }

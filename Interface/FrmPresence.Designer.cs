@@ -59,14 +59,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListPresence.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListPresence.ColumnHeadersHeight = 40;
+            this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.presence,
             this.id,
@@ -75,6 +76,7 @@
             this.shift,
             this.gender,
             this.listAttendance_id});
+            this.dgvListPresence.EnableHeadersVisualStyles = false;
             this.dgvListPresence.Location = new System.Drawing.Point(14, 101);
             this.dgvListPresence.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListPresence.Name = "dgvListPresence";
@@ -108,7 +110,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 60;
+            this.id.Width = 62;
             // 
             // name
             // 
@@ -118,7 +120,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 93;
+            this.name.Width = 97;
             // 
             // classStudent
             // 
@@ -128,7 +130,7 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 98;
+            this.classStudent.Width = 103;
             // 
             // shift
             // 
@@ -137,7 +139,7 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 93;
+            this.shift.Width = 98;
             // 
             // gender
             // 
@@ -148,7 +150,7 @@
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 106;
+            this.gender.Width = 112;
             // 
             // listAttendance_id
             // 

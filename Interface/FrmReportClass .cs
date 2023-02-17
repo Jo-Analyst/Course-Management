@@ -27,6 +27,7 @@ namespace Interface
                 DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : student.FindByClass(cbClass.Text);
                 dgvReportClass.Rows.Clear();
                 DataTable dtStudent;
+                int index =0;
                 foreach (DataRow dr in dtStudents.Rows)
                 {
                     dtStudent = listAttendance.GetStudentAttendanceAmount(int.Parse(dr["id"].ToString()));
@@ -35,6 +36,9 @@ namespace Interface
 
                     else
                         dgvReportClass.Rows.Add(dtStudent.Rows[0]["id"], dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{Utils.CalculatePercentage(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()))}%");
+
+                    dgvReportClass.Rows[index].Height = 40;
+                    index++;
                 }
 
                 dgvReportClass.ClearSelection();

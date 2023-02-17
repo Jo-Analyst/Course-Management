@@ -58,7 +58,7 @@
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
             this.btnStudent.Location = new System.Drawing.Point(86, 95);
-            this.btnStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(149, 85);
             this.btnStudent.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClass.Image = ((System.Drawing.Image)(resources.GetObject("btnClass.Image")));
             this.btnClass.Location = new System.Drawing.Point(256, 95);
-            this.btnClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClass.Margin = new System.Windows.Forms.Padding(4);
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(149, 85);
             this.btnClass.TabIndex = 3;
@@ -98,7 +98,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReport";

@@ -126,6 +126,12 @@
     <Compile Include="FrmCourseManagementt.designer.cs">
       <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOpenBackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOpenBackupAndRestore.Designer.cs">
+      <DependentUpon>FrmOpenBackupAndRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaveContent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     <Compile Include="ViewStudentReport.cs" />
     <EmbeddedResource Include="FrmCourseManagementt.resx">
       <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOpenBackupAndRestore.resx">
+      <DependentUpon>FrmOpenBackupAndRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveContent.resx">
       <DependentUpon>FrmSaveContent.cs</DependentUpon>

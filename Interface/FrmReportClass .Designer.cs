@@ -59,7 +59,7 @@
             this.cbClass.Location = new System.Drawing.Point(13, 47);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(357, 28);
+            this.cbClass.Size = new System.Drawing.Size(357, 33);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
@@ -70,7 +70,7 @@
             this.label2.Location = new System.Drawing.Point(9, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -85,14 +85,14 @@
             this.dgvReportClass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvReportClass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvReportClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvReportClass.ColumnHeadersHeight = 29;
+            this.dgvReportClass.ColumnHeadersHeight = 40;
             this.dgvReportClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReportClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -102,6 +102,7 @@
             this.numberOfAttendence,
             this.numberOfAbsences,
             this.percentage});
+            this.dgvReportClass.EnableHeadersVisualStyles = false;
             this.dgvReportClass.Location = new System.Drawing.Point(13, 85);
             this.dgvReportClass.Margin = new System.Windows.Forms.Padding(4);
             this.dgvReportClass.Name = "dgvReportClass";
@@ -127,7 +128,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 51;
+            this.id.Width = 61;
             // 
             // name
             // 
@@ -137,7 +138,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 76;
+            this.name.Width = 96;
             // 
             // classStudent
             // 
@@ -147,7 +148,7 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 79;
+            this.classStudent.Width = 102;
             // 
             // shift
             // 
@@ -156,7 +157,7 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 75;
+            this.shift.Width = 97;
             // 
             // numberOfAttendence
             // 
@@ -168,7 +169,7 @@
             this.numberOfAttendence.MinimumWidth = 6;
             this.numberOfAttendence.Name = "numberOfAttendence";
             this.numberOfAttendence.ReadOnly = true;
-            this.numberOfAttendence.Width = 191;
+            this.numberOfAttendence.Width = 253;
             // 
             // numberOfAbsences
             // 
@@ -180,7 +181,7 @@
             this.numberOfAbsences.MinimumWidth = 6;
             this.numberOfAbsences.Name = "numberOfAbsences";
             this.numberOfAbsences.ReadOnly = true;
-            this.numberOfAbsences.Width = 160;
+            this.numberOfAbsences.Width = 210;
             // 
             // percentage
             // 
@@ -191,7 +192,7 @@
             this.percentage.MinimumWidth = 6;
             this.percentage.Name = "percentage";
             this.percentage.ReadOnly = true;
-            this.percentage.Width = 48;
+            this.percentage.Width = 59;
             // 
             // btnViewReport
             // 
@@ -210,7 +211,7 @@
             // 
             // FrmReportClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(841, 453);

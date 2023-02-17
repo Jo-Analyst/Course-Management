@@ -45,8 +45,6 @@ namespace DataBase
                 string sql = "DELETE FROM Contents WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", Id);
-                command.Parameters.AddWithValue("@wording", Wording);
-                command.Parameters.AddWithValue("@classId", Class_id);
                 command.CommandText = sql;
                 try
                 {
@@ -57,6 +55,26 @@ namespace DataBase
                 {
                     throw;
                 }
+            }
+        }
+
+        public DataTable FindByMatter(string matter)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    string sql = $"SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id WHERE c.matter = '{matter}'";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
             }
         }
 

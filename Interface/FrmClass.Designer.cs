@@ -76,18 +76,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClass.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClass.ColumnHeadersHeight = 40;
+            this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name,
             this.shift});
+            this.dgvClass.EnableHeadersVisualStyles = false;
             this.dgvClass.Location = new System.Drawing.Point(32, 148);
             this.dgvClass.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClass.Name = "dgvClass";
@@ -109,7 +111,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 60;
+            this.id.Width = 62;
             // 
             // name
             // 
@@ -119,7 +121,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 98;
+            this.name.Width = 103;
             // 
             // shift
             // 
@@ -129,7 +131,7 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
-            this.shift.Width = 93;
+            this.shift.Width = 98;
             // 
             // btnEdit
             // 
