@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class FrmAttendanceList : Form
+    public partial class FrmCourseManagementt : Form
     {
-        public FrmAttendanceList()
+        public FrmCourseManagementt()
         {
             InitializeComponent();
         }
@@ -44,7 +44,6 @@ namespace Interface
         {
             Class @class = new Class();
 
-
             if (@class.FindAll().Rows.Count > 0)
             {
                 new FrmClass().ShowDialog();
@@ -57,6 +56,20 @@ namespace Interface
             {
                 new FrmClass().ShowDialog();
             }
+        }
+
+        Content content= new Content();
+        private void btnContent_Click(object sender, EventArgs e)
+        {
+            if (content.FindAll().Rows.Count > 0)
+            {
+                new FrmContent().ShowDialog();
+            }
+            else
+            {
+                new FrmSaveContent().ShowDialog();
+            }
+
         }
     }
 }

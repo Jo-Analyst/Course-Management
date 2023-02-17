@@ -7,6 +7,7 @@ namespace DataBase
     {
         public int Id { get; set; }
         public string Wording { get; set; }
+        public string Matter { get; set; }
         public string Date { get; set; }
         public int Class_id { get; set; }
         private string connectionString = DbConnectionString.connectionString;
@@ -16,11 +17,13 @@ namespace DataBase
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sql = Id == 0
-                    ? "INSERT INTO Contents VALUES (@wording @Date, @classId)"
-                    : "UPDATE Contents SET wording = @wording, Date = @Date, class_id = @classId WHERE id = @id";
+                    ? "INSERT INTO Contents VALUES (@wording, @matter, @date, @classId)"
+                    : "UPDATE Contents SET wording = @wording, matter = @matter, Date = @Date, class_id = @classId WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", Id);
                 command.Parameters.AddWithValue("@wording", Wording);
+                command.Parameters.AddWithValue("@matter", Matter);
+                command.Parameters.AddWithValue("@date", Date);
                 command.Parameters.AddWithValue("@classId", Class_id);
                 command.CommandText = sql;
                 try

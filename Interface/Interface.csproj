@@ -120,17 +120,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatatableReport.cs" />
-    <Compile Include="FrmAttendanceList.cs">
+    <Compile Include="FrmCourseManagementt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAttendanceList.Designer.cs">
-      <DependentUpon>FrmAttendanceList.cs</DependentUpon>
+    <Compile Include="FrmCourseManagementt.designer.cs">
+      <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaveContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaveContent.Designer.cs">
+      <DependentUpon>FrmSaveContent.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPresence.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPresence.Designer.cs">
       <DependentUpon>FrmPresence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContent.Designer.cs">
+      <DependentUpon>FrmContent.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmViewReport.cs">
       <SubType>Form</SubType>
@@ -185,11 +197,17 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewStudentReport.cs" />
-    <EmbeddedResource Include="FrmAttendanceList.resx">
-      <DependentUpon>FrmAttendanceList.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCourseManagementt.resx">
+      <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaveContent.resx">
+      <DependentUpon>FrmSaveContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresence.resx">
       <DependentUpon>FrmPresence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContent.resx">
+      <DependentUpon>FrmContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmViewReport.resx">
       <DependentUpon>FrmViewReport.cs</DependentUpon>
