@@ -1,5 +1,7 @@
 ﻿using DataBase;
+using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -37,7 +39,6 @@ namespace Interface
 
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
-                btnPrintReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 LoadDataTable();
 
                 if (cbClass.Text.ToLower() != "todos")
@@ -97,7 +98,34 @@ namespace Interface
 
         private void btnViewReport_Click(object sender, EventArgs e)
         {
-            new FrmViewReport(dataTable).ShowDialog();
+            PrintReport();
+            new FrmViewReport(rds).ShowDialog();
+        }
+
+        ReportDataSource rds = new ReportDataSource();
+        ViewStudentReport view = new ViewStudentReport();
+
+        private void PrintReport()
+        {
+            List<ViewStudentReport> lst = new List<ViewStudentReport>();
+            lst.Clear();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                view = new ViewStudentReport();
+                view.StudenId = int.Parse(dr["id"].ToString());
+                view.StudentName = dr["name"].ToString();
+                view.StudentClass = dr["class"].ToString();
+                view.StudentShift = dr["shift"].ToString();
+                view.StudentNumberOfAttendance = int.Parse(dr["numberOfAttendence"].ToString());
+                view.StudentNumberOfAbsences = int.Parse(dr["numberOfAbsences"].ToString());
+                view.percentage = dr["percentage"].ToString();
+
+                lst.Add(view);
+            }
+
+            rds.Name = "DataSet1";
+            rds.Value = lst;
         }
 
         private void FrmReportClass_Load(object sender, EventArgs e)

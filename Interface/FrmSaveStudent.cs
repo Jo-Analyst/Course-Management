@@ -87,11 +87,12 @@ namespace Interface
             }
         }
 
+        DataTable dtClass;
         private void LoadCbClass()
         {
             cbClass.Items.Clear();
-            var dtClass = @class.FindByClassForShift(cbShift.Text).Rows;
-            foreach (DataRow dt in dtClass)
+            dtClass = @class.FindByClassForShift(cbShift.Text);
+            foreach (DataRow dt in dtClass.Rows)
             {
                 cbClass.Items.Add(dt["name"]);
             }
@@ -111,6 +112,7 @@ namespace Interface
         private void cbShift_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadCbClass();
+            cbClass.SelectedIndex = dtClass.Rows.Count > 0 ?  0 : -1;
         }
 
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
