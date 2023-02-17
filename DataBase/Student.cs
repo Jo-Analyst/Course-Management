@@ -65,8 +65,8 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = option.ToLower() == "nome" 
-                        ? $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE name LIKE '%{field}%'" 
+                    string sql = option.ToLower() == "nome"
+                        ? $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE name LIKE '%{field}%'"
                         : $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students WHERE Classes.name LIKE '%{field}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;

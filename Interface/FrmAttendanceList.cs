@@ -1,6 +1,5 @@
 ﻿using DataBase;
 using System;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Interface
@@ -13,10 +12,11 @@ namespace Interface
         }
 
         Student student = new Student();
-        Class @class= new Class();
+        Class @class = new Class();
 
         private void btnStudent_Click(object sender, EventArgs e)
-        {   if (student.FindAll().Rows.Count > 0)
+        {
+            if (student.FindAll().Rows.Count > 0)
             {
                 new FrmStudent().ShowDialog();
                 return;

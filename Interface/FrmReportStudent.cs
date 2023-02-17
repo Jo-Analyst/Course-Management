@@ -1,12 +1,6 @@
 ﻿using DataBase;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -26,7 +20,7 @@ namespace Interface
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
-            {               
+            {
                 var dtStudent = student.FindByClass(cbClass.Text).Rows;
 
                 cbNameStudents.Items.Clear();
@@ -73,11 +67,11 @@ namespace Interface
             {
                 studentId = student.FindByNameForClass(cbNameStudents.Text, cbClass.Text);
                 DataTable dtListAttendance = listAttendance.GetStudentAttendanceAmount(studentId);
-               
+
                 lblNumberAttendance.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_attendance"].ToString() : "0";
                 lblNumberLack.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_absences"].ToString() : "0";
-               
-                int percentage =  Utils.CalculatePercentage(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
+
+                int percentage = Utils.CalculatePercentage(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
                 lblPercentage.Text = $"{percentage}%";
                 pbPercentage.Value = percentage;
             }
@@ -87,7 +81,7 @@ namespace Interface
             }
         }
 
-       private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbClass.Items.Count == 0)
                 return;

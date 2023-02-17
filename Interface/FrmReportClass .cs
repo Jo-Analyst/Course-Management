@@ -1,12 +1,6 @@
 ﻿using DataBase;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -45,7 +39,9 @@ namespace Interface
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 btnPrintReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 LoadDataTable();
-                class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
+
+                if (cbClass.Text.ToLower() != "todos")
+                    class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
             }
             catch (Exception ex)
             {
@@ -54,7 +50,7 @@ namespace Interface
         }
 
         private void LoadDataTable()
-        {         
+        {
             dataTable.Rows.Clear();
             for (int i = 0; i < dgvReportClass.Rows.Count; i++)
             {
@@ -120,7 +116,7 @@ namespace Interface
             dataTable.Columns.Add("numberOfAbsences", typeof(string));
             dataTable.Columns.Add("percentage", typeof(string));
         }
-       
+
         private void LoadCbClass()
         {
             var dtClasses = @class.FindAll();

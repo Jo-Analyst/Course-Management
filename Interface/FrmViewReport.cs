@@ -1,13 +1,7 @@
-﻿using DataBase;
-using Microsoft.Reporting.WinForms;
+﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Interface
@@ -29,7 +23,7 @@ namespace Interface
 
             List<ViewStudentReport> lst = new List<ViewStudentReport>();
             lst.Clear();
-            
+
             foreach (DataRow dr in dt.Rows)
             {
                 view = new ViewStudentReport();

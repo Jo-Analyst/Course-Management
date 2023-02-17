@@ -1,7 +1,6 @@
 ﻿using DataBase;
 using System;
 using System.Data;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Interface
@@ -9,7 +8,7 @@ namespace Interface
     public partial class FrmPresence : Form
     {
         int class_id;
-        Class @class= new Class();
+        Class @class = new Class();
 
         public FrmPresence()
         {
@@ -25,7 +24,7 @@ namespace Interface
 
                 if (ThereIsMarkedAttendanceList())
                 {
-                    LoadListPresence();                    
+                    LoadListPresence();
                     btnConfirmPresence.Text = "Editar Presença";
                 }
                 else
@@ -77,7 +76,7 @@ namespace Interface
             else
             {
                 MessageBox.Show("Não há alunos cadastrado nesta turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                btnConfirmPresence.Text= "Confirmar Presença";
+                btnConfirmPresence.Text = "Confirmar Presença";
                 dgvListPresence.Rows.Clear();
 
             }
@@ -175,7 +174,7 @@ namespace Interface
         private void FrmPresence_Load(object sender, EventArgs e)
         {
             var dtClasses = @class.FindAll();
-            foreach(DataRow dr in dtClasses.Rows)
+            foreach (DataRow dr in dtClasses.Rows)
             {
                 cbClass.Items.Add(dr["name"]);
             }

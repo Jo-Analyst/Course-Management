@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
@@ -80,7 +79,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         public DataTable FindAll(string date, string _class)
         {
             using (var connection = new SqlConnection(_connectionString))

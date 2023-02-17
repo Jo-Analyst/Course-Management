@@ -1,6 +1,5 @@
 ﻿using DataBase;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace Interface
@@ -44,22 +43,22 @@ namespace Interface
             {
                 MessageBox.Show("Selecione o turno", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
-            }         
-           
+            }
+
             try
             {
                 @class.Id = id;
                 @class.Name = txtClass.Text.Trim();
                 @class.Shift = cbShift.Text;
-              
-                if(id == 0 && @class.FindByClass(txtClass.Text).Rows.Count > 0)
+
+                if (id == 0 && @class.FindByClass(txtClass.Text).Rows.Count > 0)
                 {
                     MessageBox.Show($"Já existe a turma '{txtClass.Text}' cadastrada no sistema.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
                 var dtShifts = @class.FindByClassForShift(cbShift.Text);
-                for (int i =0;i < dtShifts.Rows.Count;i++)
+                for (int i = 0; i < dtShifts.Rows.Count; i++)
                 {
                     thisClassIsRegistered = dtShifts.Rows[0]["name"].ToString() == txtClass.Text ? true : false;
 
@@ -67,7 +66,7 @@ namespace Interface
                         break;
                 }
 
-                if(thisClassIsRegistered)
+                if (thisClassIsRegistered)
                 {
                     MessageBox.Show($"Não é possível atualizar o nome da turma para '{txtClass.Text}', pois esta turma já está cadastrado no sistema.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -83,7 +82,7 @@ namespace Interface
                     if (dr == DialogResult.Yes)
                     {
                         txtClass.Clear();
-                       txtClass.Focus();
+                        txtClass.Focus();
                         return;
                     }
                 }
@@ -98,7 +97,7 @@ namespace Interface
 
         private void FrmSaveStudent_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click(sender, e);
             }
