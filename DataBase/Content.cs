@@ -66,7 +66,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    string sql = "SELECT * FROM Contents";
+                    string sql = "SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

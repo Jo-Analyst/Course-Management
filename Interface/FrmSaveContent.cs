@@ -7,15 +7,29 @@ namespace Interface
 {
     public partial class FrmSaveContent : Form
     {
-        int class_id, id;
+        int class_id, contentId;
         Class @class = new Class();
 
         public FrmSaveContent()
         {
             InitializeComponent();
+            LoadClass();
         }
 
-        Student student = new Student();
+        public FrmSaveContent(int id, string wording, string matter, string date, int class_id, string @class)
+        {
+            InitializeComponent();
+            contentId= id;
+            cbMatter.Text = matter;
+            dtDateContent.Text = date;
+            this.class_id = class_id;
+            txtContent.Text = wording;
+            LoadClass();
+            cbClass.Text= @class;
+        }
+
+        public bool contentWasSaved { get; internal set; }
+
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -36,8 +50,9 @@ namespace Interface
             {
                 if (!ValidateFields()) return;
 
-                 new Content() { Id = id, Wording = txtContent.Text.Trim(), Matter = cbMatter.Text, Date = dtDateContent.Value.ToShortDateString(), Class_id = class_id}.Save();
+                 new Content() { Id = contentId, Wording = txtContent.Text.Trim(), Matter = cbMatter.Text, Date = dtDateContent.Value.ToShortDateString(), Class_id = class_id}.Save();
 
+                contentWasSaved = true;
                 this.Close();
             }   
             catch(Exception ex)
@@ -69,6 +84,11 @@ namespace Interface
         }
 
         private void FrmContent_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void LoadClass()
         {
             try
             {

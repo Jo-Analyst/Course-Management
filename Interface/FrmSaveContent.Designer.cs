@@ -87,12 +87,12 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Data";
             // 
-            // dtDatePresence
+            // dtDateContent
             // 
             this.dtDateContent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDateContent.Location = new System.Drawing.Point(711, 43);
             this.dtDateContent.Margin = new System.Windows.Forms.Padding(4);
-            this.dtDateContent.Name = "dtDatePresence";
+            this.dtDateContent.Name = "dtDateContent";
             this.dtDateContent.Size = new System.Drawing.Size(135, 26);
             this.dtDateContent.TabIndex = 10;
             // 
@@ -146,7 +146,7 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Matéria";
             // 
-            // FrmContent
+            // FrmSaveContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,10 +166,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
-            this.Name = "FrmContent";
+            this.Name = "FrmSaveContent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presença";
-            this.Load += new System.EventHandler(this.FrmContent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

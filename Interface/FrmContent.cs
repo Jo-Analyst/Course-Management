@@ -15,18 +15,18 @@ namespace Interface
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            new FrmSaveStudent().ShowDialog();
-            LoadDataStudent();
+            new FrmSaveContent().ShowDialog();
+            LoadDataContent();
         }
 
         Content content = new Content();
 
-        private void FrmStudent_Load(object sender, EventArgs e)
+        private void FrmContent_Load(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            LoadDataContent();
         }
 
-        private void LoadDataStudent()
+        private void LoadDataContent()
         {
             try
             {
@@ -37,11 +37,11 @@ namespace Interface
                 {
                     int index = dgvContent.Rows.Add();
                     dgvContent.Rows[index].Cells["id"].Value = dr["id"].ToString();
-                    dgvContent.Rows[index].Cells["name"].Value = dr["name"].ToString();
+                    dgvContent.Rows[index].Cells["wording"].Value = dr["wording"].ToString();
                     dgvContent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
-                    dgvContent.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
+                    dgvContent.Rows[index].Cells["matter"].Value = dr["matter"].ToString();
+                    dgvContent.Rows[index].Cells["date"].Value = dr["date"].ToString();
                     dgvContent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
-                    dgvContent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 }
 
                 dgvContent.ClearSelection();
@@ -56,43 +56,40 @@ namespace Interface
         {
             if (contentId == 0)
             {
-                MessageBox.Show("Selecione o dado do aluno que deseja editar", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o conteúdo", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //var saveStudent = new FrmSaveContent(int.Parse(dgvContent.CurrentRow.Cells["id"].Value.ToString()), dgvContent.CurrentRow.Cells["wording"].Value.ToString(), dgvContent.CurrentRow.Cells["matter"].Value.ToString(), dgvContent.CurrentRow.Cells["Date"].Value.ToString(), dgvContent.CurrentRow.Cells["gender"].Value.ToString());
-            //saveStudent.ShowDialog();
+            var saveStudent = new FrmSaveContent(int.Parse(dgvContent.CurrentRow.Cells["id"].Value.ToString()), dgvContent.CurrentRow.Cells["wording"].Value.ToString(), dgvContent.CurrentRow.Cells["matter"].Value.ToString(), dgvContent.CurrentRow.Cells["Date"].Value.ToString(), int.Parse(dgvContent.CurrentRow.Cells["classId"].Value.ToString()), dgvContent.CurrentRow.Cells["classStudent"].Value.ToString());
+            saveStudent.ShowDialog();
 
-            //studentId = 0;
-            //dgvContent.ClearSelection();
-            //if (saveStudent.studentWasSaved)
-            //    LoadDataStudent();
+            contentId = 0;
+            dgvContent.ClearSelection();
+            if (saveStudent.contentWasSaved)
+                LoadDataContent();
         }
 
-        string genderStudent, nameStudent;
         private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 contentId = int.Parse(dgvContent.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                nameStudent = dgvContent.Rows[e.RowIndex].Cells["name"].Value.ToString();
-                genderStudent = dgvContent.Rows[e.RowIndex].Cells["gender"].Value.ToString();
             }
         }
 
         private void txtField_TextChanged(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            LoadDataContent();
         }
 
         private void rbName_CheckedChanged(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            LoadDataContent();
         }
 
         private void rbClass_CheckedChanged(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            LoadDataContent();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -109,7 +106,7 @@ namespace Interface
             {
                 content.Id = contentId;
                 content.Delete();
-                LoadDataStudent();
+                LoadDataContent();
             }
 
             contentId = 0;

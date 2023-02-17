@@ -71,7 +71,7 @@
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(1028, 30);
+            this.txtField.Size = new System.Drawing.Size(1028, 26);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -82,7 +82,7 @@
             this.dgvStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvStudent.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +118,7 @@
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
-            this.id.Width = 60;
+            this.id.Width = 51;
             // 
             // name
             // 
@@ -128,7 +128,7 @@
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 93;
+            this.name.Width = 76;
             // 
             // gender
             // 
@@ -139,7 +139,7 @@
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 106;
+            this.gender.Width = 88;
             // 
             // classStudent
             // 
@@ -149,7 +149,7 @@
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 98;
+            this.classStudent.Width = 79;
             // 
             // shift
             // 
@@ -157,7 +157,7 @@
             this.shift.HeaderText = "Turno";
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
-            this.shift.Width = 93;
+            this.shift.Width = 75;
             // 
             // classId
             // 
@@ -200,7 +200,7 @@
             this.label1.Location = new System.Drawing.Point(29, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 25);
+            this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Procurar por: ";
             // 
@@ -212,7 +212,7 @@
             this.rbName.Location = new System.Drawing.Point(172, 112);
             this.rbName.Margin = new System.Windows.Forms.Padding(4);
             this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(85, 29);
+            this.rbName.Size = new System.Drawing.Size(69, 24);
             this.rbName.TabIndex = 6;
             this.rbName.TabStop = true;
             this.rbName.Text = "Nome";
@@ -226,7 +226,7 @@
             this.rbClass.Location = new System.Drawing.Point(268, 112);
             this.rbClass.Margin = new System.Windows.Forms.Padding(4);
             this.rbClass.Name = "rbClass";
-            this.rbClass.Size = new System.Drawing.Size(90, 29);
+            this.rbClass.Size = new System.Drawing.Size(72, 24);
             this.rbClass.TabIndex = 7;
             this.rbClass.Text = "Turma";
             this.rbClass.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@
             // 
             // FrmStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);

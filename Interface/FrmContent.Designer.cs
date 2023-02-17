@@ -36,13 +36,14 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
             this.dgvContent = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.dgvContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvContent.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,8 +94,9 @@
             this.dgvContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.wording,
-            this.gender,
+            this.matter,
             this.classStudent,
+            this.date,
             this.classId});
             this.dgvContent.Location = new System.Drawing.Point(34, 145);
             this.dgvContent.Margin = new System.Windows.Forms.Padding(4);
@@ -107,56 +109,6 @@
             this.dgvContent.Size = new System.Drawing.Size(1028, 337);
             this.dgvContent.TabIndex = 2;
             this.dgvContent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 51;
-            // 
-            // wording
-            // 
-            this.wording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.wording.DataPropertyName = "name";
-            this.wording.HeaderText = "Conteúdo Passado";
-            this.wording.MinimumWidth = 6;
-            this.wording.Name = "wording";
-            this.wording.ReadOnly = true;
-            this.wording.Width = 170;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gender.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gender.HeaderText = "Matéria";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 87;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Data";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 69;
-            // 
-            // classId
-            // 
-            this.classId.HeaderText = "Class_id";
-            this.classId.MinimumWidth = 6;
-            this.classId.Name = "classId";
-            this.classId.Visible = false;
-            this.classId.Width = 125;
             // 
             // btnDelete
             // 
@@ -184,6 +136,61 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 51;
+            // 
+            // wording
+            // 
+            this.wording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.wording.DataPropertyName = "name";
+            this.wording.HeaderText = "Conteúdo Passado";
+            this.wording.MinimumWidth = 6;
+            this.wording.Name = "wording";
+            this.wording.ReadOnly = true;
+            this.wording.Width = 170;
+            // 
+            // matter
+            // 
+            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.matter.DefaultCellStyle = dataGridViewCellStyle3;
+            this.matter.HeaderText = "Matéria";
+            this.matter.MinimumWidth = 6;
+            this.matter.Name = "matter";
+            this.matter.ReadOnly = true;
+            this.matter.Width = 87;
+            // 
+            // classStudent
+            // 
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.Name = "classStudent";
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.date.DataPropertyName = "class";
+            this.date.HeaderText = "Data";
+            this.date.MinimumWidth = 6;
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.Width = 69;
+            // 
+            // classId
+            // 
+            this.classId.HeaderText = "Class_id";
+            this.classId.MinimumWidth = 6;
+            this.classId.Name = "classId";
+            this.classId.Visible = false;
+            this.classId.Width = 125;
+            // 
             // FrmContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -203,7 +210,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aluno";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmStudent_Load);
+            this.Load += new System.EventHandler(this.FrmContent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,8 +226,9 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn wording;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matter;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn classId;
     }
 }
