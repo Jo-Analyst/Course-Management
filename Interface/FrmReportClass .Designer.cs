@@ -198,13 +198,13 @@
             this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewReport.Enabled = false;
             this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Location = new System.Drawing.Point(611, 384);
+            this.btnViewReport.Location = new System.Drawing.Point(556, 384);
             this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(217, 52);
+            this.btnViewReport.Size = new System.Drawing.Size(272, 52);
             this.btnViewReport.TabIndex = 15;
             this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar Relatório";
+            this.btnViewReport.Text = "Visualizar e Imprimir Relatório";
             this.btnViewReport.UseVisualStyleBackColor = true;
             this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
             // 
