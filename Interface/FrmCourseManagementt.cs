@@ -75,7 +75,7 @@ namespace Interface
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBackupAndRestore_Click(object sender, EventArgs e)
         {
             new FrmOpenBackupAndRestore().ShowDialog();
         }

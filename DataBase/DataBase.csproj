@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backup.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="DbConnectionString.cs" />
