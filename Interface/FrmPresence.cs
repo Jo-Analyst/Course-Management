@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmPresence : Form
     {
@@ -195,7 +195,7 @@ namespace Interface
 
         private void ClearSelectionDgv(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvListPresence.ClearSelection();
             }

@@ -1,4 +1,4 @@
-﻿namespace Interface
+﻿namespace CourseManagement
 {
     internal static class Utils
     {
@@ -8,7 +8,7 @@
             int percentage = (numberAttendance * 100) / numberOfClasses;
             return percentage;
         } // Desde o início do curso
-        
+
         public static int CalculatePercentageOfAttendanceSinceJoined(int numberAttendance, int numberLack)
         {
             int numberOfClasses = numberAttendance + numberLack;

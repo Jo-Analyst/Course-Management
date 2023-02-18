@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmSaveStudent : Form
     {
@@ -116,7 +116,7 @@ namespace Interface
         private void cbShift_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadCbClass();
-            cbClass.SelectedIndex = dtClass.Rows.Count > 0 ?  0 : -1;
+            cbClass.SelectedIndex = dtClass.Rows.Count > 0 ? 0 : -1;
         }
 
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)

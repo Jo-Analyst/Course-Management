@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     internal static class Program
     {

@@ -82,7 +82,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         public DataTable ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(int class_id)
         {
             try

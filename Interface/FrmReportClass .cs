@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmReportClass : Form
     {
@@ -27,11 +27,11 @@ namespace Interface
                 DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : student.FindByClass(cbClass.Text);
                 dgvReportClass.Rows.Clear();
                 DataTable dtStudent;
-                int index =0;
+                int index = 0;
                 foreach (DataRow dr in dtStudents.Rows)
                 {
                     class_id = int.Parse(dr["class_id"].ToString());
-                   
+
                     int numberOfClasses = int.Parse(listAttendance.ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(class_id).Rows[0]["count_attendance"].ToString());
 
                     dtStudent = listAttendance.GetStudentAttendanceValueSinceJoined(int.Parse(dr["id"].ToString()));
@@ -45,7 +45,7 @@ namespace Interface
 
                         int resultPercentageCameIn = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
 
-                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%"); 
+                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%");
                     }
 
                     dgvReportClass.Rows[index].Height = 35;
@@ -81,7 +81,7 @@ namespace Interface
             }
         }
 
-       private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearSelectionDGV(e);
         }

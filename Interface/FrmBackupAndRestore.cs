@@ -1,9 +1,9 @@
 ﻿using DataBase;
-using System.IO;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmBackupAndRestore : Form
     {
@@ -21,7 +21,7 @@ namespace Interface
             }
         }
 
-        private string getDate() 
+        private string getDate()
         {
             DateTime dt = DateTime.Now;
             int year = dt.Year;

@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmStudent : Form
     {

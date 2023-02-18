@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     partial class FrmCourseManagementt
     {

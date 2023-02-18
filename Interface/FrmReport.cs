@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmReport : Form
     {

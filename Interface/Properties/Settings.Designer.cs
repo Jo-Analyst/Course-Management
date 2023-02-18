@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Interface.Properties {
+namespace CourseManagement.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

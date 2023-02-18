@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8E14EE65-E413-4F01-86DE-6570317EF00D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Interface</RootNamespace>
-    <AssemblyName>Interface</AssemblyName>
+    <RootNamespace>CourseManagement</RootNamespace>
+    <AssemblyName>CourseManagement</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -88,7 +88,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>content.ico</ApplicationIcon>
+    <ApplicationIcon>list.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">

@@ -2,13 +2,13 @@
 using System;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmSaveClass : Form
     {
 
         public bool classWasSaved { get; set; }
-        public string nameClass{ get; set; }
+        public string nameClass { get; set; }
         bool calledSaveStudent = false;
         int id;
         Class @class = new Class();
@@ -79,17 +79,17 @@ namespace Interface
                 classWasSaved = true;
                 nameClass = @class.Name;
 
-                    if (id == 0 && !calledSaveStudent)
-                    {
-                        DialogResult dr = MessageBox.Show("Deseja incluir mais um nova turma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (id == 0 && !calledSaveStudent)
+                {
+                    DialogResult dr = MessageBox.Show("Deseja incluir mais um nova turma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        if (dr == DialogResult.Yes)
-                        {
-                            txtClass.Clear();
-                            txtClass.Focus();
-                            return;
-                        }
+                    if (dr == DialogResult.Yes)
+                    {
+                        txtClass.Clear();
+                        txtClass.Focus();
+                        return;
                     }
+                }
 
                 this.Close();
             }

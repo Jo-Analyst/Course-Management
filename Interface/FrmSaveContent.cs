@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmSaveContent : Form
     {
@@ -19,13 +19,13 @@ namespace Interface
         public FrmSaveContent(int id, string wording, string matter, string date, int class_id, string @class)
         {
             InitializeComponent();
-            contentId= id;
+            contentId = id;
             cbMatter.Text = matter;
             dtDateContent.Text = date;
             this.class_id = class_id;
             txtContent.Text = wording;
             LoadClass();
-            cbClass.Text= @class;
+            cbClass.Text = @class;
         }
 
         public bool contentWasSaved { get; internal set; }
@@ -40,9 +40,9 @@ namespace Interface
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-        }      
+        }
 
-        
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -50,12 +50,12 @@ namespace Interface
             {
                 if (!ValidateFields()) return;
 
-                 new Content() { Id = contentId, Wording = txtContent.Text.Trim(), Matter = cbMatter.Text, Date = dtDateContent.Value.ToShortDateString(), Class_id = class_id}.Save();
+                new Content() { Id = contentId, Wording = txtContent.Text.Trim(), Matter = cbMatter.Text, Date = dtDateContent.Value.ToShortDateString(), Class_id = class_id }.Save();
 
                 contentWasSaved = true;
                 this.Close();
-            }   
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
@@ -73,7 +73,7 @@ namespace Interface
             {
                 MessageBox.Show("Selecione a matéria.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if(string.IsNullOrEmpty(txtContent.Text))
+            else if (string.IsNullOrEmpty(txtContent.Text))
             {
                 MessageBox.Show("Preencha o conteúdo.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -85,7 +85,7 @@ namespace Interface
 
         private void FrmContent_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void LoadClass()

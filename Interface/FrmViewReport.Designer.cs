@@ -1,4 +1,4 @@
-﻿namespace Interface
+﻿namespace CourseManagement
 {
     partial class FrmViewReport
     {
@@ -36,7 +36,7 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.BackColor = System.Drawing.Color.Gray;
+            this.reportViewer1.BackColor = System.Drawing.Color.Gainsboro;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.ForeColor = System.Drawing.Color.Black;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Interface.ReportListPresence.rdlc";

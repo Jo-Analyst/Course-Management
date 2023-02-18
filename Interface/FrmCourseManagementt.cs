@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmCourseManagementt : Form
     {
@@ -58,7 +58,7 @@ namespace Interface
             }
         }
 
-        Content content= new Content();
+        Content content = new Content();
         private void btnContent_Click(object sender, EventArgs e)
         {
             if (content.FindAll().Rows.Count > 0)

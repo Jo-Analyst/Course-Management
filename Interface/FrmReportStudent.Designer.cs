@@ -1,4 +1,4 @@
-﻿namespace Interface
+﻿namespace CourseManagement
 {
     partial class FrmReportStudent
     {

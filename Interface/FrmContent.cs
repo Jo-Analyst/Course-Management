@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Interface
+namespace CourseManagement
 {
     public partial class FrmContent : Form
     {
@@ -31,7 +31,7 @@ namespace Interface
             try
             {
                 dgvContent.Rows.Clear();
-                DataTable dtContent = !string.IsNullOrWhiteSpace(cbMatter.Text) ? content.FindByMatter(cbMatter.Text.Trim()) :  content.FindAll();
+                DataTable dtContent = !string.IsNullOrWhiteSpace(cbMatter.Text) ? content.FindByMatter(cbMatter.Text.Trim()) : content.FindAll();
 
                 foreach (DataRow dr in dtContent.Rows)
                 {
@@ -101,7 +101,7 @@ namespace Interface
                 return;
             }
 
-          DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o conteúdo?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o conteúdo?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {

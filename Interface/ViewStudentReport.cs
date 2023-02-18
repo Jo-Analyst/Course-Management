@@ -1,4 +1,4 @@
-﻿namespace Interface
+﻿namespace CourseManagement
 {
     public class ViewStudentReport
     {
