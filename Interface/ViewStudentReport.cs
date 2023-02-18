@@ -8,6 +8,7 @@
         public string StudentShift { get; set; }
         public int StudentNumberOfAttendance { get; set; }
         public int StudentNumberOfAbsences { get; set; }
-        public string percentage { get; set; }
+        public string percentageStart { get; set; }
+        public string percentageCameIn { get; set; }
     }
 }

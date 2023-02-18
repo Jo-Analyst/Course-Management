@@ -81,18 +81,18 @@ namespace DataBase
             }
         }
 
-        public int FindByNameForClass(string name, string _class)
+        public DataTable FindByNameForClass(string name, string _class)
         {
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT Students.id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name = '{name}' AND Classes.name = '{_class}'";
+                    string sql = $"SELECT Students.id, Students.class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name = '{name}' AND Classes.name = '{_class}'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-                    return int.Parse(dataTable.Rows[0]["id"].ToString());
+                    return dataTable;
                 }
             }
             catch

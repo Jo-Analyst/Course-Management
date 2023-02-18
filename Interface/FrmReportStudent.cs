@@ -57,23 +57,22 @@ namespace Interface
         {
             lblNumberAttendance.Text = "0";
             lblNumberLack.Text = "0";
-            pbPercentage.Value = 0;
-            lblPercentage.Text = "0%";
+            pbPercentageCameIn.Value = 0;
+            lblPercentageCameIn.Text = "0%";
         }
 
         private void GenerateReport()
         {
             try
             {
-                studentId = student.FindByNameForClass(cbNameStudents.Text, cbClass.Text);
-                DataTable dtListAttendance = listAttendance.GetStudentAttendanceAmount(studentId);
+                studentId = int.Parse(student.FindByNameForClass(cbNameStudents.Text, cbClass.Text).Rows[0]["id"].ToString());
+                DataTable dtListAttendance = listAttendance.GetStudentAttendanceValueSinceJoined(studentId);
 
                 lblNumberAttendance.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_attendance"].ToString() : "0";
                 lblNumberLack.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_absences"].ToString() : "0";
 
-                int percentage = Utils.CalculatePercentage(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
-                lblPercentage.Text = $"{percentage}%";
-                pbPercentage.Value = percentage;
+                CalculateAttendancePercentageFromStart();
+                CalculatePercentageOfAttendanceSinceJoined();
             }
             catch (Exception ex)
             {
@@ -81,12 +80,38 @@ namespace Interface
             }
         }
 
+        private void CalculatePercentageOfAttendanceSinceJoined() // Desde que entrou
+        {
+            int percentage = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
+            lblPercentageCameIn.Text = $"{percentage}%";
+            pbPercentageCameIn.Value = percentage;
+        }
+
+        private void CalculateAttendancePercentageFromStart() // Desde o começo
+        {
+            int numberOfClasses = int.Parse(listAttendance.ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(class_id).Rows[0]["count_attendance"].ToString());
+
+            int percentage = Utils.CalculateAttendancePercentageFromStart(int.Parse(lblNumberAttendance.Text), numberOfClasses);
+            lblPercentageStart.Text = $"{percentage}%";
+            pbPercentageStart.Value = percentage;
+        }
+
+        int class_id;
+
         private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbClass.Items.Count == 0)
-                return;
+            try
+            {
+                if (cbClass.Items.Count == 0)
+                    return;
 
-            GenerateReport();
+                class_id = int.Parse(student.FindByNameForClass(cbNameStudents.Text, cbClass.Text).Rows[0]["class_id"].ToString());
+                GenerateReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FrmReportStudent_Load(object sender, EventArgs e)

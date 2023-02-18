@@ -69,7 +69,7 @@ namespace Interface
                     dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                     dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                     dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                    dgvListPresence.Rows[index].Height = 40;
+                    dgvListPresence.Rows[index].Height = 35;
                 }
 
                 dgvListPresence.ClearSelection();
@@ -178,6 +178,24 @@ namespace Interface
             foreach (DataRow dr in dtClasses.Rows)
             {
                 cbClass.Items.Add(dr["name"]);
+            }
+        }
+
+        private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClearSelectionDgv(sender, e);
+        }
+
+        private void dgvListPresence_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClearSelectionDgv(sender, e);
+        }
+
+        private void ClearSelectionDgv(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                dgvListPresence.ClearSelection();
             }
         }
     }

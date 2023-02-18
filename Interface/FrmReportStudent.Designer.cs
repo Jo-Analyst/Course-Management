@@ -37,11 +37,14 @@
             this.cbNameStudents = new System.Windows.Forms.ComboBox();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblPercentage = new System.Windows.Forms.Label();
-            this.pbPercentage = new System.Windows.Forms.ProgressBar();
+            this.lblPercentageCameIn = new System.Windows.Forms.Label();
+            this.pbPercentageCameIn = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblPercentageStart = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pbPercentageStart = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -120,35 +123,35 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
-            // lblPercentage
+            // lblPercentageCameIn
             // 
-            this.lblPercentage.AutoSize = true;
-            this.lblPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentage.Location = new System.Drawing.Point(272, 229);
-            this.lblPercentage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblPercentage.Name = "lblPercentage";
-            this.lblPercentage.Size = new System.Drawing.Size(35, 20);
-            this.lblPercentage.TabIndex = 9;
-            this.lblPercentage.Text = "0%";
+            this.lblPercentageCameIn.AutoSize = true;
+            this.lblPercentageCameIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentageCameIn.Location = new System.Drawing.Point(666, 239);
+            this.lblPercentageCameIn.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblPercentageCameIn.Name = "lblPercentageCameIn";
+            this.lblPercentageCameIn.Size = new System.Drawing.Size(35, 20);
+            this.lblPercentageCameIn.TabIndex = 9;
+            this.lblPercentageCameIn.Text = "0%";
             // 
-            // pbPercentage
+            // pbPercentageCameIn
             // 
-            this.pbPercentage.Location = new System.Drawing.Point(11, 224);
-            this.pbPercentage.Margin = new System.Windows.Forms.Padding(4);
-            this.pbPercentage.Name = "pbPercentage";
-            this.pbPercentage.Size = new System.Drawing.Size(252, 29);
-            this.pbPercentage.TabIndex = 6;
+            this.pbPercentageCameIn.Location = new System.Drawing.Point(405, 234);
+            this.pbPercentageCameIn.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPercentageCameIn.Name = "pbPercentageCameIn";
+            this.pbPercentageCameIn.Size = new System.Drawing.Size(252, 29);
+            this.pbPercentageCameIn.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 195);
+            this.label3.Location = new System.Drawing.Point(29, 201);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(294, 25);
+            this.label3.Size = new System.Drawing.Size(264, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Percentual de aulas participadas";
+            this.label3.Text = "% desde  o começo do curso";
             // 
             // label4
             // 
@@ -173,19 +176,52 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Número de faltas:";
             // 
+            // lblPercentageStart
+            // 
+            this.lblPercentageStart.AutoSize = true;
+            this.lblPercentageStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentageStart.Location = new System.Drawing.Point(293, 237);
+            this.lblPercentageStart.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblPercentageStart.Name = "lblPercentageStart";
+            this.lblPercentageStart.Size = new System.Drawing.Size(35, 20);
+            this.lblPercentageStart.TabIndex = 17;
+            this.lblPercentageStart.Text = "0%";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(400, 201);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(192, 25);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "% desde  que entrou";
+            // 
+            // pbPercentageStart
+            // 
+            this.pbPercentageStart.Location = new System.Drawing.Point(32, 232);
+            this.pbPercentageStart.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPercentageStart.Name = "pbPercentageStart";
+            this.pbPercentageStart.Size = new System.Drawing.Size(252, 29);
+            this.pbPercentageStart.TabIndex = 15;
+            // 
             // FrmReportStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(730, 276);
+            this.Controls.Add(this.lblPercentageStart);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pbPercentageStart);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblPercentage);
+            this.Controls.Add(this.lblPercentageCameIn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.pbPercentage);
+            this.Controls.Add(this.pbPercentageCameIn);
             this.Controls.Add(this.cbNameStudents);
             this.Controls.Add(this.lblNumberAttendance);
             this.Controls.Add(this.lblNumberLack);
@@ -215,10 +251,13 @@
         private System.Windows.Forms.ComboBox cbNameStudents;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblPercentage;
-        private System.Windows.Forms.ProgressBar pbPercentage;
+        private System.Windows.Forms.Label lblPercentageCameIn;
+        private System.Windows.Forms.ProgressBar pbPercentageCameIn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPercentageStart;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ProgressBar pbPercentageStart;
     }
 }

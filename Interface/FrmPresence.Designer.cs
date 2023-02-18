@@ -35,6 +35,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresence));
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
+            this.cbClass = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirmPresence = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
             this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,11 +47,6 @@
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnConfirmPresence = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,9 +60,9 @@
             this.dgvListPresence.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -87,78 +87,8 @@
             this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListPresence.Size = new System.Drawing.Size(942, 325);
             this.dgvListPresence.TabIndex = 4;
-            // 
-            // presence
-            // 
-            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = false;
-            this.presence.DefaultCellStyle = dataGridViewCellStyle2;
-            this.presence.HeaderText = "";
-            this.presence.MinimumWidth = 15;
-            this.presence.Name = "presence";
-            this.presence.Width = 15;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 62;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 97;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 103;
-            // 
-            // shift
-            // 
-            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.shift.HeaderText = "Turno";
-            this.shift.MinimumWidth = 6;
-            this.shift.Name = "shift";
-            this.shift.ReadOnly = true;
-            this.shift.Width = 98;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gender.DefaultCellStyle = dataGridViewCellStyle4;
-            this.gender.HeaderText = "Gênero";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 112;
-            // 
-            // listAttendance_id
-            // 
-            this.listAttendance_id.HeaderText = "listAttendance_id";
-            this.listAttendance_id.MinimumWidth = 6;
-            this.listAttendance_id.Name = "listAttendance_id";
-            this.listAttendance_id.Visible = false;
-            this.listAttendance_id.Width = 125;
+            this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellClick);
+            this.dgvListPresence.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellDoubleClick);
             // 
             // cbClass
             // 
@@ -216,6 +146,83 @@
             this.dtDatePresence.Size = new System.Drawing.Size(135, 30);
             this.dtDatePresence.TabIndex = 10;
             this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
+            // 
+            // presence
+            // 
+            this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = false;
+            this.presence.DefaultCellStyle = dataGridViewCellStyle2;
+            this.presence.HeaderText = "";
+            this.presence.MinimumWidth = 15;
+            this.presence.Name = "presence";
+            this.presence.Width = 15;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 37;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 70;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.classStudent.Width = 75;
+            // 
+            // shift
+            // 
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shift.HeaderText = "Turno";
+            this.shift.MinimumWidth = 6;
+            this.shift.Name = "shift";
+            this.shift.ReadOnly = true;
+            this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.shift.Width = 70;
+            // 
+            // gender
+            // 
+            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gender.DefaultCellStyle = dataGridViewCellStyle4;
+            this.gender.HeaderText = "Gênero";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.gender.Width = 83;
+            // 
+            // listAttendance_id
+            // 
+            this.listAttendance_id.HeaderText = "listAttendance_id";
+            this.listAttendance_id.MinimumWidth = 6;
+            this.listAttendance_id.Name = "listAttendance_id";
+            this.listAttendance_id.Visible = false;
+            this.listAttendance_id.Width = 125;
             // 
             // FrmPresence
             // 

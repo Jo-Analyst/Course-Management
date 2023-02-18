@@ -30,14 +30,25 @@ namespace Interface
                 int index =0;
                 foreach (DataRow dr in dtStudents.Rows)
                 {
-                    dtStudent = listAttendance.GetStudentAttendanceAmount(int.Parse(dr["id"].ToString()));
+                    class_id = int.Parse(dr["class_id"].ToString());
+                   
+                    int numberOfClasses = int.Parse(listAttendance.ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(class_id).Rows[0]["count_attendance"].ToString());
+
+                    dtStudent = listAttendance.GetStudentAttendanceValueSinceJoined(int.Parse(dr["id"].ToString()));
+
                     if (dtStudent.Rows.Count == 0)
-                        dgvReportClass.Rows.Add(dtStudents.Rows[dtStudents.Rows.Count - 1]["id"], dtStudents.Rows[dtStudents.Rows.Count - 1]["name"], dtStudents.Rows[dtStudents.Rows.Count - 1]["class"], dtStudents.Rows[dtStudents.Rows.Count - 1]["shift"], "0", "0", "0%");
+                        dgvReportClass.Rows.Add(dtStudents.Rows[dtStudents.Rows.Count - 1]["id"], dtStudents.Rows[dtStudents.Rows.Count - 1]["name"], dtStudents.Rows[dtStudents.Rows.Count - 1]["class"], dtStudents.Rows[dtStudents.Rows.Count - 1]["shift"], "0", "0", "0%", "0%");
 
                     else
-                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["id"], dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{Utils.CalculatePercentage(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()))}%");
+                    {
+                        int resultPercentageStart = Utils.CalculateAttendancePercentageFromStart(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), numberOfClasses);
 
-                    dgvReportClass.Rows[index].Height = 40;
+                        int resultPercentageCameIn = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
+
+                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["id"], dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%"); 
+                    }
+
+                    dgvReportClass.Rows[index].Height = 35;
                     index++;
                 }
 
@@ -66,7 +77,8 @@ namespace Interface
                 dataTable.Rows[i]["shift"] = dgvReportClass.Rows[i].Cells["shift"].Value.ToString();
                 dataTable.Rows[i]["numberOfAttendence"] = dgvReportClass.Rows[i].Cells["numberOfAttendence"].Value.ToString();
                 dataTable.Rows[i]["numberOfAbsences"] = dgvReportClass.Rows[i].Cells["numberOfAbsences"].Value.ToString();
-                dataTable.Rows[i]["percentage"] = dgvReportClass.Rows[i].Cells["percentage"].Value.ToString();
+                dataTable.Rows[i]["percentageStart"] = dgvReportClass.Rows[i].Cells["percentageStart"].Value.ToString();
+                dataTable.Rows[i]["percentageCameIn"] = dgvReportClass.Rows[i].Cells["percentageCameIn"].Value.ToString();
             }
         }
 
@@ -130,7 +142,9 @@ namespace Interface
                 view.StudentShift = dr["shift"].ToString();
                 view.StudentNumberOfAttendance = int.Parse(dr["numberOfAttendence"].ToString());
                 view.StudentNumberOfAbsences = int.Parse(dr["numberOfAbsences"].ToString());
-                view.percentage = dr["percentage"].ToString();
+                view.percentageStart = dr["percentageStart"].ToString();
+                view.percentageCameIn = dr["percentageCameIn"].ToString();
+
 
                 lst.Add(view);
             }
@@ -153,7 +167,8 @@ namespace Interface
             dataTable.Columns.Add("shift", typeof(string));
             dataTable.Columns.Add("numberOfAttendence", typeof(string));
             dataTable.Columns.Add("numberOfAbsences", typeof(string));
-            dataTable.Columns.Add("percentage", typeof(string));
+            dataTable.Columns.Add("percentageStart", typeof(string));
+            dataTable.Columns.Add("percentageCameIn", typeof(string));
         }
 
         private void LoadCbClass()

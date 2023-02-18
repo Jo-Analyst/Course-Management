@@ -39,7 +39,7 @@ namespace Interface
                 dgvClass.Rows[index].Cells["id"].Value = dr["id"].ToString();
                 dgvClass.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvClass.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
-                dgvClass.Rows[index].Height = 40;
+                dgvClass.Rows[index].Height = 35;
             }
 
             dgvClass.ClearSelection();

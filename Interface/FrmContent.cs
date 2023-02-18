@@ -42,7 +42,7 @@ namespace Interface
                     dgvContent.Rows[index].Cells["matter"].Value = dr["matter"].ToString();
                     dgvContent.Rows[index].Cells["date"].Value = dr["date"].ToString();
                     dgvContent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
-                    dgvContent.Rows[index].Height = 40;
+                    dgvContent.Rows[index].Height = 35;
                 }
 
                 dgvContent.ClearSelection();

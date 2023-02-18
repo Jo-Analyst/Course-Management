@@ -31,8 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContent));
             this.btnNew = new System.Windows.Forms.Button();
             this.dgvContent = new System.Windows.Forms.DataGridView();
@@ -40,12 +40,12 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.cbMatter = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +74,9 @@
             this.dgvContent.BackgroundColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -158,52 +158,6 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Matéria";
             // 
-            // classId
-            // 
-            this.classId.HeaderText = "Class_id";
-            this.classId.MinimumWidth = 6;
-            this.classId.Name = "classId";
-            this.classId.ReadOnly = true;
-            this.classId.Visible = false;
-            this.classId.Width = 125;
-            // 
-            // date
-            // 
-            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.date.DataPropertyName = "class";
-            this.date.HeaderText = "Data";
-            this.date.MinimumWidth = 6;
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            this.date.Width = 86;
-            // 
-            // classStudent
-            // 
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 125;
-            // 
-            // matter
-            // 
-            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.matter.DefaultCellStyle = dataGridViewCellStyle4;
-            this.matter.HeaderText = "Matéria";
-            this.matter.MinimumWidth = 6;
-            this.matter.Name = "matter";
-            this.matter.ReadOnly = true;
-            // 
-            // wording
-            // 
-            this.wording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.wording.DataPropertyName = "name";
-            this.wording.HeaderText = "Conteúdo Passado";
-            this.wording.MinimumWidth = 6;
-            this.wording.Name = "wording";
-            this.wording.ReadOnly = true;
-            // 
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -214,7 +168,58 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 62;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 37;
+            // 
+            // wording
+            // 
+            this.wording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.wording.DataPropertyName = "name";
+            this.wording.HeaderText = "Conteúdo Passado";
+            this.wording.MinimumWidth = 6;
+            this.wording.Name = "wording";
+            this.wording.ReadOnly = true;
+            this.wording.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // matter
+            // 
+            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.matter.DefaultCellStyle = dataGridViewCellStyle4;
+            this.matter.HeaderText = "Matéria";
+            this.matter.MinimumWidth = 6;
+            this.matter.Name = "matter";
+            this.matter.ReadOnly = true;
+            this.matter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // classStudent
+            // 
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            this.classStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.classStudent.Width = 125;
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.date.DataPropertyName = "class";
+            this.date.HeaderText = "Data";
+            this.date.MinimumWidth = 6;
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.date.Width = 59;
+            // 
+            // classId
+            // 
+            this.classId.HeaderText = "Class_id";
+            this.classId.MinimumWidth = 6;
+            this.classId.Name = "classId";
+            this.classId.ReadOnly = true;
+            this.classId.Visible = false;
+            this.classId.Width = 125;
             // 
             // FrmContent
             // 
