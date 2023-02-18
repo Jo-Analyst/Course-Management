@@ -8,6 +8,8 @@ namespace Interface
     {
 
         public bool classWasSaved { get; set; }
+        public string nameClass{ get; set; }
+        bool calledSaveStudent = false;
         int id;
         Class @class = new Class();
 
@@ -20,6 +22,7 @@ namespace Interface
         {
             InitializeComponent();
             cbShift.Text = shift;
+            calledSaveStudent = true;
         }
 
         public FrmSaveClass(int id, string name, string shift)
@@ -74,18 +77,19 @@ namespace Interface
 
                 @class.Save();
                 classWasSaved = true;
+                nameClass = @class.Name;
 
-                if (id == 0)
-                {
-                    DialogResult dr = MessageBox.Show("Deseja incluir mais um nova turma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (dr == DialogResult.Yes)
+                    if (id == 0 && !calledSaveStudent)
                     {
-                        txtClass.Clear();
-                        txtClass.Focus();
-                        return;
+                        DialogResult dr = MessageBox.Show("Deseja incluir mais um nova turma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (dr == DialogResult.Yes)
+                        {
+                            txtClass.Clear();
+                            txtClass.Focus();
+                            return;
+                        }
                     }
-                }
 
                 this.Close();
             }

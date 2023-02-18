@@ -62,7 +62,7 @@ namespace Interface
                 LoadDataClass();
         }
 
-        string genderClass, nameClass;
+        string nameClass;
         private void dgvClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -85,6 +85,27 @@ namespace Interface
         private void rbClass_CheckedChanged(object sender, EventArgs e)
         {
             LoadDataClass();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (classId == 0)
+            {
+                MessageBox.Show("Selecione a turma que deseja excluir", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show($"Deseja mesmo excluir a turma {nameClass}? Está ciente que poderá excluir também os alunos relacionados a turma {nameClass}?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                @class.Id = classId;
+                @class.Delete();
+                LoadDataClass();
+            }
+
+            classId = 0;
+            dgvClass.ClearSelection();
         }
     }
 }

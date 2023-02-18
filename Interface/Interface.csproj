@@ -87,6 +87,9 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>content.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -125,11 +128,11 @@
     <Compile Include="FrmCourseManagementt.designer.cs">
       <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOpenBackupAndRestore.cs">
+    <Compile Include="FrmBackupAndRestore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOpenBackupAndRestore.Designer.cs">
-      <DependentUpon>FrmOpenBackupAndRestore.cs</DependentUpon>
+    <Compile Include="FrmBackupAndRestore.Designer.cs">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSaveContent.cs">
       <SubType>Form</SubType>
@@ -205,8 +208,8 @@
     <EmbeddedResource Include="FrmCourseManagementt.resx">
       <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOpenBackupAndRestore.resx">
-      <DependentUpon>FrmOpenBackupAndRestore.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBackupAndRestore.resx">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveContent.resx">
       <DependentUpon>FrmSaveContent.cs</DependentUpon>
@@ -286,6 +289,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content.ico" />
+    <Content Include="list.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

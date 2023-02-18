@@ -169,6 +169,7 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Visible = false;
             this.id.Width = 37;
             // 
             // wording

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
@@ -91,6 +92,26 @@ namespace DataBase
             catch
             {
                 throw;
+            }
+        }
+
+        public void Delete()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string sql = "DELETE FROM Classes WHERE id = @id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", Id);
+                command.CommandText = sql;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
     }

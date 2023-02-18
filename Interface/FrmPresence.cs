@@ -98,6 +98,7 @@ namespace Interface
                 dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = dr["listAttendance_id"].ToString();
+                dgvListPresence.Rows[index].Height = 35;
             }
         }
 
@@ -168,7 +169,8 @@ namespace Interface
 
         private void dtDatePresence_ValueChanged(object sender, EventArgs e)
         {
-            cbClass_SelectedIndexChanged(sender, e);
+            if (cbClass.SelectedIndex > -1)
+                cbClass_SelectedIndexChanged(sender, e);
         }
 
 

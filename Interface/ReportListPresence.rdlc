@@ -822,7 +822,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1760d0fc-f191-4c80-99d1-1f018b507c60</rd:DataSourceID>
+      <rd:DataSourceID>28096844-0c35-4d21-8c23-896edeb57b9a</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -839,10 +839,6 @@
         <Field Name="percentageStart">
           <DataField>percentageStart</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="StudenId">
-          <DataField>StudenId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="StudentClass">
           <DataField>StudentClass</DataField>

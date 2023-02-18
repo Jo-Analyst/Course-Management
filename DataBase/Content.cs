@@ -64,7 +64,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    string sql = $"SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id WHERE c.matter = '{matter}'";
+                    string sql = $"SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id WHERE c.matter = '{matter}' ORDER BY CONVERT(Date, c.date, 103) DESC, cl.name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -84,7 +84,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    string sql = "SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id";
+                    string sql = "SELECT c.id, c.wording, c.matter, c.date, c.class_id, cl.name AS class FROM Contents AS c INNER JOIN Classes AS cl ON C.class_id = cl.id ORDER BY CONVERT(Date, c.date, 103) DESC, cl.name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

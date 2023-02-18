@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class FrmOpenBackupAndRestore
+    partial class FrmBackupAndRestore
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOpenBackupAndRestore));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBackupAndRestore));
             this.btnBackup = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);

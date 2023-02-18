@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class FrmOpenBackupAndRestore : Form
+    public partial class FrmBackupAndRestore : Form
     {
-        public FrmOpenBackupAndRestore()
+        public FrmBackupAndRestore()
         {
             InitializeComponent();
         }
@@ -44,7 +44,7 @@ namespace Interface
                 CreateDirectory();
                 string file = $"{path}\\{getDate()}.bak";
                 backup.GenerateBackup(file);
-                MessageBox.Show($"Backup realizado com sucesso. O caminho do arquivo é este: {file}.", "Mensage,", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Backup realizado com sucesso. O caminho do arquivo é este: {file}.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

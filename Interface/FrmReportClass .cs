@@ -37,7 +37,7 @@ namespace Interface
                     dtStudent = listAttendance.GetStudentAttendanceValueSinceJoined(int.Parse(dr["id"].ToString()));
 
                     if (dtStudent.Rows.Count == 0)
-                        dgvReportClass.Rows.Add(dtStudents.Rows[dtStudents.Rows.Count - 1]["id"], dtStudents.Rows[dtStudents.Rows.Count - 1]["name"], dtStudents.Rows[dtStudents.Rows.Count - 1]["class"], dtStudents.Rows[dtStudents.Rows.Count - 1]["shift"], "0", "0", "0%", "0%");
+                        dgvReportClass.Rows.Add(dtStudents.Rows[dtStudents.Rows.Count - 1]["name"], dtStudents.Rows[dtStudents.Rows.Count - 1]["class"], dtStudents.Rows[dtStudents.Rows.Count - 1]["shift"], "0", "0", "0%", "0%");
 
                     else
                     {
@@ -45,7 +45,7 @@ namespace Interface
 
                         int resultPercentageCameIn = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
 
-                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["id"], dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%"); 
+                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%"); 
                     }
 
                     dgvReportClass.Rows[index].Height = 35;
@@ -71,7 +71,6 @@ namespace Interface
             for (int i = 0; i < dgvReportClass.Rows.Count; i++)
             {
                 dataTable.Rows.Add();
-                dataTable.Rows[i]["id"] = dgvReportClass.Rows[i].Cells["id"].Value.ToString();
                 dataTable.Rows[i]["name"] = dgvReportClass.Rows[i].Cells["name"].Value.ToString();
                 dataTable.Rows[i]["class"] = dgvReportClass.Rows[i].Cells["classStudent"].Value.ToString();
                 dataTable.Rows[i]["shift"] = dgvReportClass.Rows[i].Cells["shift"].Value.ToString();
@@ -82,19 +81,7 @@ namespace Interface
             }
         }
 
-        private void GenerateReport()
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
+       private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearSelectionDGV(e);
         }
@@ -136,7 +123,6 @@ namespace Interface
             foreach (DataRow dr in dataTable.Rows)
             {
                 view = new ViewStudentReport();
-                view.StudenId = int.Parse(dr["id"].ToString());
                 view.StudentName = dr["name"].ToString();
                 view.StudentClass = dr["class"].ToString();
                 view.StudentShift = dr["shift"].ToString();
@@ -161,7 +147,6 @@ namespace Interface
 
         private void CreateColumsDataTable()
         {
-            dataTable.Columns.Add("id", typeof(string));
             dataTable.Columns.Add("name", typeof(string));
             dataTable.Columns.Add("class", typeof(string));
             dataTable.Columns.Add("shift", typeof(string));

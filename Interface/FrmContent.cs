@@ -101,7 +101,7 @@ namespace Interface
                 return;
             }
 
-          DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o conteúdo", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o conteúdo?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {

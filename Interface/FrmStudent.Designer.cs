@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
@@ -106,6 +107,8 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersVisible = false;
             this.dgvStudent.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(1028, 337);
             this.dgvStudent.TabIndex = 2;
@@ -190,14 +193,13 @@
             // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "Nome";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 70;
             // 
             // gender
             // 
@@ -213,14 +215,13 @@
             // 
             // classStudent
             // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.classStudent.DataPropertyName = "class";
             this.classStudent.HeaderText = "Turma";
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
             this.classStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.classStudent.Width = 75;
             // 
             // shift
             // 

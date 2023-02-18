@@ -30,18 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportClass));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvReportClass = new System.Windows.Forms.DataGridView();
             this.btnViewReport = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +94,6 @@
             this.dgvReportClass.ColumnHeadersHeight = 40;
             this.dgvReportClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReportClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.name,
             this.classStudent,
             this.shift,
@@ -111,8 +108,8 @@
             this.dgvReportClass.ReadOnly = true;
             this.dgvReportClass.RowHeadersVisible = false;
             this.dgvReportClass.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dgvReportClass.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dgvReportClass.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvReportClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReportClass.Size = new System.Drawing.Size(1169, 291);
             this.dgvReportClass.TabIndex = 14;
@@ -135,40 +132,25 @@
             this.btnViewReport.UseVisualStyleBackColor = true;
             this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 36;
-            // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "Nome";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 69;
             // 
             // classStudent
             // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.classStudent.DataPropertyName = "class";
             this.classStudent.HeaderText = "Turma";
             this.classStudent.MinimumWidth = 6;
             this.classStudent.Name = "classStudent";
             this.classStudent.ReadOnly = true;
             this.classStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.classStudent.Width = 74;
             // 
             // shift
             // 
@@ -184,8 +166,8 @@
             // 
             this.numberOfAttendence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.numberOfAttendence.DataPropertyName = "numberOfAttendence";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberOfAttendence.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberOfAttendence.DefaultCellStyle = dataGridViewCellStyle2;
             this.numberOfAttendence.HeaderText = "Número de Presenças";
             this.numberOfAttendence.MinimumWidth = 6;
             this.numberOfAttendence.Name = "numberOfAttendence";
@@ -197,8 +179,8 @@
             // 
             this.numberOfAbsences.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.numberOfAbsences.DataPropertyName = "numberOfAbsences";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberOfAbsences.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberOfAbsences.DefaultCellStyle = dataGridViewCellStyle3;
             this.numberOfAbsences.HeaderText = "Número de Faltas";
             this.numberOfAbsences.MinimumWidth = 6;
             this.numberOfAbsences.Name = "numberOfAbsences";
@@ -219,8 +201,8 @@
             // percentageCameIn
             // 
             this.percentageCameIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle4;
             this.percentageCameIn.HeaderText = "% desde que entrou";
             this.percentageCameIn.MinimumWidth = 6;
             this.percentageCameIn.Name = "percentageCameIn";
@@ -260,7 +242,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvReportClass;
         private System.Windows.Forms.Button btnViewReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;

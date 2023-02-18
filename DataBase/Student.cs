@@ -67,7 +67,7 @@ namespace DataBase
                 {
                     string sql = option.ToLower() == "nome"
                         ? $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%'"
-                        : $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%'";
+                        : $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%' ORDER BY Classes.name, Students.name";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -107,7 +107,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Classes.name = @class";
+                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Classes.name = @class ORDER BY Students.name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@class", @class);
                     adapter.SelectCommand.CommandText = sql;
@@ -148,7 +148,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    string sql = "SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id";
+                    string sql = "SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id ORDER BY Classes.name, Students.name";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

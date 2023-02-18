@@ -105,7 +105,11 @@ namespace Interface
                 var saveClass = new FrmSaveClass(cbShift.Text);
                 saveClass.ShowDialog();
                 if (saveClass.classWasSaved)
+                {
                     LoadCbClass();
+                    if (!string.IsNullOrEmpty(saveClass.nameClass))
+                        cbClass.Text = saveClass.nameClass;
+                }
             }
         }
 
