@@ -102,8 +102,15 @@ namespace Interface
 
         private void btnViewReport_Click(object sender, EventArgs e)
         {
-            PrintReport();
-            new FrmViewReport(rds).ShowDialog();
+            try
+            {
+                PrintReport();
+                new FrmViewReport(rds).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         ReportDataSource rds = new ReportDataSource();

@@ -18,15 +18,17 @@ namespace Interface
 
         private void FrmViewReport_Load(object sender, EventArgs e)
         {
-            try { this.reportViewer1.LocalReport.DataSources.Clear();
+            try
+            {
+                this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(rds);
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = "Interface.ReportListPresence.rdlc";
                 this.reportViewer1.RefreshReport();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            }
+        }
     }
 }

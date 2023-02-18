@@ -31,7 +31,7 @@ namespace DataBase
 
         public void RestoreDataBase(string path)
         {
-            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))
             {
                 string sql = $"RESTORE DATABASE dbAttendanceList FROM DISK = '{path}'";
                 SqlCommand command = new SqlCommand(sql, connection);

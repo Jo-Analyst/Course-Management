@@ -54,7 +54,21 @@ namespace Interface
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "|*.bak";
+                openFileDialog.Title = "Abrir arquivo de restauração";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    backup.RestoreDataBase(openFileDialog.FileName);
+                    MessageBox.Show("Restauração realizado com sucesso.", "Mensage,", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FrmReport_Load(object sender, EventArgs e)
