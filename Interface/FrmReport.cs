@@ -25,5 +25,10 @@ namespace CourseManagement
         {
             lblQuantityStudentsRegistered.Text += new Student().FindAll().Rows.Count.ToString();
         }
+
+        private void btnListPresence_Click(object sender, EventArgs e)
+        {
+            new FrmReportPresenceStudent().ShowDialog();
+        }
     }
 }

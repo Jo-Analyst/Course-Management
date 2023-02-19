@@ -1,6 +1,6 @@
-CREATE DATABASE dbAttendanceList;
+CREATE DATABASE dbCourseManagement;
 
-USE dbAttendanceList;
+USE dbCourseManagement;
 
 CREATE TABLE [dbo].[Classes] (
     [Id]    INT          IDENTITY (1, 1) NOT NULL,

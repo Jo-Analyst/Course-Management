@@ -59,7 +59,7 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByName(string field, string option)
+        public DataTable FindByName(string field, string option = "nome")
         {
             try
             {

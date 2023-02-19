@@ -134,6 +134,12 @@
     <Compile Include="FrmBackupAndRestore.Designer.cs">
       <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportPresenceStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportPresenceStudent.Designer.cs">
+      <DependentUpon>FrmReportPresenceStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaveContent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBackupAndRestore.resx">
       <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportPresenceStudent.resx">
+      <DependentUpon>FrmReportPresenceStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveContent.resx">
       <DependentUpon>FrmSaveContent.cs</DependentUpon>
