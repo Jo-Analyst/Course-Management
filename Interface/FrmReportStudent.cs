@@ -71,8 +71,11 @@ namespace CourseManagement
                 lblNumberAttendance.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_attendance"].ToString() : "0";
                 lblNumberLack.Text = dtListAttendance.Rows.Count > 0 ? dtListAttendance.Rows[0]["number_absences"].ToString() : "0";
 
-                CalculateAttendancePercentageFromStart();
-                CalculatePercentageOfAttendanceSinceJoined();
+
+                int numberOfClasses = int.Parse(listAttendance.ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(class_id).Rows[0]["count_attendance"].ToString());
+
+                CalculateAttendancePercentageFromStart(numberOfClasses);
+                CalculatePercentageOfAttendanceSinceJoined(numberOfClasses);
             }
             catch (Exception ex)
             {
@@ -80,18 +83,16 @@ namespace CourseManagement
             }
         }
 
-        private void CalculatePercentageOfAttendanceSinceJoined() // Desde que entrou
+        private void CalculatePercentageOfAttendanceSinceJoined(int numberOfClasses) // Desde que entrou
         {
-            int percentage = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text));
+            int percentage = numberOfClasses > 0 ? Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text)) : 0;
             lblPercentageCameIn.Text = $"{percentage}%";
             pbPercentageCameIn.Value = percentage;
         }
 
-        private void CalculateAttendancePercentageFromStart() // Desde o começo
+        private void CalculateAttendancePercentageFromStart(int numberOfClasses) // Desde o começo
         {
-            int numberOfClasses = int.Parse(listAttendance.ObtainStudentAttendanceValueSinceTheBeginningOfTheCourse(class_id).Rows[0]["count_attendance"].ToString());
-
-            int percentage = Utils.CalculateAttendancePercentageFromStart(int.Parse(lblNumberAttendance.Text), numberOfClasses);
+            int percentage = numberOfClasses > 0 ? Utils.CalculateAttendancePercentageFromStart(int.Parse(lblNumberAttendance.Text), numberOfClasses) : 0;
             lblPercentageStart.Text = $"{percentage}%";
             pbPercentageStart.Value = percentage;
         }

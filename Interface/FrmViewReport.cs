@@ -20,7 +20,7 @@ namespace CourseManagement
             {
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(rds);
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Interface.ReportListPresence.rdlc";
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "CourseManagement.ReportListPresence.rdlc";
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
