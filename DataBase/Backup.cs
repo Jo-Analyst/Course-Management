@@ -8,7 +8,7 @@ namespace DataBase
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
-                string sql = $"BACKUP DATABASE dbAttendanceList TO DISK = '{path}'";
+                string sql = $"BACKUP DATABASE dbCourseManagement TO DISK = '{path}'";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.CommandText = sql;
                 try
@@ -27,7 +27,7 @@ namespace DataBase
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))
             {
-                string sql = $"RESTORE DATABASE dbAttendanceList FROM DISK = '{path}'";
+                string sql = $"RESTORE DATABASE dbCourseManagement FROM DISK = '{path}'";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.CommandText = sql;
                 try

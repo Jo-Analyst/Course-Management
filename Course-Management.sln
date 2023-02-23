@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Course-Management", "Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{0796EDB6-DD52-43DD-8F18-E18372081871}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Course-Management-Setup", "..\Installer\Course-Management-Setup\Course-Management-Setup\Course-Management-Setup.vdproj", "{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CourseManagement", "..\..\CourseManagement\CourseManagement.vdproj", "{96F27E51-7331-489D-8B8E-972CE3C2A768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,12 +42,12 @@ Global
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x64.Build.0 = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.ActiveCfg = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.Build.0 = Release|Any CPU
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Debug|Any CPU.ActiveCfg = Debug
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Debug|x64.ActiveCfg = Debug
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Debug|x86.ActiveCfg = Debug
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Release|Any CPU.ActiveCfg = Release
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Release|x64.ActiveCfg = Release
-		{9D07CE0A-0CCA-4208-B02E-3FED7CFCA0A8}.Release|x86.ActiveCfg = Release
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Debug|Any CPU.ActiveCfg = Debug
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Debug|x64.ActiveCfg = Debug
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Debug|x86.ActiveCfg = Debug
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Release|Any CPU.ActiveCfg = Release
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Release|x64.ActiveCfg = Release
+		{96F27E51-7331-489D-8B8E-972CE3C2A768}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

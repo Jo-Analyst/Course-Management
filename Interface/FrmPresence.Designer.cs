@@ -99,7 +99,7 @@
             this.cbClass.Location = new System.Drawing.Point(14, 41);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(419, 33);
+            this.cbClass.Size = new System.Drawing.Size(419, 28);
             this.cbClass.TabIndex = 5;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -110,7 +110,7 @@
             this.label2.Location = new System.Drawing.Point(11, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Turma";
             // 
@@ -134,7 +134,7 @@
             this.label1.Location = new System.Drawing.Point(443, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 25);
+            this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Data";
             // 
@@ -144,7 +144,7 @@
             this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
             this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
             this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(135, 30);
+            this.dtDatePresence.Size = new System.Drawing.Size(135, 26);
             this.dtDatePresence.TabIndex = 10;
             this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
             // 
@@ -156,9 +156,9 @@
             dataGridViewCellStyle2.NullValue = false;
             this.presence.DefaultCellStyle = dataGridViewCellStyle2;
             this.presence.HeaderText = "";
-            this.presence.MinimumWidth = 15;
+            this.presence.MinimumWidth = 50;
             this.presence.Name = "presence";
-            this.presence.Width = 15;
+            this.presence.Width = 50;
             // 
             // id
             // 
@@ -171,7 +171,7 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 37;
+            this.id.Width = 32;
             // 
             // name
             // 
@@ -201,7 +201,7 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 70;
+            this.shift.Width = 56;
             // 
             // gender
             // 
@@ -213,7 +213,7 @@
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
             this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.gender.Width = 83;
+            this.gender.Width = 69;
             // 
             // listAttendance_id
             // 
@@ -225,7 +225,7 @@
             // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(976, 504);

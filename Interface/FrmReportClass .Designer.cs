@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportClass));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbClass = new System.Windows.Forms.ComboBox();
@@ -58,7 +59,7 @@
             this.cbClass.Location = new System.Drawing.Point(13, 47);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(357, 33);
+            this.cbClass.Size = new System.Drawing.Size(357, 28);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
@@ -69,7 +70,7 @@
             this.label2.Location = new System.Drawing.Point(9, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -108,8 +109,8 @@
             this.dgvReportClass.ReadOnly = true;
             this.dgvReportClass.RowHeadersVisible = false;
             this.dgvReportClass.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.dgvReportClass.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.dgvReportClass.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReportClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReportClass.Size = new System.Drawing.Size(1169, 291);
             this.dgvReportClass.TabIndex = 14;
@@ -160,7 +161,7 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 69;
+            this.shift.Width = 55;
             // 
             // numberOfAttendence
             // 
@@ -173,7 +174,7 @@
             this.numberOfAttendence.Name = "numberOfAttendence";
             this.numberOfAttendence.ReadOnly = true;
             this.numberOfAttendence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAttendence.Width = 211;
+            this.numberOfAttendence.Width = 171;
             // 
             // numberOfAbsences
             // 
@@ -186,33 +187,35 @@
             this.numberOfAbsences.Name = "numberOfAbsences";
             this.numberOfAbsences.ReadOnly = true;
             this.numberOfAbsences.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAbsences.Width = 171;
+            this.numberOfAbsences.Width = 140;
             // 
             // percentageStart
             // 
             this.percentageStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.percentageStart.DefaultCellStyle = dataGridViewCellStyle4;
             this.percentageStart.HeaderText = "% desde o início";
             this.percentageStart.MinimumWidth = 6;
             this.percentageStart.Name = "percentageStart";
             this.percentageStart.ReadOnly = true;
             this.percentageStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageStart.Width = 159;
+            this.percentageStart.Width = 128;
             // 
             // percentageCameIn
             // 
             this.percentageCameIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle5;
             this.percentageCameIn.HeaderText = "% desde que entrou";
             this.percentageCameIn.MinimumWidth = 6;
             this.percentageCameIn.Name = "percentageCameIn";
             this.percentageCameIn.ReadOnly = true;
             this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageCameIn.Width = 192;
+            this.percentageCameIn.Width = 157;
             // 
             // FrmReportClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1195, 453);

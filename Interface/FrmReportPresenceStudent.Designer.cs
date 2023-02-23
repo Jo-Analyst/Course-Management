@@ -51,7 +51,7 @@
             this.label1.Location = new System.Drawing.Point(277, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 25);
+            this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Aluno(a)";
             // 
@@ -63,7 +63,7 @@
             this.cbNameStudents.Location = new System.Drawing.Point(277, 51);
             this.cbNameStudents.Margin = new System.Windows.Forms.Padding(4);
             this.cbNameStudents.Name = "cbNameStudents";
-            this.cbNameStudents.Size = new System.Drawing.Size(440, 33);
+            this.cbNameStudents.Size = new System.Drawing.Size(440, 28);
             this.cbNameStudents.TabIndex = 4;
             this.cbNameStudents.SelectedIndexChanged += new System.EventHandler(this.cbStudents_SelectedIndexChanged);
             // 
@@ -76,7 +76,7 @@
             this.cbClass.Location = new System.Drawing.Point(22, 51);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(241, 33);
+            this.cbClass.Size = new System.Drawing.Size(241, 28);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
@@ -88,7 +88,7 @@
             this.label2.Location = new System.Drawing.Point(18, 25);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -137,10 +137,10 @@
             dataGridViewCellStyle2.NullValue = false;
             this.presence.DefaultCellStyle = dataGridViewCellStyle2;
             this.presence.HeaderText = "";
-            this.presence.MinimumWidth = 15;
+            this.presence.MinimumWidth = 50;
             this.presence.Name = "presence";
             this.presence.ReadOnly = true;
-            this.presence.Width = 15;
+            this.presence.Width = 50;
             // 
             // date
             // 
@@ -153,7 +153,7 @@
             // 
             // FrmReportPresenceStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(746, 526);

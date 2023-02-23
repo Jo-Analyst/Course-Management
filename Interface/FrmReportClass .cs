@@ -37,7 +37,7 @@ namespace CourseManagement
                     dtStudent = listAttendance.GetStudentAttendanceValueSinceJoined(int.Parse(dr["id"].ToString()));
 
                     if (dtStudent.Rows.Count == 0)
-                        dgvReportClass.Rows.Add(dtStudents.Rows[dtStudents.Rows.Count - 1]["name"], dtStudents.Rows[dtStudents.Rows.Count - 1]["class"], dtStudents.Rows[dtStudents.Rows.Count - 1]["shift"], "0", "0", "0%", "0%");
+                        dgvReportClass.Rows.Add(dtStudents.Rows[index]["name"], dtStudents.Rows[index]["class"], dtStudents.Rows[index]["shift"], "0", "0", "0%", "0%");
 
                     else
                     {
