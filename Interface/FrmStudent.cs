@@ -45,6 +45,8 @@ namespace CourseManagement
                     dgvStudent.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                     dgvStudent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
                     dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
+                    dgvStudent.Rows[index].Cells["created_at"].Value = dr["created_at"].ToString();
+                    dgvStudent.Rows[index].Cells["updated_at"].Value = dr["updated_at"].ToString();
                     dgvStudent.Rows[index].Height = 35;
                 }
 

@@ -46,6 +46,8 @@
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +74,7 @@
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(1028, 30);
+            this.txtField.Size = new System.Drawing.Size(1028, 35);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -100,6 +102,8 @@
             this.gender,
             this.classStudent,
             this.shift,
+            this.created_at,
+            this.updated_at,
             this.classId});
             this.dgvStudent.EnableHeadersVisualStyles = false;
             this.dgvStudent.Location = new System.Drawing.Point(32, 180);
@@ -147,7 +151,7 @@
             this.label1.Location = new System.Drawing.Point(29, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 25);
+            this.label1.Size = new System.Drawing.Size(159, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "Procurar por: ";
             // 
@@ -159,7 +163,7 @@
             this.rbName.Location = new System.Drawing.Point(172, 112);
             this.rbName.Margin = new System.Windows.Forms.Padding(4);
             this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(85, 29);
+            this.rbName.Size = new System.Drawing.Size(104, 33);
             this.rbName.TabIndex = 6;
             this.rbName.TabStop = true;
             this.rbName.Text = "Nome";
@@ -173,7 +177,7 @@
             this.rbClass.Location = new System.Drawing.Point(268, 112);
             this.rbClass.Margin = new System.Windows.Forms.Padding(4);
             this.rbClass.Name = "rbClass";
-            this.rbClass.Size = new System.Drawing.Size(90, 29);
+            this.rbClass.Size = new System.Drawing.Size(108, 33);
             this.rbClass.TabIndex = 7;
             this.rbClass.Text = "Turma";
             this.rbClass.UseVisualStyleBackColor = true;
@@ -189,7 +193,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 37;
+            this.id.Width = 42;
             // 
             // name
             // 
@@ -211,7 +215,6 @@
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
             this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.gender.Width = 83;
             // 
             // classStudent
             // 
@@ -230,7 +233,23 @@
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 70;
+            this.shift.Width = 83;
+            // 
+            // created_at
+            // 
+            this.created_at.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.created_at.HeaderText = "Cadastrado em";
+            this.created_at.MinimumWidth = 8;
+            this.created_at.Name = "created_at";
+            this.created_at.Width = 213;
+            // 
+            // updated_at
+            // 
+            this.updated_at.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.updated_at.HeaderText = "Atualizado em";
+            this.updated_at.MinimumWidth = 8;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.Width = 200;
             // 
             // classId
             // 
@@ -243,7 +262,7 @@
             // 
             // FrmStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
@@ -285,6 +304,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn classId;
     }
 }
