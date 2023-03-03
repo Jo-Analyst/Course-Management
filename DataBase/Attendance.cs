@@ -61,5 +61,24 @@ namespace DataBase
 
             return maxTableAttendance;
         }
+
+        public int CountPresenceForClass(int class_id)
+        {
+            int contPresence = 1;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("", connection);
+                command.CommandText = $"SELECT Count(Class_id) FROM Attendance WHERE class_id = {class_id}";
+                if (command.ExecuteScalar() != DBNull.Value)
+                {
+                    contPresence = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+
+            return contPresence;
+
+        }
     }
 }

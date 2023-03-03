@@ -40,7 +40,6 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvReportClass = new System.Windows.Forms.DataGridView();
-            this.btnViewReport = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +47,8 @@
             this.numberOfAbsences = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageCameIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewReport = new System.Windows.Forms.Button();
+            this.lblQtdClasses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.cbClass.Location = new System.Drawing.Point(13, 47);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(357, 28);
+            this.cbClass.Size = new System.Drawing.Size(357, 33);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
@@ -70,7 +71,7 @@
             this.label2.Location = new System.Drawing.Point(9, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -118,21 +119,6 @@
             this.dgvReportClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellClick);
             this.dgvReportClass.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellDoubleClick);
             // 
-            // btnViewReport
-            // 
-            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewReport.Enabled = false;
-            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Location = new System.Drawing.Point(851, 384);
-            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(331, 52);
-            this.btnViewReport.TabIndex = 15;
-            this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar e Imprimir Relatório";
-            this.btnViewReport.UseVisualStyleBackColor = true;
-            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
-            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -161,7 +147,7 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 55;
+            this.shift.Width = 69;
             // 
             // numberOfAttendence
             // 
@@ -174,7 +160,7 @@
             this.numberOfAttendence.Name = "numberOfAttendence";
             this.numberOfAttendence.ReadOnly = true;
             this.numberOfAttendence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAttendence.Width = 171;
+            this.numberOfAttendence.Width = 211;
             // 
             // numberOfAbsences
             // 
@@ -187,7 +173,7 @@
             this.numberOfAbsences.Name = "numberOfAbsences";
             this.numberOfAbsences.ReadOnly = true;
             this.numberOfAbsences.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAbsences.Width = 140;
+            this.numberOfAbsences.Width = 171;
             // 
             // percentageStart
             // 
@@ -199,7 +185,7 @@
             this.percentageStart.Name = "percentageStart";
             this.percentageStart.ReadOnly = true;
             this.percentageStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageStart.Width = 128;
+            this.percentageStart.Width = 159;
             // 
             // percentageCameIn
             // 
@@ -211,14 +197,41 @@
             this.percentageCameIn.Name = "percentageCameIn";
             this.percentageCameIn.ReadOnly = true;
             this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageCameIn.Width = 157;
+            this.percentageCameIn.Width = 192;
+            // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewReport.Enabled = false;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.Location = new System.Drawing.Point(851, 384);
+            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(331, 52);
+            this.btnViewReport.TabIndex = 15;
+            this.btnViewReport.TabStop = false;
+            this.btnViewReport.Text = "Visualizar e Imprimir Relatório";
+            this.btnViewReport.UseVisualStyleBackColor = true;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+            // 
+            // lblQtdClasses
+            // 
+            this.lblQtdClasses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQtdClasses.AutoSize = true;
+            this.lblQtdClasses.Location = new System.Drawing.Point(12, 398);
+            this.lblQtdClasses.Name = "lblQtdClasses";
+            this.lblQtdClasses.Size = new System.Drawing.Size(305, 25);
+            this.lblQtdClasses.TabIndex = 16;
+            this.lblQtdClasses.Text = "Quantidades de aulas prestadas: ";
+            this.lblQtdClasses.Visible = false;
             // 
             // FrmReportClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1195, 453);
+            this.Controls.Add(this.lblQtdClasses);
             this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.dgvReportClass);
             this.Controls.Add(this.cbClass);
@@ -252,5 +265,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numberOfAbsences;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageCameIn;
+        private System.Windows.Forms.Label lblQtdClasses;
     }
 }

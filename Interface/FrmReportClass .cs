@@ -17,6 +17,7 @@ namespace CourseManagement
         int class_id;
         Student student = new Student();
         ListAttendance listAttendance = new ListAttendance();
+        Attendance attendance = new Attendance();
         DataTable dataTable = new DataTable();
         Class @class = new Class();
 
@@ -52,6 +53,8 @@ namespace CourseManagement
                     index++;
                 }
 
+                lblQtdClasses.Visible = cbClass.SelectedIndex != cbClass.Items.Count - 1 ? true : false;
+                lblQtdClasses.Text = $"Quantidades de aulas prestadas: {attendance.CountPresenceForClass(class_id)}";
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 LoadDataTable();
