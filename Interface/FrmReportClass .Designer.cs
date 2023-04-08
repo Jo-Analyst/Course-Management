@@ -49,6 +49,8 @@
             this.percentageCameIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnViewReport = new System.Windows.Forms.Button();
             this.lblQtdClasses = new System.Windows.Forms.Label();
+            this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
+            this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,12 +227,36 @@
             this.lblQtdClasses.Text = "Quantidades de aulas prestadas: ";
             this.lblQtdClasses.Visible = false;
             // 
+            // cbFindAbove75Percentage
+            // 
+            this.cbFindAbove75Percentage.AutoSize = true;
+            this.cbFindAbove75Percentage.Location = new System.Drawing.Point(453, 47);
+            this.cbFindAbove75Percentage.Name = "cbFindAbove75Percentage";
+            this.cbFindAbove75Percentage.Size = new System.Drawing.Size(283, 29);
+            this.cbFindAbove75Percentage.TabIndex = 17;
+            this.cbFindAbove75Percentage.Text = "Buscar dados acima de 75%";
+            this.cbFindAbove75Percentage.UseVisualStyleBackColor = true;
+            this.cbFindAbove75Percentage.CheckedChanged += new System.EventHandler(this.cbFindAbove75Percentage_CheckedChanged);
+            // 
+            // cbFindBellow75Percentage
+            // 
+            this.cbFindBellow75Percentage.AutoSize = true;
+            this.cbFindBellow75Percentage.Location = new System.Drawing.Point(751, 47);
+            this.cbFindBellow75Percentage.Name = "cbFindBellow75Percentage";
+            this.cbFindBellow75Percentage.Size = new System.Drawing.Size(289, 29);
+            this.cbFindBellow75Percentage.TabIndex = 18;
+            this.cbFindBellow75Percentage.Text = "Buscar dados abaixo de 75%";
+            this.cbFindBellow75Percentage.UseVisualStyleBackColor = true;
+            this.cbFindBellow75Percentage.CheckedChanged += new System.EventHandler(this.cbFindBellow75Percentage_CheckedChanged);
+            // 
             // FrmReportClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1195, 453);
+            this.Controls.Add(this.cbFindBellow75Percentage);
+            this.Controls.Add(this.cbFindAbove75Percentage);
             this.Controls.Add(this.lblQtdClasses);
             this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.dgvReportClass);
@@ -266,5 +292,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageCameIn;
         private System.Windows.Forms.Label lblQtdClasses;
+        private System.Windows.Forms.CheckBox cbFindAbove75Percentage;
+        private System.Windows.Forms.CheckBox cbFindBellow75Percentage;
     }
 }
