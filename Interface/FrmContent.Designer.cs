@@ -143,7 +143,7 @@
             this.cbMatter.Location = new System.Drawing.Point(34, 139);
             this.cbMatter.Margin = new System.Windows.Forms.Padding(4);
             this.cbMatter.Name = "cbMatter";
-            this.cbMatter.Size = new System.Drawing.Size(262, 33);
+            this.cbMatter.Size = new System.Drawing.Size(262, 37);
             this.cbMatter.TabIndex = 15;
             this.cbMatter.SelectedIndexChanged += new System.EventHandler(this.cbMatter_SelectedIndexChanged);
             // 
@@ -154,7 +154,7 @@
             this.label4.Location = new System.Drawing.Point(29, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 25);
+            this.label4.Size = new System.Drawing.Size(93, 29);
             this.label4.TabIndex = 16;
             this.label4.Text = "Matéria";
             // 
@@ -170,7 +170,7 @@
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Visible = false;
-            this.id.Width = 37;
+            this.id.Width = 42;
             // 
             // wording
             // 
@@ -184,7 +184,7 @@
             // 
             // matter
             // 
-            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.matter.DefaultCellStyle = dataGridViewCellStyle4;
             this.matter.HeaderText = "Matéria";
@@ -192,6 +192,7 @@
             this.matter.Name = "matter";
             this.matter.ReadOnly = true;
             this.matter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.matter.Width = 99;
             // 
             // classStudent
             // 
@@ -211,7 +212,7 @@
             this.date.Name = "date";
             this.date.ReadOnly = true;
             this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.date.Width = 59;
+            this.date.Width = 68;
             // 
             // classId
             // 
@@ -224,7 +225,7 @@
             // 
             // FrmContent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);

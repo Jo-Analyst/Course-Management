@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Course-Management", "Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{0796EDB6-DD52-43DD-8F18-E18372081871}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Course-Management-setup", "Course-Management-setup\Course-Management-setup.vdproj", "{BCEA1CDD-528D-499B-8703-E44470AC4A0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,12 @@ Global
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x64.Build.0 = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.ActiveCfg = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.Build.0 = Release|Any CPU
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Debug|Any CPU.ActiveCfg = Debug
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Debug|x64.ActiveCfg = Debug
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Debug|x86.ActiveCfg = Debug
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Release|Any CPU.ActiveCfg = Release
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Release|x64.ActiveCfg = Release
+		{BCEA1CDD-528D-499B-8703-E44470AC4A0D}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
