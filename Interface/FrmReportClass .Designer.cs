@@ -51,6 +51,7 @@
             this.lblQtdClasses = new System.Windows.Forms.Label();
             this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
             this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
+            this.lblQuantityStudentList = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.cbClass.Location = new System.Drawing.Point(13, 47);
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(357, 33);
+            this.cbClass.Size = new System.Drawing.Size(357, 28);
             this.cbClass.TabIndex = 12;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClasses_SelectedIndexChanged);
             // 
@@ -73,7 +74,7 @@
             this.label2.Location = new System.Drawing.Point(9, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 11;
             this.label2.Text = "Turma";
             // 
@@ -149,7 +150,7 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 69;
+            this.shift.Width = 55;
             // 
             // numberOfAttendence
             // 
@@ -162,7 +163,7 @@
             this.numberOfAttendence.Name = "numberOfAttendence";
             this.numberOfAttendence.ReadOnly = true;
             this.numberOfAttendence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAttendence.Width = 211;
+            this.numberOfAttendence.Width = 171;
             // 
             // numberOfAbsences
             // 
@@ -175,7 +176,7 @@
             this.numberOfAbsences.Name = "numberOfAbsences";
             this.numberOfAbsences.ReadOnly = true;
             this.numberOfAbsences.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAbsences.Width = 171;
+            this.numberOfAbsences.Width = 140;
             // 
             // percentageStart
             // 
@@ -187,7 +188,7 @@
             this.percentageStart.Name = "percentageStart";
             this.percentageStart.ReadOnly = true;
             this.percentageStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageStart.Width = 159;
+            this.percentageStart.Width = 128;
             // 
             // percentageCameIn
             // 
@@ -199,7 +200,7 @@
             this.percentageCameIn.Name = "percentageCameIn";
             this.percentageCameIn.ReadOnly = true;
             this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageCameIn.Width = 192;
+            this.percentageCameIn.Width = 157;
             // 
             // btnViewReport
             // 
@@ -222,9 +223,9 @@
             this.lblQtdClasses.AutoSize = true;
             this.lblQtdClasses.Location = new System.Drawing.Point(12, 398);
             this.lblQtdClasses.Name = "lblQtdClasses";
-            this.lblQtdClasses.Size = new System.Drawing.Size(305, 25);
+            this.lblQtdClasses.Size = new System.Drawing.Size(239, 20);
             this.lblQtdClasses.TabIndex = 16;
-            this.lblQtdClasses.Text = "Quantidades de aulas prestadas: ";
+            this.lblQtdClasses.Text = "Quantidade de aulas prestadas: ";
             this.lblQtdClasses.Visible = false;
             // 
             // cbFindAbove75Percentage
@@ -232,7 +233,7 @@
             this.cbFindAbove75Percentage.AutoSize = true;
             this.cbFindAbove75Percentage.Location = new System.Drawing.Point(453, 47);
             this.cbFindAbove75Percentage.Name = "cbFindAbove75Percentage";
-            this.cbFindAbove75Percentage.Size = new System.Drawing.Size(283, 29);
+            this.cbFindAbove75Percentage.Size = new System.Drawing.Size(230, 24);
             this.cbFindAbove75Percentage.TabIndex = 17;
             this.cbFindAbove75Percentage.Text = "Buscar dados acima de 75%";
             this.cbFindAbove75Percentage.UseVisualStyleBackColor = true;
@@ -243,18 +244,30 @@
             this.cbFindBellow75Percentage.AutoSize = true;
             this.cbFindBellow75Percentage.Location = new System.Drawing.Point(751, 47);
             this.cbFindBellow75Percentage.Name = "cbFindBellow75Percentage";
-            this.cbFindBellow75Percentage.Size = new System.Drawing.Size(289, 29);
+            this.cbFindBellow75Percentage.Size = new System.Drawing.Size(234, 24);
             this.cbFindBellow75Percentage.TabIndex = 18;
             this.cbFindBellow75Percentage.Text = "Buscar dados abaixo de 75%";
             this.cbFindBellow75Percentage.UseVisualStyleBackColor = true;
             this.cbFindBellow75Percentage.CheckedChanged += new System.EventHandler(this.cbFindBellow75Percentage_CheckedChanged);
             // 
+            // lblQuantityStudentList
+            // 
+            this.lblQuantityStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQuantityStudentList.AutoSize = true;
+            this.lblQuantityStudentList.Location = new System.Drawing.Point(12, 424);
+            this.lblQuantityStudentList.Name = "lblQuantityStudentList";
+            this.lblQuantityStudentList.Size = new System.Drawing.Size(227, 20);
+            this.lblQuantityStudentList.TabIndex = 19;
+            this.lblQuantityStudentList.Text = "Quantidade de alunos na lista: ";
+            this.lblQuantityStudentList.Visible = false;
+            // 
             // FrmReportClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1195, 453);
+            this.Controls.Add(this.lblQuantityStudentList);
             this.Controls.Add(this.cbFindBellow75Percentage);
             this.Controls.Add(this.cbFindAbove75Percentage);
             this.Controls.Add(this.lblQtdClasses);
@@ -294,5 +307,6 @@
         private System.Windows.Forms.Label lblQtdClasses;
         private System.Windows.Forms.CheckBox cbFindAbove75Percentage;
         private System.Windows.Forms.CheckBox cbFindBellow75Percentage;
+        private System.Windows.Forms.Label lblQuantityStudentList;
     }
 }

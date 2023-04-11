@@ -60,12 +60,12 @@ namespace CourseManagement
                     index++;
                 }
                 lblQtdClasses.Visible = cbClass.SelectedIndex != cbClass.Items.Count - 1 ? true : false;
+                lblQuantityStudentList.Visible = true;
                 lblQtdClasses.Text = $"Quantidades de aulas prestadas: {attendance.CountPresenceForClass(class_id)}";
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 LoadDataTable();
-                if(cbFindAbove75Percentage.Checked || cbFindBellow75Percentage.Checked)
-                    FilterDataClassForPercentage();
+                FilterDataClassForPercentage();
 
                 if (cbClass.Text.ToLower() != "todos")
                     class_id = int.Parse(@class.FindByClass(cbClass.Text).Rows[0]["id"].ToString());
@@ -149,15 +149,25 @@ namespace CourseManagement
 
         private DataTable getDataTableAfterFiltering()
         {
+            string description;
             DataTable dt;
             if (cbFindAbove75Percentage.Checked)
+            {
                 dt = dataFiltedAbove75Percentage;
-
+                description = "Quantidade de alunos na lista acima de 75%";
+            }
             else if (cbFindBellow75Percentage.Checked)
+            {
                 dt = dataFiltedBellow75Percentage;
+                description = "Quantidade de alunos na lista abaixo de 75%";
+            }
             else
+            {
                 dt = dataTable;
+                description = "Quantidade de alunos na lista";
+            }
 
+            lblQuantityStudentList.Text = $"{description}: {dt.Rows.Count}";
             return dt;
         }
 
