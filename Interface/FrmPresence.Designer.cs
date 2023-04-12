@@ -35,11 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresence));
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnConfirmPresence = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
             this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +42,13 @@
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbClass = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirmPresence = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
+            this.lblQuantityAbove = new System.Windows.Forms.Label();
+            this.lblQUantityBellows = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,63 +93,6 @@
             this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellClick);
             this.dgvListPresence.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellDoubleClick);
             // 
-            // cbClass
-            // 
-            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(14, 41);
-            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
-            this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(419, 37);
-            this.cbClass.TabIndex = 5;
-            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Turma";
-            // 
-            // btnConfirmPresence
-            // 
-            this.btnConfirmPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmPresence.Location = new System.Drawing.Point(709, 434);
-            this.btnConfirmPresence.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConfirmPresence.Name = "btnConfirmPresence";
-            this.btnConfirmPresence.Size = new System.Drawing.Size(247, 55);
-            this.btnConfirmPresence.TabIndex = 7;
-            this.btnConfirmPresence.Text = "Confirmar Presença";
-            this.btnConfirmPresence.UseVisualStyleBackColor = true;
-            this.btnConfirmPresence.Click += new System.EventHandler(this.btnConfirmPresence_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 29);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Data";
-            // 
-            // dtDatePresence
-            // 
-            this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
-            this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
-            this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(135, 35);
-            this.dtDatePresence.TabIndex = 10;
-            this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
-            // 
             // presence
             // 
             this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -171,7 +116,7 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 42;
+            this.id.Width = 32;
             // 
             // name
             // 
@@ -193,6 +138,7 @@
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
             this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.gender.Width = 69;
             // 
             // classStudent
             // 
@@ -212,7 +158,7 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 83;
+            this.shift.Width = 56;
             // 
             // listAttendance_id
             // 
@@ -222,12 +168,91 @@
             this.listAttendance_id.Visible = false;
             this.listAttendance_id.Width = 125;
             // 
+            // cbClass
+            // 
+            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbClass.FormattingEnabled = true;
+            this.cbClass.Location = new System.Drawing.Point(14, 41);
+            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
+            this.cbClass.Name = "cbClass";
+            this.cbClass.Size = new System.Drawing.Size(419, 28);
+            this.cbClass.TabIndex = 5;
+            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Turma";
+            // 
+            // btnConfirmPresence
+            // 
+            this.btnConfirmPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmPresence.Location = new System.Drawing.Point(709, 434);
+            this.btnConfirmPresence.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmPresence.Name = "btnConfirmPresence";
+            this.btnConfirmPresence.Size = new System.Drawing.Size(247, 55);
+            this.btnConfirmPresence.TabIndex = 7;
+            this.btnConfirmPresence.Text = "Confirmar Presença";
+            this.btnConfirmPresence.UseVisualStyleBackColor = true;
+            this.btnConfirmPresence.Click += new System.EventHandler(this.btnConfirmPresence_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(443, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Data";
+            // 
+            // dtDatePresence
+            // 
+            this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
+            this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
+            this.dtDatePresence.Name = "dtDatePresence";
+            this.dtDatePresence.Size = new System.Drawing.Size(135, 26);
+            this.dtDatePresence.TabIndex = 10;
+            this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
+            // 
+            // lblQuantityAbove
+            // 
+            this.lblQuantityAbove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQuantityAbove.AutoSize = true;
+            this.lblQuantityAbove.Location = new System.Drawing.Point(15, 434);
+            this.lblQuantityAbove.Name = "lblQuantityAbove";
+            this.lblQuantityAbove.Size = new System.Drawing.Size(0, 20);
+            this.lblQuantityAbove.TabIndex = 11;
+            this.lblQuantityAbove.Visible = false;
+            // 
+            // lblQUantityBellows
+            // 
+            this.lblQUantityBellows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQUantityBellows.AutoSize = true;
+            this.lblQUantityBellows.Location = new System.Drawing.Point(15, 469);
+            this.lblQUantityBellows.Name = "lblQUantityBellows";
+            this.lblQUantityBellows.Size = new System.Drawing.Size(0, 20);
+            this.lblQUantityBellows.TabIndex = 12;
+            this.lblQUantityBellows.Visible = false;
+            // 
             // FrmPresence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(976, 504);
+            this.Controls.Add(this.lblQUantityBellows);
+            this.Controls.Add(this.lblQuantityAbove);
             this.Controls.Add(this.dtDatePresence);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmPresence);
@@ -265,5 +290,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
         private System.Windows.Forms.DataGridViewTextBoxColumn listAttendance_id;
+        private System.Windows.Forms.Label lblQuantityAbove;
+        private System.Windows.Forms.Label lblQUantityBellows;
     }
 }

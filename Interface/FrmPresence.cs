@@ -33,6 +33,7 @@ namespace CourseManagement
                     btnConfirmPresence.Text = "Confirmar Presença";
                 }
 
+                CountPresenceStudents();
                 dgvListPresence.ClearSelection();
             }
             catch (Exception ex)
@@ -116,6 +117,8 @@ namespace CourseManagement
             else
                 UpdatePresence();
 
+            CountPresenceStudents();
+
             dgvListPresence.ClearSelection();
         }
 
@@ -164,6 +167,30 @@ namespace CourseManagement
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CountPresenceStudents()
+        {
+            int quantityBellow = 0, quantityAbove = 0;
+
+            lblQuantityAbove.Visible = btnConfirmPresence.Text.ToLower() == "editar presença" ? true : false;
+            lblQUantityBellows.Visible = btnConfirmPresence.Text.ToLower() == "editar presença" ? true : false;
+
+            if (btnConfirmPresence.Text.ToLower() == "editar presença")
+            {
+                foreach (DataGridViewRow row in dgvListPresence.Rows)
+                {
+                    if (bool.Parse(row.Cells["presence"].Value.ToString()))
+                    {
+                        quantityAbove++;
+                    }
+                    else
+                        quantityBellow++;
+                }
+
+                lblQuantityAbove.Text = $"Quantidade de presencas {quantityAbove}";
+                lblQUantityBellows.Text = $"Quantidade de faltas {quantityBellow}";
             }
         }
 
