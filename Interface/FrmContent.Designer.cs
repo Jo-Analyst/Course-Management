@@ -36,10 +36,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContent));
             this.btnNew = new System.Windows.Forms.Button();
             this.dgvContent = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.cbMatter = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +83,8 @@
             this.dgvContent.ColumnHeadersHeight = 40;
             this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.edit,
+            this.delete,
             this.id,
             this.wording,
             this.matter,
@@ -97,37 +99,14 @@
             this.dgvContent.RowHeadersVisible = false;
             this.dgvContent.RowHeadersWidth = 51;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvContent.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContent.Size = new System.Drawing.Size(1028, 337);
             this.dgvContent.TabIndex = 2;
             this.dgvContent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(349, 30);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(149, 55);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Excluir";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(191, 30);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(5);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(149, 55);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.dgvContent.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContent_CellMouseEnter);
             // 
             // cbMatter
             // 
@@ -143,7 +122,7 @@
             this.cbMatter.Location = new System.Drawing.Point(34, 139);
             this.cbMatter.Margin = new System.Windows.Forms.Padding(4);
             this.cbMatter.Name = "cbMatter";
-            this.cbMatter.Size = new System.Drawing.Size(262, 37);
+            this.cbMatter.Size = new System.Drawing.Size(262, 28);
             this.cbMatter.TabIndex = 15;
             this.cbMatter.SelectedIndexChanged += new System.EventHandler(this.cbMatter_SelectedIndexChanged);
             // 
@@ -154,9 +133,25 @@
             this.label4.Location = new System.Drawing.Point(29, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 29);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 16;
             this.label4.Text = "Matéria";
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "Editar";
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 57;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "Excluir";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Width = 61;
             // 
             // id
             // 
@@ -170,7 +165,7 @@
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Visible = false;
-            this.id.Width = 42;
+            this.id.Width = 32;
             // 
             // wording
             // 
@@ -192,7 +187,7 @@
             this.matter.Name = "matter";
             this.matter.ReadOnly = true;
             this.matter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.matter.Width = 99;
+            this.matter.Width = 68;
             // 
             // classStudent
             // 
@@ -212,7 +207,7 @@
             this.date.Name = "date";
             this.date.ReadOnly = true;
             this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.date.Width = 68;
+            this.date.Width = 50;
             // 
             // classId
             // 
@@ -225,14 +220,12 @@
             // 
             // FrmContent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
             this.Controls.Add(this.cbMatter);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvContent);
             this.Controls.Add(this.btnNew);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,10 +247,10 @@
 
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dgvContent;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ComboBox cbMatter;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewImageColumn edit;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn wording;
         private System.Windows.Forms.DataGridViewTextBoxColumn matter;

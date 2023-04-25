@@ -35,11 +35,11 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
             this.dgvClass = new System.Windows.Forms.DataGridView();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(685, 30);
+            this.txtField.Size = new System.Drawing.Size(685, 26);
             this.txtField.TabIndex = 1;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
@@ -88,6 +88,8 @@
             this.dgvClass.ColumnHeadersHeight = 40;
             this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.edit,
+            this.delete,
             this.id,
             this.name,
             this.shift});
@@ -99,11 +101,32 @@
             this.dgvClass.RowHeadersVisible = false;
             this.dgvClass.RowHeadersWidth = 51;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvClass.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClass.Size = new System.Drawing.Size(685, 304);
             this.dgvClass.TabIndex = 2;
             this.dgvClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClass_CellClick);
+            this.dgvClass.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClass_CellMouseEnter);
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "Editar";
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.edit.Width = 57;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "Excluir";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.Width = 61;
             // 
             // id
             // 
@@ -117,7 +140,7 @@
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Visible = false;
-            this.id.Width = 37;
+            this.id.Width = 32;
             // 
             // name
             // 
@@ -138,42 +161,14 @@
             this.shift.Name = "shift";
             this.shift.ReadOnly = true;
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 70;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(191, 30);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(5);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(149, 55);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(350, 30);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(149, 55);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Excluir";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.shift.Width = 56;
             // 
             // FrmClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(736, 469);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvClass);
             this.Controls.Add(this.txtField);
             this.Controls.Add(this.btnNew);
@@ -197,10 +192,10 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.TextBox txtField;
         private System.Windows.Forms.DataGridView dgvClass;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.DataGridViewImageColumn edit;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
-        private System.Windows.Forms.Button btnDelete;
     }
 }

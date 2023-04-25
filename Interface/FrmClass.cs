@@ -36,6 +36,8 @@ namespace CourseManagement
             foreach (DataRow dr in dtClass.Rows)
             {
                 int index = dgvClass.Rows.Add();
+                dgvClass.Rows[index].Cells["edit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                dgvClass.Rows[index].Cells["delete"].Value = Properties.Resources.trash_24_icon;
                 dgvClass.Rows[index].Cells["id"].Value = dr["id"].ToString();
                 dgvClass.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvClass.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
@@ -45,23 +47,6 @@ namespace CourseManagement
             dgvClass.ClearSelection();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (classId == 0)
-            {
-                MessageBox.Show("Selecione a turma que deseja editar", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var saveClass = new FrmSaveClass(int.Parse(dgvClass.CurrentRow.Cells["id"].Value.ToString()), dgvClass.CurrentRow.Cells["name"].Value.ToString(), dgvClass.CurrentRow.Cells["shift"].Value.ToString());
-            saveClass.ShowDialog();
-
-            classId = 0;
-            dgvClass.ClearSelection();
-            if (saveClass.classWasSaved)
-                LoadDataClass();
-        }
-
         string nameClass;
         private void dgvClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -69,6 +54,31 @@ namespace CourseManagement
             {
                 classId = int.Parse(dgvClass.Rows[e.RowIndex].Cells["id"].Value.ToString());
                 nameClass = dgvClass.Rows[e.RowIndex].Cells["name"].Value.ToString();
+
+                if (e.ColumnIndex == 0)
+                {
+                    var saveClass = new FrmSaveClass(int.Parse(dgvClass.CurrentRow.Cells["id"].Value.ToString()), dgvClass.CurrentRow.Cells["name"].Value.ToString(), dgvClass.CurrentRow.Cells["shift"].Value.ToString());
+                    saveClass.ShowDialog();
+
+                    classId = 0;
+                    dgvClass.ClearSelection();
+                    if (saveClass.classWasSaved)
+                        LoadDataClass();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    DialogResult dr = MessageBox.Show($"Deseja mesmo excluir a turma {nameClass}? Está ciente que poderá excluir também os alunos relacionados a turma {nameClass}?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        @class.Id = classId;
+                        @class.Delete();
+                        LoadDataClass();
+                    }
+
+                    classId = 0;
+                    dgvClass.ClearSelection();
+                }
             }
         }
 
@@ -87,25 +97,9 @@ namespace CourseManagement
             LoadDataClass();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dgvClass_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (classId == 0)
-            {
-                MessageBox.Show("Selecione a turma que deseja excluir", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DialogResult dr = MessageBox.Show($"Deseja mesmo excluir a turma {nameClass}? Está ciente que poderá excluir também os alunos relacionados a turma {nameClass}?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                @class.Id = classId;
-                @class.Delete();
-                LoadDataClass();
-            }
-
-            classId = 0;
-            dgvClass.ClearSelection();
+            dgvClass.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
         }
     }
 }

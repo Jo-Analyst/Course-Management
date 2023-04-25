@@ -43,7 +43,7 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberOfAttendence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberOfAttendance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberOfAbsences = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageCameIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +52,7 @@
             this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
             this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
             this.lblQuantityStudentList = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +103,7 @@
             this.name,
             this.classStudent,
             this.shift,
-            this.numberOfAttendence,
+            this.numberOfAttendance,
             this.numberOfAbsences,
             this.percentageStart,
             this.percentageCameIn});
@@ -152,18 +153,18 @@
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.shift.Width = 55;
             // 
-            // numberOfAttendence
+            // numberOfAttendance
             // 
-            this.numberOfAttendence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.numberOfAttendence.DataPropertyName = "numberOfAttendence";
+            this.numberOfAttendance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.numberOfAttendance.DataPropertyName = "numberOfAttendance";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberOfAttendence.DefaultCellStyle = dataGridViewCellStyle2;
-            this.numberOfAttendence.HeaderText = "Número de Presenças";
-            this.numberOfAttendence.MinimumWidth = 6;
-            this.numberOfAttendence.Name = "numberOfAttendence";
-            this.numberOfAttendence.ReadOnly = true;
-            this.numberOfAttendence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAttendence.Width = 171;
+            this.numberOfAttendance.DefaultCellStyle = dataGridViewCellStyle2;
+            this.numberOfAttendance.HeaderText = "Número de Presenças";
+            this.numberOfAttendance.MinimumWidth = 6;
+            this.numberOfAttendance.Name = "numberOfAttendance";
+            this.numberOfAttendance.ReadOnly = true;
+            this.numberOfAttendance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.numberOfAttendance.Width = 171;
             // 
             // numberOfAbsences
             // 
@@ -207,13 +208,13 @@
             this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewReport.Enabled = false;
             this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Location = new System.Drawing.Point(851, 384);
+            this.btnViewReport.Location = new System.Drawing.Point(990, 384);
             this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(331, 52);
+            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
             this.btnViewReport.TabIndex = 15;
             this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar e Imprimir Relatório";
+            this.btnViewReport.Text = "Visualizar Relatório";
             this.btnViewReport.UseVisualStyleBackColor = true;
             this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
             // 
@@ -261,12 +262,28 @@
             this.lblQuantityStudentList.Text = "Quantidade de alunos na lista: ";
             this.lblQuantityStudentList.Visible = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Location = new System.Drawing.Point(852, 384);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(133, 52);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FrmReportClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1195, 453);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblQuantityStudentList);
             this.Controls.Add(this.cbFindBellow75Percentage);
             this.Controls.Add(this.cbFindAbove75Percentage);
@@ -300,7 +317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberOfAttendence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberOfAttendance;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberOfAbsences;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentageCameIn;
@@ -308,5 +325,6 @@
         private System.Windows.Forms.CheckBox cbFindAbove75Percentage;
         private System.Windows.Forms.CheckBox cbFindBellow75Percentage;
         private System.Windows.Forms.Label lblQuantityStudentList;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

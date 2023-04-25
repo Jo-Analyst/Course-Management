@@ -206,6 +206,7 @@
     <Compile Include="FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintRDLC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -234,6 +235,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportClass .resx">
       <DependentUpon>FrmReportClass .cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportStudent.resx">
       <DependentUpon>FrmReportStudent.cs</DependentUpon>
@@ -265,7 +267,7 @@
     </Compile>
     <EmbeddedResource Include="ReportListPresence.rdlc" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\ViewStudentReport.datasource" />
+    <None Include="Properties\DataSources\ViewStudentReport1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -300,6 +302,8 @@
   <ItemGroup>
     <Content Include="content.ico" />
     <Content Include="list.ico" />
+    <None Include="Resources\Custom-Icon-Design-Flatastic-1-Edit.24.png" />
+    <None Include="Resources\trash-24-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

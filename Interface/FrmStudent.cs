@@ -39,6 +39,8 @@ namespace CourseManagement
                 foreach (DataRow dr in dtStudent.Rows)
                 {
                     int index = dgvStudent.Rows.Add();
+                    dgvStudent.Rows[index].Cells["Edit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                    dgvStudent.Rows[index].Cells["delete"].Value = Properties.Resources.trash_24_icon;
                     dgvStudent.Rows[index].Cells["id"].Value = dr["id"].ToString();
                     dgvStudent.Rows[index].Cells["name"].Value = dr["name"].ToString();
                     dgvStudent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
@@ -58,15 +60,9 @@ namespace CourseManagement
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void EditStudent()
         {
-            if (studentId == 0)
-            {
-                MessageBox.Show("Selecione o dado do aluno que deseja editar", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
+           var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
             saveStudent.ShowDialog();
 
             studentId = 0;
@@ -83,6 +79,11 @@ namespace CourseManagement
                 studentId = int.Parse(dgvStudent.Rows[e.RowIndex].Cells["id"].Value.ToString());
                 nameStudent = dgvStudent.Rows[e.RowIndex].Cells["name"].Value.ToString();
                 genderStudent = dgvStudent.Rows[e.RowIndex].Cells["gender"].Value.ToString();
+
+                if (e.ColumnIndex == 0)
+                    EditStudent();
+                else if (e.ColumnIndex == 1)
+                    Delete();
             }
         }
 
@@ -101,14 +102,13 @@ namespace CourseManagement
             LoadDataStudent();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dgvStudent_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (studentId == 0)
-            {
-                MessageBox.Show("Selecione o dado do aluno que deseja excluir", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            dgvStudent.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
+        }
 
+        private void Delete()
+        {
             string article = genderStudent == "M" ? "o" : "a";
             string studentMorF = genderStudent == "M" ? "aluno" : "aluna";
 

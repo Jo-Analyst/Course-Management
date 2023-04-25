@@ -64,6 +64,7 @@ namespace CourseManagement
                 lblQtdClasses.Text = $"Quantidades de aulas prestadas: {attendance.CountPresenceForClass(class_id)}";
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
+                btnPrint.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 LoadDataTable();
                 FilterDataClassForPercentage();
 
@@ -95,7 +96,7 @@ namespace CourseManagement
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["name"] = row["name"].ToString();
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["class"] = row["class"].ToString();
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["shift"] = row["shift"].ToString();
-                        dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["numberOfAttendence"] = row["numberOfAttendence"].ToString();
+                        dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["numberOfAttendance"] = row["numberOfAttendance"].ToString();
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["numberOfAbsences"] = row["numberOfAbsences"].ToString();
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["percentageStart"] = row["percentageStart"].ToString();
                         dataFiltedAbove75Percentage.Rows[indexDataFiltedAbove75Percentage]["percentageCameIn"] = row["percentageCameIn"].ToString();
@@ -107,7 +108,7 @@ namespace CourseManagement
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["name"] = row["name"].ToString();
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["class"] = row["class"].ToString();
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["shift"] = row["shift"].ToString();
-                        dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["numberOfAttendence"] = row["numberOfAttendence"].ToString();
+                        dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["numberOfAttendance"] = row["numberOfAttendance"].ToString();
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["numberOfAbsences"] = row["numberOfAbsences"].ToString();
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["percentageStart"] = row["percentageStart"].ToString();
                         dataFiltedBellow75Percentage.Rows[indexDataFiltedBellow75Percentage]["percentageCameIn"] = row["percentageCameIn"].ToString();
@@ -137,7 +138,7 @@ namespace CourseManagement
                 dgvReportClass.Rows[index].Cells["name"].Value = row["name"].ToString();
                 dgvReportClass.Rows[index].Cells["classStudent"].Value = row["class"].ToString();
                 dgvReportClass.Rows[index].Cells["shift"].Value = row["shift"].ToString();
-                dgvReportClass.Rows[index].Cells["numberOfAttendence"].Value = row["numberOfAttendence"].ToString();
+                dgvReportClass.Rows[index].Cells["numberOfAttendance"].Value = row["numberOfAttendance"].ToString();
                 dgvReportClass.Rows[index].Cells["numberOfAbsences"].Value = row["numberOfAbsences"].ToString();
                 dgvReportClass.Rows[index].Cells["percentageStart"].Value = row["percentageStart"].ToString();
                 dgvReportClass.Rows[index].Cells["percentageCameIn"].Value = row["percentageCameIn"].ToString();
@@ -180,7 +181,7 @@ namespace CourseManagement
                 dataTable.Rows[i]["name"] = dgvReportClass.Rows[i].Cells["name"].Value.ToString();
                 dataTable.Rows[i]["class"] = dgvReportClass.Rows[i].Cells["classStudent"].Value.ToString();
                 dataTable.Rows[i]["shift"] = dgvReportClass.Rows[i].Cells["shift"].Value.ToString();
-                dataTable.Rows[i]["numberOfAttendence"] = dgvReportClass.Rows[i].Cells["numberOfAttendence"].Value.ToString();
+                dataTable.Rows[i]["numberOfAttendance"] = dgvReportClass.Rows[i].Cells["numberOfAttendance"].Value.ToString();
                 dataTable.Rows[i]["numberOfAbsences"] = dgvReportClass.Rows[i].Cells["numberOfAbsences"].Value.ToString();
                 dataTable.Rows[i]["percentageStart"] = dgvReportClass.Rows[i].Cells["percentageStart"].Value.ToString();
                 dataTable.Rows[i]["percentageCameIn"] = dgvReportClass.Rows[i].Cells["percentageCameIn"].Value.ToString();
@@ -231,11 +232,11 @@ namespace CourseManagement
             foreach (DataRow dr in dt.Rows)
             {
                 view = new ViewStudentReport();
-                view.StudentName = dr["name"].ToString();
-                view.StudentClass = dr["class"].ToString();
-                view.StudentShift = dr["shift"].ToString();
-                view.StudentNumberOfAttendance = int.Parse(dr["numberOfAttendence"].ToString());
-                view.StudentNumberOfAbsences = int.Parse(dr["numberOfAbsences"].ToString());
+                view.name = dr["name"].ToString();
+                view.@class = dr["class"].ToString();
+                view.shift = dr["shift"].ToString();
+                view.numberOfAttendance = int.Parse(dr["numberOfAttendance"].ToString());
+                view.numberOfAbsences = int.Parse(dr["numberOfAbsences"].ToString());
                 view.percentageStart = dr["percentageStart"].ToString();
                 view.percentageCameIn = dr["percentageCameIn"].ToString();
 
@@ -243,7 +244,7 @@ namespace CourseManagement
                 lst.Add(view);
             }
 
-            rds.Name = "DataSet1";
+            rds.Name = "dtListPresence";
             rds.Value = lst;
         }
 
@@ -259,7 +260,7 @@ namespace CourseManagement
             dataTable.Columns.Add("name", typeof(string));
             dataTable.Columns.Add("class", typeof(string));
             dataTable.Columns.Add("shift", typeof(string));
-            dataTable.Columns.Add("numberOfAttendence", typeof(string));
+            dataTable.Columns.Add("numberOfAttendance", typeof(string));
             dataTable.Columns.Add("numberOfAbsences", typeof(string));
             dataTable.Columns.Add("percentageStart", typeof(string));
             dataTable.Columns.Add("percentageCameIn", typeof(string));
@@ -270,7 +271,7 @@ namespace CourseManagement
             dataFiltedAbove75Percentage.Columns.Add("name", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("class", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("shift", typeof(string));
-            dataFiltedAbove75Percentage.Columns.Add("numberOfAttendence", typeof(string));
+            dataFiltedAbove75Percentage.Columns.Add("numberOfAttendance", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("numberOfAbsences", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("percentageStart", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("percentageCameIn", typeof(string));
@@ -278,7 +279,7 @@ namespace CourseManagement
             dataFiltedBellow75Percentage.Columns.Add("name", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("class", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("shift", typeof(string));
-            dataFiltedBellow75Percentage.Columns.Add("numberOfAttendence", typeof(string));
+            dataFiltedBellow75Percentage.Columns.Add("numberOfAttendance", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("numberOfAbsences", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("percentageStart", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("percentageCameIn", typeof(string));
@@ -309,6 +310,15 @@ namespace CourseManagement
                 cbFindAbove75Percentage.Checked = false;
 
             FilterDataClassForPercentage();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        { 
+            LocalReport localReport = new LocalReport();
+            localReport.DataSources.Clear();
+            localReport.DataSources.Add(new ReportDataSource("dtListPresence", getDataTableAfterFiltering()));
+            localReport.ReportEmbeddedResource = "CourseManagement.ReportListPresence.rdlc";
+            localReport.PrintToPrinter();
         }
     }
 }

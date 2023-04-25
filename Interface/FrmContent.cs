@@ -36,6 +36,8 @@ namespace CourseManagement
                 foreach (DataRow dr in dtContent.Rows)
                 {
                     int index = dgvContent.Rows.Add();
+                    dgvContent.Rows[index].Cells["edit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                    dgvContent.Rows[index].Cells["delete"].Value = Properties.Resources.trash_24_icon;
                     dgvContent.Rows[index].Cells["id"].Value = dr["id"].ToString();
                     dgvContent.Rows[index].Cells["wording"].Value = dr["wording"].ToString();
                     dgvContent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
@@ -53,14 +55,8 @@ namespace CourseManagement
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void Edit()
         {
-            if (contentId == 0)
-            {
-                MessageBox.Show("Selecione o conteúdo", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             var saveStudent = new FrmSaveContent(int.Parse(dgvContent.CurrentRow.Cells["id"].Value.ToString()), dgvContent.CurrentRow.Cells["wording"].Value.ToString(), dgvContent.CurrentRow.Cells["matter"].Value.ToString(), dgvContent.CurrentRow.Cells["Date"].Value.ToString(), int.Parse(dgvContent.CurrentRow.Cells["classId"].Value.ToString()), dgvContent.CurrentRow.Cells["classStudent"].Value.ToString());
             saveStudent.ShowDialog();
 
@@ -75,6 +71,11 @@ namespace CourseManagement
             if (e.RowIndex > -1)
             {
                 contentId = int.Parse(dgvContent.Rows[e.RowIndex].Cells["id"].Value.ToString());
+
+                if (e.ColumnIndex == 0)
+                    Edit();
+                else if (e.ColumnIndex == 1)
+                    Delete();
             }
         }
 
@@ -93,14 +94,8 @@ namespace CourseManagement
             LoadDataContent();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void Delete()
         {
-            if (contentId == 0)
-            {
-                MessageBox.Show("Selecione o conteúdo que deseja excluir", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o conteúdo?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
@@ -118,6 +113,11 @@ namespace CourseManagement
         private void cbMatter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataContent();
+        }
+
+        private void dgvContent_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvContent.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
         }
     }
 }
