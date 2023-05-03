@@ -168,7 +168,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmSaveContent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Presença";
+            this.Text = "Conteúdo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

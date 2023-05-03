@@ -124,7 +124,7 @@ namespace CourseManagement
             }
         }
 
-      
+
 
         private void LoadDataGridView()
         {
@@ -265,7 +265,7 @@ namespace CourseManagement
             dataTable.Columns.Add("percentageStart", typeof(string));
             dataTable.Columns.Add("percentageCameIn", typeof(string));
         }
-        
+
         private void CreateColumsDataTableFiltedData()
         {
             dataFiltedAbove75Percentage.Columns.Add("name", typeof(string));
@@ -275,7 +275,7 @@ namespace CourseManagement
             dataFiltedAbove75Percentage.Columns.Add("numberOfAbsences", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("percentageStart", typeof(string));
             dataFiltedAbove75Percentage.Columns.Add("percentageCameIn", typeof(string));
-           
+
             dataFiltedBellow75Percentage.Columns.Add("name", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("class", typeof(string));
             dataFiltedBellow75Percentage.Columns.Add("shift", typeof(string));
@@ -313,7 +313,7 @@ namespace CourseManagement
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
-        { 
+        {
             LocalReport localReport = new LocalReport();
             localReport.DataSources.Clear();
             localReport.DataSources.Add(new ReportDataSource("dtListPresence", getDataTableAfterFiltering()));

@@ -62,7 +62,7 @@ namespace CourseManagement
 
         private void EditStudent()
         {
-           var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
+            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
             saveStudent.ShowDialog();
 
             studentId = 0;

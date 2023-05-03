@@ -47,9 +47,9 @@ namespace CourseManagement
             {
                 cbClass.Items.Add(dr["name"]);
             }
-        }       
+        }
 
-       
+
 
         private void cbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace CourseManagement
         {
             var dtGetListPresenceStudentByStudentId = listAttendance.GetListPresenceStudentByStudentId(student_id);
             dgvListPresence.Rows.Clear();
-            foreach(DataRow dr in dtGetListPresenceStudentByStudentId.Rows)
+            foreach (DataRow dr in dtGetListPresenceStudentByStudentId.Rows)
             {
                 int index = dgvListPresence.Rows.Add();
                 dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? "true" : "false";
@@ -99,7 +99,7 @@ namespace CourseManagement
 
         private void SelectDgv(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvListPresence.ClearSelection();
             }

@@ -116,7 +116,7 @@ namespace DataBase
                 return dataTable;
             }
         }
-        
+
         public DataTable GetListPresenceStudentByStudentId(int student_id)
         {
             using (var connection = new SqlConnection(_connectionString))

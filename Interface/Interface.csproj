@@ -223,6 +223,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveContent.resx">
       <DependentUpon>FrmSaveContent.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresence.resx">
       <DependentUpon>FrmPresence.cs</DependentUpon>
