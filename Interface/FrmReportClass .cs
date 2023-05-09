@@ -65,7 +65,7 @@ namespace CourseManagement
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 btnPrint.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
-                LoadDataTable();
+                dataTable  =  LoadDataTable();
                 FilterDataClassForPercentage();
 
                 if (cbClass.Text.ToLower() != "todos")
@@ -172,22 +172,33 @@ namespace CourseManagement
             return dt;
         }
 
-        private void LoadDataTable()
+        private DataTable LoadDataTable()
         {
-            dataTable.Rows.Clear();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("name", typeof(string));
+            dt.Columns.Add("class", typeof(string));
+            dt.Columns.Add("shift", typeof(string));
+            dt.Columns.Add("numberOfAttendance", typeof(string));
+            dt.Columns.Add("numberOfAbsences", typeof(string));
+            dt.Columns.Add("percentageStart", typeof(string));
+            dt.Columns.Add("percentageCameIn", typeof(string));
+
+            dt.Rows.Clear();
             for (int i = 0; i < dgvReportClass.Rows.Count; i++)
             {
-                dataTable.Rows.Add();
-                dataTable.Rows[i]["name"] = dgvReportClass.Rows[i].Cells["name"].Value.ToString();
-                dataTable.Rows[i]["class"] = dgvReportClass.Rows[i].Cells["classStudent"].Value.ToString();
-                dataTable.Rows[i]["shift"] = dgvReportClass.Rows[i].Cells["shift"].Value.ToString();
-                dataTable.Rows[i]["numberOfAttendance"] = dgvReportClass.Rows[i].Cells["numberOfAttendance"].Value.ToString();
-                dataTable.Rows[i]["numberOfAbsences"] = dgvReportClass.Rows[i].Cells["numberOfAbsences"].Value.ToString();
-                dataTable.Rows[i]["percentageStart"] = dgvReportClass.Rows[i].Cells["percentageStart"].Value.ToString();
-                dataTable.Rows[i]["percentageCameIn"] = dgvReportClass.Rows[i].Cells["percentageCameIn"].Value.ToString();
+                dt.Rows.Add();
+                dt.Rows[i]["name"] = dgvReportClass.Rows[i].Cells["name"].Value.ToString();
+                dt.Rows[i]["class"] = dgvReportClass.Rows[i].Cells["classStudent"].Value.ToString();
+                dt.Rows[i]["shift"] = dgvReportClass.Rows[i].Cells["shift"].Value.ToString();
+                dt.Rows[i]["numberOfAttendance"] = dgvReportClass.Rows[i].Cells["numberOfAttendance"].Value.ToString();
+                dt.Rows[i]["numberOfAbsences"] = dgvReportClass.Rows[i].Cells["numberOfAbsences"].Value.ToString();
+                dt.Rows[i]["percentageStart"] = dgvReportClass.Rows[i].Cells["percentageStart"].Value.ToString();
+                dt.Rows[i]["percentageCameIn"] = dgvReportClass.Rows[i].Cells["percentageCameIn"].Value.ToString();
             }
-        }
 
+            return dt;
+        }
+        
         private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearSelectionDGV(e);
@@ -229,16 +240,16 @@ namespace CourseManagement
 
             var dt = getDataTableAfterFiltering();
 
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataGridViewRow dr in dgvReportClass.Rows)
             {
                 view = new ViewStudentReport();
-                view.name = dr["name"].ToString();
-                view.@class = dr["class"].ToString();
-                view.shift = dr["shift"].ToString();
-                view.numberOfAttendance = int.Parse(dr["numberOfAttendance"].ToString());
-                view.numberOfAbsences = int.Parse(dr["numberOfAbsences"].ToString());
-                view.percentageStart = dr["percentageStart"].ToString();
-                view.percentageCameIn = dr["percentageCameIn"].ToString();
+                view.name = dr.Cells[0].Value.ToString();
+                view.@class = dr.Cells[1].Value.ToString();
+                view.shift = dr.Cells[2].Value.ToString();
+                view.numberOfAttendance = int.Parse(dr.Cells[3].Value.ToString());
+                view.numberOfAbsences = int.Parse(dr.Cells[4].Value.ToString());
+                view.percentageStart = dr.Cells[5].Value.ToString();
+                view.percentageCameIn = dr.Cells[6].Value.ToString();
 
 
                 lst.Add(view);
@@ -251,19 +262,7 @@ namespace CourseManagement
         private void FrmReportClass_Load(object sender, EventArgs e)
         {
             LoadCbClass();
-            CreateColumsDataTable();
             CreateColumsDataTableFiltedData();
-        }
-
-        private void CreateColumsDataTable()
-        {
-            dataTable.Columns.Add("name", typeof(string));
-            dataTable.Columns.Add("class", typeof(string));
-            dataTable.Columns.Add("shift", typeof(string));
-            dataTable.Columns.Add("numberOfAttendance", typeof(string));
-            dataTable.Columns.Add("numberOfAbsences", typeof(string));
-            dataTable.Columns.Add("percentageStart", typeof(string));
-            dataTable.Columns.Add("percentageCameIn", typeof(string));
         }
 
         private void CreateColumsDataTableFiltedData()
@@ -316,7 +315,7 @@ namespace CourseManagement
         {
             LocalReport localReport = new LocalReport();
             localReport.DataSources.Clear();
-            localReport.DataSources.Add(new ReportDataSource("dtListPresence", getDataTableAfterFiltering()));
+            localReport.DataSources.Add(new ReportDataSource("dtListPresence", LoadDataTable()));
             localReport.ReportEmbeddedResource = "CourseManagement.ReportListPresence.rdlc";
             localReport.PrintToPrinter();
         }
