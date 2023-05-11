@@ -79,5 +79,10 @@ namespace CourseManagement
         {
             new FrmBackupAndRestore().ShowDialog();
         }
+
+        private void FrmCourseManagementt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

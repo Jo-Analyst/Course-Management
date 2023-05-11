@@ -13,7 +13,7 @@ namespace CourseManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCourseManagementt());
+            Application.Run(new FrmLoading());
         }
     }
 }

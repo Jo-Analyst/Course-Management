@@ -134,6 +134,18 @@
     <Compile Include="FrmBackupAndRestore.Designer.cs">
       <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoading.Designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoading1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoading1.designer.cs">
+      <DependentUpon>FrmLoading1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReportPresenceStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +229,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBackupAndRestore.resx">
       <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoading1.resx">
+      <DependentUpon>FrmLoading1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportPresenceStudent.resx">
       <DependentUpon>FrmReportPresenceStudent.cs</DependentUpon>

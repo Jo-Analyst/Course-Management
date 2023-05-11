@@ -16,6 +16,7 @@ namespace CourseManagement
         }
 
         Student student = new Student();
+       
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -113,7 +114,10 @@ namespace CourseManagement
             }
 
             if (btnConfirmPresence.Text == "Confirmar Presença")
+            {
                 ConfirmPresence();
+                LoadListPresence();
+            }
             else
                 UpdatePresence();
 
@@ -121,16 +125,19 @@ namespace CourseManagement
 
             dgvListPresence.ClearSelection();
         }
+        
+        DataTable dtListPresence = new DataTable();
+
+        private void CreateDataTableListPresence()
+        {
+            dtListPresence.Columns.Add("id", typeof(int));
+            dtListPresence.Columns.Add("presence", typeof(bool));
+        }
 
         private void UpdatePresence()
         {
-
             try
             {
-                DataTable dtListPresence = new DataTable();
-                dtListPresence.Columns.Add("id", typeof(int));
-                dtListPresence.Columns.Add("presence", typeof(bool));
-
                 foreach (DataGridViewRow row in dgvListPresence.Rows)
                 {
                     dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value);
@@ -203,6 +210,8 @@ namespace CourseManagement
 
         private void FrmPresence_Load(object sender, EventArgs e)
         {
+            CreateDataTableListPresence();
+
             var dtClasses = @class.FindAll();
             foreach (DataRow dr in dtClasses.Rows)
             {

@@ -65,7 +65,7 @@ namespace CourseManagement
                 dgvReportClass.ClearSelection();
                 btnViewReport.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
                 btnPrint.Enabled = dgvReportClass.Rows.Count > 0 ? true : false;
-                dataTable  =  LoadDataTable();
+                dataTable = LoadDataTable();
                 FilterDataClassForPercentage();
 
                 if (cbClass.Text.ToLower() != "todos")
@@ -198,7 +198,7 @@ namespace CourseManagement
 
             return dt;
         }
-        
+
         private void dgvReportClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearSelectionDGV(e);

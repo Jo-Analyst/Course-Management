@@ -24,6 +24,26 @@ namespace CourseManagement
         private void FrmContent_Load(object sender, EventArgs e)
         {
             LoadDataContent();
+            LoadClass();
+        }
+
+        Class @class = new Class();
+
+        private void LoadClass()
+        {
+            try
+            {
+                var dtClasses = @class.FindAll();
+                cbClass.Items.Add("");
+                foreach (DataRow dr in dtClasses.Rows)
+                {
+                    cbClass.Items.Add(dr["name"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
         }
 
         private void LoadDataContent()
@@ -31,13 +51,13 @@ namespace CourseManagement
             try
             {
                 dgvContent.Rows.Clear();
-                DataTable dtContent = !string.IsNullOrWhiteSpace(cbMatter.Text) ? content.FindByMatter(cbMatter.Text.Trim()) : content.FindAll();
+                DataTable dtContent = !string.IsNullOrWhiteSpace(cbMatter.Text) || !string.IsNullOrWhiteSpace(cbClass.Text) ? content.FindByMatter(cbMatter.Text.Trim(), cbClass.Text) : content.FindAll();
 
                 foreach (DataRow dr in dtContent.Rows)
                 {
                     int index = dgvContent.Rows.Add();
-                    dgvContent.Rows[index].Cells["edit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
-                    dgvContent.Rows[index].Cells["delete"].Value = Properties.Resources.trash_24_icon;
+                    dgvContent.Rows[index].Cells["ColumnEdit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                    dgvContent.Rows[index].Cells["ColumnDelete"].Value = Properties.Resources.trash_24_icon;
                     dgvContent.Rows[index].Cells["id"].Value = dr["id"].ToString();
                     dgvContent.Rows[index].Cells["wording"].Value = dr["wording"].ToString();
                     dgvContent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
@@ -118,6 +138,11 @@ namespace CourseManagement
         private void dgvContent_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             dgvContent.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
+        }
+
+        private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataContent();
         }
     }
 }
