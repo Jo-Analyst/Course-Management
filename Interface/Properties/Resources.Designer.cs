@@ -73,6 +73,36 @@ namespace CourseManagement.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kebad {
+            get {
+                object obj = ResourceManager.GetObject("kebad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pictogrammers_Material_Checkbox_blank_outline_24 {
+            get {
+                object obj = ResourceManager.GetObject("Pictogrammers_Material_Checkbox_blank_outline_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pictogrammers_Material_Checkbox_marked_outline_24 {
+            get {
+                object obj = ResourceManager.GetObject("Pictogrammers_Material_Checkbox_marked_outline_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap trash_24_icon {
             get {
                 object obj = ResourceManager.GetObject("trash_24_icon", resourceCulture);

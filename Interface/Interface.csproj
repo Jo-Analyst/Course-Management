@@ -140,12 +140,6 @@
     <Compile Include="FrmLoading.Designer.cs">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLoading1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLoading1.designer.cs">
-      <DependentUpon>FrmLoading1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmReportPresenceStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,9 +226,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoading1.resx">
-      <DependentUpon>FrmLoading1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportPresenceStudent.resx">
       <DependentUpon>FrmReportPresenceStudent.cs</DependentUpon>
@@ -323,6 +314,10 @@
     <Content Include="list.ico" />
     <None Include="Resources\Custom-Icon-Design-Flatastic-1-Edit.24.png" />
     <None Include="Resources\trash-24-icon.png" />
+    <None Include="Resources\kabad.jpg" />
+    <None Include="Resources\menu-kebab-horizontal-circle-icon-256x256-sjlomk7v.png" />
+    <None Include="Resources\Pictogrammers-Material-Checkbox-marked-outline.24.png" />
+    <None Include="Resources\Pictogrammers-Material-Checkbox-blank-outline.24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

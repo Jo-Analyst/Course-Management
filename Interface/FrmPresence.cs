@@ -16,7 +16,7 @@ namespace CourseManagement
         }
 
         Student student = new Student();
-       
+
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -58,24 +58,8 @@ namespace CourseManagement
         {
             var lengthStudents = student.FindByClass(cbClass.Text).Rows.Count;
             var listPresence = student.FindByClass(cbClass.Text).Rows;
-            if (lengthStudents > 0)
-            {
-                dgvListPresence.Rows.Clear();
-
-                foreach (DataRow dr in listPresence)
-                {
-                    int index = dgvListPresence.Rows.Add();
-                    dgvListPresence.Rows[index].Cells["presence"].Value = "false";
-                    dgvListPresence.Rows[index].Cells["id"].Value = dr["id"].ToString();
-                    dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
-                    dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
-                    dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
-                    dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                    dgvListPresence.Rows[index].Height = 35;
-                }
-
-                dgvListPresence.ClearSelection();
-            }
+            if (lengthStudents > 0)            
+                LoadDgvListPresence(listPresence);
             else
             {
                 MessageBox.Show("Não há alunos cadastrado nesta turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -85,23 +69,46 @@ namespace CourseManagement
             }
         }
 
-        ListAttendance listAttendance = new ListAttendance();
-        private void LoadListPresence()
+        private void LoadDgvListPresence(DataRowCollection listPresence, bool madeCall = false)
         {
-            DataTable dtListAttendance = listAttendance.FindAll(dtDatePresence.Text, cbClass.Text);
             dgvListPresence.Rows.Clear();
-            foreach (DataRow dr in dtListAttendance.Rows)
+
+            foreach (DataRow dr in listPresence)
             {
-                var index = dgvListPresence.Rows.Add();
-                dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "0" ? "false" : "true";
-                dgvListPresence.Rows[index].Cells["id"].Value = dr["student_id"].ToString();
+                int index = dgvListPresence.Rows.Add();
+
+
+                if (!madeCall)
+                    dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                else
+                {
+                    //MessageBox.Show(dr["presence"].ToString());
+                    if (dr["presence"].ToString() == "0")
+                        dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                    else
+                        dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24;
+
+                }
+
+                dgvListPresence.Rows[index].Cells["presence"].Value = !madeCall ? "false" : dr["presence"].ToString() == "0" ? "false" : "true";
+                dgvListPresence.Rows[index].Cells["id"].Value = dr["id"].ToString();
                 dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                 dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = dr["listAttendance_id"].ToString();
+                dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
+                dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = Properties.Resources.kebad;
                 dgvListPresence.Rows[index].Height = 35;
             }
+
+            dgvListPresence.ClearSelection();
+        }
+
+        ListAttendance listAttendance = new ListAttendance();
+        private void LoadListPresence()
+        {
+            DataTable dtListAttendance = listAttendance.FindAll(dtDatePresence.Text, cbClass.Text);
+            LoadDgvListPresence(dtListAttendance.Rows, true);
         }
 
         Attendance attendance = new Attendance();
@@ -125,7 +132,7 @@ namespace CourseManagement
 
             dgvListPresence.ClearSelection();
         }
-        
+
         DataTable dtListPresence = new DataTable();
 
         private void CreateDataTableListPresence()
@@ -221,20 +228,15 @@ namespace CourseManagement
 
         private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ClearSelectionDgv(sender, e);
+            dgvListPresence.CurrentRow.Cells["presence"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
+            dgvListPresence.CurrentRow.Cells["imageCheck"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+
         }
 
-        private void dgvListPresence_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            ClearSelectionDgv(sender, e);
-        }
 
-        private void ClearSelectionDgv(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                dgvListPresence.ClearSelection();
-            }
+            dgvListPresence.Cursor = e.ColumnIndex == 1 || e.ColumnIndex == 7 ? Cursors.Hand : Cursors.Default;
         }
     }
 }

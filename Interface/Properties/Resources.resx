@@ -121,6 +121,15 @@
   <data name="Custom_Icon_Design_Flatastic_1_Edit_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom-Icon-Design-Flatastic-1-Edit.24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="kebad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu-kebab-horizontal-circle-icon-256x256-sjlomk7v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pictogrammers_Material_Checkbox_blank_outline_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pictogrammers-Material-Checkbox-blank-outline.24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pictogrammers_Material_Checkbox_marked_outline_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pictogrammers-Material-Checkbox-marked-outline.24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="trash_24_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trash-24-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
