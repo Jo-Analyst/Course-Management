@@ -74,7 +74,7 @@ namespace CourseManagement
             foreach (DataRow dr in dtGetListPresenceStudentByStudentId.Rows)
             {
                 int index = dgvListPresence.Rows.Add();
-                dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? "true" : "false";
+                dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                 dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
                 dgvListPresence.Rows[index].Height = 35;
             }

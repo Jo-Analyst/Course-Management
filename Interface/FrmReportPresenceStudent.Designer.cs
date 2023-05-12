@@ -39,7 +39,7 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
-            this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.presence = new System.Windows.Forms.DataGridViewImageColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
@@ -134,12 +134,13 @@
             this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = false;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
             this.presence.DefaultCellStyle = dataGridViewCellStyle2;
             this.presence.HeaderText = "";
             this.presence.MinimumWidth = 50;
             this.presence.Name = "presence";
             this.presence.ReadOnly = true;
+            this.presence.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.presence.Width = 50;
             // 
             // date
@@ -186,7 +187,7 @@
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvListPresence;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn presence;
+        private System.Windows.Forms.DataGridViewImageColumn presence;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
     }
 }

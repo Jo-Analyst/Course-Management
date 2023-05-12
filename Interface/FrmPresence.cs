@@ -228,6 +228,9 @@ namespace CourseManagement
 
         private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex != 1)
+                return;
+
             dgvListPresence.CurrentRow.Cells["presence"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
             dgvListPresence.CurrentRow.Cells["imageCheck"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
 

@@ -112,7 +112,6 @@
             // 
             // edit
             // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.edit.HeaderText = "Editar";
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
@@ -121,7 +120,6 @@
             // 
             // delete
             // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.delete.HeaderText = "Excluir";
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
