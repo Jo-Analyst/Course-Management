@@ -30,24 +30,23 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContent));
             this.btnNew = new System.Windows.Forms.Button();
-            this.dgvContent = new System.Windows.Forms.DataGridView();
             this.cbMatter = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wording = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvContent = new System.Windows.Forms.DataGridView();
+            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColWording = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMatter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,52 +62,6 @@
             this.btnNew.Text = "Novo";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // dgvContent
-            // 
-            this.dgvContent.AllowUserToAddRows = false;
-            this.dgvContent.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvContent.BackgroundColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvContent.ColumnHeadersHeight = 40;
-            this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnEdit,
-            this.ColumnDelete,
-            this.id,
-            this.wording,
-            this.matter,
-            this.classStudent,
-            this.date,
-            this.classId});
-            this.dgvContent.EnableHeadersVisualStyles = false;
-            this.dgvContent.Location = new System.Drawing.Point(34, 180);
-            this.dgvContent.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvContent.Name = "dgvContent";
-            this.dgvContent.ReadOnly = true;
-            this.dgvContent.RowHeadersVisible = false;
-            this.dgvContent.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvContent.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContent.Size = new System.Drawing.Size(1028, 337);
-            this.dgvContent.TabIndex = 2;
-            this.dgvContent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
-            this.dgvContent.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContent_CellMouseEnter);
             // 
             // cbMatter
             // 
@@ -162,84 +115,126 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Turma";
             // 
-            // ColumnEdit
+            // dgvContent
             // 
-            this.ColumnEdit.HeaderText = "Editar";
-            this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.ReadOnly = true;
-            this.ColumnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Excluir";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
-            this.ColumnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Visible = false;
-            this.id.Width = 32;
-            // 
-            // wording
-            // 
-            this.wording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.wording.DataPropertyName = "name";
-            this.wording.HeaderText = "Conteúdo Passado";
-            this.wording.MinimumWidth = 6;
-            this.wording.Name = "wording";
-            this.wording.ReadOnly = true;
-            this.wording.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // matter
-            // 
-            this.matter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvContent.AllowUserToAddRows = false;
+            this.dgvContent.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvContent.BackgroundColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvContent.ColumnHeadersHeight = 40;
+            this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColEdit,
+            this.ColDelete,
+            this.ColId,
+            this.ColWording,
+            this.ColMatter,
+            this.ColClass,
+            this.ColDate,
+            this.ColClassId});
+            this.dgvContent.EnableHeadersVisualStyles = false;
+            this.dgvContent.Location = new System.Drawing.Point(35, 184);
+            this.dgvContent.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvContent.Name = "dgvContent";
+            this.dgvContent.ReadOnly = true;
+            this.dgvContent.RowHeadersVisible = false;
+            this.dgvContent.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.matter.DefaultCellStyle = dataGridViewCellStyle4;
-            this.matter.HeaderText = "Matéria";
-            this.matter.MinimumWidth = 6;
-            this.matter.Name = "matter";
-            this.matter.ReadOnly = true;
-            this.matter.Width = 87;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvContent.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContent.Size = new System.Drawing.Size(1028, 330);
+            this.dgvContent.TabIndex = 19;
+            this.dgvContent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContent_CellClick);
+            this.dgvContent.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContent_CellMouseEnter);
             // 
-            // classStudent
+            // ColEdit
             // 
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.Width = 125;
+            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.MinimumWidth = 8;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.Width = 57;
             // 
-            // date
+            // ColDelete
             // 
-            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.date.DataPropertyName = "class";
-            this.date.HeaderText = "Data";
-            this.date.MinimumWidth = 6;
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.date.Width = 50;
+            this.ColDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.MinimumWidth = 8;
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            this.ColDelete.Width = 61;
             // 
-            // classId
+            // ColId
             // 
-            this.classId.HeaderText = "Class_id";
-            this.classId.MinimumWidth = 6;
-            this.classId.Name = "classId";
-            this.classId.ReadOnly = true;
-            this.classId.Visible = false;
-            this.classId.Width = 125;
+            this.ColId.HeaderText = "Id";
+            this.ColId.MinimumWidth = 8;
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Visible = false;
+            this.ColId.Width = 150;
+            // 
+            // ColWording
+            // 
+            this.ColWording.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColWording.HeaderText = "Conteúdo Passado";
+            this.ColWording.MinimumWidth = 8;
+            this.ColWording.Name = "ColWording";
+            this.ColWording.ReadOnly = true;
+            this.ColWording.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColMatter
+            // 
+            this.ColMatter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColMatter.HeaderText = "Matéria";
+            this.ColMatter.MinimumWidth = 8;
+            this.ColMatter.Name = "ColMatter";
+            this.ColMatter.ReadOnly = true;
+            this.ColMatter.Width = 87;
+            // 
+            // ColClass
+            // 
+            this.ColClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColClass.HeaderText = "Turma";
+            this.ColClass.MinimumWidth = 8;
+            this.ColClass.Name = "ColClass";
+            this.ColClass.ReadOnly = true;
+            this.ColClass.Width = 79;
+            // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.NullValue = null;
+            this.ColDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColDate.HeaderText = "Data";
+            this.ColDate.MinimumWidth = 8;
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.ColDate.Width = 69;
+            // 
+            // ColClassId
+            // 
+            this.ColClassId.HeaderText = "ClassId";
+            this.ColClassId.MinimumWidth = 8;
+            this.ColClassId.Name = "ColClassId";
+            this.ColClassId.ReadOnly = true;
+            this.ColClassId.Visible = false;
+            this.ColClassId.Width = 150;
             // 
             // FrmContent
             // 
@@ -247,11 +242,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.Controls.Add(this.dgvContent);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbMatter);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dgvContent);
             this.Controls.Add(this.btnNew);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -271,18 +266,18 @@
         #endregion
 
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.DataGridView dgvContent;
         private System.Windows.Forms.ComboBox cbMatter;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnEdit;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wording;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classId;
+        private System.Windows.Forms.DataGridView dgvContent;
+        private System.Windows.Forms.DataGridViewImageColumn ColEdit;
+        private System.Windows.Forms.DataGridViewImageColumn ColDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColWording;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMatter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColClassId;
     }
 }

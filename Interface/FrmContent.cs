@@ -56,14 +56,14 @@ namespace CourseManagement
                 foreach (DataRow dr in dtContent.Rows)
                 {
                     int index = dgvContent.Rows.Add();
-                    dgvContent.Rows[index].Cells["ColumnEdit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
-                    dgvContent.Rows[index].Cells["ColumnDelete"].Value = Properties.Resources.trash_24_icon;
-                    dgvContent.Rows[index].Cells["id"].Value = dr["id"].ToString();
-                    dgvContent.Rows[index].Cells["wording"].Value = dr["wording"].ToString();
-                    dgvContent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
-                    dgvContent.Rows[index].Cells["matter"].Value = dr["matter"].ToString();
-                    dgvContent.Rows[index].Cells["date"].Value = dr["date"].ToString();
-                    dgvContent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
+                    dgvContent.Rows[index].Cells["ColEdit"].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                    dgvContent.Rows[index].Cells["ColDelete"].Value = Properties.Resources.trash_24_icon;
+                    dgvContent.Rows[index].Cells["ColId"].Value = dr["id"].ToString();
+                    dgvContent.Rows[index].Cells["ColWording"].Value = dr["wording"].ToString();
+                    dgvContent.Rows[index].Cells["ColClass"].Value = dr["class"].ToString();
+                    dgvContent.Rows[index].Cells["ColMatter"].Value = dr["matter"].ToString();
+                    dgvContent.Rows[index].Cells["ColDate"].Value = dr["date"].ToString();
+                    dgvContent.Rows[index].Cells["ColClassId"].Value = dr["class_id"].ToString();
                     dgvContent.Rows[index].Height = 35;
                 }
 
@@ -77,7 +77,7 @@ namespace CourseManagement
 
         private void Edit()
         {
-            var saveStudent = new FrmSaveContent(int.Parse(dgvContent.CurrentRow.Cells["id"].Value.ToString()), dgvContent.CurrentRow.Cells["wording"].Value.ToString(), dgvContent.CurrentRow.Cells["matter"].Value.ToString(), dgvContent.CurrentRow.Cells["Date"].Value.ToString(), int.Parse(dgvContent.CurrentRow.Cells["classId"].Value.ToString()), dgvContent.CurrentRow.Cells["classStudent"].Value.ToString());
+            var saveStudent = new FrmSaveContent(int.Parse(dgvContent.CurrentRow.Cells["ColId"].Value.ToString()), dgvContent.CurrentRow.Cells["ColWording"].Value.ToString(), dgvContent.CurrentRow.Cells["ColMatter"].Value.ToString(), dgvContent.CurrentRow.Cells["ColDate"].Value.ToString(), int.Parse(dgvContent.CurrentRow.Cells["ColClassId"].Value.ToString()), dgvContent.CurrentRow.Cells["ColClass"].Value.ToString());
             saveStudent.ShowDialog();
 
             contentId = 0;
@@ -86,11 +86,11 @@ namespace CourseManagement
                 LoadDataContent();
         }
 
-        private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvContent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                contentId = int.Parse(dgvContent.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                contentId = int.Parse(dgvContent.Rows[e.RowIndex].Cells["ColId"].Value.ToString());
 
                 if (e.ColumnIndex == 0)
                     Edit();
