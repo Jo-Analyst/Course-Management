@@ -58,7 +58,7 @@ namespace CourseManagement
         {
             var lengthStudents = student.FindByClass(cbClass.Text).Rows.Count;
             var listPresence = student.FindByClass(cbClass.Text).Rows;
-            if (lengthStudents > 0)            
+            if (lengthStudents > 0)
                 LoadDgvListPresence(listPresence);
             else
             {
@@ -231,8 +231,8 @@ namespace CourseManagement
             if (e.ColumnIndex != 1)
                 return;
 
-            dgvListPresence.CurrentRow.Cells["presence"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
-            dgvListPresence.CurrentRow.Cells["imageCheck"].Value =  bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+            dgvListPresence.CurrentRow.Cells["presence"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
+            dgvListPresence.CurrentRow.Cells["imageCheck"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
 
         }
 

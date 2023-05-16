@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase;
+using System;
 using System.Windows.Forms;
 
 namespace CourseManagement
@@ -19,9 +20,24 @@ namespace CourseManagement
             }
 
             timer.Stop();
-            this.Visible = false;
 
-            new FrmCourseManagementt().ShowDialog();
+            try
+            {
+                if (!DB.ExistsDataBase())
+                {
+                    DB.CreateDatabase();
+                    DB.CreateTables();
+                }
+               
+                this.Visible = false;
+
+                new FrmCourseManagementt().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
     }
 }

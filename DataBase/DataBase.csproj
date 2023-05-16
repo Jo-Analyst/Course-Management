@@ -59,6 +59,7 @@
     <Compile Include="Backup.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="DataBase.cs" />
     <Compile Include="DbConnectionString.cs" />
     <Compile Include="ListAttendance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
