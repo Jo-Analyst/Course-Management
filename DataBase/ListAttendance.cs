@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
@@ -17,7 +18,7 @@ namespace DataBase
         {
             try
             {
-                string sql = "INSERT INTO ListAttendance VALUES (@presence, @studentId, @attendanceId)";
+                string sql = "INSERT INTO ListAttendance VALUES (@presence, @studentId, @attendanceId); SELECT @@identity";
                 SqlCommand command = new SqlCommand(sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@presence", _presence);
@@ -25,15 +26,16 @@ namespace DataBase
                 command.Parameters.AddWithValue("@attendanceId", _attendanceId);
                 command.CommandText = sql;
 
+                int listAttendanceId = Convert.ToInt32(command.ExecuteScalar());
                 // Motivo de falta
                 if (!string.IsNullOrEmpty(reasonForAbsence))
                 {
                     this.reasonForAbsence.description = reasonForAbsence;
-                    this.reasonForAbsence.attendanceId = _attendanceId;
+                    this.reasonForAbsence.listAttendanceId = listAttendanceId;
                     this.reasonForAbsence.DescribeReasonForAbsence(transaction);
                 }
 
-                command.ExecuteNonQuery();
+               
             }
             catch
             {
@@ -62,7 +64,7 @@ namespace DataBase
                         if (!string.IsNullOrEmpty(dr["reasonForAbsence"].ToString()))
                         {
                             this.reasonForAbsence.description = dr["reasonForAbsence"].ToString();
-                            this.reasonForAbsence.attendanceId = _attendanceId;
+                            this.reasonForAbsence.listAttendanceId = int.Parse(dr["listAttendanceId"].ToString());
                             this.reasonForAbsence.DescribeReasonForAbsence(transaction);
                         }
 
@@ -126,7 +128,7 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender FROM Attendance AS a INNER JOIN ListAttendance AS l ON a.id = l.attendance_id INNER JOIN Students as s ON s.id = l.student_id INNER JOIN Classes AS c ON c.id = s.class_id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
+                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;

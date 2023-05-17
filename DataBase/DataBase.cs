@@ -20,7 +20,7 @@ namespace DataBase
                         "CREATE TABLE [dbo].[Contents] (    [Id]       INT           IDENTITY (1, 1) NOT NULL,    [wording]  VARCHAR (MAX) NOT NULL,    [matter]   VARCHAR (100) NOT NULL,    [Date]     VARCHAR (10)  NOT NULL,    [class_id] INT           NOT NULL,    PRIMARY KEY CLUSTERED ([Id] ASC),    FOREIGN KEY ([class_id]) REFERENCES [dbo].[Classes] ([Id]) ON DELETE CASCADE);" +
                         "" +
                         "CREATE TABLE [dbo].[ListAttendance] (    [Id]            INT     IDENTITY (1, 1) NOT NULL,    [presence]      TINYINT NOT NULL,    [student_id]    INT     NOT NULL,    [attendance_id] INT     NULL,    PRIMARY KEY CLUSTERED ([Id] ASC),    FOREIGN KEY ([student_id]) REFERENCES [dbo].[Students] ([Id]) ON DELETE CASCADE,    FOREIGN KEY ([attendance_id]) REFERENCES [dbo].[Attendance] ([Id]) ON DELETE SET NULL);" +
-                        "CREATE TABLE [dbo].[Reason_For_Absence]([Id] INT NOT NULL PRIMARY KEY IDENTITY,     [description] VARCHAR(MAX) NOT NULL,     [attendance_id] INT NOT NULL, FOREIGN KEY ([attendance_id]) REFERENCES [dbo].[Attendance]([id]) ON DELETE CASCADE);";
+                        "CREATE TABLE [dbo].[Reason_For_Absence] (    [Id]            INT           IDENTITY (1, 1) NOT NULL,    [description]   VARCHAR (MAX) NOT NULL,    [listAttendance_id] INT           NOT NULL,    PRIMARY KEY CLUSTERED ([Id] ASC),    FOREIGN KEY ([listAttendance_id]) REFERENCES [dbo].[ListAttendance] ([Id]) ON DELETE CASCADE);";
                     command.ExecuteNonQuery();
                 }
             }

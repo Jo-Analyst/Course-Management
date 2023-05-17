@@ -97,6 +97,7 @@ namespace CourseManagement
                 dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
+                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = dr["description"].ToString();
                 dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = Properties.Resources.kebad;
                 dgvListPresence.Rows[index].Height = 35;
             }
@@ -126,8 +127,10 @@ namespace CourseManagement
                 LoadListPresence();
             }
             else
+            {
+                CreateDataTableListPresence();
                 UpdatePresence();
-
+            }
             CountPresenceStudents();
 
             dgvListPresence.ClearSelection();
@@ -137,9 +140,12 @@ namespace CourseManagement
 
         private void CreateDataTableListPresence()
         {
+            dtListPresence.Columns.Clear();
             dtListPresence.Columns.Add(btnConfirmPresence.Text.ToLower() == "confirmar presença" ? "student_id" : "id", typeof(int));
             dtListPresence.Columns.Add("presence", typeof(bool));
             dtListPresence.Columns.Add("reasonForAbsence", typeof(string));
+            dtListPresence.Columns.Add("listAttendanceId", typeof(string));
+
         }
 
         private void UpdatePresence()
@@ -148,9 +154,10 @@ namespace CourseManagement
             {
                 foreach (DataGridViewRow row in dgvListPresence.Rows)
                 {
-                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString());
+                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString(), row.Cells["listAttendance_id"].Value.ToString());
                 }
 
+                
                 listAttendance.UpdatePresence(dtListPresence);
                 MessageBox.Show($"Lista de presença atualizada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

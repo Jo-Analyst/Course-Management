@@ -270,7 +270,6 @@
             // 
             this.descriptionReasonForAbsence.HeaderText = "Motivo da Falta";
             this.descriptionReasonForAbsence.Name = "descriptionReasonForAbsence";
-            this.descriptionReasonForAbsence.Visible = false;
             // 
             // listAttendance_id
             // 
