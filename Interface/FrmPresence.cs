@@ -137,8 +137,9 @@ namespace CourseManagement
 
         private void CreateDataTableListPresence()
         {
-            dtListPresence.Columns.Add("id", typeof(int));
+            dtListPresence.Columns.Add(btnConfirmPresence.Text.ToLower() == "confirmar presença" ? "student_id" : "id", typeof(int));
             dtListPresence.Columns.Add("presence", typeof(bool));
+            dtListPresence.Columns.Add("reasonForAbsence", typeof(string));
         }
 
         private void UpdatePresence()
@@ -147,7 +148,7 @@ namespace CourseManagement
             {
                 foreach (DataGridViewRow row in dgvListPresence.Rows)
                 {
-                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value);
+                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString());
                 }
 
                 listAttendance.UpdatePresence(dtListPresence);
@@ -163,18 +164,14 @@ namespace CourseManagement
         {
             try
             {
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("presence", typeof(string));
-                dataTable.Columns.Add("student_id", typeof(string));
-
                 foreach (DataGridViewRow dgvRow in dgvListPresence.Rows)
                 {
-                    dataTable.Rows.Add(dgvRow.Cells["presence"].Value.ToString(), dgvRow.Cells["id"].Value.ToString());
+                    dtListPresence.Rows.Add(dgvRow.Cells["id"].Value.ToString(), dgvRow.Cells["presence"].Value.ToString(), DescriptionReasonForAbsence(dgvRow.Cells["descriptionReasonForAbsence"].Value));
                 }
 
                 attendance.Class_id = class_id;
                 attendance.Date = dtDatePresence.Text;
-                attendance.Save(dataTable);
+                attendance.Save(dtListPresence);
                 MessageBox.Show($"Lista de presença confirmada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnConfirmPresence.Text = "Editar Presença";
             }
@@ -182,6 +179,11 @@ namespace CourseManagement
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string DescriptionReasonForAbsence(object dgv)
+        {
+            return dgv == null ? "" : dgv.ToString();
         }
 
         private void CountPresenceStudents()
@@ -228,17 +230,27 @@ namespace CourseManagement
 
         private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 1)
-                return;
+            if (e.ColumnIndex == 1)
+            {
+                dgvListPresence.CurrentRow.Cells["presence"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
+                dgvListPresence.CurrentRow.Cells["imageCheck"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+            }
+            else if (e.ColumnIndex == 7)
+            {
+                if (bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()))
+                    return;
 
-            dgvListPresence.CurrentRow.Cells["presence"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
-            dgvListPresence.CurrentRow.Cells["imageCheck"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
-
+                FrmReasonForAbsence reasonForAbsence = new FrmReasonForAbsence(DescriptionReasonForAbsence(dgvListPresence.CurrentRow.Cells["descriptionReasonForAbsence"].Value));
+                reasonForAbsence.ShowDialog();
+                if (!string.IsNullOrEmpty(reasonForAbsence.description))
+                {
+                    dgvListPresence.CurrentRow.Cells["descriptionReasonForAbsence"].Value = reasonForAbsence.description;
+                }
+            }
         }
 
         private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-
             dgvListPresence.Cursor = e.ColumnIndex == 1 || e.ColumnIndex == 7 ? Cursors.Hand : Cursors.Default;
         }
     }

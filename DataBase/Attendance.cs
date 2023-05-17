@@ -6,14 +6,13 @@ namespace DataBase
 {
     public class Attendance
     {
-        private string _connectionString = DbConnectionString.connectionString;
         public int Id { get; set; }
         public int Class_id { get; set; }
         public string Date { get; set; }
 
         public void Save(DataTable dtAttendanceList)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
@@ -26,12 +25,15 @@ namespace DataBase
                     command.CommandText = sql;
 
                     ListAttendance listAttendance = new ListAttendance();
-                    listAttendance._attendanceId = Convert.ToInt32(command.ExecuteScalar());
+                   
+                    int attendanceId = Convert.ToInt32(command.ExecuteScalar());
+                    listAttendance._attendanceId = attendanceId;
+
                     foreach (DataRow dr in dtAttendanceList.Rows)
                     {
                         listAttendance._presence = bool.Parse(dr["presence"].ToString());
                         listAttendance._studentId = int.Parse(dr["student_id"].ToString());
-                        listAttendance.ConfirmPresence(transaction);
+                        listAttendance.ConfirmPresence(transaction, dr["reasonForAbsence"].ToString());                       
                     }
 
                     transaction.Commit();
@@ -44,29 +46,11 @@ namespace DataBase
             }
         }
 
-        public int GetLastDataTableAttendaceAndAddOne()
-        {
-            int maxTableAttendance = 1;
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("", connection);
-                command.CommandText = "SELECT MAX(id) FROM Attendance";
-                if (command.ExecuteScalar() != DBNull.Value)
-                {
-                    maxTableAttendance += Convert.ToInt32(command.ExecuteScalar());
-                }
-            }
-
-            return maxTableAttendance;
-        }
-
         public int CountPresenceForClass(int class_id)
         {
             int contPresence = 1;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("", connection);

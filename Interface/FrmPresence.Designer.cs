@@ -50,6 +50,7 @@
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reasonForAbsence = new System.Windows.Forms.DataGridViewImageColumn();
+            this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             this.classStudent,
             this.shift,
             this.reasonForAbsence,
+            this.descriptionReasonForAbsence,
             this.listAttendance_id});
             this.dgvListPresence.EnableHeadersVisualStyles = false;
             this.dgvListPresence.Location = new System.Drawing.Point(14, 101);
@@ -264,6 +266,12 @@
             this.reasonForAbsence.ToolTipText = "Motivo da falta";
             this.reasonForAbsence.Width = 50;
             // 
+            // descriptionReasonForAbsence
+            // 
+            this.descriptionReasonForAbsence.HeaderText = "Motivo da Falta";
+            this.descriptionReasonForAbsence.Name = "descriptionReasonForAbsence";
+            this.descriptionReasonForAbsence.Visible = false;
+            // 
             // listAttendance_id
             // 
             this.listAttendance_id.HeaderText = "listAttendance_id";
@@ -320,6 +328,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
         private System.Windows.Forms.DataGridViewImageColumn reasonForAbsence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionReasonForAbsence;
         private System.Windows.Forms.DataGridViewTextBoxColumn listAttendance_id;
     }
 }

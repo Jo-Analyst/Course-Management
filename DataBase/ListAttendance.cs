@@ -11,7 +11,9 @@ namespace DataBase
         public int _studentId { get; set; }
         public int _attendanceId { get; set; }
 
-        public void ConfirmPresence(SqlTransaction transaction)
+        ReasonForAbsence reasonForAbsence = new ReasonForAbsence();
+        
+        public void ConfirmPresence(SqlTransaction transaction, string reasonForAbsence)
         {
             try
             {
@@ -22,6 +24,14 @@ namespace DataBase
                 command.Parameters.AddWithValue("@studentId", _studentId);
                 command.Parameters.AddWithValue("@attendanceId", _attendanceId);
                 command.CommandText = sql;
+
+                // Motivo de falta
+                if (!string.IsNullOrEmpty(reasonForAbsence))
+                {
+                    this.reasonForAbsence.description = reasonForAbsence;
+                    this.reasonForAbsence.attendanceId = _attendanceId;
+                    this.reasonForAbsence.DescribeReasonForAbsence(transaction);
+                }
 
                 command.ExecuteNonQuery();
             }
@@ -47,6 +57,15 @@ namespace DataBase
                         command.Parameters.AddWithValue("@id", int.Parse(dr["id"].ToString()));
                         command.Parameters.AddWithValue("@presence", bool.Parse(dr["presence"].ToString()));
                         command.CommandText = sql;
+
+                        // Motivo de falta
+                        if (!string.IsNullOrEmpty(dr["reasonForAbsence"].ToString()))
+                        {
+                            this.reasonForAbsence.description = dr["reasonForAbsence"].ToString();
+                            this.reasonForAbsence.attendanceId = _attendanceId;
+                            this.reasonForAbsence.DescribeReasonForAbsence(transaction);
+                        }
+
                         command.ExecuteNonQuery();
                     }
 
