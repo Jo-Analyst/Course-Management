@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
             this.presence = new System.Windows.Forms.DataGridViewImageColumn();
+            this.presenceSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsAbsence = new System.Windows.Forms.DataGridViewImageColumn();
             this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +115,7 @@
             this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.presence,
+            this.presenceSelect,
             this.date,
             this.DetailsAbsence,
             this.descriptionReasonForAbsence});
@@ -126,6 +128,8 @@
             this.dgvListPresence.RowHeadersWidth = 51;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListPresence.Size = new System.Drawing.Size(698, 397);
@@ -147,6 +151,13 @@
             this.presence.ReadOnly = true;
             this.presence.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.presence.Width = 50;
+            // 
+            // presenceSelect
+            // 
+            this.presenceSelect.HeaderText = "presence";
+            this.presenceSelect.Name = "presenceSelect";
+            this.presenceSelect.ReadOnly = true;
+            this.presenceSelect.Visible = false;
             // 
             // date
             // 
@@ -170,6 +181,7 @@
             this.descriptionReasonForAbsence.HeaderText = "Motivo de Falta";
             this.descriptionReasonForAbsence.Name = "descriptionReasonForAbsence";
             this.descriptionReasonForAbsence.ReadOnly = true;
+            this.descriptionReasonForAbsence.Visible = false;
             // 
             // FrmReportPresenceStudent
             // 
@@ -207,6 +219,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvListPresence;
         private System.Windows.Forms.DataGridViewImageColumn presence;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn presenceSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewImageColumn DetailsAbsence;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionReasonForAbsence;
