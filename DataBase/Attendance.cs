@@ -32,7 +32,7 @@ namespace DataBase
                     foreach (DataRow dr in dtAttendanceList.Rows)
                     {
                         listAttendance._presence = bool.Parse(dr["presence"].ToString());
-                        listAttendance._studentId = int.Parse(dr["student_id"].ToString());
+                        listAttendance._studentId = int.Parse(dr["studenId"].ToString());
                         listAttendance.ConfirmPresence(transaction, dr["reasonForAbsence"].ToString());                       
                     }
 

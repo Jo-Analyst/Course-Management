@@ -122,6 +122,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCourseManagementt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="ViewStudentReport.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCourseManagementt.resx">
       <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
     </EmbeddedResource>

@@ -25,13 +25,13 @@ namespace CourseManagement
 
                 if (ThereIsMarkedAttendanceList())
                 {
-                    LoadListPresence();
                     btnConfirmPresence.Text = "Editar Presença";
+                    LoadListPresence();
                 }
                 else
                 {
-                    LoadStudents();
                     btnConfirmPresence.Text = "Confirmar Presença";
+                    LoadStudents();
                 }
 
                 CountPresenceStudents();
@@ -82,7 +82,6 @@ namespace CourseManagement
                     dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                 else
                 {
-                    //MessageBox.Show(dr["presence"].ToString());
                     if (dr["presence"].ToString() == "0")
                         dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                     else
@@ -97,7 +96,8 @@ namespace CourseManagement
                 dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                 dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
-                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = dr["description"].ToString();
+                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["description"].ToString();
+                dgvListPresence.Rows[index].Cells["reasonForAbsenceId"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["reasonForAbsence_id"].ToString();
                 dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = Properties.Resources.kebad;
                 dgvListPresence.Rows[index].Height = 35;
             }
@@ -124,13 +124,14 @@ namespace CourseManagement
             if (btnConfirmPresence.Text == "Confirmar Presença")
             {
                 ConfirmPresence();
-                LoadListPresence();
             }
             else
             {
                 CreateDataTableListPresence();
                 UpdatePresence();
             }
+
+            LoadListPresence();
             CountPresenceStudents();
 
             dgvListPresence.ClearSelection();
@@ -141,10 +142,12 @@ namespace CourseManagement
         private void CreateDataTableListPresence()
         {
             dtListPresence.Columns.Clear();
-            dtListPresence.Columns.Add(btnConfirmPresence.Text.ToLower() == "confirmar presença" ? "student_id" : "id", typeof(int));
+            dtListPresence.Rows.Clear();
+            dtListPresence.Columns.Add("studenId", typeof(int));
             dtListPresence.Columns.Add("presence", typeof(bool));
             dtListPresence.Columns.Add("reasonForAbsence", typeof(string));
             dtListPresence.Columns.Add("listAttendanceId", typeof(string));
+            dtListPresence.Columns.Add("reasonForAbsenceId", typeof(string));
 
         }
 
@@ -154,7 +157,7 @@ namespace CourseManagement
             {
                 foreach (DataGridViewRow row in dgvListPresence.Rows)
                 {
-                    dtListPresence.Rows.Add(row.Cells["listAttendance_id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString(), row.Cells["listAttendance_id"].Value.ToString());
+                    dtListPresence.Rows.Add(row.Cells["id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString(), row.Cells["listAttendance_id"].Value.ToString(), row.Cells["reasonForAbsenceId"].Value.ToString());
                 }
 
                 

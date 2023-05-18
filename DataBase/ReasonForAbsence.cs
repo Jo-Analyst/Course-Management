@@ -21,5 +21,19 @@ namespace DataBase
                 throw;
             }
         }
+        
+        static public void DeleteReasonForAbsence(SqlTransaction transaction, int id)
+        {
+            try
+            {
+                var command = new SqlCommand("", transaction.Connection, transaction);
+                command.CommandText = $"DELETE FROM Reason_For_Absence WHERE id = {id}";
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

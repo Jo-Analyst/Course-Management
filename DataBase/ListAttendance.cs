@@ -56,16 +56,21 @@ namespace DataBase
                     foreach (DataRow dr in dtListPresence.Rows)
                     {
                         SqlCommand command = new SqlCommand(sql, connection, transaction);
-                        command.Parameters.AddWithValue("@id", int.Parse(dr["id"].ToString()));
+                        command.Parameters.AddWithValue("@id", int.Parse(dr["listAttendanceId"].ToString()));
                         command.Parameters.AddWithValue("@presence", bool.Parse(dr["presence"].ToString()));
                         command.CommandText = sql;
 
                         // Motivo de falta
                         if (!string.IsNullOrEmpty(dr["reasonForAbsence"].ToString()))
                         {
+                            this.reasonForAbsence.id = string.IsNullOrEmpty(dr["reasonForAbsenceId"].ToString()) ? 0 : int.Parse(dr["reasonForAbsenceId"].ToString());
                             this.reasonForAbsence.description = dr["reasonForAbsence"].ToString();
                             this.reasonForAbsence.listAttendanceId = int.Parse(dr["listAttendanceId"].ToString());
                             this.reasonForAbsence.DescribeReasonForAbsence(transaction);
+                            if (bool.Parse(dr["presence"].ToString()) && this.reasonForAbsence.id > 0)
+                            {
+                                ReasonForAbsence.DeleteReasonForAbsence(transaction, this.reasonForAbsence.id);
+                            }
                         }
 
                         command.ExecuteNonQuery();
@@ -128,7 +133,7 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
+                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender, rfa.id as reasonForAbsence_id, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;
