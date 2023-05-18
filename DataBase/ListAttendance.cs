@@ -147,7 +147,7 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string sql = $"SELECT list.presence, att.date FROM ListAttendance AS list INNER JOIN Attendance AS att ON att.Id = list.attendance_id WHERE list.student_id = {student_id};";
+                string sql = $"SELECT list.presence, att.date, rfa.description FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id  WHERE list.student_id = {student_id};";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;

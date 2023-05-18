@@ -76,6 +76,8 @@ namespace CourseManagement
                 int index = dgvListPresence.Rows.Add();
                 dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                 dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
+                dgvListPresence.Rows[index].Cells["DetailsAbsence"].Value = dr["presence"].ToString() == "0" ? Properties.Resources.kebad : Properties.Resources.white;
+                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = string.IsNullOrEmpty(dr["description"].ToString()) ? "---" : dr["description"].ToString();
                 dgvListPresence.Rows[index].Height = 35;
             }
 
@@ -103,6 +105,12 @@ namespace CourseManagement
             {
                 dgvListPresence.ClearSelection();
             }
+        }
+
+        private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+                dgvListPresence.Cursor = e.ColumnIndex == 2 && dgvListPresence.Rows[e.RowIndex].Cells["presence"].Value.ToString() == "false" ? Cursors.Hand : Cursors.Default;
         }
     }
 }

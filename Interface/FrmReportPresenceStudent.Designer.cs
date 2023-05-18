@@ -41,6 +41,8 @@
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
             this.presence = new System.Windows.Forms.DataGridViewImageColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailsAbsence = new System.Windows.Forms.DataGridViewImageColumn();
+            this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +114,9 @@
             this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.presence,
-            this.date});
+            this.date,
+            this.DetailsAbsence,
+            this.descriptionReasonForAbsence});
             this.dgvListPresence.EnableHeadersVisualStyles = false;
             this.dgvListPresence.Location = new System.Drawing.Point(23, 102);
             this.dgvListPresence.Margin = new System.Windows.Forms.Padding(4);
@@ -128,6 +132,7 @@
             this.dgvListPresence.TabIndex = 13;
             this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellClick);
             this.dgvListPresence.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellDoubleClick);
+            this.dgvListPresence.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellMouseEnter);
             // 
             // presence
             // 
@@ -151,6 +156,20 @@
             this.date.Name = "date";
             this.date.ReadOnly = true;
             this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DetailsAbsence
+            // 
+            this.DetailsAbsence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DetailsAbsence.HeaderText = "Detalhes da falta";
+            this.DetailsAbsence.Name = "DetailsAbsence";
+            this.DetailsAbsence.ReadOnly = true;
+            this.DetailsAbsence.Width = 136;
+            // 
+            // descriptionReasonForAbsence
+            // 
+            this.descriptionReasonForAbsence.HeaderText = "Motivo de Falta";
+            this.descriptionReasonForAbsence.Name = "descriptionReasonForAbsence";
+            this.descriptionReasonForAbsence.ReadOnly = true;
             // 
             // FrmReportPresenceStudent
             // 
@@ -189,5 +208,7 @@
         private System.Windows.Forms.DataGridView dgvListPresence;
         private System.Windows.Forms.DataGridViewImageColumn presence;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewImageColumn DetailsAbsence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionReasonForAbsence;
     }
 }
