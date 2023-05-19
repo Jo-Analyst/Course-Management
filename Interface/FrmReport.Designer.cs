@@ -44,7 +44,7 @@
             this.lblQuantityStudentsRegistered.Location = new System.Drawing.Point(135, 28);
             this.lblQuantityStudentsRegistered.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblQuantityStudentsRegistered.Name = "lblQuantityStudentsRegistered";
-            this.lblQuantityStudentsRegistered.Size = new System.Drawing.Size(278, 20);
+            this.lblQuantityStudentsRegistered.Size = new System.Drawing.Size(238, 17);
             this.lblQuantityStudentsRegistered.TabIndex = 0;
             this.lblQuantityStudentsRegistered.Text = "Quantidade de alunos cadastrados: ";
             // 
@@ -63,7 +63,7 @@
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(149, 85);
             this.btnStudent.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnStudent, "Aluno");
+            this.toolTip1.SetToolTip(this.btnStudent, "Relatório do Aluno - [CTRL + S]");
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
@@ -82,7 +82,7 @@
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(149, 85);
             this.btnClass.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnClass, "Turma");
+            this.toolTip1.SetToolTip(this.btnClass, "Relatório da Classe - [CTRL + T]");
             this.btnClass.UseVisualStyleBackColor = false;
             this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
@@ -101,13 +101,13 @@
             this.btnListPresence.Name = "btnListPresence";
             this.btnListPresence.Size = new System.Drawing.Size(149, 85);
             this.btnListPresence.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnListPresence, "Turma");
+            this.toolTip1.SetToolTip(this.btnListPresence, "Lista de presenca por aluno - [CTRL + L]");
             this.btnListPresence.UseVisualStyleBackColor = false;
             this.btnListPresence.Click += new System.EventHandler(this.btnListPresence_Click);
             // 
             // FrmReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(525, 256);
@@ -119,6 +119,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -126,6 +127,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.FrmReport_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReport_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

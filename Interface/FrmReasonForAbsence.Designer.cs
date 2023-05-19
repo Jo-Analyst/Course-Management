@@ -57,6 +57,7 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Location = new System.Drawing.Point(434, 272);
@@ -85,6 +86,7 @@
             this.Name = "FrmReasonForAbsence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Motivo da falta";
+            this.Load += new System.EventHandler(this.FrmReasonForAbsence_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReasonForAbsence_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -40,12 +40,6 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvReportClass = new System.Windows.Forms.DataGridView();
-            this.btnViewReport = new System.Windows.Forms.Button();
-            this.lblQtdClasses = new System.Windows.Forms.Label();
-            this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
-            this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
-            this.lblQuantityStudentList = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +47,12 @@
             this.numberOfAbsences = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageCameIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewReport = new System.Windows.Forms.Button();
+            this.lblQtdClasses = new System.Windows.Forms.Label();
+            this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
+            this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
+            this.lblQuantityStudentList = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,80 +124,6 @@
             this.dgvReportClass.TabStop = false;
             this.dgvReportClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellClick);
             this.dgvReportClass.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellDoubleClick);
-            // 
-            // btnViewReport
-            // 
-            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewReport.Enabled = false;
-            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Location = new System.Drawing.Point(990, 384);
-            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
-            this.btnViewReport.TabIndex = 15;
-            this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar Relatório";
-            this.btnViewReport.UseVisualStyleBackColor = true;
-            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
-            // 
-            // lblQtdClasses
-            // 
-            this.lblQtdClasses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblQtdClasses.AutoSize = true;
-            this.lblQtdClasses.Location = new System.Drawing.Point(12, 398);
-            this.lblQtdClasses.Name = "lblQtdClasses";
-            this.lblQtdClasses.Size = new System.Drawing.Size(239, 20);
-            this.lblQtdClasses.TabIndex = 16;
-            this.lblQtdClasses.Text = "Quantidade de aulas prestadas: ";
-            this.lblQtdClasses.Visible = false;
-            // 
-            // cbFindAbove75Percentage
-            // 
-            this.cbFindAbove75Percentage.AutoSize = true;
-            this.cbFindAbove75Percentage.Location = new System.Drawing.Point(453, 47);
-            this.cbFindAbove75Percentage.Name = "cbFindAbove75Percentage";
-            this.cbFindAbove75Percentage.Size = new System.Drawing.Size(230, 24);
-            this.cbFindAbove75Percentage.TabIndex = 17;
-            this.cbFindAbove75Percentage.Text = "Buscar dados acima de 75%";
-            this.cbFindAbove75Percentage.UseVisualStyleBackColor = true;
-            this.cbFindAbove75Percentage.CheckedChanged += new System.EventHandler(this.cbFindAbove75Percentage_CheckedChanged);
-            // 
-            // cbFindBellow75Percentage
-            // 
-            this.cbFindBellow75Percentage.AutoSize = true;
-            this.cbFindBellow75Percentage.Location = new System.Drawing.Point(751, 47);
-            this.cbFindBellow75Percentage.Name = "cbFindBellow75Percentage";
-            this.cbFindBellow75Percentage.Size = new System.Drawing.Size(234, 24);
-            this.cbFindBellow75Percentage.TabIndex = 18;
-            this.cbFindBellow75Percentage.Text = "Buscar dados abaixo de 75%";
-            this.cbFindBellow75Percentage.UseVisualStyleBackColor = true;
-            this.cbFindBellow75Percentage.CheckedChanged += new System.EventHandler(this.cbFindBellow75Percentage_CheckedChanged);
-            // 
-            // lblQuantityStudentList
-            // 
-            this.lblQuantityStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblQuantityStudentList.AutoSize = true;
-            this.lblQuantityStudentList.Location = new System.Drawing.Point(12, 424);
-            this.lblQuantityStudentList.Name = "lblQuantityStudentList";
-            this.lblQuantityStudentList.Size = new System.Drawing.Size(227, 20);
-            this.lblQuantityStudentList.TabIndex = 19;
-            this.lblQuantityStudentList.Text = "Quantidade de alunos na lista: ";
-            this.lblQuantityStudentList.Visible = false;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Enabled = false;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Location = new System.Drawing.Point(852, 384);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(133, 52);
-            this.btnPrint.TabIndex = 20;
-            this.btnPrint.TabStop = false;
-            this.btnPrint.Text = "Imprimir";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // name
             // 
@@ -278,6 +204,84 @@
             this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.percentageCameIn.Width = 157;
             // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewReport.Enabled = false;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.Location = new System.Drawing.Point(990, 384);
+            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
+            this.btnViewReport.TabIndex = 15;
+            this.btnViewReport.TabStop = false;
+            this.btnViewReport.Text = "Visualizar Relatório";
+            this.toolTip1.SetToolTip(this.btnViewReport, "Visualizar Relatório  - [SHIFT + P]");
+            this.btnViewReport.UseVisualStyleBackColor = true;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+            // 
+            // lblQtdClasses
+            // 
+            this.lblQtdClasses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQtdClasses.AutoSize = true;
+            this.lblQtdClasses.Location = new System.Drawing.Point(12, 398);
+            this.lblQtdClasses.Name = "lblQtdClasses";
+            this.lblQtdClasses.Size = new System.Drawing.Size(239, 20);
+            this.lblQtdClasses.TabIndex = 16;
+            this.lblQtdClasses.Text = "Quantidade de aulas prestadas: ";
+            this.lblQtdClasses.Visible = false;
+            // 
+            // cbFindAbove75Percentage
+            // 
+            this.cbFindAbove75Percentage.AutoSize = true;
+            this.cbFindAbove75Percentage.Location = new System.Drawing.Point(453, 47);
+            this.cbFindAbove75Percentage.Name = "cbFindAbove75Percentage";
+            this.cbFindAbove75Percentage.Size = new System.Drawing.Size(230, 24);
+            this.cbFindAbove75Percentage.TabIndex = 17;
+            this.cbFindAbove75Percentage.Text = "Buscar dados acima de 75%";
+            this.cbFindAbove75Percentage.UseVisualStyleBackColor = true;
+            this.cbFindAbove75Percentage.CheckedChanged += new System.EventHandler(this.cbFindAbove75Percentage_CheckedChanged);
+            // 
+            // cbFindBellow75Percentage
+            // 
+            this.cbFindBellow75Percentage.AutoSize = true;
+            this.cbFindBellow75Percentage.Location = new System.Drawing.Point(751, 47);
+            this.cbFindBellow75Percentage.Name = "cbFindBellow75Percentage";
+            this.cbFindBellow75Percentage.Size = new System.Drawing.Size(234, 24);
+            this.cbFindBellow75Percentage.TabIndex = 18;
+            this.cbFindBellow75Percentage.Text = "Buscar dados abaixo de 75%";
+            this.cbFindBellow75Percentage.UseVisualStyleBackColor = true;
+            this.cbFindBellow75Percentage.CheckedChanged += new System.EventHandler(this.cbFindBellow75Percentage_CheckedChanged);
+            // 
+            // lblQuantityStudentList
+            // 
+            this.lblQuantityStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQuantityStudentList.AutoSize = true;
+            this.lblQuantityStudentList.Location = new System.Drawing.Point(12, 424);
+            this.lblQuantityStudentList.Name = "lblQuantityStudentList";
+            this.lblQuantityStudentList.Size = new System.Drawing.Size(227, 20);
+            this.lblQuantityStudentList.TabIndex = 19;
+            this.lblQuantityStudentList.Text = "Quantidade de alunos na lista: ";
+            this.lblQuantityStudentList.Visible = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Location = new System.Drawing.Point(852, 384);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(133, 52);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.toolTip1.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FrmReportClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -296,6 +300,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
             this.Name = "FrmReportClass";
@@ -303,6 +308,7 @@
             this.Text = "Relatório da Turma";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmReportClass_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReportClass_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

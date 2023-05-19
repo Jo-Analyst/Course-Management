@@ -66,6 +66,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(709, 342);
@@ -169,6 +170,7 @@
             this.Name = "FrmSaveContent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conteúdo";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveContent_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

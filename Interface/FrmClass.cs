@@ -24,6 +24,7 @@ namespace CourseManagement
         private void FrmClass_Load(object sender, EventArgs e)
         {
             LoadDataClass();
+            new ToolTip().SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
 
         private void LoadDataClass()
@@ -100,6 +101,12 @@ namespace CourseManagement
         private void dgvClass_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             dgvClass.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
+        }
+
+        private void FrmClass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode == Keys.N)
+                btnNew_Click(sender, e);
         }
     }
 }

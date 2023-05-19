@@ -88,6 +88,12 @@ namespace CourseManagement
 
         }
 
+        private void FrmSaveContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+        }
+
         private void LoadClass()
         {
             try

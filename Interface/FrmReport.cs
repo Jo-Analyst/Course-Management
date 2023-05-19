@@ -30,5 +30,15 @@ namespace CourseManagement
         {
             new FrmReportPresenceStudent().ShowDialog();
         }
+
+        private void FrmReport_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+                btnStudent_Click(sender, e);
+            else if (e.Control && e.KeyCode == Keys.T)
+                btnClass_Click(sender, e);
+            else if (e.Control && e.KeyCode == Keys.L)
+                btnListPresence_Click(sender, e);
+        }
     }
 }

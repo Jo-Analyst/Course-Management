@@ -316,5 +316,13 @@ namespace CourseManagement
            var rds =  new ReportDataSource("dtListPresence", LoadDataTable());
             ReportViewerPrint.PrintDirecty(rds, "CourseManagement.ReportListPresence.rdlc");
         }
+
+        private void FrmReportClass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(btnPrint.Enabled && e.Control && e.KeyCode == Keys.P) 
+                btnPrint_Click(sender, e);
+            else if(btnViewReport.Enabled && e.Shift && e.KeyCode == Keys.P)
+                btnViewReport_Click(sender, e);
+        }
     }
 }

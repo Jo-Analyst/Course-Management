@@ -236,6 +236,8 @@ namespace CourseManagement
             {
                 cbClass.Items.Add(dr["name"]);
             }
+
+            new ToolTip().SetToolTip(btnConfirmPresence, "Confirmar Presença - [CTRL + C]");
         }
 
         private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -262,6 +264,12 @@ namespace CourseManagement
         private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             dgvListPresence.Cursor = e.ColumnIndex == 1 || e.ColumnIndex == 7 ? Cursors.Hand : Cursors.Default;
+        }
+
+        private void FrmPresence_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+                btnConfirmPresence_Click(sender, e);
         }
     }
 }

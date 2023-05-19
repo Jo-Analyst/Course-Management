@@ -30,5 +30,10 @@ namespace CourseManagement
             if (e.KeyCode == Keys.Enter)
                 btnConfirm_Click(sender, e);
         }
+
+        private void FrmReasonForAbsence_Load(object sender, EventArgs e)
+        {
+            new ToolTip().SetToolTip(btnConfirm, "Confirmar - [CTRL + C]");
+        }
     }
 }

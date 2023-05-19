@@ -74,5 +74,13 @@ namespace CourseManagement
         private void FrmReport_Load(object sender, EventArgs e)
         {
         }
+
+        private void FrmBackupAndRestore_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.B)
+                btnBackup_Click(sender, e);
+             if (e.Control && e.KeyCode == Keys.R)
+                btnRestore_Click(sender, e);
+        }
     }
 }

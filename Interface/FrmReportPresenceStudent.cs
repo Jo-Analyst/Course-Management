@@ -138,5 +138,13 @@ namespace CourseManagement
         {
             ReportViewerPrint.PrintDirecty(GetDataListPresenceAndAbsenceStudent(), "CourseManagement.reportPresenceAndAbsence.rdlc", cbNameStudents.Text);
         }
+
+        private void FrmReportPresenceStudent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
+                btnPrint_Click(sender, e);
+            else if (btnViewReport.Enabled && e.Shift && e.KeyCode == Keys.P)
+                btnViewReport_Click(sender, e);
+        }
     }
 }

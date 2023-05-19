@@ -25,6 +25,7 @@ namespace CourseManagement
         {
             LoadDataContent();
             LoadClass();
+            new ToolTip().SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
 
         Class @class = new Class();
@@ -143,6 +144,12 @@ namespace CourseManagement
         private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataContent();
+        }
+
+        private void FrmContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N)
+                btnNew_Click(sender, e);
         }
     }
 }

@@ -35,13 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresence));
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnConfirmPresence = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
-            this.lblQuantityAbove = new System.Windows.Forms.Label();
-            this.lblQUantityBellows = new System.Windows.Forms.Label();
             this.presence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imageCheck = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +46,13 @@
             this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reasonForAbsenceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listAttendance_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbClass = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirmPresence = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtDatePresence = new System.Windows.Forms.DateTimePicker();
+            this.lblQuantityAbove = new System.Windows.Forms.Label();
+            this.lblQUantityBellows = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,83 +102,6 @@
             this.dgvListPresence.TabIndex = 4;
             this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellClick);
             this.dgvListPresence.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellMouseEnter);
-            // 
-            // cbClass
-            // 
-            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(14, 41);
-            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
-            this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(419, 28);
-            this.cbClass.TabIndex = 5;
-            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Turma";
-            // 
-            // btnConfirmPresence
-            // 
-            this.btnConfirmPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmPresence.Location = new System.Drawing.Point(709, 434);
-            this.btnConfirmPresence.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConfirmPresence.Name = "btnConfirmPresence";
-            this.btnConfirmPresence.Size = new System.Drawing.Size(247, 55);
-            this.btnConfirmPresence.TabIndex = 7;
-            this.btnConfirmPresence.Text = "Confirmar Presença";
-            this.btnConfirmPresence.UseVisualStyleBackColor = true;
-            this.btnConfirmPresence.Click += new System.EventHandler(this.btnConfirmPresence_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Data";
-            // 
-            // dtDatePresence
-            // 
-            this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
-            this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
-            this.dtDatePresence.Name = "dtDatePresence";
-            this.dtDatePresence.Size = new System.Drawing.Size(135, 26);
-            this.dtDatePresence.TabIndex = 10;
-            this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
-            // 
-            // lblQuantityAbove
-            // 
-            this.lblQuantityAbove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblQuantityAbove.AutoSize = true;
-            this.lblQuantityAbove.Location = new System.Drawing.Point(15, 434);
-            this.lblQuantityAbove.Name = "lblQuantityAbove";
-            this.lblQuantityAbove.Size = new System.Drawing.Size(0, 20);
-            this.lblQuantityAbove.TabIndex = 11;
-            this.lblQuantityAbove.Visible = false;
-            // 
-            // lblQUantityBellows
-            // 
-            this.lblQUantityBellows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblQUantityBellows.AutoSize = true;
-            this.lblQUantityBellows.Location = new System.Drawing.Point(15, 469);
-            this.lblQUantityBellows.Name = "lblQUantityBellows";
-            this.lblQUantityBellows.Size = new System.Drawing.Size(0, 20);
-            this.lblQUantityBellows.TabIndex = 12;
-            this.lblQUantityBellows.Visible = false;
             // 
             // presence
             // 
@@ -288,6 +211,84 @@
             this.listAttendance_id.Visible = false;
             this.listAttendance_id.Width = 125;
             // 
+            // cbClass
+            // 
+            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbClass.FormattingEnabled = true;
+            this.cbClass.Location = new System.Drawing.Point(14, 41);
+            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
+            this.cbClass.Name = "cbClass";
+            this.cbClass.Size = new System.Drawing.Size(419, 28);
+            this.cbClass.TabIndex = 5;
+            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Turma";
+            // 
+            // btnConfirmPresence
+            // 
+            this.btnConfirmPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfirmPresence.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmPresence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmPresence.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmPresence.Location = new System.Drawing.Point(709, 434);
+            this.btnConfirmPresence.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmPresence.Name = "btnConfirmPresence";
+            this.btnConfirmPresence.Size = new System.Drawing.Size(247, 55);
+            this.btnConfirmPresence.TabIndex = 7;
+            this.btnConfirmPresence.Text = "Confirmar Presença";
+            this.btnConfirmPresence.UseVisualStyleBackColor = true;
+            this.btnConfirmPresence.Click += new System.EventHandler(this.btnConfirmPresence_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(443, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Data";
+            // 
+            // dtDatePresence
+            // 
+            this.dtDatePresence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDatePresence.Location = new System.Drawing.Point(446, 42);
+            this.dtDatePresence.Margin = new System.Windows.Forms.Padding(4);
+            this.dtDatePresence.Name = "dtDatePresence";
+            this.dtDatePresence.Size = new System.Drawing.Size(135, 26);
+            this.dtDatePresence.TabIndex = 10;
+            this.dtDatePresence.ValueChanged += new System.EventHandler(this.dtDatePresence_ValueChanged);
+            // 
+            // lblQuantityAbove
+            // 
+            this.lblQuantityAbove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQuantityAbove.AutoSize = true;
+            this.lblQuantityAbove.Location = new System.Drawing.Point(15, 434);
+            this.lblQuantityAbove.Name = "lblQuantityAbove";
+            this.lblQuantityAbove.Size = new System.Drawing.Size(0, 20);
+            this.lblQuantityAbove.TabIndex = 11;
+            this.lblQuantityAbove.Visible = false;
+            // 
+            // lblQUantityBellows
+            // 
+            this.lblQUantityBellows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblQUantityBellows.AutoSize = true;
+            this.lblQUantityBellows.Location = new System.Drawing.Point(15, 469);
+            this.lblQUantityBellows.Name = "lblQUantityBellows";
+            this.lblQUantityBellows.Size = new System.Drawing.Size(0, 20);
+            this.lblQUantityBellows.TabIndex = 12;
+            this.lblQUantityBellows.Visible = false;
+            // 
             // FrmPresence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -305,6 +306,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
             this.Name = "FrmPresence";
@@ -312,6 +314,7 @@
             this.Text = "Presença";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPresence_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPresence_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -48,25 +48,26 @@
             this.label1.Location = new System.Drawing.Point(11, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(14, 45);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(592, 30);
+            this.txtName.Size = new System.Drawing.Size(592, 26);
             this.txtName.TabIndex = 0;
             // 
             // btnsave
             // 
+            this.btnsave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
             this.btnsave.Location = new System.Drawing.Point(388, 168);
-            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(220, 46);
             this.btnsave.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.label2.Location = new System.Drawing.Point(205, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Turma";
             // 
@@ -92,9 +93,9 @@
             this.cbClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbClass.FormattingEnabled = true;
             this.cbClass.Location = new System.Drawing.Point(209, 116);
-            this.cbClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(186, 33);
+            this.cbClass.Size = new System.Drawing.Size(186, 28);
             this.cbClass.TabIndex = 2;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             this.cbClass.Click += new System.EventHandler(this.cbClass_Click);
@@ -106,7 +107,7 @@
             this.label3.Location = new System.Drawing.Point(16, 159);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 25);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Gênero";
             // 
@@ -115,9 +116,9 @@
             this.rbFeminine.AutoSize = true;
             this.rbFeminine.ForeColor = System.Drawing.Color.White;
             this.rbFeminine.Location = new System.Drawing.Point(154, 184);
-            this.rbFeminine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbFeminine.Margin = new System.Windows.Forms.Padding(4);
             this.rbFeminine.Name = "rbFeminine";
-            this.rbFeminine.Size = new System.Drawing.Size(113, 29);
+            this.rbFeminine.Size = new System.Drawing.Size(92, 24);
             this.rbFeminine.TabIndex = 4;
             this.rbFeminine.Text = "Feminino";
             this.rbFeminine.UseVisualStyleBackColor = true;
@@ -128,9 +129,9 @@
             this.rbMasculine.Checked = true;
             this.rbMasculine.ForeColor = System.Drawing.Color.White;
             this.rbMasculine.Location = new System.Drawing.Point(19, 184);
-            this.rbMasculine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMasculine.Margin = new System.Windows.Forms.Padding(4);
             this.rbMasculine.Name = "rbMasculine";
-            this.rbMasculine.Size = new System.Drawing.Size(122, 29);
+            this.rbMasculine.Size = new System.Drawing.Size(98, 24);
             this.rbMasculine.TabIndex = 3;
             this.rbMasculine.TabStop = true;
             this.rbMasculine.Text = "Masculino";
@@ -146,9 +147,9 @@
             "Tarde",
             "Noite"});
             this.cbShift.Location = new System.Drawing.Point(14, 116);
-            this.cbShift.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShift.Margin = new System.Windows.Forms.Padding(4);
             this.cbShift.Name = "cbShift";
-            this.cbShift.Size = new System.Drawing.Size(186, 33);
+            this.cbShift.Size = new System.Drawing.Size(186, 28);
             this.cbShift.TabIndex = 1;
             this.cbShift.SelectedIndexChanged += new System.EventHandler(this.cbShift_SelectedIndexChanged);
             // 
@@ -159,13 +160,13 @@
             this.label4.Location = new System.Drawing.Point(11, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 25);
+            this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Turno";
             // 
             // FrmSaveStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(635, 232);
@@ -183,7 +184,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSaveStudent";
