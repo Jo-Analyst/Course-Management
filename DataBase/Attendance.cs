@@ -25,7 +25,7 @@ namespace DataBase
                     command.CommandText = sql;
 
                     ListAttendance listAttendance = new ListAttendance();
-                   
+
                     int attendanceId = Convert.ToInt32(command.ExecuteScalar());
                     listAttendance._attendanceId = attendanceId;
 
@@ -33,7 +33,7 @@ namespace DataBase
                     {
                         listAttendance._presence = bool.Parse(dr["presence"].ToString());
                         listAttendance._studentId = int.Parse(dr["studenId"].ToString());
-                        listAttendance.ConfirmPresence(transaction, dr["reasonForAbsence"].ToString());                       
+                        listAttendance.ConfirmPresence(transaction, dr["reasonForAbsence"].ToString());
                     }
 
                     transaction.Commit();

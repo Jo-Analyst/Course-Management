@@ -160,7 +160,7 @@ namespace CourseManagement
                     dtListPresence.Rows.Add(row.Cells["id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString(), row.Cells["listAttendance_id"].Value.ToString(), row.Cells["reasonForAbsenceId"].Value.ToString());
                 }
 
-                
+
                 listAttendance.UpdatePresence(dtListPresence);
                 MessageBox.Show($"Lista de presença atualizada com sucesso.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

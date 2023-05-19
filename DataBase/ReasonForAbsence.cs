@@ -4,7 +4,7 @@ namespace DataBase
 {
     public class ReasonForAbsence
     {
-        public int id { get; set; } 
+        public int id { get; set; }
         public string description { get; set; }
         public int listAttendanceId { get; set; }
 
@@ -21,7 +21,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         static public void DeleteReasonForAbsence(SqlTransaction transaction, int id)
         {
             try

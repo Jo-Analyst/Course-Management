@@ -28,7 +28,7 @@ namespace CourseManagement
                     DB.CreateDatabase();
                     DB.CreateTables();
                 }
-               
+
                 this.Visible = false;
 
                 new FrmCourseManagementt().ShowDialog();

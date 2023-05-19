@@ -289,7 +289,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbName;
         private System.Windows.Forms.RadioButton rbClass;
-        private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;

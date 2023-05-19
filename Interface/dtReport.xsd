@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtListPresenceAndAbsenceStudent" targetNamespace="http://tempuri.org/dtListPresenceAndAbsenceStudent.xsd" xmlns:mstns="http://tempuri.org/dtListPresenceAndAbsenceStudent.xsd" xmlns="http://tempuri.org/dtListPresenceAndAbsenceStudent.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=LOCALHOST\LAS;Initial Catalog=dbCourseManagement;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-d4vk8fu\las.dbCourseManagement.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtListPresenceAndAbsenceStudentTableAdapter" GeneratorDataComponentClassName="dtListPresenceAndAbsenceStudentTableAdapter" Name="dtListPresenceAndAbsenceStudent" UserDataComponentName="dtListPresenceAndAbsenceStudentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="desktop-d4vk8fu\las.dbCourseManagement.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        list.presence, att.date, rfa.description AS reasonForAbsence
+FROM            ListAttendance AS list INNER JOIN
+                         Attendance AS att ON att.Id = list.attendance_id LEFT OUTER JOIN
+                         Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="presence" DataSetColumn="presence" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="reasonForAbsence" DataSetColumn="reasonForAbsence" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtListPresenceAndAbsenceStudent" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtListPresenceAndAbsenceStudent" msprop:Generator_DataSetName="dtListPresenceAndAbsenceStudent">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtListPresenceAndAbsenceStudent" msprop:Generator_RowEvHandlerName="dtListPresenceAndAbsenceStudentRowChangeEventHandler" msprop:Generator_RowDeletedName="dtListPresenceAndAbsenceStudentRowDeleted" msprop:Generator_RowDeletingName="dtListPresenceAndAbsenceStudentRowDeleting" msprop:Generator_RowEvArgName="dtListPresenceAndAbsenceStudentRowChangeEvent" msprop:Generator_TablePropName="_dtListPresenceAndAbsenceStudent" msprop:Generator_RowChangedName="dtListPresenceAndAbsenceStudentRowChanged" msprop:Generator_RowChangingName="dtListPresenceAndAbsenceStudentRowChanging" msprop:Generator_TableClassName="dtListPresenceAndAbsenceStudentDataTable" msprop:Generator_RowClassName="dtListPresenceAndAbsenceStudentRow" msprop:Generator_TableVarName="tabledtListPresenceAndAbsenceStudent" msprop:Generator_UserTableName="dtListPresenceAndAbsenceStudent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="presence" msprop:Generator_ColumnPropNameInRow="presence" msprop:Generator_ColumnPropNameInTable="presenceColumn" msprop:Generator_ColumnVarNameInTable="columnpresence" msprop:Generator_UserColumnName="presence" type="xs:unsignedByte" />
+              <xs:element name="date" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_UserColumnName="date">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="reasonForAbsence" msprop:Generator_ColumnPropNameInRow="reasonForAbsence" msprop:Generator_ColumnPropNameInTable="reasonForAbsenceColumn" msprop:Generator_ColumnVarNameInTable="columnreasonForAbsence" msprop:Generator_UserColumnName="reasonForAbsence" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -13,7 +13,7 @@ namespace DataBase
         public int _attendanceId { get; set; }
 
         ReasonForAbsence reasonForAbsence = new ReasonForAbsence();
-        
+
         public void ConfirmPresence(SqlTransaction transaction, string reasonForAbsence)
         {
             try
@@ -35,7 +35,7 @@ namespace DataBase
                     this.reasonForAbsence.DescribeReasonForAbsence(transaction);
                 }
 
-               
+
             }
             catch
             {

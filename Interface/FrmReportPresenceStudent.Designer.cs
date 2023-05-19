@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportPresenceStudent));
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -44,6 +44,8 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsAbsence = new System.Windows.Forms.DataGridViewImageColumn();
             this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnViewReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             this.cbNameStudents.Name = "cbNameStudents";
             this.cbNameStudents.Size = new System.Drawing.Size(440, 28);
             this.cbNameStudents.TabIndex = 4;
-            this.cbNameStudents.SelectedIndexChanged += new System.EventHandler(this.cbStudents_SelectedIndexChanged);
+            this.cbNameStudents.SelectedIndexChanged += new System.EventHandler(this.CbStudents_SelectedIndexChanged);
             // 
             // cbClass
             // 
@@ -81,7 +83,7 @@
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(241, 28);
             this.cbClass.TabIndex = 12;
-            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
+            this.cbClass.SelectedIndexChanged += new System.EventHandler(this.CbClass_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -103,14 +105,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListPresence.BackgroundColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvListPresence.ColumnHeadersHeight = 40;
             this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -126,25 +128,24 @@
             this.dgvListPresence.ReadOnly = true;
             this.dgvListPresence.RowHeadersVisible = false;
             this.dgvListPresence.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListPresence.Size = new System.Drawing.Size(698, 397);
+            this.dgvListPresence.Size = new System.Drawing.Size(698, 254);
             this.dgvListPresence.TabIndex = 13;
-            this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellClick);
-            this.dgvListPresence.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellDoubleClick);
+            this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListPresence_CellClick);
             this.dgvListPresence.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellMouseEnter);
             // 
             // presence
             // 
             this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            this.presence.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle14.NullValue")));
+            this.presence.DefaultCellStyle = dataGridViewCellStyle14;
             this.presence.HeaderText = "";
             this.presence.MinimumWidth = 50;
             this.presence.Name = "presence";
@@ -183,12 +184,44 @@
             this.descriptionReasonForAbsence.ReadOnly = true;
             this.descriptionReasonForAbsence.Visible = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Location = new System.Drawing.Point(391, 364);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(133, 52);
+            this.btnPrint.TabIndex = 22;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewReport.Enabled = false;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.Location = new System.Drawing.Point(529, 364);
+            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
+            this.btnViewReport.TabIndex = 21;
+            this.btnViewReport.TabStop = false;
+            this.btnViewReport.Text = "Visualizar Relatório";
+            this.btnViewReport.UseVisualStyleBackColor = true;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+            // 
             // FrmReportPresenceStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(746, 526);
+            this.ClientSize = new System.Drawing.Size(746, 429);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.dgvListPresence);
             this.Controls.Add(this.cbClass);
             this.Controls.Add(this.label2);
@@ -223,5 +256,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewImageColumn DetailsAbsence;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionReasonForAbsence;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnViewReport;
     }
 }

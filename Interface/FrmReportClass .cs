@@ -222,7 +222,7 @@ namespace CourseManagement
             try
             {
                 PrintReport();
-                new FrmViewReport(rds).ShowDialog();
+                new FrmViewReport(rds, "CourseManagement.ReportListPresence.rdlc").ShowDialog();
             }
             catch (Exception ex)
             {
@@ -313,11 +313,8 @@ namespace CourseManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            LocalReport localReport = new LocalReport();
-            localReport.DataSources.Clear();
-            localReport.DataSources.Add(new ReportDataSource("dtListPresence", LoadDataTable()));
-            localReport.ReportEmbeddedResource = "CourseManagement.ReportListPresence.rdlc";
-            localReport.PrintToPrinter();
+           var rds =  new ReportDataSource("dtListPresence", LoadDataTable());
+            ReportViewerPrint.PrintDirecty(rds, "CourseManagement.ReportListPresence.rdlc");
         }
     }
 }
