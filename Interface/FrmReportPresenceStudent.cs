@@ -36,6 +36,7 @@ namespace CourseManagement
                     cbNameStudents.SelectedIndex = 0;
                     btnPrint.Enabled = true;
                     btnViewReport.Enabled = true;
+                    cbListPorStudent.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -145,6 +146,20 @@ namespace CourseManagement
                 btnViewReport_Click(sender, e);
             else if (btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
+        }
+
+        private void cbListPorStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            {
+                cbNameStudents.Enabled = true;
+                cbClass.Items.RemoveAt((cbClass.Items.Count - 1));
+            }
+            else if (!cbListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            {
+                cbClass.Items.Add("Todos");
+                cbNameStudents.Enabled = false;
+            }
         }
     }
 }

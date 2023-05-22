@@ -101,7 +101,7 @@
             this.btnListPresence.Name = "btnListPresence";
             this.btnListPresence.Size = new System.Drawing.Size(149, 85);
             this.btnListPresence.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnListPresence, "Lista de presenca por aluno - [CTRL + L]");
+            this.toolTip1.SetToolTip(this.btnListPresence, "Lista de presenca - [CTRL + L]");
             this.btnListPresence.UseVisualStyleBackColor = false;
             this.btnListPresence.Click += new System.EventHandler(this.btnListPresence_Click);
             // 
