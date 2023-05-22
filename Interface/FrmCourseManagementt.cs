@@ -84,5 +84,21 @@ namespace CourseManagement
         {
             Application.Exit();
         }
+
+        private void FrmCourseManagementt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.Shift && e.KeyCode == Keys.C)
+                btnContent_Click((Control)sender, e);
+            else if(e.Control && e.Shift && e.KeyCode == Keys.S)
+                btnStudent_Click((Control)sender, e);
+            else if(e.Control && e.Shift && e.KeyCode == Keys.T)
+                btnClass_Click((Control)sender, e);
+            else if(e.Control && e.Alt && e.KeyCode == Keys.P)
+                btnPresence_Click((Control)sender, e);
+            else if(e.Control && e.Shift && e.KeyCode == Keys.R)
+                btnReport_Click((Control)sender, e);
+            else if(e.Control && e.Shift && e.KeyCode == Keys.B)
+                btnBackupAndRestore_Click((Control)sender, e);
+        }
     }
 }

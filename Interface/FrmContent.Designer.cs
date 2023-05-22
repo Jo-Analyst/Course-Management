@@ -74,7 +74,8 @@
             "Nocões Básicas",
             "Word",
             "Excel",
-            "Power Point"});
+            "Power Point",
+            "Geral"});
             this.cbMatter.Location = new System.Drawing.Point(34, 139);
             this.cbMatter.Margin = new System.Windows.Forms.Padding(4);
             this.cbMatter.Name = "cbMatter";

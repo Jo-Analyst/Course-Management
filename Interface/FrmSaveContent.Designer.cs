@@ -49,7 +49,7 @@
             this.cbClass.Margin = new System.Windows.Forms.Padding(4);
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(419, 28);
-            this.cbClass.TabIndex = 5;
+            this.cbClass.TabIndex = 0;
             this.cbClass.SelectedIndexChanged += new System.EventHandler(this.cbClass_SelectedIndexChanged);
             // 
             // label2
@@ -73,7 +73,8 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(247, 55);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 4;
+            this.btnSave.TabStop = false;
             this.btnSave.Text = "Salvar conteúdo";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -95,7 +96,7 @@
             this.dtDateContent.Margin = new System.Windows.Forms.Padding(4);
             this.dtDateContent.Name = "dtDateContent";
             this.dtDateContent.Size = new System.Drawing.Size(135, 26);
-            this.dtDateContent.TabIndex = 10;
+            this.dtDateContent.TabIndex = 2;
             // 
             // txtContent
             // 
@@ -107,7 +108,7 @@
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(943, 215);
-            this.txtContent.TabIndex = 11;
+            this.txtContent.TabIndex = 3;
             // 
             // label3
             // 
@@ -129,12 +130,13 @@
             "Nocões Básicas",
             "Word",
             "Excel",
-            "Power Point"});
+            "Power Point",
+            "Geral"});
             this.cbMatter.Location = new System.Drawing.Point(441, 41);
             this.cbMatter.Margin = new System.Windows.Forms.Padding(4);
             this.cbMatter.Name = "cbMatter";
             this.cbMatter.Size = new System.Drawing.Size(262, 28);
-            this.cbMatter.TabIndex = 13;
+            this.cbMatter.TabIndex = 1;
             // 
             // label4
             // 
@@ -165,6 +167,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
             this.Name = "FrmSaveContent";

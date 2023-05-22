@@ -91,7 +91,7 @@ namespace CourseManagement
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 97);
             this.button1.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.button1, "Backup e Restauração");
+            this.toolTip1.SetToolTip(this.button1, "Backup e Restauração - [CTRL + SHIFT + B]");
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnBackupAndRestore_Click);
             // 
@@ -110,7 +110,7 @@ namespace CourseManagement
             this.btnContent.Name = "btnContent";
             this.btnContent.Size = new System.Drawing.Size(165, 97);
             this.btnContent.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnContent, "Conteúdo");
+            this.toolTip1.SetToolTip(this.btnContent, "Conteúdo - [CTRL + SHIFT + C]");
             this.btnContent.UseVisualStyleBackColor = false;
             this.btnContent.Click += new System.EventHandler(this.btnContent_Click);
             // 
@@ -129,7 +129,7 @@ namespace CourseManagement
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(165, 97);
             this.btnClass.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnClass, "Cadastro Turma");
+            this.toolTip1.SetToolTip(this.btnClass, "Cadastro Turma - [CTRL + SHIFT + T]");
             this.btnClass.UseVisualStyleBackColor = false;
             this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
@@ -148,7 +148,7 @@ namespace CourseManagement
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(165, 97);
             this.btnReport.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnReport, "Relatório");
+            this.toolTip1.SetToolTip(this.btnReport, "Relatório - [CTRL + SHIFT + R]");
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
@@ -167,7 +167,7 @@ namespace CourseManagement
             this.btnPresence.Name = "btnPresence";
             this.btnPresence.Size = new System.Drawing.Size(165, 97);
             this.btnPresence.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnPresence, "Presença");
+            this.toolTip1.SetToolTip(this.btnPresence, "Presença - [CTRL + ALT + P]");
             this.btnPresence.UseVisualStyleBackColor = false;
             this.btnPresence.Click += new System.EventHandler(this.btnPresence_Click);
             // 
@@ -186,7 +186,7 @@ namespace CourseManagement
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(165, 97);
             this.btnStudent.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnStudent, "Cadastro Alunos");
+            this.toolTip1.SetToolTip(this.btnStudent, "Cadastro Alunos - [CTRL + SHIFT + S]");
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
@@ -200,12 +200,14 @@ namespace CourseManagement
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmCourseManagementt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "System Course Management";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCourseManagementt_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCourseManagementt_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
