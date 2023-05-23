@@ -79,7 +79,7 @@ namespace CourseManagement
         {
             if (e.Control && e.KeyCode == Keys.B)
                 btnBackup_Click(sender, e);
-             if (e.Control && e.KeyCode == Keys.R)
+            if (e.Control && e.KeyCode == Keys.R)
                 btnRestore_Click(sender, e);
         }
     }

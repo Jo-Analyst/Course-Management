@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportPresenceStudent));
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -41,12 +41,15 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
+            this.cbxListPorStudent = new System.Windows.Forms.CheckBox();
+            this.cbTopLimit = new System.Windows.Forms.ComboBox();
             this.presence = new System.Windows.Forms.DataGridViewImageColumn();
             this.presenceSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNameClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsAbsence = new System.Windows.Forms.DataGridViewImageColumn();
             this.descriptionReasonForAbsence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbListPorStudent = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPresence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,20 +143,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListPresence.BackgroundColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListPresence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListPresence.ColumnHeadersHeight = 40;
             this.dgvListPresence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListPresence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.presence,
             this.presenceSelect,
             this.date,
+            this.ColName,
+            this.ColNameClass,
             this.DetailsAbsence,
             this.descriptionReasonForAbsence});
             this.dgvListPresence.EnableHeadersVisualStyles = false;
@@ -163,24 +168,65 @@
             this.dgvListPresence.ReadOnly = true;
             this.dgvListPresence.RowHeadersVisible = false;
             this.dgvListPresence.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListPresence.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListPresence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListPresence.Size = new System.Drawing.Size(822, 254);
             this.dgvListPresence.TabIndex = 13;
             this.dgvListPresence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListPresence_CellClick);
             this.dgvListPresence.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPresence_CellMouseEnter);
             // 
+            // cbxListPorStudent
+            // 
+            this.cbxListPorStudent.AutoSize = true;
+            this.cbxListPorStudent.Checked = true;
+            this.cbxListPorStudent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxListPorStudent.Enabled = false;
+            this.cbxListPorStudent.Location = new System.Drawing.Point(688, 53);
+            this.cbxListPorStudent.Name = "cbxListPorStudent";
+            this.cbxListPorStudent.Size = new System.Drawing.Size(132, 24);
+            this.cbxListPorStudent.TabIndex = 23;
+            this.cbxListPorStudent.Text = "Lista por aluno";
+            this.cbxListPorStudent.UseVisualStyleBackColor = true;
+            this.cbxListPorStudent.CheckedChanged += new System.EventHandler(this.cbxListPorStudent_CheckedChanged);
+            // 
+            // cbTopLimit
+            // 
+            this.cbTopLimit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbTopLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTopLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbTopLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTopLimit.FormattingEnabled = true;
+            this.cbTopLimit.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "500"});
+            this.cbTopLimit.Location = new System.Drawing.Point(305, 377);
+            this.cbTopLimit.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTopLimit.Name = "cbTopLimit";
+            this.cbTopLimit.Size = new System.Drawing.Size(151, 28);
+            this.cbTopLimit.TabIndex = 24;
+            this.cbTopLimit.Visible = false;
+            this.cbTopLimit.SelectedIndexChanged += new System.EventHandler(this.cbTopLimit_SelectedIndexChanged);
+            // 
             // presence
             // 
             this.presence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle5.NullValue")));
-            this.presence.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.presence.DefaultCellStyle = dataGridViewCellStyle2;
             this.presence.HeaderText = "";
             this.presence.MinimumWidth = 50;
             this.presence.Name = "presence";
@@ -190,19 +236,42 @@
             // 
             // presenceSelect
             // 
+            this.presenceSelect.DataPropertyName = "presence";
             this.presenceSelect.HeaderText = "presence";
             this.presenceSelect.Name = "presenceSelect";
             this.presenceSelect.ReadOnly = true;
+            this.presenceSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.presenceSelect.Visible = false;
             // 
             // date
             // 
             this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.date.DataPropertyName = "date";
             this.date.HeaderText = "Data";
             this.date.MinimumWidth = 6;
             this.date.Name = "date";
             this.date.ReadOnly = true;
             this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColName
+            // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColName.DataPropertyName = "nameStudent";
+            this.ColName.HeaderText = "Nome";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            this.ColName.Visible = false;
+            this.ColName.Width = 76;
+            // 
+            // ColNameClass
+            // 
+            this.ColNameClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNameClass.DataPropertyName = "class";
+            this.ColNameClass.HeaderText = "Turma";
+            this.ColNameClass.Name = "ColNameClass";
+            this.ColNameClass.ReadOnly = true;
+            this.ColNameClass.Visible = false;
+            this.ColNameClass.Width = 79;
             // 
             // DetailsAbsence
             // 
@@ -214,24 +283,11 @@
             // 
             // descriptionReasonForAbsence
             // 
+            this.descriptionReasonForAbsence.DataPropertyName = "description";
             this.descriptionReasonForAbsence.HeaderText = "Motivo de Falta";
             this.descriptionReasonForAbsence.Name = "descriptionReasonForAbsence";
             this.descriptionReasonForAbsence.ReadOnly = true;
             this.descriptionReasonForAbsence.Visible = false;
-            // 
-            // cbListPorStudent
-            // 
-            this.cbListPorStudent.AutoSize = true;
-            this.cbListPorStudent.Checked = true;
-            this.cbListPorStudent.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbListPorStudent.Enabled = false;
-            this.cbListPorStudent.Location = new System.Drawing.Point(688, 53);
-            this.cbListPorStudent.Name = "cbListPorStudent";
-            this.cbListPorStudent.Size = new System.Drawing.Size(132, 24);
-            this.cbListPorStudent.TabIndex = 23;
-            this.cbListPorStudent.Text = "Lista por aluno";
-            this.cbListPorStudent.UseVisualStyleBackColor = true;
-            this.cbListPorStudent.CheckedChanged += new System.EventHandler(this.cbListPorStudent_CheckedChanged);
             // 
             // FrmReportPresenceStudent
             // 
@@ -239,7 +295,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(870, 429);
-            this.Controls.Add(this.cbListPorStudent);
+            this.Controls.Add(this.cbTopLimit);
+            this.Controls.Add(this.cbxListPorStudent);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.dgvListPresence);
@@ -273,13 +330,16 @@
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvListPresence;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnViewReport;
+        private System.Windows.Forms.CheckBox cbxListPorStudent;
+        private System.Windows.Forms.ComboBox cbTopLimit;
         private System.Windows.Forms.DataGridViewImageColumn presence;
         private System.Windows.Forms.DataGridViewCheckBoxColumn presenceSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNameClass;
         private System.Windows.Forms.DataGridViewImageColumn DetailsAbsence;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionReasonForAbsence;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnViewReport;
-        private System.Windows.Forms.CheckBox cbListPorStudent;
     }
 }

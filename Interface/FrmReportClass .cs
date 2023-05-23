@@ -313,7 +313,7 @@ namespace CourseManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-           var rds =  new ReportDataSource("dtListPresence", LoadDataTable());
+            var rds = new ReportDataSource("dtListPresence", LoadDataTable());
             ReportViewerPrint.PrintDirecty(rds, "CourseManagement.ReportListPresence.rdlc");
         }
 

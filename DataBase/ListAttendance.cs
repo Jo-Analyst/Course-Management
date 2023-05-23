@@ -156,5 +156,19 @@ namespace DataBase
                 return dataTable;
             }
         }
+
+        public DataTable GetListPresenceClass(string @class, int topLimit)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string sql = !string.IsNullOrEmpty(@class) ? $"SELECT TOP({topLimit}) list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id  WHERE cl.name = '{@class}';" : $"SELECT TOP({topLimit}) list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id";
+                var adapter = new SqlDataAdapter(sql, connection);
+
+                adapter.SelectCommand.CommandText = sql;
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
     }
 }

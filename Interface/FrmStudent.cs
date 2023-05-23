@@ -110,7 +110,8 @@ namespace CourseManagement
 
         private void FrmStudent_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Control && e.KeyCode == Keys.N) {
+            if (e.Control && e.KeyCode == Keys.N)
+            {
 
                 btnNew_Click(sender, e);
             }

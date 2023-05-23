@@ -1,6 +1,5 @@
 ﻿using DataBase;
 using Microsoft.Reporting.WinForms;
-using Microsoft.ReportingServices.Diagnostics.Internal;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -36,7 +35,12 @@ namespace CourseManagement
                     cbNameStudents.SelectedIndex = 0;
                     btnPrint.Enabled = true;
                     btnViewReport.Enabled = true;
-                    cbListPorStudent.Enabled = true;
+                    cbxListPorStudent.Enabled = true;
+                }
+
+                if (!cbxListPorStudent.Checked)
+                {
+                    LoadDgvListPresenceStudent();
                 }
             }
             catch (Exception ex)
@@ -62,7 +66,7 @@ namespace CourseManagement
                     return;
 
                 int student_id = int.Parse(student.FindByName(cbNameStudents.Text).Rows[0]["id"].ToString());
-                LoadDgvListPresenceStudent(student_id);               
+                LoadDgvListPresenceStudent(student_id);
             }
             catch (Exception ex)
             {
@@ -70,11 +74,22 @@ namespace CourseManagement
             }
         }
 
-        private void LoadDgvListPresenceStudent(int student_id)
+        private void LoadDgvListPresenceStudent(int student_id = 0)
         {
-            var dtGetListPresenceStudentByStudentId = listAttendance.GetListPresenceStudentByStudentId(student_id);
+            var dtGetListPresence = cbxListPorStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
             dgvListPresence.Rows.Clear();
-            foreach (DataRow dr in dtGetListPresenceStudentByStudentId.Rows)
+            //dgvListPresence.DataSource = dtGetListPresence;
+
+            //foreach (DataGridViewRow row in dgvListPresence.Rows)
+            //{
+            //    row.Cells["presence"].Value = int.Parse(row.Cells["presenceSelect"].Value.ToString()) == 1
+            //        ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24
+            //        : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+            //    row.Cells["DetailsAbsence"].Value = int.Parse(row.Cells["presenceSelect"].Value.ToString()) == 0 ? Properties.Resources.kebad : Properties.Resources.white;
+            //    row.Height = 35;
+            //}
+
+            foreach (DataRow dr in dtGetListPresence.Rows)
             {
                 int index = dgvListPresence.Rows.Add();
                 dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
@@ -82,6 +97,8 @@ namespace CourseManagement
                 dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
                 dgvListPresence.Rows[index].Cells["DetailsAbsence"].Value = dr["presence"].ToString() == "0" ? Properties.Resources.kebad : Properties.Resources.white;
                 dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = string.IsNullOrEmpty(dr["description"].ToString()) ? "--- Nenhum motivo ---" : dr["description"].ToString();
+                dgvListPresence.Rows[index].Cells["ColName"].Value = cbxListPorStudent.Checked ? "" : dr["nameStudent"].ToString();
+                dgvListPresence.Rows[index].Cells["ColNameClass"].Value = cbxListPorStudent.Checked ? "" : dr["class"].ToString();
                 dgvListPresence.Rows[index].Height = 35;
             }
 
@@ -95,16 +112,20 @@ namespace CourseManagement
 
         private void DgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToBoolean(dgvListPresence.Rows[e.RowIndex].Cells["presenceSelect"].Value))
+            if (bool.Parse(dgvListPresence.Rows[e.RowIndex].Cells["presenceSelect"].Value.ToString()))
                 return;
 
-            new FrmFaultDetails(cbNameStudents.Text, dgvListPresence.Rows[e.RowIndex].Cells["date"].Value.ToString(), dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value.ToString()).ShowDialog();
+            string date = dgvListPresence.Rows[e.RowIndex].Cells["date"].Value.ToString(), descriptionReasonForAbsence =
+            dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value == null ? "" : dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value.ToString();
+
+            if(e.ColumnIndex == 5)
+                new FrmFaultDetails(cbNameStudents.Text, date, descriptionReasonForAbsence).ShowDialog();
         }
 
         private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
-                dgvListPresence.Cursor = e.ColumnIndex == 3 && dgvListPresence.Rows[e.RowIndex].Cells["presenceSelect"].Value.ToString() == "false" ? Cursors.Hand : Cursors.Default;
+                dgvListPresence.Cursor = e.ColumnIndex == 5 && dgvListPresence.Rows[e.RowIndex].Cells["presenceSelect"].Value.ToString() == "false" ? Cursors.Hand : Cursors.Default;
         }
 
         private DataTable ListPresenceStudent()
@@ -148,18 +169,33 @@ namespace CourseManagement
                 btnPrint_Click(sender, e);
         }
 
-        private void cbListPorStudent_CheckedChanged(object sender, EventArgs e)
+        private void cbxListPorStudent_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            if (cbxListPorStudent.Checked && cbClass.SelectedIndex > -1)
             {
                 cbNameStudents.Enabled = true;
-                cbClass.Items.RemoveAt((cbClass.Items.Count - 1));
+                dgvListPresence.Columns["ColName"].Visible = false;
+                dgvListPresence.Columns["ColNameClass"].Visible = false;
+                this.ColName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                this.date.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                cbTopLimit.Visible = false;
             }
-            else if (!cbListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            else if (!cbxListPorStudent.Checked && cbClass.SelectedIndex > -1)
             {
-                cbClass.Items.Add("Todos");
                 cbNameStudents.Enabled = false;
+                dgvListPresence.Columns["ColName"].Visible = true;
+                this.ColName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                this.date.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvListPresence.Columns["ColNameClass"].Visible = true;
+                cbTopLimit.Visible = true;
+                cbTopLimit.SelectedIndex = 0;
+                LoadDgvListPresenceStudent();
             }
+        }
+
+        private void cbTopLimit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDgvListPresenceStudent();
         }
     }
 }
