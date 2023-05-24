@@ -7,7 +7,6 @@ namespace DataBase
     public class ListAttendance
     {
         public int _id { get; set; }
-        private string _connectionString = DbConnectionString.connectionString;
         public bool _presence { get; set; }
         public int _studentId { get; set; }
         public int _attendanceId { get; set; }
@@ -45,7 +44,7 @@ namespace DataBase
 
         public void UpdatePresence(DataTable dtListPresence)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
 
                 connection.Open();
@@ -90,7 +89,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
                     var adapter = new SqlDataAdapter("", connection);
@@ -113,7 +112,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
                     var adapter = new SqlDataAdapter("", connection);
@@ -131,7 +130,7 @@ namespace DataBase
 
         public DataTable FindAll(string date, string _class)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender, rfa.id as reasonForAbsence_id, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
                 var adapter = new SqlDataAdapter(sql, connection);
@@ -145,7 +144,7 @@ namespace DataBase
 
         public DataTable GetListPresenceStudentByStudentId(int student_id)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 string sql = $"SELECT list.presence, att.date, rfa.description FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id  WHERE list.student_id = {student_id};";
                 var adapter = new SqlDataAdapter(sql, connection);
@@ -159,9 +158,23 @@ namespace DataBase
 
         public DataTable GetListPresenceClass(string @class, int topLimit)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 string sql = !string.IsNullOrEmpty(@class) ? $"SELECT TOP({topLimit}) list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id  WHERE cl.name = '{@class}';" : $"SELECT TOP({topLimit}) list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id";
+                var adapter = new SqlDataAdapter(sql, connection);
+
+                adapter.SelectCommand.CommandText = sql;
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        static public DataTable GetListAttendanceByStudentId(int studentId)
+        {
+            using (var connection = new SqlConnection(DbConnectionString.connectionString))
+            {
+                string sql = $"SELECT Attendance.date, ListAttendance.presence AS presence2, ListAttendance.student_id, Reason_For_Absence.description FROM Attendance LEFT JOIN ListAttendance ON Attendance.Id = ListAttendance.attendance_id LEFT JOIN Reason_For_Absence ON ListAttendance.Id = Reason_For_Absence.listAttendance_id WHERE ListAttendance.student_id = {studentId}";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;

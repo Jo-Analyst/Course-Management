@@ -4,7 +4,7 @@ namespace CourseManagement
 {
     class ReportViewerPrint
     {
-        static public void PrintDirecty(ReportDataSource rds, string pathReport, string nameStudent = null)
+        static public void PrintDirecty(ReportDataSource rds, string pathReport, string nameStudent = null, bool listingByStudent = false)
         {
             LocalReport localReport = new LocalReport();
             localReport.ReportEmbeddedResource = pathReport;
@@ -20,6 +20,9 @@ namespace CourseManagement
 
                 localReport.SetParameters(parameters);
             }
+
+            if (!listingByStudent)
+                localReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalSubReport.Processing);
 
             localReport.PrintToPrinter();
         }

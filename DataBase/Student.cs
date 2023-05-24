@@ -6,7 +6,6 @@ namespace DataBase
 {
     public class Student
     {
-        string _connectionString = DbConnectionString.connectionString;
         public int _id { get; set; }
         public string _name { get; set; }
         public int _class_id { get; set; }
@@ -14,7 +13,7 @@ namespace DataBase
 
         public void Save()
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 string sql = _id == 0
                     ? "INSERT INTO Students (name, class_id, gender, created_at) VALUES (@name, @class_id, @gender, @created_at)"
@@ -41,7 +40,7 @@ namespace DataBase
 
         public void Delete()
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
                 string sql = "DELETE FROM Students WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
@@ -63,7 +62,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = option.ToLower() == "nome"
                         ? $"SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%'"
@@ -85,7 +84,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = $"SELECT Students.id, Students.class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name = '{name}' AND Classes.name = '{_class}'";
                     var adapter = new SqlDataAdapter(sql, connection);
@@ -101,11 +100,11 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByClass(string @class)
+        static public DataTable FindByClass(string @class)
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Classes.name = @class ORDER BY Students.name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
@@ -122,13 +121,13 @@ namespace DataBase
             }
         }
 
-        public DataTable FindById()
+        static public DataTable FindById(int id)
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE id = {_id}";
+                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE id = {id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -146,7 +145,7 @@ namespace DataBase
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id ORDER BY Classes.name, Students.name";
                     var adapter = new SqlDataAdapter(sql, connection);

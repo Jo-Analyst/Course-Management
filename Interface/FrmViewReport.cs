@@ -8,22 +8,25 @@ namespace CourseManagement
     {
         ReportDataSource rds;
         string pathReport, nameStudent;
+        bool listingByStudent;
 
-        public FrmViewReport(ReportDataSource rds, string pathReport, string nameStudent = null)
+
+        public FrmViewReport(ReportDataSource rds, string pathReport, string nameStudent = null, bool listingByStudent = false)
         {
             InitializeComponent();
             this.rds = rds;
             this.pathReport = pathReport;
             this.nameStudent = nameStudent;
+            this.listingByStudent = listingByStudent;
         }
 
         private void FrmViewReport_Load(object sender, EventArgs e)
         {
             try
             {
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = pathReport;
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(rds);
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = pathReport;
 
                 if (!string.IsNullOrEmpty(nameStudent))
                 {
@@ -34,6 +37,9 @@ namespace CourseManagement
 
                     reportViewer1.LocalReport.SetParameters(rpc);
                 }
+
+                if (!listingByStudent)
+                    reportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalSubReport.Processing);
 
                 this.reportViewer1.RefreshReport();
             }

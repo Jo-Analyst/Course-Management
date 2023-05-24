@@ -21,7 +21,7 @@ namespace CourseManagement
         {
             try
             {
-                var dtStudent = student.FindByClass(cbClass.Text).Rows;
+                var dtStudent = Student.FindByClass(cbClass.Text).Rows;
 
                 cbNameStudents.Items.Clear();
 
@@ -85,14 +85,14 @@ namespace CourseManagement
 
         private void CalculatePercentageOfAttendanceSinceJoined(int numberOfClasses) // Desde que entrou
         {
-            int percentage = numberOfClasses > 0 ? Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text)) : 0;
+            int percentage = numberOfClasses > 0 ? Percentage.CalculatePercentageOfAttendanceSinceJoined(int.Parse(lblNumberAttendance.Text), int.Parse(lblNumberLack.Text)) : 0;
             lblPercentageCameIn.Text = $"{percentage}%";
             pbPercentageCameIn.Value = percentage;
         }
 
         private void CalculateAttendancePercentageFromStart(int numberOfClasses) // Desde o começo
         {
-            int percentage = numberOfClasses > 0 ? Utils.CalculateAttendancePercentageFromStart(int.Parse(lblNumberAttendance.Text), numberOfClasses) : 0;
+            int percentage = numberOfClasses > 0 ? Percentage.CalculateAttendancePercentageFromStart(int.Parse(lblNumberAttendance.Text), numberOfClasses) : 0;
             lblPercentageStart.Text = $"{percentage}%";
             pbPercentageStart.Value = percentage;
         }

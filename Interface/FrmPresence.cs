@@ -56,8 +56,8 @@ namespace CourseManagement
 
         private void LoadStudents()
         {
-            var lengthStudents = student.FindByClass(cbClass.Text).Rows.Count;
-            var listPresence = student.FindByClass(cbClass.Text).Rows;
+            var lengthStudents = Student.FindByClass(cbClass.Text).Rows.Count;
+            var listPresence = Student.FindByClass(cbClass.Text).Rows;
             if (lengthStudents > 0)
                 LoadDgvListPresence(listPresence);
             else

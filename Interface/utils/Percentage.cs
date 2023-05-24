@@ -1,6 +1,6 @@
 ﻿namespace CourseManagement
 {
-    internal static class Utils
+    internal static class Percentage
     {
         public static int CalculateAttendancePercentageFromStart(int numberAttendance, int numberOfClasses)
         {

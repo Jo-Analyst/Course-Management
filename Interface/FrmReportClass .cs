@@ -32,7 +32,7 @@ namespace CourseManagement
         {
             try
             {
-                DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : student.FindByClass(cbClass.Text);
+                DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : Student.FindByClass(cbClass.Text);
                 dgvReportClass.Rows.Clear();
                 DataTable dtStudent;
                 int index = 0;
@@ -49,9 +49,9 @@ namespace CourseManagement
 
                     else
                     {
-                        int resultPercentageStart = Utils.CalculateAttendancePercentageFromStart(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), numberOfClasses);
+                        int resultPercentageStart = Percentage.CalculateAttendancePercentageFromStart(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), numberOfClasses);
 
-                        int resultPercentageCameIn = Utils.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
+                        int resultPercentageCameIn = Percentage.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
 
                         dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%");
                     }

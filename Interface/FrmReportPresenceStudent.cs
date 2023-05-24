@@ -16,12 +16,13 @@ namespace CourseManagement
         Student student = new Student();
         Class @class = new Class();
         ListAttendance listAttendance = new ListAttendance();
+        string shift;
 
         private void CbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                var dtStudent = student.FindByClass(cbClass.Text).Rows;
+                var dtStudent = Student.FindByClass(cbClass.Text).Rows;
 
                 cbNameStudents.Items.Clear();
 
@@ -35,10 +36,11 @@ namespace CourseManagement
                     cbNameStudents.SelectedIndex = 0;
                     btnPrint.Enabled = true;
                     btnViewReport.Enabled = true;
-                    cbxListPorStudent.Enabled = true;
+                    cbxListByStudent.Enabled = true;
+                    shift = dtStudent[0]["shift"].ToString();
                 }
 
-                if (!cbxListPorStudent.Checked)
+                if (!cbxListByStudent.Checked)
                 {
                     LoadDgvListPresenceStudent();
                 }
@@ -76,7 +78,7 @@ namespace CourseManagement
 
         private void LoadDgvListPresenceStudent(int student_id = 0)
         {
-            var dtGetListPresence = cbxListPorStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
+            var dtGetListPresence = cbxListByStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
             dgvListPresence.Rows.Clear();
             //dgvListPresence.DataSource = dtGetListPresence;
 
@@ -97,8 +99,8 @@ namespace CourseManagement
                 dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
                 dgvListPresence.Rows[index].Cells["DetailsAbsence"].Value = dr["presence"].ToString() == "0" ? Properties.Resources.kebad : Properties.Resources.white;
                 dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = string.IsNullOrEmpty(dr["description"].ToString()) ? "--- Nenhum motivo ---" : dr["description"].ToString();
-                dgvListPresence.Rows[index].Cells["ColName"].Value = cbxListPorStudent.Checked ? "" : dr["nameStudent"].ToString();
-                dgvListPresence.Rows[index].Cells["ColNameClass"].Value = cbxListPorStudent.Checked ? "" : dr["class"].ToString();
+                dgvListPresence.Rows[index].Cells["ColName"].Value = cbxListByStudent.Checked ? "" : dr["nameStudent"].ToString();
+                dgvListPresence.Rows[index].Cells["ColNameClass"].Value = cbxListByStudent.Checked ? "" : dr["class"].ToString();
                 dgvListPresence.Rows[index].Height = 35;
             }
 
@@ -118,7 +120,7 @@ namespace CourseManagement
             string date = dgvListPresence.Rows[e.RowIndex].Cells["date"].Value.ToString(), descriptionReasonForAbsence =
             dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value == null ? "" : dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value.ToString();
 
-            if(e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5)
                 new FrmFaultDetails(cbNameStudents.Text, date, descriptionReasonForAbsence).ShowDialog();
         }
 
@@ -148,17 +150,25 @@ namespace CourseManagement
 
         private ReportDataSource GetDataListPresenceAndAbsenceStudent()
         {
-            return new ReportDataSource("dtListPresenceAndAbsenceStudent", ListPresenceStudent());
+            return cbxListByStudent.Checked ? new ReportDataSource("dtListPresenceAndAbsenceStudent", ListPresenceStudent()) : new ReportDataSource("dtStudents", Student.FindByClass(cbClass.Text));
         }
+
+        string path, nameStudent;
 
         private void btnViewReport_Click(object sender, EventArgs e)
         {
-            new FrmViewReport(GetDataListPresenceAndAbsenceStudent(), "CourseManagement.reportPresenceAndAbsence.rdlc", cbNameStudents.Text).ShowDialog();
+            path = cbxListByStudent.Checked ? "CourseManagement.reportPresenceAndAbsence.rdlc" : "CourseManagement.ReportListPresenceByClass.rdlc";
+            nameStudent = cbxListByStudent.Checked ? $"{cbNameStudents.Text} - {cbClass.Text} - {shift}" : string.Empty;
+
+            new FrmViewReport(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked).ShowDialog();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewerPrint.PrintDirecty(GetDataListPresenceAndAbsenceStudent(), "CourseManagement.reportPresenceAndAbsence.rdlc", cbNameStudents.Text);
+            path = cbxListByStudent.Checked ? "CourseManagement.reportPresenceAndAbsence.rdlc" : "CourseManagement.ReportListPresenceByClass.rdlc";
+            nameStudent = cbxListByStudent.Checked ? $"{cbNameStudents.Text} - {cbClass.Text} - {shift}" : string.Empty;
+
+            ReportViewerPrint.PrintDirecty(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked);
         }
 
         private void FrmReportPresenceStudent_KeyDown(object sender, KeyEventArgs e)
@@ -169,9 +179,9 @@ namespace CourseManagement
                 btnPrint_Click(sender, e);
         }
 
-        private void cbxListPorStudent_CheckedChanged(object sender, EventArgs e)
+        private void cbxListByStudent_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            if (cbxListByStudent.Checked && cbClass.SelectedIndex > -1)
             {
                 cbNameStudents.Enabled = true;
                 dgvListPresence.Columns["ColName"].Visible = false;
@@ -180,7 +190,7 @@ namespace CourseManagement
                 this.date.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 cbTopLimit.Visible = false;
             }
-            else if (!cbxListPorStudent.Checked && cbClass.SelectedIndex > -1)
+            else if (!cbxListByStudent.Checked && cbClass.SelectedIndex > -1)
             {
                 cbNameStudents.Enabled = false;
                 dgvListPresence.Columns["ColName"].Visible = true;

@@ -233,7 +233,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="utils\ChangeSomeValuesInTheDataTable.cs" />
+    <Compile Include="utils\Percentage.cs" />
+    <Compile Include="utils\LocalSubReport.cs" />
     <Compile Include="utils\PrintReportDirecty.cs" />
     <Compile Include="ViewStudentReport.cs" />
     <EmbeddedResource Include="FrmCourseManagementt.resx">
@@ -300,7 +302,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportListPresence.rdlc" />
+    <EmbeddedResource Include="ReportListPresenceByClass.rdlc" />
     <EmbeddedResource Include="reportPresenceAndAbsence.rdlc" />
+    <EmbeddedResource Include="SubReportListByClass.rdlc" />
     <None Include="dtReport.xsc">
       <DependentUpon>dtReport.xsd</DependentUpon>
     </None>

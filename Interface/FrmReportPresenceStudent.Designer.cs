@@ -41,7 +41,7 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvListPresence = new System.Windows.Forms.DataGridView();
-            this.cbxListPorStudent = new System.Windows.Forms.CheckBox();
+            this.cbxListByStudent = new System.Windows.Forms.CheckBox();
             this.cbTopLimit = new System.Windows.Forms.ComboBox();
             this.presence = new System.Windows.Forms.DataGridViewImageColumn();
             this.presenceSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -181,17 +181,17 @@
             // 
             // cbxListPorStudent
             // 
-            this.cbxListPorStudent.AutoSize = true;
-            this.cbxListPorStudent.Checked = true;
-            this.cbxListPorStudent.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxListPorStudent.Enabled = false;
-            this.cbxListPorStudent.Location = new System.Drawing.Point(688, 53);
-            this.cbxListPorStudent.Name = "cbxListPorStudent";
-            this.cbxListPorStudent.Size = new System.Drawing.Size(132, 24);
-            this.cbxListPorStudent.TabIndex = 23;
-            this.cbxListPorStudent.Text = "Lista por aluno";
-            this.cbxListPorStudent.UseVisualStyleBackColor = true;
-            this.cbxListPorStudent.CheckedChanged += new System.EventHandler(this.cbxListPorStudent_CheckedChanged);
+            this.cbxListByStudent.AutoSize = true;
+            this.cbxListByStudent.Checked = true;
+            this.cbxListByStudent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxListByStudent.Enabled = false;
+            this.cbxListByStudent.Location = new System.Drawing.Point(688, 53);
+            this.cbxListByStudent.Name = "cbxListPorStudent";
+            this.cbxListByStudent.Size = new System.Drawing.Size(132, 24);
+            this.cbxListByStudent.TabIndex = 23;
+            this.cbxListByStudent.Text = "Lista por aluno";
+            this.cbxListByStudent.UseVisualStyleBackColor = true;
+            this.cbxListByStudent.CheckedChanged += new System.EventHandler(this.cbxListByStudent_CheckedChanged);
             // 
             // cbTopLimit
             // 
@@ -296,7 +296,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(870, 429);
             this.Controls.Add(this.cbTopLimit);
-            this.Controls.Add(this.cbxListPorStudent);
+            this.Controls.Add(this.cbxListByStudent);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.dgvListPresence);
@@ -332,7 +332,7 @@
         private System.Windows.Forms.DataGridView dgvListPresence;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnViewReport;
-        private System.Windows.Forms.CheckBox cbxListPorStudent;
+        private System.Windows.Forms.CheckBox cbxListByStudent;
         private System.Windows.Forms.ComboBox cbTopLimit;
         private System.Windows.Forms.DataGridViewImageColumn presence;
         private System.Windows.Forms.DataGridViewCheckBoxColumn presenceSelect;
