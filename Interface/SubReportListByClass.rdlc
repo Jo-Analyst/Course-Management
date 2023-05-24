@@ -52,10 +52,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.5325cm</Width>
+                  <Width>6.69396cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.69396cm</Width>
+                  <Width>8.5325cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -71,7 +71,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Situação</Value>
+                                  <Value>Data</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -124,7 +124,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Data</Value>
+                                  <Value>Situação</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -182,7 +182,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!presence.Value</Value>
+                                  <Value>=Fields!date.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -233,7 +233,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!date.Value</Value>
+                                  <Value>=Fields!presence.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -388,7 +388,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
