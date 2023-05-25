@@ -42,7 +42,7 @@ namespace CourseManagement
 
                 if (!cbxListByStudent.Checked)
                 {
-                    LoadDgvListPresenceStudent();
+                    LoadListPresenceStudent(student_id);
                 }
             }
             catch (Exception ex)
@@ -60,6 +60,7 @@ namespace CourseManagement
             }
         }
 
+        int student_id;
         private void CbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -67,8 +68,9 @@ namespace CourseManagement
                 if (cbClass.Items.Count == 0)
                     return;
 
-                int student_id = int.Parse(student.FindByName(cbNameStudents.Text).Rows[0]["id"].ToString());
-                LoadDgvListPresenceStudent(student_id);
+                student_id = GetStudentID();
+
+                LoadListPresenceStudent(student_id);
             }
             catch (Exception ex)
             {
@@ -76,22 +78,25 @@ namespace CourseManagement
             }
         }
 
-        private void LoadDgvListPresenceStudent(int student_id = 0)
+        private int GetStudentID()
         {
-            var dtGetListPresence = cbxListByStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
+            return cbxListByStudent.Checked ? int.Parse(student.FindByName(cbNameStudents.Text).Rows[0]["id"].ToString()) : 0;
+        }
+
+        DataTable dtGetListPresence;
+
+        private void LoadListPresenceStudent(int student_id)
+        {
+            dtGetListPresence = cbxListByStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
+            LoadDgvListPresence();
+        }
+
+        private void LoadDgvListPresence()
+        {
+            DataTable dt = dtGetListPresenceFilterd(dtGetListPresence);
             dgvListPresence.Rows.Clear();
-            //dgvListPresence.DataSource = dtGetListPresence;
 
-            //foreach (DataGridViewRow row in dgvListPresence.Rows)
-            //{
-            //    row.Cells["presence"].Value = int.Parse(row.Cells["presenceSelect"].Value.ToString()) == 1
-            //        ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24
-            //        : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
-            //    row.Cells["DetailsAbsence"].Value = int.Parse(row.Cells["presenceSelect"].Value.ToString()) == 0 ? Properties.Resources.kebad : Properties.Resources.white;
-            //    row.Height = 35;
-            //}
-
-            foreach (DataRow dr in dtGetListPresence.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 int index = dgvListPresence.Rows.Add();
                 dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
@@ -105,6 +110,42 @@ namespace CourseManagement
             }
 
             dgvListPresence.ClearSelection();
+        }
+
+        DataTable dtListPresenceFilterd = new DataTable();
+        DataTable dtListAbsenceFilterd = new DataTable();
+        private DataTable dtGetListPresenceFilterd(DataTable dtGetListPresence)
+        {
+
+            if (rbAll.Checked)
+                return dtGetListPresence;
+
+            dtListPresenceFilterd.Columns.Clear();
+            dtListPresenceFilterd.Columns.Add("presence", typeof(string));
+            dtListPresenceFilterd.Columns.Add("date", typeof(string));
+            dtListPresenceFilterd.Columns.Add("description", typeof(string));
+            dtListPresenceFilterd.Columns.Add("nameStudent", typeof(string));
+            dtListPresenceFilterd.Columns.Add("class", typeof(string));
+
+            dtListAbsenceFilterd.Columns.Clear();
+            dtListAbsenceFilterd.Columns.Add("presence", typeof(string));
+            dtListAbsenceFilterd.Columns.Add("date", typeof(string));
+            dtListAbsenceFilterd.Columns.Add("description", typeof(string));
+            dtListAbsenceFilterd.Columns.Add("nameStudent", typeof(string));
+            dtListAbsenceFilterd.Columns.Add("class", typeof(string));
+
+            dtListPresenceFilterd.Rows.Clear();
+            dtListAbsenceFilterd.Rows.Clear();
+            foreach (DataRow row in dtGetListPresence.Rows)
+            {
+                if (row["presence"].ToString() == "1")
+                    dtListPresenceFilterd.Rows.Add("1", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString());
+                else
+                    dtListAbsenceFilterd.Rows.Add("0", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString());
+
+            }
+
+            return rbPresence.Checked ? dtListPresenceFilterd : dtListAbsenceFilterd;
         }
 
         private void FrmReportStudent_Load(object sender, EventArgs e)
@@ -199,13 +240,30 @@ namespace CourseManagement
                 dgvListPresence.Columns["ColNameClass"].Visible = true;
                 cbTopLimit.Visible = true;
                 cbTopLimit.SelectedIndex = 0;
-                LoadDgvListPresenceStudent();
             }
+
+            student_id = GetStudentID();
+            LoadListPresenceStudent(student_id);
+        }
+
+        private void rbPresence_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadListPresenceStudent(student_id);
+        }
+
+        private void rbAbsence_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadListPresenceStudent(student_id);
+        }
+
+        private void rbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadListPresenceStudent(student_id);
         }
 
         private void cbTopLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadDgvListPresenceStudent();
+            LoadListPresenceStudent(student_id);
         }
     }
 }
