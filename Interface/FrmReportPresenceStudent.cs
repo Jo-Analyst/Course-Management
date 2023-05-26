@@ -178,6 +178,8 @@ namespace CourseManagement
 
         private void DgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1) return;
+
             if (bool.Parse(dgvListPresence.Rows[e.RowIndex].Cells["presenceSelect"].Value.ToString()))
                 return;
 
