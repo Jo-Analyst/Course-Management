@@ -24,30 +24,35 @@
                             <TextRun>
                               <Value>=Fields!name.Value</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <Color>="White"</Color>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value> - </Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <Color>="White"</Color>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!class.Value</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <Color>="White"</Color>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value> - </Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <Color>="White"</Color>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!shift.Value</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <Color>="White"</Color>
                               </Style>
                             </TextRun>

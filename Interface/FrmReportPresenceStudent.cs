@@ -87,7 +87,7 @@ namespace CourseManagement
 
         private void LoadListPresenceStudent(int student_id)
         {
-            dtGetListPresence = cbxListByStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text, int.Parse(cbTopLimit.Text));
+            dtGetListPresence = cbxListByStudent.Checked ? listAttendance.GetListPresenceStudentByStudentId(student_id) : listAttendance.GetListPresenceClass(cbClass.Text.ToLower() == "todos" ? "" : cbClass.Text);
             LoadDgvListPresence();
         }
 
@@ -118,7 +118,7 @@ namespace CourseManagement
         {
 
             if (rbAll.Checked)
-                return dtGetListPresence;
+                return LimitTableRows(dtGetListPresence);
 
             dtListPresenceFilterd.Columns.Clear();
             dtListPresenceFilterd.Columns.Add("presence", typeof(string));
@@ -145,7 +145,30 @@ namespace CourseManagement
 
             }
 
-            return rbPresence.Checked ? dtListPresenceFilterd : dtListAbsenceFilterd;
+            return rbPresence.Checked ? LimitTableRows(dtListPresenceFilterd) : LimitTableRows(dtListAbsenceFilterd);
+        }
+
+        private DataTable LimitTableRows(DataTable dtGetListPresence)
+        {
+
+            if (cbxListByStudent.Checked)
+                return dtGetListPresence;
+
+            var dt = new DataTable();
+            dt.Columns.Add("presence", typeof(string));
+            dt.Columns.Add("date", typeof(string));
+            dt.Columns.Add("description", typeof(string));
+            dt.Columns.Add("nameStudent", typeof(string));
+            dt.Columns.Add("class", typeof(string));
+
+            int topLimit =  dtGetListPresence.Rows.Count < int.Parse(cbTopLimit.Text) ? dtGetListPresence.Rows.Count :  int.Parse(cbTopLimit.Text);
+
+            for (int i = 0; i < topLimit; i++)
+            {
+                dt.Rows.Add(dtGetListPresence.Rows[i]["presence"].ToString(), dtGetListPresence.Rows[i]["date"].ToString(), dtGetListPresence.Rows[i]["description"].ToString(), dtGetListPresence.Rows[i]["nameStudent"].ToString(), dtGetListPresence.Rows[i]["class"].ToString());
+            }
+
+            return dt;
         }
 
         private void FrmReportStudent_Load(object sender, EventArgs e)
@@ -198,18 +221,38 @@ namespace CourseManagement
 
         private void btnViewReport_Click(object sender, EventArgs e)
         {
+            if (dgvListPresence.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há lista para ser exibido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
             path = cbxListByStudent.Checked ? "CourseManagement.reportPresenceAndAbsence.rdlc" : "CourseManagement.ReportListPresenceByClass.rdlc";
             nameStudent = cbxListByStudent.Checked ? $"{cbNameStudents.Text} - {cbClass.Text} - {shift}" : string.Empty;
 
-            new FrmViewReport(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked).ShowDialog();
-        }
+            new FrmViewReport(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked, FilteringOption()).ShowDialog();
+        }        
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            if (dgvListPresence.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há lista para ser exibido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
             path = cbxListByStudent.Checked ? "CourseManagement.reportPresenceAndAbsence.rdlc" : "CourseManagement.ReportListPresenceByClass.rdlc";
             nameStudent = cbxListByStudent.Checked ? $"{cbNameStudents.Text} - {cbClass.Text} - {shift}" : string.Empty;
 
-            ReportViewerPrint.PrintDirecty(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked);
+            ReportViewerPrint.PrintDirecty(GetDataListPresenceAndAbsenceStudent(), path, nameStudent, cbxListByStudent.Checked, FilteringOption());
+        }
+
+        private string FilteringOption()
+        {
+            if (rbAll.Checked)
+                return string.Empty;
+
+            return rbPresence.Checked ? "1" : "0";
         }
 
         private void FrmReportPresenceStudent_KeyDown(object sender, KeyEventArgs e)

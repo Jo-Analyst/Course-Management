@@ -11,7 +11,7 @@ namespace CourseManagement
 
             foreach (DataRow dr in dtListAttendance.Rows)
             {
-                dr["presence"] = dr["presence2"].ToString() == "1" ? "Presente" : "Falta";
+                dr["presence"] = dr["presence2"].ToString() == "1" ? "PRESENTE" : "FALTA";
                 dr["description"] = dr["presence2"].ToString() == "1" ? "---" : string.IsNullOrEmpty(dr["description"].ToString()) ? "Motivo da Falta: Nenhum" : $"Motivo da falta: {dr["description"].ToString()}";
             }
 
