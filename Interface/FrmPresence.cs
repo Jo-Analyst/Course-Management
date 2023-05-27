@@ -98,7 +98,7 @@ namespace CourseManagement
                 dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
                 dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["description"].ToString();
                 dgvListPresence.Rows[index].Cells["reasonForAbsenceId"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["reasonForAbsence_id"].ToString();
-                dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = Properties.Resources.kebad;
+                dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = !Convert.ToBoolean(dgvListPresence.Rows[index].Cells["presence"].Value) ? Properties.Resources.kebad : Properties.Resources.white;
                 dgvListPresence.Rows[index].Height = 35;
             }
 
@@ -242,6 +242,8 @@ namespace CourseManagement
 
         private void dgvListPresence_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1) return;
+
             if (e.ColumnIndex == 1)
             {
                 dgvListPresence.CurrentRow.Cells["presence"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? "false" : "true";
@@ -254,16 +256,22 @@ namespace CourseManagement
 
                 FrmReasonForAbsence reasonForAbsence = new FrmReasonForAbsence(DescriptionReasonForAbsence(dgvListPresence.CurrentRow.Cells["descriptionReasonForAbsence"].Value));
                 reasonForAbsence.ShowDialog();
+
                 if (!string.IsNullOrEmpty(reasonForAbsence.description))
                 {
                     dgvListPresence.CurrentRow.Cells["descriptionReasonForAbsence"].Value = reasonForAbsence.description;
                 }
             }
+
+            dgvListPresence.Rows[e.RowIndex].Cells["reasonForAbsence"].Value = bool.Parse(dgvListPresence.CurrentRow.Cells["presence"].Value.ToString()) ? Properties.Resources.white : Properties.Resources.kebad;
         }
 
         private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            dgvListPresence.Cursor = e.ColumnIndex == 1 || e.ColumnIndex == 7 ? Cursors.Hand : Cursors.Default;
+            if (e.RowIndex == -1) return;
+
+            dgvListPresence.Cursor = (e.ColumnIndex == 1 || (e.ColumnIndex == 7 && !bool.Parse(dgvListPresence.Rows[e.RowIndex].Cells["presence"].Value.ToString()))) ? Cursors.Hand : Cursors.Default;
+
         }
 
         private void FrmPresence_KeyDown(object sender, KeyEventArgs e)
