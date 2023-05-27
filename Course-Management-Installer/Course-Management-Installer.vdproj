@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2273893A8F434CDD864C85C0AF79A490"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2917748EE03D4D8A8572C2B0929EDF8B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -69,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_57C8283633B946429C48AE45545D9C2C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5FA5A1612B1C10095BE7208309C0A9E5"
         "OwnerKey" = "8:_BBAC8A986D9F94326CA1DFD654237F94"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,6 +93,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7AF693D8D9BC4C09AE7C8D0EDE8C1DE3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7E406C8F57F9A4A40E797EDA07894C48"
         "OwnerKey" = "8:_05980495F80CD59DF23B6E6863E627F5"
         "MsmSig" = "8:_UNDEFINED"
@@ -105,6 +111,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_91A9B0F1F91949879D1B8804D17F5F8B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BBAC8A986D9F94326CA1DFD654237F94"
         "OwnerKey" = "8:_2917748EE03D4D8A8572C2B0929EDF8B"
         "MsmSig" = "8:_UNDEFINED"
@@ -113,6 +125,12 @@
         {
         "MsmKey" = "8:_BBAC8A986D9F94326CA1DFD654237F94"
         "OwnerKey" = "8:_69B9C1554E386BC913E4ED8150967F06"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC759894C8B44BA5BCE36E43CA5C6342"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,19 +166,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_41A6974FC0335C92D04CC19DDEA57837"
+        "OwnerKey" = "8:_2917748EE03D4D8A8572C2B0929EDF8B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F0534CE38C62BA291CB3DC236B8F9222"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2917748EE03D4D8A8572C2B0929EDF8B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -211,6 +223,12 @@
         "OwnerKey" = "8:_BBAC8A986D9F94326CA1DFD654237F94"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_41A6974FC0335C92D04CC19DDEA57837"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -229,6 +247,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -245,6 +271,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -303,26 +345,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2273893A8F434CDD864C85C0AF79A490"
-            {
-            "SourcePath" = "8:..\\Interface\\ReportListPresence.rdlc"
-            "TargetName" = "8:ReportListPresence.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2BA424B0DF0C335E8BC1F5908EE240A0"
@@ -391,6 +413,26 @@
             {
             "SourcePath" = "8:..\\Interface\\list.ico"
             "TargetName" = "8:list.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57C8283633B946429C48AE45545D9C2C"
+            {
+            "SourcePath" = "8:..\\Interface\\ReportListPresenceByClass.rdlc"
+            "TargetName" = "8:ReportListPresenceByClass.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
             "Condition" = "8:"
@@ -489,6 +531,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7AF693D8D9BC4C09AE7C8D0EDE8C1DE3"
+            {
+            "SourcePath" = "8:..\\Interface\\ReportListPresence.rdlc"
+            "TargetName" = "8:ReportListPresence.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7E406C8F57F9A4A40E797EDA07894C48"
             {
             "AssemblyRegister" = "3:1"
@@ -520,6 +582,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91A9B0F1F91949879D1B8804D17F5F8B"
+            {
+            "SourcePath" = "8:..\\Interface\\SubReportListByClass.rdlc"
+            "TargetName" = "8:SubReportListByClass.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BBAC8A986D9F94326CA1DFD654237F94"
             {
             "AssemblyRegister" = "3:1"
@@ -549,6 +631,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC759894C8B44BA5BCE36E43CA5C6342"
+            {
+            "SourcePath" = "8:..\\Interface\\reportPresenceAndAbsence.rdlc"
+            "TargetName" = "8:reportPresenceAndAbsence.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553DE06CB0344B68B909CF4A6EA524F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CD1560C52871B99061FDF446EEB9CBBD"
@@ -712,7 +814,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Course-Management"
         "ProductCode" = "8:{46DA346B-0A8E-444C-B5AE-67C7AFFDD864}"
-        "PackageCode" = "8:{E646E1F9-592B-469C-B066-A735F6ACE8E2}"
+        "PackageCode" = "8:{43EE6FE9-8FE5-4CA9-82C6-7E1DDF897CB8}"
         "UpgradeCode" = "8:{EAAF0FE8-10E2-40B4-87FA-CC429F514060}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
