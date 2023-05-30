@@ -27,6 +27,7 @@ namespace CourseManagement
                 {
                     DB.CreateDatabase();
                     DB.CreateTables();
+                    DB.InsertIntoClassTable();
                 }
 
                 this.Visible = false;

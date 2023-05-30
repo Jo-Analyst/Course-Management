@@ -29,6 +29,29 @@ namespace DataBase
                 throw;
             }
         }
+        
+        static public void InsertIntoClassTable()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    var command = new SqlCommand("", connection);
+                    command.CommandText = 
+                        "INSERT INTO Classes VALUES ('Aurora - SQ', 'Manhã');" +
+                        "INSERT INTO Classes VALUES ('Entardecer - SQ', 'Tarde');" +
+                        "INSERT INTO Classes VALUES ('Pôr do Sol - SQ', 'Noite');" +
+                        "INSERT INTO Classes VALUES ('Alvorada - TQ', 'Manhã');" +
+                        "INSERT INTO Classes VALUES ('Alvorecer - TQ', 'Tarde');";
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         static public bool ExistsDataBase()
         {
