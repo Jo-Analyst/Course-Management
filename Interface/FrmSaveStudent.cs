@@ -18,12 +18,14 @@ namespace CourseManagement
             InitializeComponent();
         }
 
-        public FrmSaveStudent(int id, string name, string shift, string _class, string gender)
+        public FrmSaveStudent(int id, string name, string shift, string _class, string gender, string cpf, string level)
         {
             InitializeComponent();
             student._id = id;
             txtName.Text = name;
             cbShift.Text = shift;
+            mkCPF.Text = cpf;
+            cbLevel.Text = level;
             LoadCbClass();
             cbClass.Text = _class;
             if (gender == "F")
@@ -47,12 +49,28 @@ namespace CourseManagement
                 MessageBox.Show("Selecione a turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (mkCPF.MaskCompleted)
+            {
+                if (!CPF.ValidateCpf(mkCPF.Text))
+                {
+                    MessageBox.Show("CPF Inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (student._id == 0 && Student.ExistsCPF(Security.Cry(mkCPF.Text)))
+                {
+                    MessageBox.Show("CPF já cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
 
             try
             {
                 student._name = txtName.Text.Trim();
                 student._class_id = class_id;
                 student._gender = rbMasculine.Checked ? "M" : "F";
+                student._level = cbLevel.Text;
+                student._cpf =  mkCPF.MaskCompleted ? Security.Cry(mkCPF.Text) : string.Empty;
                 student.Save();
                 studentWasSaved = true;
 
@@ -65,6 +83,8 @@ namespace CourseManagement
                         txtName.Clear();
                         cbClass.SelectedIndex = -1;
                         cbShift.SelectedIndex = -1;
+                        cbLevel.SelectedIndex = -1;
+                        mkCPF.Clear();
                         rbMasculine.Checked = true;
                         txtName.Focus();
                         return;

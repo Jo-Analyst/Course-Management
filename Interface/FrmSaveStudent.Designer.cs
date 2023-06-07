@@ -39,6 +39,10 @@
             this.rbMasculine = new System.Windows.Forms.RadioButton();
             this.cbShift = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelCPF = new System.Windows.Forms.Label();
+            this.mkCPF = new System.Windows.Forms.MaskedTextBox();
+            this.cbLevel = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,10 +70,10 @@
             this.btnsave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(388, 168);
+            this.btnsave.Location = new System.Drawing.Point(414, 169);
             this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(220, 46);
+            this.btnsave.Size = new System.Drawing.Size(192, 46);
             this.btnsave.TabIndex = 2;
             this.btnsave.TabStop = false;
             this.btnsave.Text = "Salvar";
@@ -104,7 +108,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(16, 159);
+            this.label3.Location = new System.Drawing.Point(205, 154);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 20);
@@ -115,11 +119,11 @@
             // 
             this.rbFeminine.AutoSize = true;
             this.rbFeminine.ForeColor = System.Drawing.Color.White;
-            this.rbFeminine.Location = new System.Drawing.Point(154, 184);
+            this.rbFeminine.Location = new System.Drawing.Point(314, 179);
             this.rbFeminine.Margin = new System.Windows.Forms.Padding(4);
             this.rbFeminine.Name = "rbFeminine";
             this.rbFeminine.Size = new System.Drawing.Size(92, 24);
-            this.rbFeminine.TabIndex = 4;
+            this.rbFeminine.TabIndex = 6;
             this.rbFeminine.Text = "Feminino";
             this.rbFeminine.UseVisualStyleBackColor = true;
             // 
@@ -128,11 +132,11 @@
             this.rbMasculine.AutoSize = true;
             this.rbMasculine.Checked = true;
             this.rbMasculine.ForeColor = System.Drawing.Color.White;
-            this.rbMasculine.Location = new System.Drawing.Point(19, 184);
+            this.rbMasculine.Location = new System.Drawing.Point(208, 179);
             this.rbMasculine.Margin = new System.Windows.Forms.Padding(4);
             this.rbMasculine.Name = "rbMasculine";
             this.rbMasculine.Size = new System.Drawing.Size(98, 24);
-            this.rbMasculine.TabIndex = 3;
+            this.rbMasculine.TabIndex = 5;
             this.rbMasculine.TabStop = true;
             this.rbMasculine.Text = "Masculino";
             this.rbMasculine.UseVisualStyleBackColor = true;
@@ -164,12 +168,61 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Turno";
             // 
+            // labelCPF
+            // 
+            this.labelCPF.AutoSize = true;
+            this.labelCPF.ForeColor = System.Drawing.Color.White;
+            this.labelCPF.Location = new System.Drawing.Point(398, 90);
+            this.labelCPF.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelCPF.Name = "labelCPF";
+            this.labelCPF.Size = new System.Drawing.Size(40, 20);
+            this.labelCPF.TabIndex = 12;
+            this.labelCPF.Text = "CPF";
+            // 
+            // mkCPF
+            // 
+            this.mkCPF.Location = new System.Drawing.Point(403, 116);
+            this.mkCPF.Mask = "000,000,000-00";
+            this.mkCPF.Name = "mkCPF";
+            this.mkCPF.Size = new System.Drawing.Size(133, 26);
+            this.mkCPF.TabIndex = 3;
+            // 
+            // cbLevel
+            // 
+            this.cbLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbLevel.FormattingEnabled = true;
+            this.cbLevel.Items.AddRange(new object[] {
+            "Baixo",
+            "Médio",
+            "Alto"});
+            this.cbLevel.Location = new System.Drawing.Point(15, 179);
+            this.cbLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.cbLevel.Name = "cbLevel";
+            this.cbLevel.Size = new System.Drawing.Size(185, 28);
+            this.cbLevel.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(12, 154);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Nível";
+            // 
             // FrmSaveStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(635, 232);
+            this.ClientSize = new System.Drawing.Size(635, 233);
+            this.Controls.Add(this.cbLevel);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.mkCPF);
+            this.Controls.Add(this.labelCPF);
             this.Controls.Add(this.cbShift);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rbFeminine);
@@ -208,5 +261,9 @@
         private System.Windows.Forms.RadioButton rbMasculine;
         private System.Windows.Forms.ComboBox cbShift;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelCPF;
+        private System.Windows.Forms.MaskedTextBox mkCPF;
+        private System.Windows.Forms.ComboBox cbLevel;
+        private System.Windows.Forms.Label label5;
     }
 }

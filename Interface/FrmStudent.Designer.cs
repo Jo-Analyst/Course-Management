@@ -40,6 +40,8 @@
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,9 +104,11 @@
             this.delete,
             this.id,
             this.name,
+            this.CPF,
             this.gender,
             this.classStudent,
             this.shift,
+            this.Level,
             this.created_at,
             this.updated_at,
             this.classId});
@@ -149,6 +153,7 @@
             this.id.Name = "id";
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Width = 32;
+            this.id.Visible = false;
             // 
             // name
             // 
@@ -159,6 +164,24 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CPF
+            // 
+            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CPF.HeaderText = "CPF";
+            this.CPF.MinimumWidth = 6;
+            this.CPF.Name = "cpf";
+            this.CPF.ReadOnly = true;
+            this.CPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Level
+            // 
+            this.Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Level.HeaderText = "Nível";
+            this.Level.MinimumWidth = 6;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // gender
             // 
@@ -295,6 +318,8 @@
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;

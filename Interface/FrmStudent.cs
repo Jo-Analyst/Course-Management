@@ -46,6 +46,8 @@ namespace CourseManagement
                     dgvStudent.Rows[index].Cells["name"].Value = dr["name"].ToString();
                     dgvStudent.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
                     dgvStudent.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
+                    dgvStudent.Rows[index].Cells["CPF"].Value = string.IsNullOrEmpty(dr["CPF"].ToString()) ? string.Empty : Security.Dry(dr["CPF"].ToString());
+                    dgvStudent.Rows[index].Cells["Level"].Value = dr["level"].ToString();
                     dgvStudent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
                     dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
                     dgvStudent.Rows[index].Cells["created_at"].Value = dr["created_at"].ToString();
@@ -63,7 +65,7 @@ namespace CourseManagement
 
         private void EditStudent()
         {
-            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
+            var saveStudent = new FrmSaveStudent(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString(), dgvStudent.CurrentRow.Cells["CPF"].Value.ToString(), dgvStudent.CurrentRow.Cells["Level"].Value.ToString());
             saveStudent.ShowDialog();
 
             studentId = 0;
