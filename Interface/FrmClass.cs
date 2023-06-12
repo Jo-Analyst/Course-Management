@@ -43,6 +43,7 @@ namespace CourseManagement
                 dgvClass.Rows[index].Cells["name"].Value = dr["name"].ToString();
                 dgvClass.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
                 dgvClass.Rows[index].Height = 35;
+                txtField.Focus();
             }
 
             dgvClass.ClearSelection();

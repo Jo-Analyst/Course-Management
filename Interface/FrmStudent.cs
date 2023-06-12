@@ -56,6 +56,7 @@ namespace CourseManagement
                 }
 
                 dgvStudent.ClearSelection();
+                txtField.Focus();
             }
             catch (Exception ex)
             {
