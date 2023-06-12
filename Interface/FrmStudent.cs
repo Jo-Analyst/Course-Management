@@ -98,12 +98,16 @@ namespace CourseManagement
 
         private void rbName_CheckedChanged(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            txtField.Focus();
+            if(!string.IsNullOrEmpty(txtField.Text))
+                LoadDataStudent();
         }
 
         private void rbClass_CheckedChanged(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            txtField.Focus();
+            if(!string.IsNullOrEmpty(txtField.Text))
+                LoadDataStudent();
         }
 
         private void dgvStudent_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
