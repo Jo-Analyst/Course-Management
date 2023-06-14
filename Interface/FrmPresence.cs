@@ -155,6 +155,7 @@ namespace CourseManagement
         {
             try
             {
+                dtListPresence.Rows.Clear();
                 foreach (DataGridViewRow row in dgvListPresence.Rows)
                 {
                     dtListPresence.Rows.Add(row.Cells["id"].Value, row.Cells["presence"].Value, row.Cells["descriptionReasonForAbsence"].Value.ToString(), row.Cells["listAttendance_id"].Value.ToString(), row.Cells["reasonForAbsenceId"].Value.ToString());
@@ -174,6 +175,8 @@ namespace CourseManagement
         {
             try
             {
+                dtListPresence.Rows.Clear();
+
                 foreach (DataGridViewRow dgvRow in dgvListPresence.Rows)
                 {
                     dtListPresence.Rows.Add(dgvRow.Cells["id"].Value.ToString(), dgvRow.Cells["presence"].Value.ToString(), DescriptionReasonForAbsence(dgvRow.Cells["descriptionReasonForAbsence"].Value));
