@@ -187,7 +187,7 @@ namespace CourseManagement
             dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value == null ? "" : dgvListPresence.Rows[e.RowIndex].Cells["descriptionReasonForAbsence"].Value.ToString();
 
             if (e.ColumnIndex == 5)
-                new FrmFaultDetails(cbNameStudents.Text, date, descriptionReasonForAbsence).ShowDialog();
+                new FrmFaultDetails(dgvListPresence.CurrentRow.Cells["ColName"].Value.ToString(), date, descriptionReasonForAbsence).ShowDialog();
         }
 
         private void dgvListPresence_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
