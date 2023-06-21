@@ -28,6 +28,7 @@ namespace DataBase
             {
                 try
                 {
+                    connection.Open();
                     var command = new SqlCommand("", connection);
                     command.CommandText = id == 0 ? $"INSERT INTO Reason_For_Absence VALUES ('{description}', {listAttendanceId})" : $"UPDATE Reason_For_Absence SET description = '{description}' WHERE id = {id}";
                     command.ExecuteNonQuery();
