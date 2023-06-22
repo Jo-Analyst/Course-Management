@@ -642,6 +642,8 @@ namespace CourseManagement {
             
             private global::System.Data.DataColumn columnshift;
             
+            private global::System.Data.DataColumn columnCPF;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtStudentsDataTable() {
@@ -725,6 +727,14 @@ namespace CourseManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CPFColumn {
+                get {
+                    return this.columnCPF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -760,7 +770,7 @@ namespace CourseManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtStudentsRow AdddtStudentsRow(string _class, string name, string gender, int class_id, string shift) {
+            public dtStudentsRow AdddtStudentsRow(string _class, string name, string gender, int class_id, string shift, string CPF) {
                 dtStudentsRow rowdtStudentsRow = ((dtStudentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         _class,
@@ -768,7 +778,8 @@ namespace CourseManagement {
                         name,
                         gender,
                         class_id,
-                        shift};
+                        shift,
+                        CPF};
                 rowdtStudentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtStudentsRow);
                 return rowdtStudentsRow;
@@ -804,6 +815,7 @@ namespace CourseManagement {
                 this.columngender = base.Columns["gender"];
                 this.columnclass_id = base.Columns["class_id"];
                 this.columnshift = base.Columns["shift"];
+                this.columnCPF = base.Columns["CPF"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -824,6 +836,8 @@ namespace CourseManagement {
                 base.Columns.Add(this.columnclass_id);
                 this.columnshift = new global::System.Data.DataColumn("shift", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnshift);
+                this.columnCPF = new global::System.Data.DataColumn("CPF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCPF);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnclass.MaxLength = 50;
@@ -839,6 +853,7 @@ namespace CourseManagement {
                 this.columngender.MaxLength = 1;
                 this.columnclass_id.AllowDBNull = false;
                 this.columnshift.MaxLength = 50;
+                this.columnCPF.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1418,6 +1433,22 @@ namespace CourseManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CPF {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtStudents.CPFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CPF\' na tabela \'dtStudents\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtStudents.CPFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is_classNull() {
                 return this.IsNull(this.tabledtStudents.classColumn);
             }
@@ -1438,6 +1469,18 @@ namespace CourseManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetshiftNull() {
                 this[this.tabledtStudents.shiftColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCPFNull() {
+                return this.IsNull(this.tabledtStudents.CPFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCPFNull() {
+                this[this.tabledtStudents.CPFColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1906,6 +1949,7 @@ FROM            ListAttendance AS list INNER JOIN
             tableMapping.ColumnMappings.Add("gender", "gender");
             tableMapping.ColumnMappings.Add("class_id", "class_id");
             tableMapping.ColumnMappings.Add("shift", "shift");
+            tableMapping.ColumnMappings.Add("CPF", "CPF");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1923,7 +1967,7 @@ FROM            ListAttendance AS list INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.Id AS class_id
+            this._commandCollection[0].CommandText = @"SELECT        Students.Id, Students.name, Students.gender, Classes.name AS class, Classes.shift, Classes.Id AS class_id, Students.CPF
 FROM            Students INNER JOIN
                          Classes ON Classes.Id = Students.class_id
 WHERE        (Classes.name = @class)

@@ -40,17 +40,19 @@
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnViewReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +106,7 @@
             this.delete,
             this.id,
             this.name,
-            this.CPF,
+            this.cpf,
             this.gender,
             this.classStudent,
             this.shift,
@@ -152,8 +154,8 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 32;
             this.id.Visible = false;
+            this.id.Width = 32;
             // 
             // name
             // 
@@ -165,23 +167,15 @@
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // CPF
+            // cpf
             // 
-            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CPF.HeaderText = "CPF";
-            this.CPF.MinimumWidth = 6;
-            this.CPF.Name = "cpf";
-            this.CPF.ReadOnly = true;
-            this.CPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Level
-            // 
-            this.Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Level.HeaderText = "Nível";
-            this.Level.MinimumWidth = 6;
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cpf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cpf.HeaderText = "CPF";
+            this.cpf.MinimumWidth = 6;
+            this.cpf.Name = "cpf";
+            this.cpf.ReadOnly = true;
+            this.cpf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cpf.Width = 46;
             // 
             // gender
             // 
@@ -213,6 +207,16 @@
             this.shift.Name = "shift";
             this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.shift.Width = 56;
+            // 
+            // Level
+            // 
+            this.Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Level.HeaderText = "Nível";
+            this.Level.MinimumWidth = 6;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Level.Width = 48;
             // 
             // created_at
             // 
@@ -278,12 +282,45 @@
             this.rbClass.UseVisualStyleBackColor = true;
             this.rbClass.CheckedChanged += new System.EventHandler(this.rbClass_CheckedChanged);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(190, 30);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(133, 55);
+            this.btnPrint.TabIndex = 24;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewReport.Enabled = false;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.ForeColor = System.Drawing.Color.White;
+            this.btnViewReport.Location = new System.Drawing.Point(328, 30);
+            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(192, 55);
+            this.btnViewReport.TabIndex = 23;
+            this.btnViewReport.TabStop = false;
+            this.btnViewReport.Text = "Visualizar Lista";
+            this.btnViewReport.UseVisualStyleBackColor = true;
+            // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.rbClass);
             this.Controls.Add(this.rbName);
             this.Controls.Add(this.label1);
@@ -327,5 +364,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn classId;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnViewReport;
     }
 }

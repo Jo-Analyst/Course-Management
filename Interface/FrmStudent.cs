@@ -1,4 +1,5 @@
 ﻿using DataBase;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -27,13 +28,14 @@ namespace CourseManagement
             new ToolTip().SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
 
+        DataTable dtStudent;
         private void LoadDataStudent()
         {
             try
             {
                 dgvStudent.Rows.Clear();
                 string option = rbName.Checked ? "nome" : "class";
-                DataTable dtStudent = string.IsNullOrWhiteSpace(txtField.Text)
+                dtStudent = string.IsNullOrWhiteSpace(txtField.Text)
                     ? student.FindAll()
                     : student.FindByName(txtField.Text, option);
 
@@ -57,6 +59,8 @@ namespace CourseManagement
 
                 dgvStudent.ClearSelection();
                 txtField.Focus();
+                btnPrint.Enabled = dtStudent.Rows.Count == 0 ? false : true;
+                btnViewReport.Enabled = dtStudent.Rows.Count == 0 ? false : true;
             }
             catch (Exception ex)
             {
@@ -122,6 +126,25 @@ namespace CourseManagement
 
                 btnNew_Click(sender, e);
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var rds = new ReportDataSource("dtStudents", getStudents(dtStudent));
+            ReportViewerPrint.PrintDirecty(rds, "CourseManagement.Lista de Alunos.rdlc");
+        }
+
+        private DataTable getStudents(DataTable dtStudents)
+        {
+            var ds = dtStudents;
+            int index = 0;
+            foreach(DataRow dr in dtStudents.Rows)
+            {
+                ds.Rows[index]["CPF"] = string.IsNullOrEmpty(dr["CPF"].ToString()) ? "" : Security.Dry(dr["CPF"].ToString());
+                index++;
+            }
+
+            return ds;
         }
 
         private void Delete()
