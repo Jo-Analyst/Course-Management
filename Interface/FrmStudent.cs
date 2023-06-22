@@ -122,10 +122,11 @@ namespace CourseManagement
         private void FrmStudent_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.N)
-            {
-
                 btnNew_Click(sender, e);
-            }
+            else if (btnViewList.Enabled && e.Control && e.Shift && e.KeyCode == Keys.P)
+                btnViewList_Click(sender, e);
+            else if (btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
+                btnPrint_Click(sender, e);
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
