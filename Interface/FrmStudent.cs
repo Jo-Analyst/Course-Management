@@ -29,6 +29,8 @@ namespace CourseManagement
         }
 
         DataTable dtStudent;
+
+        ReportDataSource reportDataSource;
         private void LoadDataStudent()
         {
             try
@@ -61,6 +63,7 @@ namespace CourseManagement
                 txtField.Focus();
                 btnPrint.Enabled = dtStudent.Rows.Count == 0 ? false : true;
                 btnViewList.Enabled = dtStudent.Rows.Count == 0 ? false : true;
+                reportDataSource = NewReportDataSource();
             }
             catch (Exception ex)
             {
@@ -131,8 +134,7 @@ namespace CourseManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            var rds = NewReportDataSource();
-            ReportViewerPrint.PrintDirecty(rds, "CourseManagement.Lista de Alunos.rdlc");
+            ReportViewerPrint.PrintDirecty(reportDataSource, "CourseManagement.Lista de Alunos.rdlc");
         }
 
         private ReportDataSource NewReportDataSource()
@@ -155,7 +157,7 @@ namespace CourseManagement
 
         private void btnViewList_Click(object sender, EventArgs e)
         {
-            new FrmViewReport(NewReportDataSource(), "CourseManagement.Lista de Alunos.rdlc").ShowDialog();
+            new FrmViewReport(reportDataSource, "CourseManagement.Lista de Alunos.rdlc").ShowDialog();
         }
 
         private void Delete()
