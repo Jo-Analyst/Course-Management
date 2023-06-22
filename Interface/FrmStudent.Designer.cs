@@ -52,7 +52,7 @@
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.btnViewReport = new System.Windows.Forms.Button();
+            this.btnViewList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,20 +298,21 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // btnViewReport
+            // btnViewList
             // 
-            this.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewReport.Enabled = false;
-            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.ForeColor = System.Drawing.Color.White;
-            this.btnViewReport.Location = new System.Drawing.Point(328, 30);
-            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(192, 55);
-            this.btnViewReport.TabIndex = 23;
-            this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar Lista";
-            this.btnViewReport.UseVisualStyleBackColor = true;
+            this.btnViewList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewList.Enabled = false;
+            this.btnViewList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewList.ForeColor = System.Drawing.Color.White;
+            this.btnViewList.Location = new System.Drawing.Point(328, 30);
+            this.btnViewList.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewList.Name = "btnViewList";
+            this.btnViewList.Size = new System.Drawing.Size(192, 55);
+            this.btnViewList.TabIndex = 23;
+            this.btnViewList.TabStop = false;
+            this.btnViewList.Text = "Visualizar Lista";
+            this.btnViewList.UseVisualStyleBackColor = true;
+            this.btnViewList.Click += new System.EventHandler(this.btnViewList_Click);
             // 
             // FrmStudent
             // 
@@ -320,7 +321,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnViewReport);
+            this.Controls.Add(this.btnViewList);
             this.Controls.Add(this.rbClass);
             this.Controls.Add(this.rbName);
             this.Controls.Add(this.label1);
@@ -366,6 +367,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnViewReport;
+        private System.Windows.Forms.Button btnViewList;
     }
 }
