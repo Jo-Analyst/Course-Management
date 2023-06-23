@@ -24,6 +24,7 @@ namespace CourseManagement
 
         private void FrmStudent_Load(object sender, EventArgs e)
         {
+            cbFilter.SelectedIndex = 0;
             LoadDataStudent();
             new ToolTip().SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
@@ -37,9 +38,10 @@ namespace CourseManagement
             {
                 dgvStudent.Rows.Clear();
                 string option = rbName.Checked ? "nome" : "class";
+                bool filtredFieldByClass = cbFilter.SelectedIndex <= 0 ? false : true;
                 dtStudent = string.IsNullOrWhiteSpace(txtField.Text)
-                    ? student.FindAll()
-                    : student.FindByName(txtField.Text, option);
+                    ? student.FindAll(filtredFieldByClass)
+                    : student.FindByName(txtField.Text, option, filtredFieldByClass);
 
                 foreach (DataRow dr in dtStudent.Rows)
                 {
@@ -106,14 +108,14 @@ namespace CourseManagement
         private void rbName_CheckedChanged(object sender, EventArgs e)
         {
             txtField.Focus();
-            if(!string.IsNullOrEmpty(txtField.Text))
+            if (!string.IsNullOrEmpty(txtField.Text))
                 LoadDataStudent();
         }
 
         private void rbClass_CheckedChanged(object sender, EventArgs e)
         {
             txtField.Focus();
-            if(!string.IsNullOrEmpty(txtField.Text))
+            if (!string.IsNullOrEmpty(txtField.Text))
                 LoadDataStudent();
         }
 
@@ -146,7 +148,7 @@ namespace CourseManagement
         {
             var ds = dtStudents;
             int index = 0;
-            foreach(DataRow dr in dtStudents.Rows)
+            foreach (DataRow dr in dtStudents.Rows)
             {
                 ds.Rows[index]["CPF"] = string.IsNullOrEmpty(dr["CPF"].ToString()) ? "" : Security.Dry(dr["CPF"].ToString());
                 index++;
@@ -158,6 +160,11 @@ namespace CourseManagement
         private void btnViewList_Click(object sender, EventArgs e)
         {
             new FrmViewReport(reportDataSource, "CourseManagement.Lista de Alunos.rdlc").ShowDialog();
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataStudent();
         }
 
         private void Delete()

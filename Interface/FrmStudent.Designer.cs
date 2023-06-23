@@ -48,12 +48,15 @@
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnViewList = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -75,7 +78,7 @@
             this.txtField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtField.Location = new System.Drawing.Point(32, 144);
+            this.txtField.Location = new System.Drawing.Point(32, 159);
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
@@ -115,7 +118,7 @@
             this.updated_at,
             this.classId});
             this.dgvStudent.EnableHeadersVisualStyles = false;
-            this.dgvStudent.Location = new System.Drawing.Point(32, 180);
+            this.dgvStudent.Location = new System.Drawing.Point(32, 193);
             this.dgvStudent.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersVisible = false;
@@ -125,7 +128,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(1028, 337);
+            this.dgvStudent.Size = new System.Drawing.Size(1028, 324);
             this.dgvStudent.TabIndex = 2;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             this.dgvStudent.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellMouseEnter);
@@ -243,23 +246,12 @@
             this.classId.Visible = false;
             this.classId.Width = 125;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Procurar por: ";
-            // 
             // rbName
             // 
             this.rbName.AutoSize = true;
             this.rbName.Checked = true;
             this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(172, 112);
+            this.rbName.Location = new System.Drawing.Point(15, 26);
             this.rbName.Margin = new System.Windows.Forms.Padding(4);
             this.rbName.Name = "rbName";
             this.rbName.Size = new System.Drawing.Size(69, 24);
@@ -273,7 +265,7 @@
             // 
             this.rbClass.AutoSize = true;
             this.rbClass.ForeColor = System.Drawing.Color.White;
-            this.rbClass.Location = new System.Drawing.Point(268, 112);
+            this.rbClass.Location = new System.Drawing.Point(111, 26);
             this.rbClass.Margin = new System.Windows.Forms.Padding(4);
             this.rbClass.Name = "rbClass";
             this.rbClass.Size = new System.Drawing.Size(72, 24);
@@ -314,17 +306,53 @@
             this.btnViewList.UseVisualStyleBackColor = true;
             this.btnViewList.Click += new System.EventHandler(this.btnViewList_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbName);
+            this.groupBox1.Controls.Add(this.rbClass);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(32, 93);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(198, 59);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = " Procurar por: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(236, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Filtrar por: ";
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "Nenhum",
+            "Turma"});
+            this.cbFilter.Location = new System.Drawing.Point(326, 115);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(178, 28);
+            this.cbFilter.TabIndex = 27;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.Controls.Add(this.cbFilter);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewList);
-            this.Controls.Add(this.rbClass);
-            this.Controls.Add(this.rbName);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStudent);
             this.Controls.Add(this.txtField);
             this.Controls.Add(this.btnNew);
@@ -340,6 +368,8 @@
             this.Load += new System.EventHandler(this.FrmStudent_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmStudent_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +380,6 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.TextBox txtField;
         private System.Windows.Forms.DataGridView dgvStudent;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbName;
         private System.Windows.Forms.RadioButton rbClass;
         private System.Windows.Forms.DataGridViewImageColumn delete;
@@ -368,5 +397,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnViewList;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFilter;
     }
 }
