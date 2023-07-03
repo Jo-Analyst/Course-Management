@@ -45,6 +45,8 @@
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.activeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +118,8 @@
             this.Level,
             this.created_at,
             this.updated_at,
+            this.active,
+            this.activeImage,
             this.classId});
             this.dgvStudent.EnableHeadersVisualStyles = false;
             this.dgvStudent.Location = new System.Drawing.Point(32, 193);
@@ -220,6 +224,27 @@
             this.Level.ReadOnly = true;
             this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Level.Width = 48;
+            //
+            // active
+            //
+            this.active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.active.HeaderText = "Ativo";
+            this.active.Name = "active";
+            this.active.ReadOnly = false;
+            this.active.Visible = false;
+            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.active.Width = 56; 
+            //
+            // activeImage
+            //
+            this.activeImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.activeImage.HeaderText = "Ativo";
+            this.activeImage.Name = "activeImage";
+            this.activeImage.ReadOnly = false;
+            this.activeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.activeImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.activeImage.Width = 56;
             // 
             // created_at
             // 
@@ -390,6 +415,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn classStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn active;
+        private System.Windows.Forms.DataGridViewImageColumn activeImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn classId;

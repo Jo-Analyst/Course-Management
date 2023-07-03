@@ -56,10 +56,10 @@ namespace CourseManagement
 
         private void LoadStudents()
         {
-            var lengthStudents = Student.FindByClass(cbClass.Text).Rows.Count;
-            var listPresence = Student.FindByClass(cbClass.Text).Rows;
+            var listStudents = Student.FindByClass(cbClass.Text);
+            var lengthStudents = listStudents.Rows.Count;
             if (lengthStudents > 0)
-                LoadDgvListPresence(listPresence);
+                LoadDgvListPresence(listStudents.Rows);
             else
             {
                 MessageBox.Show("Não há alunos cadastrado nesta turma", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -69,40 +69,43 @@ namespace CourseManagement
             }
         }
 
-        private void LoadDgvListPresence(DataRowCollection listPresence, bool madeCall = false)
+        private void LoadDgvListPresence(DataRowCollection listStudents, bool madeCall = false)
         {
             dgvListPresence.Rows.Clear();
 
-            foreach (DataRow dr in listPresence)
+            foreach (DataRow dr in listStudents)
             {
-                int index = dgvListPresence.Rows.Add();
-
-
-                if (!madeCall)
-                    dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
-                else
+                if (dr["active"].ToString() == "1")
                 {
-                    if (dr["presence"].ToString() == "0")
+                    int index = dgvListPresence.Rows.Add();
+
+
+                    if (!madeCall)
                         dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                     else
-                        dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24;
+                    {
+                        if (dr["presence"].ToString() == "0")
+                            dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                        else
+                            dgvListPresence.Rows[index].Cells["imageCheck"].Value = Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24;
 
+                    }
+
+                    dgvListPresence.Rows[index].Cells["presence"].Value = !madeCall ? "false" : dr["presence"].ToString() == "0" ? "false" : "true";
+                    dgvListPresence.Rows[index].Cells["id"].Value = dr["id"].ToString();
+                    dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
+                    dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
+                    dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
+                    dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
+                    dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
+                    dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["description"].ToString();
+                    dgvListPresence.Rows[index].Cells["reasonForAbsenceId"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["reasonForAbsence_id"].ToString();
+                    dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = !Convert.ToBoolean(dgvListPresence.Rows[index].Cells["presence"].Value) ? Properties.Resources.kebad : Properties.Resources.white;
+                    dgvListPresence.Rows[index].Height = 35;
                 }
 
-                dgvListPresence.Rows[index].Cells["presence"].Value = !madeCall ? "false" : dr["presence"].ToString() == "0" ? "false" : "true";
-                dgvListPresence.Rows[index].Cells["id"].Value = dr["id"].ToString();
-                dgvListPresence.Rows[index].Cells["name"].Value = dr["name"].ToString();
-                dgvListPresence.Rows[index].Cells["classStudent"].Value = dr["class"].ToString();
-                dgvListPresence.Rows[index].Cells["shift"].Value = dr["shift"].ToString();
-                dgvListPresence.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                dgvListPresence.Rows[index].Cells["listAttendance_id"].Value = madeCall ? dr["listAttendance_id"].ToString() : null;
-                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["description"].ToString();
-                dgvListPresence.Rows[index].Cells["reasonForAbsenceId"].Value = btnConfirmPresence.Text == "Confirmar Presença" ? "" : dr["reasonForAbsence_id"].ToString();
-                dgvListPresence.Rows[index].Cells["reasonForAbsence"].Value = !Convert.ToBoolean(dgvListPresence.Rows[index].Cells["presence"].Value) ? Properties.Resources.kebad : Properties.Resources.white;
-                dgvListPresence.Rows[index].Height = 35;
+                dgvListPresence.ClearSelection();
             }
-
-            dgvListPresence.ClearSelection();
         }
 
         ListAttendance listAttendance = new ListAttendance();

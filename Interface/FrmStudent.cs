@@ -2,6 +2,7 @@
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace CourseManagement
@@ -56,6 +57,8 @@ namespace CourseManagement
                     dgvStudent.Rows[index].Cells["Level"].Value = dr["level"].ToString();
                     dgvStudent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
                     dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
+                    dgvStudent.Rows[index].Cells["active"].Value =  dr["active"].ToString() == "1" ? "True" : "False";
+                    dgvStudent.Rows[index].Cells["activeImage"].Value =  dr["active"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                     dgvStudent.Rows[index].Cells["created_at"].Value = dr["created_at"].ToString();
                     dgvStudent.Rows[index].Cells["updated_at"].Value = dr["updated_at"].ToString();
                     dgvStudent.Rows[index].Height = 35;
@@ -87,16 +90,27 @@ namespace CourseManagement
         string genderStudent, nameStudent;
         private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            try
             {
-                studentId = int.Parse(dgvStudent.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                nameStudent = dgvStudent.Rows[e.RowIndex].Cells["name"].Value.ToString();
-                genderStudent = dgvStudent.Rows[e.RowIndex].Cells["gender"].Value.ToString();
+                if (e.RowIndex > -1)
+                {
+                    studentId = int.Parse(dgvStudent.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    nameStudent = dgvStudent.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                    genderStudent = dgvStudent.Rows[e.RowIndex].Cells["gender"].Value.ToString();
+                    dgvStudent.Rows[e.RowIndex].Cells["activeImage"].Value = !Convert.ToBoolean(dgvStudent.Rows[e.RowIndex].Cells["active"].Value) ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                    dgvStudent.Rows[e.RowIndex].Cells["active"].Value = !Convert.ToBoolean(dgvStudent.Rows[e.RowIndex].Cells["active"].Value) ? "True" : "False";
 
-                if (e.ColumnIndex == 0)
-                    EditStudent();
-                else if (e.ColumnIndex == 1)
-                    Delete();
+                    if (e.ColumnIndex == 0)
+                        EditStudent();
+                    else if (e.ColumnIndex == 1)
+                        Delete();
+                    else if (e.ColumnIndex == 12)
+                        Student.ToggleActiveStudent(studentId, Convert.ToBoolean(dgvStudent.Rows[e.RowIndex].Cells["active"].Value));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -121,7 +135,7 @@ namespace CourseManagement
 
         private void dgvStudent_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            dgvStudent.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Default;
+            dgvStudent.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 12 ? Cursors.Hand : Cursors.Default;
         }
 
         private void FrmStudent_KeyDown(object sender, KeyEventArgs e)

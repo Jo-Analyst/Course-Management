@@ -132,7 +132,7 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
-                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, c.name AS class, c.shift, s.gender, rfa.id as reasonForAbsence_id, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
+                string sql = $"SELECT l.id AS listAttendance_id, l.presence, s.id AS id, s.name, s.active, c.name AS class, c.shift, s.gender, rfa.id as reasonForAbsence_id, rfa.description FROM Attendance AS a left JOIN ListAttendance AS l ON a.id = l.attendance_id left JOIN Students as s ON s.id = l.student_id left JOIN Classes AS c ON c.id = s.class_id left JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = l.Id WHERE a.date = '{date}' AND c.name = '{_class}' ORDER BY s.name ASC";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;
