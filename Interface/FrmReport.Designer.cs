@@ -35,6 +35,7 @@
             this.btnClass = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnListPresence = new System.Windows.Forms.Button();
+            this.lblQuantityStudentsActived = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblQuantityStudentsRegistered
@@ -105,12 +106,24 @@
             this.btnListPresence.UseVisualStyleBackColor = false;
             this.btnListPresence.Click += new System.EventHandler(this.btnListPresence_Click);
             // 
+            // label1
+            // 
+            this.lblQuantityStudentsActived.AutoSize = true;
+            this.lblQuantityStudentsActived.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantityStudentsActived.Location = new System.Drawing.Point(135, 45);
+            this.lblQuantityStudentsActived.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblQuantityStudentsActived.Name = "label1";
+            this.lblQuantityStudentsActived.Size = new System.Drawing.Size(197, 17);
+            this.lblQuantityStudentsActived.TabIndex = 5;
+            this.lblQuantityStudentsActived.Text = "Quantidade de alunos ativos: ";
+            // 
             // FrmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(525, 256);
+            this.Controls.Add(this.lblQuantityStudentsActived);
             this.Controls.Add(this.btnListPresence);
             this.Controls.Add(this.btnClass);
             this.Controls.Add(this.btnStudent);
@@ -140,5 +153,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnClass;
         private System.Windows.Forms.Button btnListPresence;
+        private System.Windows.Forms.Label lblQuantityStudentsActived;
     }
 }

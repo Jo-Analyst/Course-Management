@@ -94,9 +94,9 @@ namespace DataBase
                     connection.Open();
                     var adapter = new SqlDataAdapter("", connection);
                     adapter.SelectCommand.CommandText = $"SELECT students.id, students.name, Classes.name as class, Classes.shift, " +
-                        $"(SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1 AND Students.id = {student_id}) AS number_attendance, " +
-                        $"(SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0  AND Students.id = {student_id})" +
-                        $" AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.id = {student_id} GROUP BY students.id, students.name, Classes.name, Classes.shift";
+                        $"(SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 1  AND Students.active = 1 AND Students.id = {student_id}) AS number_attendance, " +
+                        $"(SELECT COUNT(Students.id) FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id WHERE list.presence = 0 AND Students.active = 1  AND Students.id = {student_id})" +
+                        $" AS number_absences FROM ListAttendance AS list INNER JOIN Students ON Students.Id = list.student_id INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.id = {student_id} AND Students.active = 1 GROUP BY students.id, students.name, Classes.name, Classes.shift";
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
@@ -160,7 +160,9 @@ namespace DataBase
         {
             using (var connection = new SqlConnection(DbConnectionString.connectionString))
             {
-                string sql = !string.IsNullOrEmpty(@class) ? $"SELECT list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id  WHERE cl.name = '{@class}' ORDER BY s.name;" : $"SELECT list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id ORDER BY s.name";
+                string sql = !string.IsNullOrEmpty(@class) 
+                    ? $"SELECT list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class, s.active FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id  WHERE cl.name = '{@class}' ORDER BY s.name;" 
+                    : $"SELECT list.presence, att.date, rfa.description, s.name AS nameStudent, cl.name AS class, s.active FROM ListAttendance AS list inner  JOIN Attendance AS att ON att.Id = list.attendance_id LEFT JOIN Reason_For_Absence AS rfa ON rfa.listAttendance_id = list.Id LEFT JOIN Students AS s ON s.Id = list.student_id LEFT JOIN Classes as cl ON CL.Id = s.class_id WHERE s.active = 1 ORDER BY s.name";
                 var adapter = new SqlDataAdapter(sql, connection);
 
                 adapter.SelectCommand.CommandText = sql;

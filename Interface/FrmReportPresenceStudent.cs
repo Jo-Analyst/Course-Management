@@ -98,15 +98,19 @@ namespace CourseManagement
 
             foreach (DataRow dr in dt.Rows)
             {
-                int index = dgvListPresence.Rows.Add();
-                dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
-                dgvListPresence.Rows[index].Cells["presenceSelect"].Value = dr["presence"].ToString() == "1" ? "true" : "false";
-                dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
-                dgvListPresence.Rows[index].Cells["DetailsAbsence"].Value = dr["presence"].ToString() == "0" ? Properties.Resources.kebad : Properties.Resources.white;
-                dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = string.IsNullOrEmpty(dr["description"].ToString()) ? "--- Nenhum motivo ---" : dr["description"].ToString();
-                dgvListPresence.Rows[index].Cells["ColName"].Value = cbxListByStudent.Checked ? "" : dr["nameStudent"].ToString();
-                dgvListPresence.Rows[index].Cells["ColNameClass"].Value = cbxListByStudent.Checked ? "" : dr["class"].ToString();
-                dgvListPresence.Rows[index].Height = 35;
+                if (cbxListByStudent.Checked || dr["active"].ToString() == "1" || string.IsNullOrEmpty(dr["active"].ToString()))
+                {
+                    int index = dgvListPresence.Rows.Add();
+                    dgvListPresence.Rows[index].Cells["presence"].Value = dr["presence"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                    dgvListPresence.Rows[index].Cells["presenceSelect"].Value = dr["presence"].ToString() == "1" ? "true" : "false";
+                    dgvListPresence.Rows[index].Cells["date"].Value = dr["date"].ToString();
+                    dgvListPresence.Rows[index].Cells["DetailsAbsence"].Value = dr["presence"].ToString() == "0" ? Properties.Resources.kebad : Properties.Resources.white;
+                    dgvListPresence.Rows[index].Cells["descriptionReasonForAbsence"].Value = string.IsNullOrEmpty(dr["description"].ToString()) ? "--- Nenhum motivo ---" : dr["description"].ToString();
+                    dgvListPresence.Rows[index].Cells["ColName"].Value = cbxListByStudent.Checked ? "" : dr["nameStudent"].ToString();
+                    dgvListPresence.Rows[index].Cells["ColNameClass"].Value = cbxListByStudent.Checked ? "" : dr["class"].ToString();
+                    dgvListPresence.Rows[index].Height = 35;
+
+                }
             }
 
             dgvListPresence.ClearSelection();
@@ -126,6 +130,7 @@ namespace CourseManagement
             dtListPresenceFilterd.Columns.Add("description", typeof(string));
             dtListPresenceFilterd.Columns.Add("nameStudent", typeof(string));
             dtListPresenceFilterd.Columns.Add("class", typeof(string));
+            dtListPresenceFilterd.Columns.Add("active", typeof(string));
 
             dtListAbsenceFilterd.Columns.Clear();
             dtListAbsenceFilterd.Columns.Add("presence", typeof(string));
@@ -133,15 +138,16 @@ namespace CourseManagement
             dtListAbsenceFilterd.Columns.Add("description", typeof(string));
             dtListAbsenceFilterd.Columns.Add("nameStudent", typeof(string));
             dtListAbsenceFilterd.Columns.Add("class", typeof(string));
+            dtListAbsenceFilterd.Columns.Add("active", typeof(string));
 
             dtListPresenceFilterd.Rows.Clear();
             dtListAbsenceFilterd.Rows.Clear();
             foreach (DataRow row in dtGetListPresence.Rows)
             {
                 if (row["presence"].ToString() == "1")
-                    dtListPresenceFilterd.Rows.Add("1", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString());
+                    dtListPresenceFilterd.Rows.Add("1", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString(), !cbxListByStudent.Checked ? row["active"].ToString() : "");
                 else
-                    dtListAbsenceFilterd.Rows.Add("0", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString());
+                    dtListAbsenceFilterd.Rows.Add("0", row["date"].ToString(), row["description"].ToString(), cbxListByStudent.Checked ? "" : row["nameStudent"].ToString(), cbxListByStudent.Checked ? "" : row["class"].ToString(), !cbxListByStudent.Checked ? row["active"].ToString() : "");
 
             }
 
@@ -160,12 +166,13 @@ namespace CourseManagement
             dt.Columns.Add("description", typeof(string));
             dt.Columns.Add("nameStudent", typeof(string));
             dt.Columns.Add("class", typeof(string));
+            dt.Columns.Add("active", typeof(string));
 
             int topLimit =  dtGetListPresence.Rows.Count < int.Parse(cbTopLimit.Text) ? dtGetListPresence.Rows.Count :  int.Parse(cbTopLimit.Text);
 
             for (int i = 0; i < topLimit; i++)
             {
-                dt.Rows.Add(dtGetListPresence.Rows[i]["presence"].ToString(), dtGetListPresence.Rows[i]["date"].ToString(), dtGetListPresence.Rows[i]["description"].ToString(), dtGetListPresence.Rows[i]["nameStudent"].ToString(), dtGetListPresence.Rows[i]["class"].ToString());
+                dt.Rows.Add(dtGetListPresence.Rows[i]["presence"].ToString(), dtGetListPresence.Rows[i]["date"].ToString(), dtGetListPresence.Rows[i]["description"].ToString(), dtGetListPresence.Rows[i]["nameStudent"].ToString(), dtGetListPresence.Rows[i]["class"].ToString(), !cbxListByStudent.Checked ? dtGetListPresence.Rows[i]["active"].ToString() : "");
             }
 
             return dt;

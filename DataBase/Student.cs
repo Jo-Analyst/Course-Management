@@ -112,7 +112,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Students.active, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Classes.name = @class ORDER BY Students.name ASC";
+                    string sql = $"SELECT Students.Id, Students.name, Students.gender, Students.active, Classes.name AS class, Classes.shift, Classes.id AS class_id FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Classes.name = @class AND Students.active = 1 ORDER BY Students.name ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@class", @class);
                     adapter.SelectCommand.CommandText = sql;
@@ -193,6 +193,48 @@ namespace DataBase
             }
         }
 
+        static public DataTable FindAllStudentRegistered()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable FindAllStudentActive(bool filterFieldByClass = false)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = !filterFieldByClass
+                        ? "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.active, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id  WHERE Students.active = 1 ORDER BY Students.name"
+                        : "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.active = 1 ORDER BY Classes.name, Students.name";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
         public DataTable FindAll(bool filterFieldByClass = false)
         {
             try

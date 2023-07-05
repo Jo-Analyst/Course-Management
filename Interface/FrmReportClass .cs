@@ -32,7 +32,7 @@ namespace CourseManagement
         {
             try
             {
-                DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAll() : Student.FindByClass(cbClass.Text);
+                DataTable dtStudents = cbClass.Text.ToLower() == "todos" ? student.FindAllStudentActive() : Student.FindByClass(cbClass.Text);
                 dgvReportClass.Rows.Clear();
                 DataTable dtStudent;
                 int index = 0;
@@ -59,6 +59,7 @@ namespace CourseManagement
                     dgvReportClass.Rows[index].Height = 35;
                     index++;
                 }
+
                 lblQtdClasses.Visible = cbClass.SelectedIndex != cbClass.Items.Count - 1 ? true : false;
                 lblQuantityStudentList.Visible = true;
                 lblQtdClasses.Text = $"Quantidades de aulas prestadas: {attendance.CountPresenceForClass(class_id)}";

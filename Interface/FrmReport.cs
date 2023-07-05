@@ -23,7 +23,8 @@ namespace CourseManagement
 
         private void FrmReport_Load(object sender, EventArgs e)
         {
-            lblQuantityStudentsRegistered.Text += new Student().FindAll().Rows.Count.ToString();
+            lblQuantityStudentsRegistered.Text += Student.FindAllStudentRegistered().Rows.Count.ToString();
+            lblQuantityStudentsActived.Text += new Student().FindAllStudentActive().Rows.Count.ToString();
         }
 
         private void btnListPresence_Click(object sender, EventArgs e)

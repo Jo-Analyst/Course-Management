@@ -16,7 +16,7 @@ namespace CourseManagement
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            if (student.FindAll().Rows.Count > 0)
+            if (student.FindAllStudentActive().Rows.Count > 0)
             {
                 new FrmStudent().ShowDialog();
                 return;
