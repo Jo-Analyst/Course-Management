@@ -32,7 +32,7 @@ namespace CourseManagement
             int minute = dt.Minute;
             int second = dt.Second;
 
-            return $"{day}-{month}-{year}--{hour}-{minute}-{second}";
+            return $"{day.ToString().PadLeft(2, '0')}-{month.ToString().PadLeft(2, '0')}-{year}--{hour.ToString().PadLeft(2, '0')}-{minute.ToString().PadLeft(2, '0')}-{second.ToString().PadLeft(2, '0')}";
         }
 
         Backup backup = new Backup();
