@@ -37,9 +37,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportClass));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnViewReport = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvReportClass = new System.Windows.Forms.DataGridView();
+            this.lblQtdClasses = new System.Windows.Forms.Label();
+            this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
+            this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
+            this.lblQuantityStudentList = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,14 +53,42 @@
             this.numberOfAbsences = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentageCameIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnViewReport = new System.Windows.Forms.Button();
-            this.lblQtdClasses = new System.Windows.Forms.Label();
-            this.cbFindAbove75Percentage = new System.Windows.Forms.CheckBox();
-            this.cbFindBellow75Percentage = new System.Windows.Forms.CheckBox();
-            this.lblQuantityStudentList = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportClass)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewReport.Enabled = false;
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.Location = new System.Drawing.Point(990, 384);
+            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
+            this.btnViewReport.TabIndex = 15;
+            this.btnViewReport.TabStop = false;
+            this.btnViewReport.Text = "Visualizar Relatório";
+            this.toolTip1.SetToolTip(this.btnViewReport, "Visualizar Relatório  - [SHIFT + P]");
+            this.btnViewReport.UseVisualStyleBackColor = true;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Location = new System.Drawing.Point(852, 384);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(133, 52);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.toolTip1.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // cbClass
             // 
@@ -125,102 +159,6 @@
             this.dgvReportClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellClick);
             this.dgvReportClass.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReportClass_CellDoubleClick);
             // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Nome";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // classStudent
-            // 
-            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.classStudent.DataPropertyName = "class";
-            this.classStudent.HeaderText = "Turma";
-            this.classStudent.MinimumWidth = 6;
-            this.classStudent.Name = "classStudent";
-            this.classStudent.ReadOnly = true;
-            this.classStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // shift
-            // 
-            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.shift.HeaderText = "Turno";
-            this.shift.MinimumWidth = 6;
-            this.shift.Name = "shift";
-            this.shift.ReadOnly = true;
-            this.shift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shift.Width = 55;
-            // 
-            // numberOfAttendance
-            // 
-            this.numberOfAttendance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.numberOfAttendance.DataPropertyName = "numberOfAttendance";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberOfAttendance.DefaultCellStyle = dataGridViewCellStyle2;
-            this.numberOfAttendance.HeaderText = "Número de Presenças";
-            this.numberOfAttendance.MinimumWidth = 6;
-            this.numberOfAttendance.Name = "numberOfAttendance";
-            this.numberOfAttendance.ReadOnly = true;
-            this.numberOfAttendance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAttendance.Width = 171;
-            // 
-            // numberOfAbsences
-            // 
-            this.numberOfAbsences.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.numberOfAbsences.DataPropertyName = "numberOfAbsences";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberOfAbsences.DefaultCellStyle = dataGridViewCellStyle3;
-            this.numberOfAbsences.HeaderText = "Número de Faltas";
-            this.numberOfAbsences.MinimumWidth = 6;
-            this.numberOfAbsences.Name = "numberOfAbsences";
-            this.numberOfAbsences.ReadOnly = true;
-            this.numberOfAbsences.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.numberOfAbsences.Width = 140;
-            // 
-            // percentageStart
-            // 
-            this.percentageStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.percentageStart.DefaultCellStyle = dataGridViewCellStyle4;
-            this.percentageStart.HeaderText = "% desde o início";
-            this.percentageStart.MinimumWidth = 6;
-            this.percentageStart.Name = "percentageStart";
-            this.percentageStart.ReadOnly = true;
-            this.percentageStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageStart.Width = 128;
-            // 
-            // percentageCameIn
-            // 
-            this.percentageCameIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.percentageCameIn.HeaderText = "% desde que entrou";
-            this.percentageCameIn.MinimumWidth = 6;
-            this.percentageCameIn.Name = "percentageCameIn";
-            this.percentageCameIn.ReadOnly = true;
-            this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.percentageCameIn.Width = 157;
-            // 
-            // btnViewReport
-            // 
-            this.btnViewReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewReport.Enabled = false;
-            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Location = new System.Drawing.Point(990, 384);
-            this.btnViewReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(192, 52);
-            this.btnViewReport.TabIndex = 15;
-            this.btnViewReport.TabStop = false;
-            this.btnViewReport.Text = "Visualizar Relatório";
-            this.toolTip1.SetToolTip(this.btnViewReport, "Visualizar Relatório  - [SHIFT + P]");
-            this.btnViewReport.UseVisualStyleBackColor = true;
-            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
-            // 
             // lblQtdClasses
             // 
             this.lblQtdClasses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -265,22 +203,78 @@
             this.lblQuantityStudentList.Text = "Quantidade de alunos na lista: ";
             this.lblQuantityStudentList.Visible = false;
             // 
-            // btnPrint
+            // name
             // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.Enabled = false;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Location = new System.Drawing.Point(852, 384);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(133, 52);
-            this.btnPrint.TabIndex = 20;
-            this.btnPrint.TabStop = false;
-            this.btnPrint.Text = "Imprimir";
-            this.toolTip1.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Nome";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // classStudent
+            // 
+            this.classStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.classStudent.DataPropertyName = "class";
+            this.classStudent.HeaderText = "Turma";
+            this.classStudent.MinimumWidth = 6;
+            this.classStudent.Name = "classStudent";
+            this.classStudent.ReadOnly = true;
+            // 
+            // shift
+            // 
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shift.HeaderText = "Turno";
+            this.shift.MinimumWidth = 6;
+            this.shift.Name = "shift";
+            this.shift.ReadOnly = true;
+            this.shift.Width = 74;
+            // 
+            // numberOfAttendance
+            // 
+            this.numberOfAttendance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.numberOfAttendance.DataPropertyName = "numberOfAttendance";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberOfAttendance.DefaultCellStyle = dataGridViewCellStyle2;
+            this.numberOfAttendance.HeaderText = "Número de Presenças";
+            this.numberOfAttendance.MinimumWidth = 6;
+            this.numberOfAttendance.Name = "numberOfAttendance";
+            this.numberOfAttendance.ReadOnly = true;
+            this.numberOfAttendance.Width = 190;
+            // 
+            // numberOfAbsences
+            // 
+            this.numberOfAbsences.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.numberOfAbsences.DataPropertyName = "numberOfAbsences";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberOfAbsences.DefaultCellStyle = dataGridViewCellStyle3;
+            this.numberOfAbsences.HeaderText = "Número de Faltas";
+            this.numberOfAbsences.MinimumWidth = 6;
+            this.numberOfAbsences.Name = "numberOfAbsences";
+            this.numberOfAbsences.ReadOnly = true;
+            this.numberOfAbsences.Width = 159;
+            // 
+            // percentageStart
+            // 
+            this.percentageStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.percentageStart.DefaultCellStyle = dataGridViewCellStyle4;
+            this.percentageStart.HeaderText = "% desde o início";
+            this.percentageStart.MinimumWidth = 6;
+            this.percentageStart.Name = "percentageStart";
+            this.percentageStart.ReadOnly = true;
+            this.percentageStart.Width = 147;
+            // 
+            // percentageCameIn
+            // 
+            this.percentageCameIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.percentageCameIn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.percentageCameIn.HeaderText = "% desde que entrou";
+            this.percentageCameIn.MinimumWidth = 6;
+            this.percentageCameIn.Name = "percentageCameIn";
+            this.percentageCameIn.ReadOnly = true;
+            this.percentageCameIn.Width = 176;
             // 
             // FrmReportClass
             // 
