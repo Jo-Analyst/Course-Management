@@ -53,7 +53,7 @@ namespace CourseManagement
 
                         int resultPercentageCameIn = Percentage.CalculatePercentageOfAttendanceSinceJoined(int.Parse(dtStudent.Rows[0]["number_attendance"].ToString()), int.Parse(dtStudent.Rows[0]["number_absences"].ToString()));
 
-                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"], dtStudent.Rows[0]["number_absences"], $"{resultPercentageStart}%", $"{resultPercentageCameIn}%");
+                        dgvReportClass.Rows.Add(dtStudent.Rows[0]["name"], dtStudent.Rows[0]["class"], dtStudent.Rows[0]["shift"], dtStudent.Rows[0]["number_attendance"].ToString().PadLeft(2, '0'), dtStudent.Rows[0]["number_absences"].ToString().PadLeft(2, '0'), $"{resultPercentageStart}%", $"{resultPercentageCameIn}%");
                     }
 
                     dgvReportClass.Rows[index].Height = 35;

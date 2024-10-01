@@ -247,6 +247,8 @@
             this.numberOfAbsences.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.numberOfAbsences.DataPropertyName = "numberOfAbsences";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
             this.numberOfAbsences.DefaultCellStyle = dataGridViewCellStyle3;
             this.numberOfAbsences.HeaderText = "Número de Faltas";
             this.numberOfAbsences.MinimumWidth = 6;
@@ -263,7 +265,8 @@
             this.percentageStart.MinimumWidth = 6;
             this.percentageStart.Name = "percentageStart";
             this.percentageStart.ReadOnly = true;
-            this.percentageStart.Width = 147;
+            this.percentageStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.percentageStart.Width = 128;
             // 
             // percentageCameIn
             // 
@@ -274,7 +277,8 @@
             this.percentageCameIn.MinimumWidth = 6;
             this.percentageCameIn.Name = "percentageCameIn";
             this.percentageCameIn.ReadOnly = true;
-            this.percentageCameIn.Width = 176;
+            this.percentageCameIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.percentageCameIn.Width = 157;
             // 
             // FrmReportClass
             // 
