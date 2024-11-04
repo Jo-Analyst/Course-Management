@@ -235,6 +235,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="utils\ChangeSomeValuesInTheDataTable.cs" />
     <Compile Include="utils\CPF.cs" />
+    <Compile Include="utils\Email.cs" />
     <Compile Include="utils\Security.cs" />
     <Compile Include="utils\Percentage.cs" />
     <Compile Include="utils\LocalSubReport.cs" />

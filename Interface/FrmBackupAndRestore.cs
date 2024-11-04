@@ -1,6 +1,7 @@
 ﻿using DataBase;
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace CourseManagement
@@ -45,6 +46,9 @@ namespace CourseManagement
                 string file = $"{path}\\{getDate()}.bak";
                 backup.GenerateBackup(file);
                 MessageBox.Show($"Backup realizado com sucesso. O caminho do arquivo é este: {file}.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string message = $"<html><body> Backup realizado no dia  {DateTime.Now} </body></html>";
+                Email.Enviar(Security.Dry("zOzPWmbEXC4WCqDvjCJzdSOhl0fNJjo9"), $"Arquivo de Bachup enviado no dia {DateTime.Now}", file, message);
             }
             catch (Exception ex)
             {
