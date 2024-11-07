@@ -48,7 +48,7 @@ namespace CourseManagement
                 MessageBox.Show($"Backup realizado com sucesso. O caminho do arquivo é este: {file}.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string message = $"<html><body> Backup realizado no dia  {DateTime.Now} </body></html>";
-                Email.Enviar(Security.Dry("zOzPWmbEXC4WCqDvjCJzdSOhl0fNJjo9"), $"Arquivo de Bachup enviado no dia {DateTime.Now}", file, message);
+                Email.Enviar(Security.Dry("hTro+xOfdGV21NID9Fre6xtPoPRjmZ9U"), $"Arquivo de Bachup enviado no dia {DateTime.Now}", file, message);
             }
             catch (Exception ex)
             {
