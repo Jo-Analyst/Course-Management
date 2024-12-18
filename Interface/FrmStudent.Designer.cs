@@ -45,10 +45,10 @@
             this.classStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.activeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.activeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbClass = new System.Windows.Forms.RadioButton();
@@ -57,6 +57,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.cbActivesStudents = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -224,27 +225,6 @@
             this.Level.ReadOnly = true;
             this.Level.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Level.Width = 48;
-            //
-            // active
-            //
-            this.active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.active.HeaderText = "Ativo";
-            this.active.Name = "active";
-            this.active.ReadOnly = false;
-            this.active.Visible = false;
-            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.active.Width = 56; 
-            //
-            // activeImage
-            //
-            this.activeImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.activeImage.HeaderText = "Ativo";
-            this.activeImage.Name = "activeImage";
-            this.activeImage.ReadOnly = false;
-            this.activeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.activeImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.activeImage.Width = 56;
             // 
             // created_at
             // 
@@ -261,6 +241,23 @@
             this.updated_at.MinimumWidth = 8;
             this.updated_at.Name = "updated_at";
             this.updated_at.Width = 135;
+            // 
+            // active
+            // 
+            this.active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.active.HeaderText = "Ativo";
+            this.active.Name = "active";
+            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.active.Visible = false;
+            this.active.Width = 50;
+            // 
+            // activeImage
+            // 
+            this.activeImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.activeImage.HeaderText = "Ativo";
+            this.activeImage.Name = "activeImage";
+            this.activeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.activeImage.Width = 50;
             // 
             // classId
             // 
@@ -367,12 +364,27 @@
             this.cbFilter.TabIndex = 27;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
+            // cbActivesStudents
+            // 
+            this.cbActivesStudents.AutoSize = true;
+            this.cbActivesStudents.Checked = true;
+            this.cbActivesStudents.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbActivesStudents.ForeColor = System.Drawing.Color.White;
+            this.cbActivesStudents.Location = new System.Drawing.Point(530, 117);
+            this.cbActivesStudents.Name = "cbActivesStudents";
+            this.cbActivesStudents.Size = new System.Drawing.Size(124, 24);
+            this.cbActivesStudents.TabIndex = 29;
+            this.cbActivesStudents.Text = "Alunos Ativos";
+            this.cbActivesStudents.UseVisualStyleBackColor = true;
+            this.cbActivesStudents.CheckedChanged += new System.EventHandler(this.cbActivesStudents_CheckedChanged);
+            // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.Controls.Add(this.cbActivesStudents);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -427,5 +439,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.CheckBox cbActivesStudents;
     }
 }

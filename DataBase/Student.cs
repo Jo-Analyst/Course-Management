@@ -62,18 +62,19 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByName(string field, string option = "nome", bool filtredFieldByClass = false)
+        public DataTable FindByName(string field, string option = "nome", bool filtredFieldByClass = false, bool active = false)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = option.ToLower() == "nome"
-                        ? !filtredFieldByClass ?$"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%' ORDER BY Students.name"
-                        : $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%' ORDER BY Classes.name, Students.name"
-                        : !filtredFieldByClass ? $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id,  Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%' ORDER BY Students.name"  
-                        : $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id,  Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%' ORDER BY Classes.name, Students.name";
+                        ? !filtredFieldByClass ?$"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%' AND students.active = @active ORDER BY Students.name"
+                        : $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE Students.name LIKE '%{field}%' AND students.active = @active ORDER BY Classes.name, Students.name"
+                        : !filtredFieldByClass ? $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id,  Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%' AND students.active = @active ORDER BY Students.name"  
+                        : $"SELECT Students.Id, Students.name, Students.gender, Students.active, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id,  Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.Id = Students.class_id WHERE Classes.name LIKE '%{field}%' AND students.active = @active ORDER BY Classes.name, Students.name";
                     var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("active", active);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
@@ -235,16 +236,17 @@ namespace DataBase
             }
         }
         
-        public DataTable FindAll(bool filterFieldByClass = false)
+        public DataTable FindAll(bool filterFieldByClass = false, bool active = false)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = !filterFieldByClass
-                        ? "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.active, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id ORDER BY Students.name" 
-                        : "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id ORDER BY Classes.name, Students.name";
+                        ? "SELECT Students.Id, Students.name, Students.gender, Students.created_at, Students.active, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id WHERE students.active = @active  ORDER BY Students.name" 
+                        : "SELECT Students.Id, Students.name, students.active, Students.gender, Students.created_at, Students.updated_at, Classes.name AS class, Classes.shift, Classes.id AS class_id, Students.CPF, Students.level FROM Students INNER JOIN Classes ON Classes.id = Students.class_id  WHERE students.active = @active ORDER BY Classes.name, Students.name";
                     var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@active", active);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);

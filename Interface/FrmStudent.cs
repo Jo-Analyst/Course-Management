@@ -41,8 +41,8 @@ namespace CourseManagement
                 string option = rbName.Checked ? "nome" : "class";
                 bool filtredFieldByClass = cbFilter.SelectedIndex <= 0 ? false : true;
                 dtStudent = string.IsNullOrWhiteSpace(txtField.Text)
-                    ? student.FindAll(filtredFieldByClass)
-                    : student.FindByName(txtField.Text, option, filtredFieldByClass);
+                    ? student.FindAll(filtredFieldByClass, cbActivesStudents.Checked)
+                    : student.FindByName(txtField.Text, option, filtredFieldByClass, cbActivesStudents.Checked);
 
                 foreach (DataRow dr in dtStudent.Rows)
                 {
@@ -57,8 +57,8 @@ namespace CourseManagement
                     dgvStudent.Rows[index].Cells["Level"].Value = dr["level"].ToString();
                     dgvStudent.Rows[index].Cells["classId"].Value = dr["class_id"].ToString();
                     dgvStudent.Rows[index].Cells["gender"].Value = dr["gender"].ToString();
-                    dgvStudent.Rows[index].Cells["active"].Value =  dr["active"].ToString() == "1" ? "True" : "False";
-                    dgvStudent.Rows[index].Cells["activeImage"].Value =  dr["active"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
+                    dgvStudent.Rows[index].Cells["active"].Value = dr["active"].ToString() == "1" ? "True" : "False";
+                    dgvStudent.Rows[index].Cells["activeImage"].Value = dr["active"].ToString() == "1" ? Properties.Resources.Pictogrammers_Material_Checkbox_marked_outline_24 : Properties.Resources.Pictogrammers_Material_Checkbox_blank_outline_24;
                     dgvStudent.Rows[index].Cells["created_at"].Value = dr["created_at"].ToString();
                     dgvStudent.Rows[index].Cells["updated_at"].Value = dr["updated_at"].ToString();
                     dgvStudent.Rows[index].Height = 35;
@@ -179,6 +179,11 @@ namespace CourseManagement
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataStudent();
+        }
+
+        private void cbActivesStudents_CheckedChanged(object sender, EventArgs e)
+        {
+            FrmStudent_Load(sender, e);
         }
 
         private void Delete()
