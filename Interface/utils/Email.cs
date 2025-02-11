@@ -6,15 +6,15 @@ namespace CourseManagement
 {
     class Email
     {
-        public static void Enviar(string destinatario, string assunto, string arquivo, string mensagem)
+        public static void Enviar(string recipient, string subject, string file, string message)
         {
 
             string email = Security.Dry("zOzPWmbEXC4WCqDvjCJzdSOhl0fNJjo9"),
-                senha = Security.Dry("Ir4tk75uw2lrRO6uEzOrJqUie54w0Rin");
+                password = Security.Dry("isA0CwDU0xXE5znQaV0hwV6yj5z0Q1M1");
 
             try
             {
-                AlternateView alternate = AlternateView.CreateAlternateViewFromString(mensagem, null, MediaTypeNames.Text.Html);
+                AlternateView alternate = AlternateView.CreateAlternateViewFromString(message, null, MediaTypeNames.Text.Html);
                 SmtpClient smtp = new SmtpClient();
 
 
@@ -22,17 +22,17 @@ namespace CourseManagement
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential(email, senha);
+                smtp.Credentials = new NetworkCredential(email, password);
 
                 MailMessage mail = new MailMessage();
                 mail.AlternateViews.Add(alternate);
                 mail.From = new MailAddress(email);
 
-                mail.Attachments.Add(new Attachment(arquivo));
+                mail.Attachments.Add(new Attachment(file));
 
-                mail.To.Add(new MailAddress(destinatario));
-                mail.Subject = assunto;
-                mail.Body = mensagem;
+                mail.To.Add(new MailAddress(recipient));
+                mail.Subject = subject;
+                mail.Body = message;
                 smtp.Send(mail);
             }
             catch
