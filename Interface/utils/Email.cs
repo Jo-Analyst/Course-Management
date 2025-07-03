@@ -10,7 +10,7 @@ namespace CourseManagement
         {
 
             string email = Security.Dry("zOzPWmbEXC4WCqDvjCJzdSOhl0fNJjo9"),
-                password = Security.Dry("HozQfjaDRWNL7bCByi37Px+AsGPy+3Sz");
+                password = Security.Dry("ezjwSsuxJ90/mKMQ0oOtUHgq1s9Tek+d");
 
             try
             {
