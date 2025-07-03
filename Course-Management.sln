@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Inte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{0796EDB6-DD52-43DD-8F18-E18372081871}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Course-Management-Installer", "Course-Management-Installer\Course-Management-Installer.vdproj", "{7DF4799B-95AB-31CD-210C-760A621D7F45}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Course-Management-Installer", "Course-Management-Installer\Course-Management-Installer.vdproj", "{0242772F-7784-4A4D-BB9A-0C55758665C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,12 +43,12 @@ Global
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x64.Build.0 = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.ActiveCfg = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.Build.0 = Release|Any CPU
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Debug|Any CPU.ActiveCfg = Debug
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Debug|x64.ActiveCfg = Debug
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Debug|x86.ActiveCfg = Debug
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Release|Any CPU.ActiveCfg = Release
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Release|x64.ActiveCfg = Release
-		{7DF4799B-95AB-31CD-210C-760A621D7F45}.Release|x86.ActiveCfg = Release
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Debug|Any CPU.ActiveCfg = Debug
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Debug|x64.ActiveCfg = Debug
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Debug|x86.ActiveCfg = Debug
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Release|Any CPU.ActiveCfg = Release
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Release|x64.ActiveCfg = Release
+		{0242772F-7784-4A4D-BB9A-0C55758665C1}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
