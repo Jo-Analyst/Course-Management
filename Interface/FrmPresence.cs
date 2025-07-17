@@ -221,7 +221,7 @@ namespace CourseManagement
                         quantityBellow++;
                 }
 
-                lblQuantityAbove.Text = $"Quantidade de presencas: {quantityAbove}";
+                lblQuantityAbove.Text = $"Quantidade de presenças: {quantityAbove}";
                 lblQUantityBellows.Text = $"Quantidade de faltas: {quantityBellow}";
             }
         }

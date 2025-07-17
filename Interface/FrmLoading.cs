@@ -40,5 +40,10 @@ namespace CourseManagement
                 Application.Exit();
             }
         }
+
+        private void lbClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
